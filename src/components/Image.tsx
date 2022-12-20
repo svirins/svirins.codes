@@ -5,7 +5,6 @@ import cn from 'classnames';
 
 export default function BlurredImage(props: ImageProps) {
   const [isLoading, setLoading] = useState(true);
-  console.log('imagr component, props are: ', props);
   return (
     <Image
       {...props}
