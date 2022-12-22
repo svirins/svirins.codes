@@ -1,4 +1,21 @@
-export default function Home() {
+import Image from 'next/image';
+
+import TypewriterEffect from './components/TypewriterEffect';
+import { IWakaApiResponse } from '../typings';
+import { WAKATIME_API_ENDPOINT } from '../config';
+
+async function getWakaStats() {
+  const response = await fetch(WAKATIME_API_ENDPOINT);
+  const { data } = await response.json();
+  let totalHours = 0;
+  for (const element of data.languages) {
+    totalHours += element.minutes;
+  }
+  return { languages: data.languages, totalHours: totalHours };
+}
+
+export default async function HomePage() {
+  const { languages, totalHours } = await getWakaStats();
   return (
     <>
       <div className="flex flex-col  max-w-2xl mx-auto w-full">
