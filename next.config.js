@@ -3,21 +3,14 @@
  */
 
 module.exports = {
-  // compiler: {
-  //   removeConsole: {
-  //     exclude: ['error']
-  //   }
-  // },
-  swcMinify: true,
-  reactStrictMode: true,
+  experimental: {
+    appDir: true
+  },
   images: {
     domains: [
       'cdn.sanity.io' // Sanity images
     ],
     formats: ['image/webp']
-  },
-  experimental: {
-    legacyBrowsers: false
   },
   async headers() {
     return [
