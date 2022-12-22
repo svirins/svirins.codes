@@ -3,10 +3,12 @@ import Image from 'next/image';
 import TypewriterEffect from './components/TypewriterEffect';
 import { IWakaApiResponse } from '../typings';
 import { WAKATIME_API_ENDPOINT } from '../config';
+import WakaStats from './ui/WakaStats';
+import StacksGrid from './components/StacksGrid';
 
 async function getWakaStats() {
   const response = await fetch(WAKATIME_API_ENDPOINT);
-  const { data } = await response.json();
+  const data = await response.json();
   let totalHours = 0;
   for (const element of data.languages) {
     totalHours += element.minutes;
@@ -15,6 +17,7 @@ async function getWakaStats() {
 }
 
 export default async function HomePage() {
+  //TODO: add revalidation
   const { languages, totalHours } = await getWakaStats();
   return (
     <>
@@ -97,24 +100,10 @@ export default async function HomePage() {
           <h2 className="text-xl md:text-2xl mb-4 mt-2 tracking-tight text-gray-700 dark:text-gray-200 font-normal ">
             Technologies I use frequently:
           </h2>
-          <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full">
-            <IconContext.Provider
-              value={{
-                className:
-                  'w-7 h-7 md:w-8 md:h-8  fill-gray-700  dark:fill-gray-300  hover:fill-gray-800 dark:hover:fill-gray-200'
-              }}
-            >
-              {memoizedStacks.map((el, index) => (
-                <StackIcon key={index} iconTitle={el.iconTitle} isLink={true} />
-              ))}
-            </IconContext.Provider>
-          </div>
+          <StacksGrid />
           {totalHours > 8 && (
-            <Suspense fallback={<LoadingSpinner />}>
-              <DynamicWakaStats languages={languages} totalHours={totalHours} />
-            </Suspense>
+            <WakaStats languages={languages} totalHours={totalHours} />
           )}
-
           <h2 className="text-xl md:text-2xl mt-8 tracking-tight text-gray-700 dark:text-gray-200 font-normal">
             Get in touch:
           </h2>
