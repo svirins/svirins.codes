@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { IWakaApiResponse } from '@/typings';
+import { IWakaApiResponse } from '../../typings';
 
 const HEIGHT = 20;
 const WIDTH = 800;

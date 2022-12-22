@@ -22,11 +22,12 @@
     ]
   },
   "paths": {
-    "@/components": ["./app/components"],
-    "@/ui": ["./app/ui"],
-    "@/lib": ["./lib"],
-    "@/types": ["./typings"],
-    "@/public/*": ["./public/*"]
+    "@/components/*": ["app/components/*"],
+    "@/ui/*": ["app/ui/*"],
+    "@/lib/*": ["lib/*"],
+    "@/typings/*": ["typings/*"],
+    "@/public/*": ["public/*"],
+    "@/config/*": ["config/*"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
