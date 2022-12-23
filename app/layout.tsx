@@ -54,7 +54,6 @@ export default function RootLayout({
             <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-4" />
             <NowPlaying />
             <FooterSocials />
-
             <p className=" text-gray-500 dark:text-gray-400 mb-1 pt-2  text-left md:text-center text-xs">
               © <span className="font-medium">{new Date().getFullYear()}</span>
               <span>{` • `}</span>

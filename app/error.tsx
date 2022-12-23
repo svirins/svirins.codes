@@ -1,34 +1,23 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+'use client';
 
-interface Props {
-  children?: ReactNode;
+import { useEffect } from 'react';
+
+export default function Error({
+  error,
+  reset
+}: {
+  error: Error;
+  reset: () => void;
+}) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error);
+  }, [error]);
+
+  return (
+    <div>
+      <p>Something went wrong!</p>
+      <button onClick={() => reset()}>Reset error boundary</button>
+    </div>
+  );
 }
-
-interface State {
-  hasError: boolean;
-}
-
-class ErrorBoundary extends Component<Props, State> {
-  public state: State = {
-    hasError: false
-  };
-
-  public static getDerivedStateFromError(_: Error): State {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true };
-  }
-
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Uncaught error:', error, errorInfo);
-  }
-
-  public render() {
-    if (this.state.hasError) {
-      return <h1>Sorry.. there was an error</h1>;
-    }
-
-    return this.props.children;
-  }
-}
-
-export default ErrorBoundary;
