@@ -1,8 +1,8 @@
-import { getNowPlaying } from '@/lib/spotify-api';
-import { ICurrentlyPlaying } from '@/typings';
+import { getNowPlaying } from '../../../lib/spotify-api';
+import { ICurrentlyPlaying } from '../../../typings';
 
 export const config = {
-  runtime: 'experimental-edge'
+  runtime: 'edge'
 };
 
 export default async function handler(): Promise<ICurrentlyPlaying | Response> {

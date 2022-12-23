@@ -1,8 +1,10 @@
+`use client`;
+
 import clsx from 'clsx';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
-import { getActiveStatus } from '@/lib/utils';
+import { getActiveStatus } from '../../lib/utils';
 
 interface INavItem {
   href: string;

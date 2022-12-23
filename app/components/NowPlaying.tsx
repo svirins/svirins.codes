@@ -1,7 +1,9 @@
-import fetcher from 'src/lib/fetcher';
+`use client`;
+
+import fetcher from '../../lib/fetcher';
 import useSWR from 'swr';
 
-import { ICurrentlyPlaying } from '@/typings';
+import { ICurrentlyPlaying } from '../../typings';
 
 function AnimatedBars() {
   return (
