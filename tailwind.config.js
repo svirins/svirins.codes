@@ -4,7 +4,7 @@ const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  content: ['./src/**/*.{ts,tsx}'],
+  content: ['./app/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     colors: {
@@ -27,8 +27,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['IBM Plex Sans', ...fontFamily.sans],
-      mono: ['IBM Plex Mono', ...fontFamily.mono]
+      sans: ['var(--plex-sans)', ...fontFamily.sans],
+      mono: ['var(--plex-mono)', ...fontFamily.mono]
     },
     extend: {
       typography: (theme) => ({

@@ -1,7 +1,7 @@
 export const NAV_LINKS = [
-  { href: '/', text: 'About' },
-  { href: '/blog', text: 'Blog' },
-  { href: '/snippets', text: 'Snippets' }
+  { href: '', text: 'About' },
+  { href: 'blog', text: 'Blog' },
+  { href: 'snippets', text: 'Snippets' }
 ];
 
 export const AUTHOR = {
