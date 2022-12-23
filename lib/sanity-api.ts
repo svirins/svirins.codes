@@ -1,4 +1,4 @@
-import { IPost, ISnippet } from '@/typings';
+import { IPost, ISnippet } from '../typings';
 
 import {
   allSnippetsQuery,

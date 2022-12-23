@@ -1,0 +1,2 @@
+      title={`${snippet.title} - Code Snippet`}
+      description="A collection of code snippets – including serverless functions, Node.js scripts, and CSS tricks."

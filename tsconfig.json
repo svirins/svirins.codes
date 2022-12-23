@@ -29,6 +29,6 @@
     "@/public/*": ["public/*"],
     "@/config/*": ["config/*"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "app/blog/[slug]/head"],
   "exclude": ["node_modules"]
 }

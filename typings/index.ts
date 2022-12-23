@@ -65,3 +65,8 @@ export interface IWakaApiResponse {
   text: string;
   total_seconds: bigint;
 }
+
+export interface PageProps {
+  params?: any;
+  children?: React.ReactNode;
+}

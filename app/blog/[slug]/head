@@ -1,0 +1,6 @@
+// title={`${post.title} Dzmitry Svirin`}
+// description={post.excerpt}
+// image={urlForImage(post.coverImage).url()}
+// date={new Date(post.date).toISOString()}
+// type="article"
+// tags={post.tags?.map((tag) => tag.title)}
