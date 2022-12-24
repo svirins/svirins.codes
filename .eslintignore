@@ -6,6 +6,3 @@ build
 public
 .next
 
-# Sanity.io Files
-dist
-.sanity
