@@ -1,3 +1,4 @@
+'use client'
 import { IconContext } from 'react-icons';
 
 import {
@@ -242,7 +243,7 @@ export const STACKS = [
   }
 ];
 
-export function StackIcon({ iconTitle }: { icontTitle: string }) {
+export function StackIcon({ iconTitle }: { iconTitle: string }) {
   const { Icon, url } =
     STACKS.find((stack) => stack.iconTitle === iconTitle) ?? STACKS[0];
   return (
@@ -258,7 +259,7 @@ export function StackIcon({ iconTitle }: { icontTitle: string }) {
   );
 }
 
-export function SnippetIcon({ iconTitle }: { icontTitle: string }) {
+export function SnippetIcon({ iconTitle }: { iconTitle: string }) {
   const { Icon } =
     STACKS.find((stack) => stack.iconTitle === iconTitle) ?? STACKS[0];
   return (
@@ -280,24 +281,25 @@ export function SocialIcons() {
           'w-4 h-4 fill-gray-700  dark:fill-gray-400  hover:fill-gray-800 dark:hover:fill-gray-200'
       }}
     >
-      {SOCIALS.map((social, index) => (
-        <a
-          key={index}
-          href={social.url}
-          title={social.iconTitle}
-          className="duration-150 transform  ease-in-out hover:scale-110"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {social.Icon}
-        </a>
-      ))}
+      <div className="flex my-2 space-x-4">
+        {SOCIALS.map((social, index) => (
+          <a
+            key={index}
+            href={social.url}
+            title={social.iconTitle}
+            className="duration-150 transform  ease-in-out hover:scale-110"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {social.Icon}
+          </a>
+        ))}
+      </div>
     </IconContext.Provider>
   );
 }
 
 export function MyStack() {
-  const memoizedStacks = useMemo(() => STACKS.filter((el) => el.featured), []);
   return (
     <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full">
       <IconContext.Provider
@@ -306,7 +308,7 @@ export function MyStack() {
             'w-7 h-7 md:w-8 md:h-8  fill-gray-700  dark:fill-gray-300  hover:fill-gray-800 dark:hover:fill-gray-200'
         }}
       >
-        {memoizedStacks.map((el, index) => (
+        {STACKS.filter((el) => el.featured).map((el, index) => (
           <StackIcon key={index} iconTitle={el.iconTitle} />
         ))}
       </IconContext.Provider>

@@ -12,14 +12,14 @@ const getAccessToken = async () => {
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
-      refresh_token: process.env.SPOTIFY_REFRESH_TOKEN
+      refresh_token: process.env.SPOTIFY_REFRESH_TOKEN as string
     })
   });
 
   return response.json();
 };
 
-export const getNowPlaying = async () => {
+export default async function getNowPlaying() {
   const data = await getAccessToken();
   const { access_token } = data;
   return fetch(SPOTIFY_NOW_PLAYING_ENDPOINT, {
@@ -27,4 +27,4 @@ export const getNowPlaying = async () => {
       Authorization: `Bearer ${access_token}`
     }
   });
-};
+}

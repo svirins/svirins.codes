@@ -4,7 +4,6 @@ import { ArticleJsonLd } from 'next-seo';
 import components from 'ui/MDXComponents';
 import { mdxToHtml } from 'lib/mdx';
 import { getPost, getPostSlugs } from 'lib/sanity-api';
-import BlurredImage from 'ui/Image';
 import { Tags } from 'ui/Tags';
 import { urlForImage } from 'lib/sanity-client';
 
@@ -35,7 +34,7 @@ export default async function PostPage({ params }) {
       </h1>
       {post.coverImage && (
         <div className="flex flex-col w-full my-4">
-          <BlurredImage
+          <Image
             src={urlForImage(post.coverImage).url()}
             alt={`Image for ${post.title}`}
           />

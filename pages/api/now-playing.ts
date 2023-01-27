@@ -1,11 +1,10 @@
-import { getNowPlaying } from 'lib/spotify-api';
+import getNowPlaying from 'lib/spotify-api';
 interface ICurrentlyPlaying {
   songUrl?: string;
   artist?: string;
   title?: string;
   isPlaying: boolean;
 }
-
 export const config = {
   runtime: 'edge'
 };

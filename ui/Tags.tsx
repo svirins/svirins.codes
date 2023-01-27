@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import { ITag } from 'lib/sanity-api';
 
-export function Tags({ tags }) {
+export function Tags({ tags }: { tags: ITag[] }) {
   return (
     <div className="flex flex-wrap w-full md:pb-2">
       {tags &&

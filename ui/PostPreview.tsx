@@ -1,15 +1,21 @@
+import { IPost } from 'lib/sanity-api';
 import Link from 'next/link';
 
 import { Tags } from 'ui/Tags';
 
-export default function PostPreview({ slug, title, excerpt, tags }) {
+export default function PostPreview({
+  slug,
+  title,
+  excerpt,
+  tags
+}: Partial<IPost>) {
   return (
     <Link
       href={`/blog/${slug}`}
       className=" w-full  duration-150 ease-in-out py-4"
     >
       <div className="w-full">
-        <Tags tags={tags} />
+        <Tags tags={tags!} />
         <h3 className="text-xl md:text-2xl font-medium text-left text-gray-900  hover:text-active dark:hover:text-active dark:text-gray-100">
           {title}
         </h3>

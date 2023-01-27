@@ -1,4 +1,3 @@
-'use client';
 import MobileMenu from './MobileMenu';
 import NavItem from './NavItem';
 import ToggleMode from './ToggleMode';

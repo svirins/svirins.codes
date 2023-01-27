@@ -6,10 +6,7 @@ export default function Footer() {
     <footer className="flex flex-col items-start  md:items-center  max-w-2xl w-full mx-auto mb-4">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-4" />
       <NowPlaying />
-      <div className="flex my-2 space-x-4">
-        <SocialIcons />
-      </div>
-
+      <SocialIcons />
       <p className=" text-gray-500 dark:text-gray-400 mb-1 pt-2  text-left md:text-center text-xs">
         © <span className="font-medium">{new Date().getFullYear()}</span>
         <span>{` • `}</span>

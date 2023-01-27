@@ -1,14 +1,15 @@
 'use client';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { NAV_LINKS } from 'config';
 import useDelayedRender from 'lib/use-delayed-render';
-import { getActiveStatus } from 'lib/utils';
 import styles from 'styles/mobile-menu.module.css';
+import { isActive } from 'lib/isActive';
 
+//TODO: Consider removing useDelayedRender
 export default function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
@@ -18,7 +19,7 @@ export default function MobileMenu() {
       exitDelay: 300
     }
   );
-  const router = useRouter();
+  const currentPath = usePathname();
 
   function toggleMenu() {
     if (isMenuOpen) {
@@ -64,7 +65,7 @@ export default function MobileMenu() {
               <Link
                 href={item.href}
                 className={clsx(
-                  getActiveStatus(item.href, router.asPath)
+                  isActive(item.href, currentPath)
                     ? 'font-medium text-gray-800 dark:text-gray-200'
                     : '',
                   'transition-all  duration-150 hover:text-gray-800 dark:hover:text-gray-200 ease-in-out text-lg'

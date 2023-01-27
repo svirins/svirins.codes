@@ -1,4 +1,16 @@
-import Image from './Image';
+import Image, { ImageProps } from 'next/image';
+
+function InlineBlogImage(props: ImageProps) {
+  return (
+    <Image
+      {...props}
+      alt={props.alt}
+      width={672}
+      height={350}
+      className="rounded-lg  h-auto"
+    />
+  );
+}
 
 const Underlined = ({ title, href }: { title: string; href: string }) => {
   return (
@@ -13,7 +25,7 @@ const Underlined = ({ title, href }: { title: string; href: string }) => {
 };
 
 const MDXComponents = {
-  img: Image,
+  img: InlineBlogImage,
   Underlined
 };
 
