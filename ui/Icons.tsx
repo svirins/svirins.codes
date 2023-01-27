@@ -1,3 +1,5 @@
+import { IconContext } from 'react-icons';
+
 import {
   SiAlgolia,
   SiAmazonaws,
@@ -32,11 +34,6 @@ import {
   SiVercel
 } from 'react-icons/si';
 
-
-interface IStackIcon {
-  iconTitle: string;
-  isLink?: boolean;
-}
 export const SOCIALS = [
   {
     Icon: <SiGithub />,
@@ -245,10 +242,10 @@ export const STACKS = [
   }
 ];
 
-export default function StackIcon({ iconTitle, isLink = false }: IStackIcon) {
+export function StackIcon({ iconTitle }: { icontTitle: string }) {
   const { Icon, url } =
     STACKS.find((stack) => stack.iconTitle === iconTitle) ?? STACKS[0];
-  return isLink ? (
+  return (
     <a
       className="duration-150 transform  ease-in-out hover:scale-110"
       href={url}
@@ -258,7 +255,61 @@ export default function StackIcon({ iconTitle, isLink = false }: IStackIcon) {
     >
       {Icon}
     </a>
-  ) : (
-    Icon
+  );
+}
+
+export function SnippetIcon({ iconTitle }: { icontTitle: string }) {
+  const { Icon } =
+    STACKS.find((stack) => stack.iconTitle === iconTitle) ?? STACKS[0];
+  return (
+    <IconContext.Provider
+      value={{
+        className: 'w-7 h-7 md:w-8 md:h-8 fill-gray-900  dark:fill-gray-100'
+      }}
+    >
+      {Icon}
+    </IconContext.Provider>
+  );
+}
+
+export function SocialIcons() {
+  return (
+    <IconContext.Provider
+      value={{
+        className:
+          'w-4 h-4 fill-gray-700  dark:fill-gray-400  hover:fill-gray-800 dark:hover:fill-gray-200'
+      }}
+    >
+      {SOCIALS.map((social, index) => (
+        <a
+          key={index}
+          href={social.url}
+          title={social.iconTitle}
+          className="duration-150 transform  ease-in-out hover:scale-110"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {social.Icon}
+        </a>
+      ))}
+    </IconContext.Provider>
+  );
+}
+
+export function MyStack() {
+  const memoizedStacks = useMemo(() => STACKS.filter((el) => el.featured), []);
+  return (
+    <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full">
+      <IconContext.Provider
+        value={{
+          className:
+            'w-7 h-7 md:w-8 md:h-8  fill-gray-700  dark:fill-gray-300  hover:fill-gray-800 dark:hover:fill-gray-200'
+        }}
+      >
+        {memoizedStacks.map((el, index) => (
+          <StackIcon key={index} iconTitle={el.iconTitle} />
+        ))}
+      </IconContext.Provider>
+    </div>
   );
 }

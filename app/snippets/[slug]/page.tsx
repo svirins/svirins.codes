@@ -1,12 +1,11 @@
 import { MDXRemote } from 'next-mdx-remote';
-import { IconContext } from 'react-icons';
 import { ArticleJsonLd } from 'next-seo';
 
 import components from 'ui/MDXComponents';
 import { mdxToHtml } from 'lib/mdx';
 import { getSnippet, getSnippetSlugs } from 'lib/sanity-api';
 
-import StackIcon from 'ui/StackIcon';
+import { SnippetIcon } from '@/ui/Icons';
 
 export async function generateStaticParams() {
   const paths = await getSnippetSlugs();
@@ -39,13 +38,7 @@ export default async function SnippetsPage({ params }) {
           </p>
         </div>
         <div className="mt-2 md:mt-6 scale-125 md:scale-150 ml-4 origin-center">
-          <IconContext.Provider
-            value={{
-              className: 'w-9 h-9 fill-gray-900  dark:fill-gray-100'
-            }}
-          >
-            <StackIcon iconTitle={snippet.iconTitle!} />
-          </IconContext.Provider>
+          <SnippetIcon iconTitle={iconTitle} />
         </div>
       </div>
       {/* <hr className="w-full border-1 max-w-2xl border-gray-200 dark:border-gray-800" /> */}

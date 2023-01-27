@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import TypewriterEffect from 'ui/TypewriterEffect';
-import MyStack from 'ui/MyStack';
+import { MyStack } from 'ui/Icons';
 
 import getWakaStats from 'lib/waka-api';
 import WakaStats from 'ui/WakaStats';
