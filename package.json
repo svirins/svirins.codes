@@ -6,9 +6,12 @@
   "author": "Dzmitry Sviryn <svirins@gmail.com>",
   "scripts": {
     "build": "next build",
+    "build-static-files": "concurrently \"pnpm run sitemap\" \"pnpm run feed\"",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
+    "sitemap": "node scripts/sitemap.mjs",
+    "feed": "node scripts/feed.mjs",
     "prepare": "husky install"
   },
   "husky": {
@@ -23,6 +26,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/webhook": "^2.0.0",
     "@tailwindcss/typography": "0.5.9",
+    "@vercel/og": "^0.0.27",
     "clsx": "^1.2.1",
     "next": "13.1.5",
     "next-mdx-remote": "^4.3.0",
@@ -44,9 +48,12 @@
     "@types/react-dom": "18.0.10",
     "@types/rss": "^0.0.30",
     "autoprefixer": "10.4.13",
+    "concurrently": "^7.6.0",
     "cssnano": "^5.1.14",
+    "date-fns": "^2.29.3",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
+    "feed": "^4.2.2",
     "groq": "^3.2.5",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
@@ -61,7 +68,6 @@
     "rehype-prism-plus": "^1.5.0",
     "rehype-slug": "5.1.0",
     "remark-gfm": "^3.0.1",
-    "rss": "1.2.2",
     "sharp": "^0.31.3",
     "typescript": "4.9.4"
   }

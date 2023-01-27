@@ -24,6 +24,12 @@ export default function Head() {
       />
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="svirins.codes rss feed"
+        href="/rss.xml"
+      />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
       <meta
