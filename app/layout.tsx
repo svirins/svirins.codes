@@ -1,3 +1,4 @@
+'use client';
 import 'styles/globals.css';
 import { font_sans } from 'fonts';
 import Footer from 'ui/Footer';

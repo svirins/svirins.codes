@@ -36,8 +36,8 @@ export default async function IndexPage() {
             <Image
               alt="Dzmitry Svirin"
               src="/me.webp"
-              // width={262}
-              // height={363}
+              width={262}
+              height={363}
               className="rounded-md"
               // placeholder="blur"
               // blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="

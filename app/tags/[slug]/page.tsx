@@ -4,17 +4,17 @@ import { getPostsByTag, getTagSlugs } from 'lib/sanity-api';
 // description="Posts about code, dev life and various other things."
 export async function generateStaticParams() {
   const paths = await getTagSlugs();
-  return paths.map((slug) => ({ tag: slug }));
+  return paths.map((slug) => ({ slug: slug }));
 }
 
 export default async function TagPage({
   params
 }: {
   params: {
-    tag: string;
+    slug: string;
   };
 }) {
-  const { posts, title } = await getPostsByTag(params.tag);
+  const { posts, title } = await getPostsByTag(params.slug);
 
   return (
     <div className="flex flex-col max-w-2xl mx-auto pb-16 w-full">
