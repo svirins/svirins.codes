@@ -1,8 +1,8 @@
 `use client`;
+
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { isActive } from 'lib/isActive';
 
 interface INavItem {
   href: string;
@@ -10,16 +10,17 @@ interface INavItem {
 }
 
 export default function NavItem({ href, text }: INavItem) {
-  const currentPath = usePathname();
+  const path = usePathname();
 
   return (
     <Link
       href={href}
       className={clsx(
-        isActive(href, currentPath)
-          ? 'font-semibold text-gray-800 dark:text-gray-200 '
-          : 'font-medium text-gray-600 dark:text-gray-400',
-        'hidden md:inline-block  transition-all pr-4 duration-150 hover:text-gray-800 dark:hover:text-gray-200 ease-in-out text-lg'
+        'hidden md:inline-block  transition-all pr-4 duration-150 hover:text-gray-800 dark:hover:text-gray-200 ease-in-out text-lg',
+        {
+          'font-semibold text-gray-800 dark:text-gray-200': path === href,
+          'font-medium text-gray-600 dark:text-gray-400': path !== href
+        }
       )}
     >
       <span className="capsize">{text}</span>
