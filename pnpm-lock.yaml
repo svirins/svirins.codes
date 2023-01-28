@@ -47,6 +47,7 @@ specifiers:
   styled-components: ^5.3.6
   swr: 2.0.2
   tailwindcss: 3.2.4
+  ts-node: ^10.9.1
   typed.js: ^2.0.12
   typescript: 4.9.4
 
@@ -100,6 +101,7 @@ devDependencies:
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
   sharp: 0.31.3
+  ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
   typescript: 4.9.4
 
 packages:
@@ -970,7 +972,7 @@ packages:
       '@motionone/easing': 10.15.1
       '@motionone/types': 10.15.1
       '@motionone/utils': 10.15.1
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@motionone/dom/10.12.0:
@@ -999,7 +1001,7 @@ packages:
     resolution: {integrity: sha512-6hIHBSV+ZVehf9dcKZLT7p5PEKHGhDwky2k8RKkmOvUoYP3S+dXsKupyZpqx5apjd9f+php4vXk4LuS+ADsrWw==}
     dependencies:
       '@motionone/utils': 10.15.1
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@motionone/generators/10.15.1:
@@ -1007,7 +1009,7 @@ packages:
     dependencies:
       '@motionone/types': 10.15.1
       '@motionone/utils': 10.15.1
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@motionone/types/10.15.1:
@@ -1019,7 +1021,7 @@ packages:
     dependencies:
       '@motionone/types': 10.15.1
       hey-listen: 1.0.8
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@next/env/13.1.6:
