@@ -12,7 +12,13 @@ export async function generateStaticParams() {
   return paths.map((slug) => ({ slug: slug }));
 }
 
-export default async function PostPage({ params }) {
+export default async function PostPage({
+  params
+}: {
+  params: {
+    slug: string;
+  };
+}) {
   const post = await getPost(params.slug);
   const { html, readingTime } = await mdxToHtml(post.content);
 

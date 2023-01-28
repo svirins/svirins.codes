@@ -1,5 +1,6 @@
 import { compareDesc, parseISO, setHours } from 'date-fns';
 import { Feed } from 'feed';
+import { Category } from 'feed/lib/typings';
 import { writeFile } from 'fs/promises';
 import { getPosts } from 'lib/sanity-api';
 import { urlForImage } from 'lib/sanity-client';
@@ -21,6 +22,7 @@ async function createFeed() {
   });
 
   const allPosts = await getPosts();
+  console.log(`create feed for ${allPosts.length} paths`);
 
   allPosts
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
@@ -31,8 +33,8 @@ async function createFeed() {
         title: post.title,
         description: post.excerpt,
         date: setHours(parseISO(post.date), 13),
-        category: post.tags.map((name) => ({ name })),
-        image: urlForImage(post.coverImage).url,
+        category: post.tags.map((name) => name.title) as Category[],
+        image: urlForImage(post.coverImage).url(),
         author: [
           {
             name: 'Dzmitry Svirin',
@@ -45,7 +47,6 @@ async function createFeed() {
   return feed.rss2();
 }
 (async () => {
-  console.log(`create feed for ${allPosts.length} paths`);
   const feed = await createFeed();
 
   await writeFile('./public/rss.xml', feed, { encoding: 'utf-8' });

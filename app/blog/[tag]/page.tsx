@@ -7,7 +7,13 @@ export async function generateStaticParams() {
   return paths.map((slug) => ({ tag: slug }));
 }
 
-export default async function TagPage({ params }) {
+export default async function TagPage({
+  params
+}: {
+  params: {
+    tag: string;
+  };
+}) {
   const { posts, title } = await getPostsByTag(params.tag);
 
   return (

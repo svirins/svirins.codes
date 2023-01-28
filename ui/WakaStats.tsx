@@ -1,6 +1,6 @@
 'use client';
 import clsx from 'clsx';
-
+import { IWakaAPIResponse } from 'lib/waka-api';
 const HEIGHT = 20;
 const WIDTH = 800;
 
@@ -37,13 +37,7 @@ const Bar = ({
   </g>
 );
 
-export default function WakaStats({
-  languages,
-  totalHours
-}: {
-  languages: IWakaApiResponse[];
-  totalHours: number;
-}) {
+export default function WakaStats({ languages, totalHours }: IWakaAPIResponse) {
   const datum = languages.sort((a, b) => b.percent - a.percent).slice(0, 3);
 
   const stackedBarComments =

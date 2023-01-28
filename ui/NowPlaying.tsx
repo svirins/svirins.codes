@@ -29,8 +29,14 @@ function AnimatedBars() {
   );
 }
 
+interface INowPlaying {
+  songUrl?: string;
+  title?: string;
+  artist?: string;
+}
+
 export default function NowPlaying() {
-  const { data } = useSWR('/api/now-playing', fetcher);
+  const { data } = useSWR<INowPlaying>('/api/now-playing', fetcher);
   return (
     <div className="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
       {data?.songUrl ? (

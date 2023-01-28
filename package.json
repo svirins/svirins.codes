@@ -10,8 +10,8 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "sitemap": "ts-node --esm scripts/sitemap.ts",
-    "feed": "ts-node --esm scripts/feed.ts",
+    "sitemap": "ts-node --esm ./scripts/sitemap.ts",
+    "feed": "ts-node --esm ./scripts/feed.ts",
     "prepare": "husky install"
   },
   "husky": {
@@ -36,7 +36,7 @@
     "react-icons": "^4.7.1",
     "sanity-plugin-markdown": "4.0.0",
     "styled-components": "^5.3.6",
-    "swr": "2.0.2",
+    "swr": "2.0.3",
     "tailwindcss": "3.2.4",
     "typed.js": "^2.0.12"
   },

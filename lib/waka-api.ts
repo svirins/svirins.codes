@@ -10,7 +10,7 @@ interface IWakaLanguageStats {
   total_seconds: bigint;
 }
 
-interface IWakaAPIResponse {
+export interface IWakaAPIResponse {
   languages: IWakaLanguageStats[];
   totalHours: number;
 }
