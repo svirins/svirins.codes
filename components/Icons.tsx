@@ -281,7 +281,7 @@ export function SocialIcons() {
           'w-4 h-4 fill-gray-700  dark:fill-gray-400  hover:fill-gray-800 dark:hover:fill-gray-200'
       }}
     >
-      <div className="flex my-2 space-x-4">
+      <div className="flex my-2 space-x-4 text-left md:text-center">
         {SOCIALS.map((social, index) => (
           <a
             key={index}

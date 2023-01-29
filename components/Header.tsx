@@ -13,12 +13,12 @@ export default function Header() {
           Skip to content
         </a>
         <div className="ml-[-0.60rem">
-          {/* <MobileMenu /> */}
+          <MobileMenu />
           {NAV_LINKS.map((item, index) => (
             <NavItem key={index} href={item.href} text={item.text} />
           ))}
         </div>
-        {/* <ToggleMode /> */}
+        <ToggleMode />
       </nav>
     </header>
   );
