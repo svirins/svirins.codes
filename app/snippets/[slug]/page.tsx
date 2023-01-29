@@ -1,3 +1,4 @@
+`use client`;
 import { MDXRemote } from 'next-mdx-remote';
 import { ArticleJsonLd } from 'next-seo';
 import { font_mono } from 'fonts';
