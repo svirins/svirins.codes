@@ -1,14 +1,13 @@
-'use client';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { getPosts } from 'lib/sanity-api';
 import PostPreview from 'ui/PostPreview';
 
 export default async function Blog() {
   const posts = await getPosts();
-  const [searchValue, setSearchValue] = useState('');
-  const filteredBlogPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  // const [searchValue, setSearchValue] = useState('');
+  // // const filteredBlogPosts = posts.filter((post) =>
+  // //   post.title.toLowerCase().includes(searchValue.toLowerCase())
+  // // );
   return (
     <div className="flex flex-col  max-w-2xl mx-auto w-full">
       <div className="flex flex-col">
@@ -23,7 +22,7 @@ export default async function Blog() {
           things.
         </p>
       </div>
-      <div className="relative w-full mt-4 mb-2">
+      {/* <div className="relative w-full mt-4 mb-2">
         <input
           aria-label="Search articles"
           type="text"
@@ -45,10 +44,10 @@ export default async function Blog() {
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
-      </div>
+      </div> */}
       <div className="grid grid-cols-1 divide-y divide-gray-700/25 dark:divide-gray-300/25">
-        {filteredBlogPosts.length ? (
-          filteredBlogPosts.map((post) => (
+        {posts.length ? (
+          posts.map((post) => (
             <PostPreview
               key={post.title}
               slug={post.slug}

@@ -3,7 +3,7 @@ import { SocialIcons } from '@/ui/Icons';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-start  md:items-center  max-w-2xl w-full mx-auto mb-4">
+    <footer className="flex flex-col items-start  md:items-center  max-w-2xl w-full mx-auto mb-4  px-8">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-4" />
       <NowPlaying />
       <SocialIcons />

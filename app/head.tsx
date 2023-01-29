@@ -36,7 +36,7 @@ export default function Head() {
         content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
         name="robots"
       />
-      <script
+      {/* <script
         dangerouslySetInnerHTML={{
           __html: `
           if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -46,7 +46,7 @@ export default function Head() {
           }
           `
         }}
-      />
+      /> */}
       <NextSeo {...DEFAULT_SEO} useAppDir={true} />
     </>
   );
