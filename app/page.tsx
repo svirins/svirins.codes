@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
-import TypewriterEffect from 'ui/TypewriterEffect';
-import { MyStack } from 'ui/Icons';
+import TypewriterEffect from 'components/TypewriterEffect';
+import { MyStack } from 'components/Icons';
 
 import getWakaStats from 'lib/waka-api';
-import WakaStats from 'ui/WakaStats';
+import WakaStats from 'components/WakaStats';
 // TODO: Consider move WakaStats fetch into it's own component
 export default async function IndexPage() {
   const { languages, totalHours } = await getWakaStats();

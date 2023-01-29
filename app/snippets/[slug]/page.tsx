@@ -2,11 +2,11 @@ import { MDXRemote } from 'next-mdx-remote';
 import { ArticleJsonLd } from 'next-seo';
 import { font_mono } from 'fonts';
 
-import components from 'ui/MDXComponents';
+import components from 'components/MDXComponents';
 import { mdxToHtml } from 'lib/mdx';
 import { getSnippet, getSnippetSlugs } from 'lib/sanity-api';
 
-import { SnippetIcon } from '@/ui/Icons';
+import { SnippetIcon } from 'components/Icons';
 
 export async function generateStaticParams() {
   const paths = await getSnippetSlugs();

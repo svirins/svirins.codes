@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SnippetIcon } from 'ui/Icons';
+import { SnippetIcon } from 'components/Icons';
 import { ISnippet } from 'lib/sanity-api';
 
 export default function SnippetPreview({

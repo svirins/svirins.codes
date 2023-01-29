@@ -1,13 +1,13 @@
 import NowPlaying from './NowPlaying';
-import { SocialIcons } from '@/ui/Icons';
+import { SocialIcons } from 'components/Icons';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-start  md:items-center  max-w-2xl w-full mx-auto mb-4  px-8">
+    <footer className="flex flex-col items-start  max-w-2xl w-full mx-auto mb-4  px-8">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-4" />
       <NowPlaying />
       <SocialIcons />
-      <p className=" text-gray-500 dark:text-gray-400 mb-1 pt-2  text-left md:text-center text-xs">
+      <p className="w-full text-gray-500 dark:text-gray-400 mb-1 pt-2  text-left md:text-center text-xs">
         © <span className="font-medium">{new Date().getFullYear()}</span>
         <span>{` • `}</span>
         Dzmitry Svirin{` • `}

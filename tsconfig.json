@@ -18,7 +18,7 @@
     "baseUrl": ".",
     "outDir": "out",
     "paths": {
-      "@/ui/*": ["ui/*"],
+      "@/components/*": ["components/*"],
       "@/config/*": ["config/*"],
       "@/fonts/*": ["fonts/*"],
       "@/lib/*": ["lib/*"],

@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 import { getPosts } from 'lib/sanity-api';
-import PostPreview from 'ui/PostPreview';
+import PostPreview from 'components/PostPreview';
 
 export default async function Blog() {
   const posts = await getPosts();

@@ -1,4 +1,4 @@
-import PostPreview from 'ui/PostPreview';
+import PostPreview from 'components/PostPreview';
 import { getPostsByTag, getTagSlugs } from 'lib/sanity-api';
 // title={`Posts for tag ${title}`}
 // description="Posts about code, dev life and various other things."

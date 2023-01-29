@@ -1,8 +1,8 @@
 'use client';
 import 'styles/globals.css';
 import { font_sans } from 'fonts';
-import Footer from 'ui/Footer';
-import Header from 'ui/Header';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
 
 // TODO: Move mono font to snippets layout
 

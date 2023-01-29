@@ -1,10 +1,10 @@
 import { MDXRemote } from 'next-mdx-remote';
 import Image from 'next/image';
 import { ArticleJsonLd } from 'next-seo';
-import components from 'ui/MDXComponents';
+import components from 'components/MDXComponents';
 import { mdxToHtml } from 'lib/mdx';
 import { getPost, getPostSlugs } from 'lib/sanity-api';
-import { Tags } from 'ui/Tags';
+import { Tags } from 'components/Tags';
 import { urlForImage } from 'lib/sanity-client';
 
 export async function generateStaticParams() {

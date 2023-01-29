@@ -1,4 +1,4 @@
-import SnippetPreview from 'ui/SnippetPreview';
+import SnippetPreview from 'components/SnippetPreview';
 import { getSnippets } from 'lib/sanity-api';
 
 export default async function Snippets() {
