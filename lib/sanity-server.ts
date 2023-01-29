@@ -3,10 +3,9 @@
  * utilities we use on the client side, we are able to tree-shake (remove)
  * code that is not used on the client side.
  */
+import { createClient } from 'next-sanity';
 
-import sanityClient from '@sanity/client';
-
-export default sanityClient({
+export const sanityClient = createClient({
   dataset: 'production',
   projectId: 'c8glljln',
   useCdn: true,

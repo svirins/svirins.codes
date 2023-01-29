@@ -13,7 +13,7 @@ import {
   tagSlugsQuery
 } from './sanity-queries';
 
-import sanityClient from './sanity-server';
+import { sanityClient } from './sanity-server';
 
 export interface ITag {
   _id: string;
