@@ -5,14 +5,11 @@ import { markdownSchema } from 'sanity-plugin-markdown';
 
 import { schemaTypes } from './schemas';
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
-
 export default defineConfig({
   basePath: '/studio', // <-- important that `basePath` matches the route you're mounting your studio from, it applies to both `/pages` and `/app`
 
-  projectId,
-  dataset,
+  projectId: 'c8glljln',
+  dataset: 'production',
 
   plugins: [deskTool(), visionTool(), markdownSchema()],
 
