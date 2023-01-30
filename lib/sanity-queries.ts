@@ -1,6 +1,7 @@
 import { groq } from 'next-sanity';
 
 import { POSTS_LIMIT } from 'config';
+
 const postFields = `
   _id,
   title,

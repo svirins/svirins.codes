@@ -1,5 +1,7 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
+import { sanityClient } from './sanity-server';
+
 import {
   allSnippetsQuery,
   indexQuery,
@@ -12,8 +14,6 @@ import {
   tagRelatedPosts,
   tagSlugsQuery
 } from './sanity-queries';
-
-import { sanityClient } from './sanity-server';
 
 export interface ITag {
   _id: string;

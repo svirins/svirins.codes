@@ -4,6 +4,7 @@
  * code that is not used on the client side.
  */
 import { createClient } from 'next-sanity';
+import { cache } from 'react';
 
 export const sanityClient = createClient({
   dataset: 'production',
@@ -11,3 +12,5 @@ export const sanityClient = createClient({
   useCdn: true,
   apiVersion: '2021-03-25'
 });
+
+export const clientFetch = cache(sanityClient.fetch.bind(sanityClient));
