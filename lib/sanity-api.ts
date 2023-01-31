@@ -30,7 +30,7 @@ export interface SanityBlock {
 export interface BlockContent {
   _type: 'blockContent';
   _key: string;
-  text?: SanityBlock[];
+  text: string;
 }
 export interface IPost {
   _id: string;

@@ -3,6 +3,7 @@
  * utilities we use on the client side, we are able to tree-shake (remove)
  * code that is not used on the client side.
  */
+// TODO: Change Sanity API version to 2022
 import { createClient } from 'next-sanity';
 import { cache } from 'react';
 
