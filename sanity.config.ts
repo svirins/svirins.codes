@@ -7,7 +7,7 @@ import { schemaTypes } from './schemas';
 
 export default defineConfig({
   basePath: '/studio', // <-- important that `basePath` matches the route you're mounting your studio from, it applies to both `/pages` and `/app`
-
+  name: 'Studio',
   projectId: 'c8glljln',
   dataset: 'production',
 

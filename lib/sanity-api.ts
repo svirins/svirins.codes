@@ -21,10 +21,22 @@ export interface ITag {
   slug: string;
 }
 
+export interface SanityBlock {
+  [key: string]: any;
+  _type: 'block';
+  // _type: 'block' | 'image';
+}
+
+export interface BlockContent {
+  _type: 'blockContent';
+  _key: string;
+  text?: SanityBlock[];
+}
 export interface IPost {
   _id: string;
   slug: string;
   content: string;
+  body: BlockContent;
   title: string;
   date: string;
   excerpt: string;

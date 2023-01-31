@@ -35,6 +35,7 @@ export const postQuery = groq`
 {
   "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
     content,
+    body,
     ${postFields}
   }
 }`;
@@ -70,6 +71,7 @@ export const snippetsQuery = groq`
 {
   "snippet": *[_type == "snippet" && slug.current == $slug] | order(_updatedAt desc) [0] {
     content,
+    body,
     ${snippetFields}
   }
 }`;
