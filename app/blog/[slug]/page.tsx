@@ -13,7 +13,7 @@ export async function generateStaticParams() {
   const paths = await getPostSlugs();
   return paths.map((slug) => ({ slug: slug }));
 }
-
+// TODO: autodetect main image dimentions
 export default async function PostPage({
   params
 }: {
@@ -45,6 +45,8 @@ export default async function PostPage({
           <Image
             src={urlForImage(post.coverImage).url()}
             alt={`Image for ${post.title}`}
+            width={672}
+            height={350}
           />
         </div>
       )}
