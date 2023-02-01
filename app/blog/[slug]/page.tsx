@@ -1,8 +1,6 @@
 // import { MDXRemote } from 'next-mdx-remote';
 import Image from 'next/image';
 import { ArticleJsonLd } from 'next-seo';
-// import components from 'components/MDXComponents';
-// import { mdxToHtml } from 'lib/mdx';
 import { getPost, getPostSlugs } from 'lib/sanity-api';
 import { Tags } from 'components/Tags';
 import { urlForImage } from 'lib/sanity-client';

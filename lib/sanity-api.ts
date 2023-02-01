@@ -1,5 +1,3 @@
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-
 import { sanityClient } from './sanity-server';
 
 import {
@@ -43,17 +41,15 @@ export interface IPost {
   tags: ITag[];
   mainImage: string;
   readingTime?: string;
-  mdxContent?: MDXRemoteSerializeResult;
 }
 
 export interface ISnippet {
   _id: string;
   slug: string;
-  content: string;
+  body: BlockContent;
   title: string;
   description: string;
   iconTitle: string;
-  mdxContent: MDXRemoteSerializeResult;
 }
 
 export const getPosts = async (): Promise<IPost[]> => {
