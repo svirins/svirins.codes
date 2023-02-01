@@ -8,7 +8,7 @@ const BlockContent = ({ data }: { data: any }) => {
 
   return (
     <PortableText
-      value={children}
+      value={data[0].children}
       components={{
         // types: {
         //   customImage: ({ value }) => (
@@ -35,7 +35,8 @@ const BlockContent = ({ data }: { data: any }) => {
               </blockquote>
             </div>
           ),
-          normal: ({ children }) => <p className='mt-1'>{children}</p>
+          normal: ({ children }) => <p className='mt-1'>{children}</p>,
+          span: ({ children }) => <span className='mt-1'>{children}</span>
         }
       }}
     />

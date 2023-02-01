@@ -31,7 +31,7 @@ export default async function PostPage({
         type='BlogPosting'
         url='https://example.com/blog'
         title={`${post.title} Dzmitry Svirin`}
-        images={[urlForImage(post.coverImage).url()]}
+        images={[urlForImage(post.mainImage).url()]}
         datePublished={new Date(post.date).toISOString()}
         authorName='Dzmitry Svirin'
         description={post.excerpt}
@@ -40,10 +40,10 @@ export default async function PostPage({
       <h1 className='my-2 text-3xl font-bold  tracking-tight capsize  text-gray-900 md:text-5xl dark:text-gray-100'>
         {post.title}
       </h1>
-      {post.coverImage && (
+      {post.mainImage && (
         <div className='flex flex-col w-full my-4'>
           <Image
-            src={urlForImage(post.coverImage).url()}
+            src={urlForImage(post.mainImage).url()}
             alt={`Image for ${post.title}`}
             width={672}
             height={350}

@@ -1,19 +1,18 @@
-import { visionTool } from '@sanity/vision';
-import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
-import { markdownSchema } from 'sanity-plugin-markdown';
-
-import { schemaTypes } from './schemas';
+import {defineConfig} from 'sanity'
+import {deskTool} from 'sanity/desk'
+import {visionTool} from '@sanity/vision'
+import {schemaTypes} from './schemas'
 
 export default defineConfig({
-  basePath: '/studio', // <-- important that `basePath` matches the route you're mounting your studio from, it applies to both `/pages` and `/app`
-  name: 'Studio',
-  projectId: 'c8glljln',
+  name: 'default',
+  title: 'svirins-codes-studio',
+
+  projectId: 'q60wk43i',
   dataset: 'production',
 
-  plugins: [deskTool(), visionTool(), markdownSchema()],
+  plugins: [deskTool(), visionTool()],
 
   schema: {
-    types: schemaTypes
-  }
-});
+    types: schemaTypes,
+  },
+})

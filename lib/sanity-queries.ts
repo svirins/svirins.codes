@@ -8,7 +8,7 @@ const postFields = `
   "slug": slug.current,
   "date": _updatedAt,
   excerpt,
-  coverImage,
+  mainImage,
   "tags": tags[] -> {
     _id,
     title,

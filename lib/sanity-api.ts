@@ -41,7 +41,7 @@ export interface IPost {
   date: string;
   excerpt: string;
   tags: ITag[];
-  coverImage: string;
+  mainImage: string;
   readingTime?: string;
   mdxContent?: MDXRemoteSerializeResult;
 }
