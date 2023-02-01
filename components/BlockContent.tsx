@@ -2,9 +2,7 @@ import { PortableText } from '@portabletext/react';
 import type { BlockContent as BlockContentType } from 'lib/sanity-api';
 
 const BlockContent = ({ data }: { data: any }) => {
-  const { children } = data;
-  console.log('Body is', data);
-  console.log('text is', data[0].children);
+  console.log('text is', data[0].children.text);
 
   return (
     <PortableText

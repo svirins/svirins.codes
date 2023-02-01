@@ -6,7 +6,7 @@ import { Tags } from 'components/Tags';
 import { urlForImage } from 'lib/sanity-client';
 
 import BlockContent from 'components/BlockContent';
-
+//TODO:
 export async function generateStaticParams() {
   const paths = await getPostSlugs();
   return paths.map((slug) => ({ slug: slug }));
@@ -78,14 +78,6 @@ export default async function PostPage({
       </div>
       <div className='w-full max-w-2xl mt-4 prose prose-slate dark:prose-invert md:prose-lg'>
         <BlockContent data={post.body} />
-        {/* <MDXRemote
-          {...html!}
-          components={
-            {
-              ...components
-            } as any
-          }
-        /> */}
       </div>
     </article>
   );

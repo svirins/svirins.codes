@@ -2,9 +2,6 @@
 import { ArticleJsonLd } from 'next-seo';
 import { font_mono } from 'fonts';
 import BlockContent from 'components/BlockContent';
-
-import components from 'components/MDXComponents';
-import { mdxToHtml } from 'lib/mdx';
 import { getSnippet, getSnippetSlugs } from 'lib/sanity-api';
 
 import { SnippetIcon } from 'components/Icons';
