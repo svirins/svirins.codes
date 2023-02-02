@@ -19,7 +19,6 @@ export default async function PostPage({
   };
 }) {
   const post = await getPost(params.slug);
-  const readingTime: number = 5;
   return (
     <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12'>
       <ArticleJsonLd
@@ -70,8 +69,8 @@ export default async function PostPage({
             }).format(new Date(post.date))}
           </p>
         </div>
-        <p className='mt-2 text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400 min-w-32'>
-          {readingTime}
+        <p className='text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400 min-w-32'>
+          {`${post.readingTime} min read`}
         </p>
       </div>
       <div className='w-full max-w-2xl mt-4 prose prose-slate dark:prose-invert md:prose-lg'>
@@ -82,7 +81,6 @@ export default async function PostPage({
 
           return <BlockContent key={section._key} section={section} />;
         })}
-        <BlockContent data={post.body} />
       </div>
     </article>
   );

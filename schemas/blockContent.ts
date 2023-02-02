@@ -52,7 +52,6 @@ export default defineType({
         language: 'javascript',
         languageAlternatives: [
           { title: 'Typescript', value: 'typescript' },
-          { title: 'HTML', value: 'html' },
           { title: 'CSS', value: 'css' },
           { title: 'SH', value: 'sh' },
           { title: 'JSX', value: 'jsx' }

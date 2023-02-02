@@ -34,8 +34,8 @@ export const indexQuery = groq`
 export const postQuery = groq`
 {
   "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    content,
     body,
+    "readingTime": round(length(pt::text(body)) / 5 / 180 ),
     ${postFields}
   }
 }`;
@@ -70,7 +70,6 @@ export const allSnippetsQuery = groq`
 export const snippetsQuery = groq`
 {
   "snippet": *[_type == "snippet" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    content,
     body,
     ${snippetFields}
   }

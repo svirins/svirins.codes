@@ -40,7 +40,7 @@ export interface IPost {
   excerpt: string;
   tags: ITag[];
   coverImage: string;
-  readingTime?: string;
+  readingTime: number;
 }
 
 export interface ISnippet {
