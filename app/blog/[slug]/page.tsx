@@ -75,6 +75,13 @@ export default async function PostPage({
         </p>
       </div>
       <div className='w-full max-w-2xl mt-4 prose prose-slate dark:prose-invert md:prose-lg'>
+        {post.body.map((section) => {
+          if (!section || Object.keys(section).length === 0) {
+            return null;
+          }
+
+          return <BlockContent key={section._key} section={section} />;
+        })}
         <BlockContent data={post.body} />
       </div>
     </article>

@@ -34,7 +34,7 @@ export interface IPost {
   _id: string;
   slug: string;
   content: string;
-  body: BlockContent;
+  body: BlockContent[];
   title: string;
   date: string;
   excerpt: string;

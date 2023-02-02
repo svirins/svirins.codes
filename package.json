@@ -12,12 +12,7 @@
     "lint": "next lint",
     "sitemap": "ts-node --esm ./scripts/sitemap.ts",
     "feed": "ts-node --esm ./scripts/feed.ts",
-    "prepare": "husky install",
-    "sanity-dev": "sanity dev",
-    "sanity-start": "sanity start",
-    "sanity-build": "sanity build",
-    "sanity-deploy": "sanity deploy",
-    "sanity-deploy-graphql": "sanity graphql deploy"
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {

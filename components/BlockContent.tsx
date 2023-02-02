@@ -2,12 +2,12 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import type { BlockContent as BlockContentType } from 'lib/sanity-api';
 
-const BlockContent = ({ data }: { data: any }) => {
-  console.log('text is', data[0].children);
+const BlockContent = ({ section }: { section: any }) => {
+  console.log('text is', section);
 
   return (
     <PortableText
-      value={data[0].children}
+      value={section}
       components={{
         types: {
           span: ({ value }) => <span>{value}</span>
