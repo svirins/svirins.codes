@@ -1,4 +1,3 @@
-// import { MDXRemote } from 'next-mdx-remote';
 import Image from 'next/image';
 import { ArticleJsonLd } from 'next-seo';
 import { getPost, getPostSlugs } from 'lib/sanity-api';
@@ -20,7 +19,6 @@ export default async function PostPage({
   };
 }) {
   const post = await getPost(params.slug);
-  // const { html, readingTime } = await mdxToHtml(post.content);
   const readingTime: number = 5;
   return (
     <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12'>
