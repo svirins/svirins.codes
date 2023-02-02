@@ -8,7 +8,6 @@ export default async function Blog() {
   // // const filteredBlogPosts = posts.filter((post) =>
   // //   post.title.toLowerCase().includes(searchValue.toLowerCase())
   // // );
-  posts.map((post) => console.log({ post }));
   return (
     <div className='flex flex-col  max-w-2xl mx-auto w-full'>
       <div className='flex flex-col'>

@@ -3,12 +3,15 @@ import { PortableText } from '@portabletext/react';
 import type { BlockContent as BlockContentType } from 'lib/sanity-api';
 
 const BlockContent = ({ data }: { data: any }) => {
-  console.log('text is', data[0].children.text);
+  console.log('text is', data[0].children);
 
   return (
     <PortableText
       value={data[0].children}
       components={{
+        types: {
+          span: ({ value }) => <span>{value}</span>
+        },
         // types: {
         //   customImage: ({ value }) => (
         //     <Image data={value} width={960} height={600} />
@@ -18,7 +21,8 @@ const BlockContent = ({ data }: { data: any }) => {
           link: ({ children, value }) => (
             <a href={`${value.href}`}>{children}</a>
           ),
-          italic: ({ children }) => <i>{children}</i>
+          italic: ({ children }) => <i>{children}</i>,
+          em: ({ children }) => <em>{children}</em>
         },
         block: {
           h1: ({ children }) => <h1>{children}</h1>,
@@ -34,8 +38,7 @@ const BlockContent = ({ data }: { data: any }) => {
               </blockquote>
             </div>
           ),
-          normal: ({ children }) => <p className='mt-1'>{children}</p>,
-          span: ({ children }) => <span className='mt-1'>{children}</span>
+          normal: ({ children }) => <p className='mt-1'>{children}</p>
         }
       }}
     />

@@ -10,7 +10,7 @@ export default defineConfig({
   projectId: 'q60wk43i',
   dataset: 'production',
 
-  plugins: [deskTool()],
+  plugins: [deskTool(), visionTool()],
 
   schema: {
     types: schemaTypes
