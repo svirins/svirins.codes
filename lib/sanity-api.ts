@@ -21,7 +21,7 @@ export interface ITag {
 
 export interface SanityBlock {
   [key: string]: any;
-  _type: 'block';
+  _type: 'block' | 'span';
   // _type: 'block' | 'image';
 }
 
@@ -39,7 +39,7 @@ export interface IPost {
   date: string;
   excerpt: string;
   tags: ITag[];
-  mainImage: string;
+  coverImage: string;
   readingTime?: string;
 }
 

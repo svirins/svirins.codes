@@ -9,6 +9,6 @@ const onPublicAccessOnly = () => {
 
 export const usePreview: UsePreview = definePreview({
   dataset: 'production',
-  projectId: 'c8glljln',
+  projectId: 'q60wk43i',
   onPublicAccessOnly
 });

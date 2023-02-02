@@ -34,7 +34,7 @@ async function createFeed() {
         description: post.excerpt,
         date: setHours(parseISO(post.date), 13),
         category: post.tags.map((name) => name.title) as Category[],
-        image: urlForImage(post.mainImage).url(),
+        image: urlForImage(post.coverImage).url(),
         author: [
           {
             name: 'Dzmitry Svirin',

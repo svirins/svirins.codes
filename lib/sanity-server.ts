@@ -9,9 +9,9 @@ import { cache } from 'react';
 
 export const sanityClient = createClient({
   dataset: 'production',
-  projectId: 'c8glljln',
+  projectId: 'q60wk43i',
   useCdn: true,
-  apiVersion: '2021-03-25'
+  apiVersion: '2021-10-21'
 });
 
 export const clientFetch = cache(sanityClient.fetch.bind(sanityClient));

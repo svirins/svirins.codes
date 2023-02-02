@@ -41,9 +41,9 @@ export const DEFAULT_SEO = {
 
 export const SANITY_CONFIG = {
   dataset: 'production',
-  projectId: 'c8glljln',
+  projectId: 'q60wk43i',
   useCdn: process.env.NODE_ENV !== 'production',
-  apiVersion: '2021-03-25'
+  apiVersion: '2021-10-21'
 };
 
 export const SPOTIFY_NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;

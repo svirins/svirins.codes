@@ -1,5 +1,5 @@
-import {RiPagesLine} from 'react-icons/ri'
-import {defineType, defineField} from 'sanity'
+import { RiPagesLine } from 'react-icons/ri';
+import { defineType, defineField } from 'sanity';
 
 export default defineType({
   name: 'post',
@@ -11,35 +11,35 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required()
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'title'
       },
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required()
     }),
     defineField({
-      name: 'mainImage',
-      title: 'Main image',
+      name: 'coverImage',
+      title: 'Cover image',
       type: 'image',
       options: {
-        hotspot: true,
-      },
+        hotspot: true
+      }
     }),
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'string',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required()
     }),
     defineField({
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
+      type: 'blockContent'
     }),
     defineField({
       name: 'tags',
@@ -50,18 +50,18 @@ export default defineType({
           type: 'reference',
           to: [
             {
-              type: 'tag',
-            },
-          ],
-        },
+              type: 'tag'
+            }
+          ]
+        }
       ],
-      validation: (Rule: {required: () => any}) => Rule.required(),
-    }),
+      validation: (Rule: { required: () => any }) => Rule.required()
+    })
   ],
   preview: {
     select: {
       title: 'title',
-      media: 'mainImage',
-    },
-  },
-})
+      media: 'coverImage'
+    }
+  }
+});
