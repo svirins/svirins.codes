@@ -17,7 +17,6 @@ export default defineType({
         { title: 'H4', value: 'h4' },
         { title: 'Quote', value: 'blockquote' }
       ],
-      lists: [{ title: 'Bullet', value: 'bullet' }],
       marks: {
         decorators: [
           { title: 'Strong', value: 'strong' },
@@ -53,7 +52,7 @@ export default defineType({
         languageAlternatives: [
           { title: 'Typescript', value: 'typescript' },
           { title: 'CSS', value: 'css' },
-          { title: 'SH', value: 'sh' },
+          { title: 'BASH', value: 'bash' },
           { title: 'JSX', value: 'jsx' }
         ],
         withFilename: true

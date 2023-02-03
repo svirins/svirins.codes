@@ -5,8 +5,6 @@ import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
 
 const BlockContent = ({ section }: { section: BlockContent }) => {
-  // console.log('text is', section);
-
   return (
     <PortableText
       value={section}
@@ -15,6 +13,16 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
         types: {
           image: ({ value }) => InlineImage(value),
           code: ({ value }) => <CodeBlock value={value} />
+        },
+        list: {
+          bullet: ({ children }) => <ul className='mt-xl'>{children}</ul>,
+          number: ({ children }) => <ol className='mt-lg'>{children}</ol>
+        },
+        listItem: {
+          bullet: ({ children }) => (
+            <li style={{ listStyleType: 'disclosure-closed' }}>{children}</li>
+          ),
+          number: ({ children }) => <ol className='text-lg'>{children}</ol>
         },
         marks: {
           link: ({ children, value }) => (

@@ -6,7 +6,7 @@ import jsx from 'refractor/lang/jsx';
 import css from 'refractor/lang/css';
 import bash from 'refractor/lang/bash';
 
-import { font_sans } from 'fonts';
+import { font_mono, font_sans } from 'fonts';
 Refractor.registerLanguage(js);
 Refractor.registerLanguage(typescript);
 Refractor.registerLanguage(jsx);
@@ -17,11 +17,13 @@ export function CodeBlock({ value }: { value: any }) {
   console.log({ value });
   const language = value.filename.split('.').pop() ?? 'js';
   return (
-    <Refractor
-      // language={language}
-      language='js'
-      value={value.code}
-      markers={value.highlightedLines}
-    />
+    <div className='font_mono'>
+      <Refractor
+        language='js'
+        value={value.code}
+        // markers={value.highlightedLines}
+        markers={[1.3]}
+      />
+    </div>
   );
 }
