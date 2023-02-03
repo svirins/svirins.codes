@@ -16,6 +16,7 @@ specifiers:
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/react-syntax-highlighter': ^15.5.6
   '@types/rss': ^0.0.30
   autoprefixer: 10.4.13
   clsx: ^1.2.1
@@ -75,6 +76,7 @@ devDependencies:
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/react-syntax-highlighter': 15.5.6
   '@types/rss': 0.0.30
   autoprefixer: 10.4.13_postcss@8.4.21
   concurrently: 7.6.0
@@ -1935,6 +1937,12 @@ packages:
     dependencies:
       '@types/react': 18.0.27
     dev: false
+
+  /@types/react-syntax-highlighter/15.5.6:
+    resolution: {integrity: sha512-i7wFuLbIAFlabTeD2I1cLjEOrG/xdMa/rpx2zwzAoGHuXJDhSqp9BSfDlMHSh9JSuNfxHk9eEmMX6D55GiyjGg==}
+    dependencies:
+      '@types/react': 18.0.27
+    dev: true
 
   /@types/react/18.0.27:
     resolution: {integrity: sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==}

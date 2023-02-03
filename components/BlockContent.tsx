@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import type { BlockContent } from 'lib/sanity-api';
-import { urlForImage } from 'lib/sanity-client';
-import { CodeBlock } from '@/components/CodeBlock';
+
+import { CodeBlock } from 'components/CodeBlock';
+import { InlineImage } from 'components/InineImage';
 
 const BlockContent = ({ section }: { section: BlockContent }) => {
   // console.log('text is', section);
@@ -13,16 +13,8 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
       onMissingComponent={false}
       components={{
         types: {
-          image: ({ value }) => (
-            <Image
-              src={urlForImage(value).url()}
-              width={672}
-              height={350}
-              alt='just text'
-              className='rounded-lg  h-auto'
-            />
-          )
-          // code: ({ value }) => <CodeBlock value={value} />
+          image: ({ value }) => InlineImage(value),
+          code: ({ value }) => <CodeBlock value={value} />
         },
         marks: {
           link: ({ children, value }) => (

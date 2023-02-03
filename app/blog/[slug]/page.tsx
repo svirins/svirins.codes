@@ -3,7 +3,7 @@ import { ArticleJsonLd } from 'next-seo';
 import { getPost, getPostSlugs } from 'lib/sanity-api';
 import { Tags } from 'components/Tags';
 import { urlForImage } from 'lib/sanity-client';
-import { getImageDimensions } from '@sanity/asset-utils';
+import { getImageDimensions, buildImageUrl } from '@sanity/asset-utils';
 
 import BlockContent from 'components/BlockContent';
 //TODO:
@@ -11,7 +11,6 @@ export async function generateStaticParams() {
   const paths = await getPostSlugs();
   return paths.map((slug) => ({ slug: slug }));
 }
-// TODO: autodetect main image dimentions
 export default async function PostPage({
   params
 }: {
@@ -45,6 +44,7 @@ export default async function PostPage({
             alt={`Image for ${post.title}`}
             width={width}
             height={height}
+            className='rounded-lg  h-auto'
           />
         </div>
       )}
