@@ -3,6 +3,7 @@ import { ArticleJsonLd } from 'next-seo';
 import { getPost, getPostSlugs } from 'lib/sanity-api';
 import { Tags } from 'components/Tags';
 import { urlForImage } from 'lib/sanity-client';
+import { getImageDimensions } from '@sanity/asset-utils';
 
 import BlockContent from 'components/BlockContent';
 //TODO:
@@ -19,6 +20,8 @@ export default async function PostPage({
   };
 }) {
   const post = await getPost(params.slug);
+  const { width, height } = getImageDimensions(post.coverImage);
+
   return (
     <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12'>
       <ArticleJsonLd
@@ -40,8 +43,8 @@ export default async function PostPage({
           <Image
             src={urlForImage(post.coverImage).url()}
             alt={`Image for ${post.title}`}
-            width={672}
-            height={350}
+            width={width}
+            height={height}
           />
         </div>
       )}

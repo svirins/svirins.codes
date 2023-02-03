@@ -5,7 +5,7 @@ import { urlForImage } from 'lib/sanity-client';
 import { CodeBlock } from '@/components/CodeBlock';
 
 const BlockContent = ({ section }: { section: BlockContent }) => {
-  console.log('text is', section);
+  // console.log('text is', section);
 
   return (
     <PortableText
