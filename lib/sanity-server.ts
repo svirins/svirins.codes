@@ -10,7 +10,7 @@ import { cache } from 'react';
 export const sanityClient = createClient({
   dataset: 'production',
   projectId: 'q60wk43i',
-  useCdn: true,
+  useCdn: typeof document !== 'undefined',
   apiVersion: '2021-10-21'
 });
 

@@ -1,4 +1,4 @@
-import { sanityClient } from './sanity-server';
+import { sanityClient, clientFetch } from './sanity-server';
 
 import {
   allSnippetsQuery,
@@ -53,46 +53,56 @@ export interface ISnippet {
 }
 
 export const getPosts = async (): Promise<IPost[]> => {
-  const posts = await sanityClient.fetch(indexQuery);
+  // const posts = await sanityClient.fetch(indexQuery);
+  const posts = await clientFetch(indexQuery);
+
   return posts;
 };
 
 export const getPostSlugs = async (): Promise<string[]> => {
+  // const slugs = await sanityClient.fetch(postSlugsQuery);
   const slugs = await sanityClient.fetch(postSlugsQuery);
   return slugs;
 };
 
 export const getPost = async (slug: string): Promise<IPost> => {
-  const { post } = await sanityClient.fetch(postQuery, { slug: slug });
+  // const { post } = await sanityClient.fetch(postQuery, { slug: slug });
+  const { post } = await clientFetch(postQuery, { slug: slug });
   return post ?? null;
 };
 
 export const getPostBySlug = async (slug: string): Promise<IPost> => {
-  const { post } = await sanityClient.fetch(postBySlugQuery, { slug });
+  // const { post } = await sanityClient.fetch(postBySlugQuery, { slug });
+  const { post } = await clientFetch(postBySlugQuery, { slug });
   return post ?? null;
 };
 export const getUpdatedPostSlug = async (id: string): Promise<string> => {
-  const slug = sanityClient.fetch(postUpdatedQuery, { id });
+  // const slug = sanityClient.fetch(postUpdatedQuery, { id });
+  const slug = clientFetch(postUpdatedQuery, { id });
   return slug ?? null;
 };
 
 export const getSnippets = async (): Promise<ISnippet[]> => {
-  const snippets = await sanityClient.fetch(allSnippetsQuery);
+  // const snippets = await sanityClient.fetch(allSnippetsQuery);
+  const snippets = await clientFetch(allSnippetsQuery);
   return snippets ?? null;
 };
 
 export const getSnippetSlugs = async (): Promise<string[]> => {
-  const slugs = await sanityClient.fetch(snippetSlugsQuery);
+  // const slugs = await sanityClient.fetch(snippetSlugsQuery);
+  const slugs = await clientFetch(snippetSlugsQuery);
   return slugs ?? null;
 };
 
 export const getSnippet = async (slug: string): Promise<ISnippet> => {
-  const { snippet } = await sanityClient.fetch(snippetsQuery, { slug });
+  // const { snippet } = await sanityClient.fetch(snippetsQuery, { slug });
+  const { snippet } = await clientFetch(snippetsQuery, { slug });
   return snippet ?? null;
 };
 
 export const getTagSlugs = async (): Promise<string[]> => {
-  const slugs = await sanityClient.fetch(tagSlugsQuery);
+  // const slugs = await sanityClient.fetch(tagSlugsQuery);
+  const slugs = await clientFetch(tagSlugsQuery);
   return slugs ?? null;
 };
 
@@ -102,6 +112,7 @@ export const getPostsByTag = async (
   title: string;
   posts: IPost[];
 }> => {
-  const posts = await sanityClient.fetch(tagRelatedPosts, { slug });
+  // const posts = await sanityClient.fetch(tagRelatedPosts, { slug });
+  const posts = await clientFetch(tagRelatedPosts, { slug });
   return posts ?? null;
 };
