@@ -37,7 +37,7 @@ export const indexQuery = groq`
       title,
       "slug": slug.current
     },
-    "excerpt": array::join(string::split((pt::text(body)), "")[0..255], "") + "..."
+    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..255], "") + "..."
   }`;
 
 export const postQuery = groq`{
@@ -53,7 +53,7 @@ export const postQuery = groq`{
       "slug": slug.current
     },
     body,
-    "excerpt": array::join(string::split((pt::text(body)), "")[0..255], "") + "...",
+    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..255], "") + "...",
     "readingTime": round(length(pt::text(body)) / 5 / 180 ),
   }
 }`;

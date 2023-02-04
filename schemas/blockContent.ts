@@ -50,10 +50,10 @@ export default defineType({
       options: {
         language: 'javascript',
         languageAlternatives: [
-          { title: 'Typescript', value: 'typescript' },
+          { title: 'TypeScript', value: 'typescript' },
           { title: 'CSS', value: 'css' },
-          { title: 'BASH', value: 'bash' },
-          { title: 'JSX', value: 'jsx' }
+          { title: 'bash', value: 'bash' },
+          { title: 'jsx', value: 'jsx' }
         ],
         withFilename: true
       }

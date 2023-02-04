@@ -15,15 +15,15 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
           code: ({ value }) => <CodeBlock value={value} />
         },
         list: {
-          bullet: ({ children }) => <ul className='mt-xl'>{children}</ul>,
-          number: ({ children }) => <ol className='mt-lg'>{children}</ol>
+          bullet: ({ children }) => <ul>{children}</ul>,
+          number: ({ children }) => <ol>{children}</ol>
         },
-        listItem: {
-          bullet: ({ children }) => (
-            <li style={{ listStyleType: 'disclosure-closed' }}>{children}</li>
-          ),
-          number: ({ children }) => <ol className='text-lg'>{children}</ol>
-        },
+        // listItem: {
+        //   bullet: ({ children }) => (
+        //     <li style={{ listStyleType: 'disclosure-closed' }}>{children}</li>
+        //   ),
+        //   number: ({ children }) => <li>{children}</li>
+        // },
         marks: {
           link: ({ children, value }) => (
             <a

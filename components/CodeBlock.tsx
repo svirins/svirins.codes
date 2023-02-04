@@ -14,16 +14,12 @@ Refractor.registerLanguage(css);
 Refractor.registerLanguage(bash);
 
 export function CodeBlock({ value }: { value: any }) {
-  console.log({ value });
-  const language = value.filename.split('.').pop() ?? 'js';
+  // const language = value.filename.split('.').pop() ?? 'js';
+  const language = value.language ?? 'js';
+  const markers = value.highlightedLines ?? [];
   return (
     <div className='font_mono'>
-      <Refractor
-        language='js'
-        value={value.code}
-        // markers={value.highlightedLines}
-        markers={[1.3]}
-      />
+      <Refractor language={language} value={value.code} markers={markers} />
     </div>
   );
 }
