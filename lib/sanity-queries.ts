@@ -7,7 +7,6 @@ const postFields = `
   title,
   "slug": slug.current,
   "date": _updatedAt,
-  excerpt,
   coverImage,
   "tags": tags[] -> {
     _id,
@@ -27,16 +26,35 @@ const snippetFields = groq`
 // post-related queries
 
 export const indexQuery = groq`
-*[_type == "post"] | order(date desc, _updatedAt desc) {
-  ${postFields}
-}`;
+  *[_type == "post"] | order(date desc, _updatedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    "date": _updatedAt,
+    coverImage,
+    "tags": tags[] -> {
+      _id,
+      title,
+      "slug": slug.current
+    },
+    "excerpt": array::join(string::split((pt::text(body)), "")[0..255], "") + "..."
+  }`;
 
-export const postQuery = groq`
-{
-  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
+export const postQuery = groq`{
+"post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
+    _id,
+    title,
+    "slug": slug.current,
+    "date": _updatedAt,
+    coverImage,
+    "tags": tags[] -> {
+      _id,
+      title,
+      "slug": slug.current
+    },
     body,
+    "excerpt": array::join(string::split((pt::text(body)), "")[0..255], "") + "...",
     "readingTime": round(length(pt::text(body)) / 5 / 180 ),
-    ${postFields}
   }
 }`;
 
