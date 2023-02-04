@@ -52,7 +52,7 @@ export default async function Blog() {
               key={post.title}
               slug={post.slug}
               title={post.title}
-              excerpt={post.excerpt}
+              excerpt={`${post.excerpt.substring(0, 196)} ...`}
               tags={post.tags}
             />
           ))

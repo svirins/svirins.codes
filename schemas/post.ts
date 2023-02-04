@@ -31,12 +31,6 @@ export default defineType({
       }
     }),
     defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'string',
-      validation: (Rule: { required: () => any }) => Rule.required()
-    }),
-    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent'
