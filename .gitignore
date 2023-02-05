@@ -39,3 +39,8 @@ public/rss.xml
 public/sitemap.xml
 
 dist
+# Sentry
+.sentryclirc
+
+# Sentry
+next.config.original.js

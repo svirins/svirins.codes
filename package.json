@@ -27,6 +27,7 @@
     "@sanity/code-input": "^4.0.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.2.6",
+    "@sentry/nextjs": "^7.36.0",
     "@tailwindcss/typography": "0.5.9",
     "clsx": "^1.2.1",
     "next": "13.1.6",
