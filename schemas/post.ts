@@ -39,7 +39,7 @@ export default defineType({
           const filetype = getExtension(value.asset!._ref);
 
           if (filetype !== 'jpg' && filetype !== 'png' && filetype !== 'webp') {
-            return 'Image must be a JPG or PNG';
+            return 'Image must be a JPG or PNG or WEBP';
           }
 
           const { width, height } = getImageDimensions(value.asset!._ref);

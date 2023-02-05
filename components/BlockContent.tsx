@@ -1,10 +1,11 @@
 import { PortableText } from '@portabletext/react';
 import type { BlockContent } from 'lib/sanity-api';
-
+import Link from 'next/link';
 import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
-
+// TODO: imprlrmt external link processing
 const BlockContent = ({ section }: { section: BlockContent }) => {
+  // console.log('portable text is', { section });
   return (
     <PortableText
       value={section}
@@ -18,20 +19,32 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
           bullet: ({ children }) => <ul>{children}</ul>,
           number: ({ children }) => <ol>{children}</ol>
         },
-        // listItem: {
-        //   bullet: ({ children }) => (
-        //     <li style={{ listStyleType: 'disclosure-closed' }}>{children}</li>
-        //   ),
-        //   number: ({ children }) => <li>{children}</li>
-        // },
+
         marks: {
           link: ({ children, value }) => (
-            <a
-              className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-              href={`${value.href}`}
-            >
-              {children}
-            </a>
+            // <a
+            //   className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+            //   href={`${value.href}`}
+            // >
+            //   {children}
+            // </a>
+            <>
+              {value?.internal ? (
+                <Link
+                  className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+                  href={value.internal}
+                >
+                  {children}
+                </Link>
+              ) : value?.external ? (
+                <a
+                  className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+                  href={value.external}
+                >
+                  {children}
+                </a>
+              ) : null}
+            </>
           ),
           italic: ({ children }) => <i className='font-medium'>{children}</i>,
           em: ({ children }) => <em>{children}</em>,
@@ -42,12 +55,58 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
           )
         },
         block: {
-          h1: ({ children }) => <h1>{children}</h1>,
-          h2: ({ children }) => <h2>{children}</h2>,
-          h3: ({ children }) => <h3>{children}</h3>,
-          h4: ({ children }) => <h4>{children}</h4>,
-          h5: ({ children }) => <h5>{children}</h5>,
-          h6: ({ children }) => <h6>{children}</h6>,
+          h1: ({ children, value }) => (
+            <h1 id={`h${value._key}`}>
+              <a
+                href={`#${value._key}`}
+                aria-hidden='true'
+                tabIndex={-1}
+                className='text-gray-400'
+              >
+                #
+              </a>
+              {children}
+            </h1>
+          ),
+          h2: ({ children, value }) => (
+            <h2 id={`h${value._key}`}>
+              <a
+                href={`#${value._key}`}
+                aria-hidden='true'
+                tabIndex={-1}
+                className='text-gray-400'
+              >
+                #
+              </a>
+              {children}
+            </h2>
+          ),
+          h3: ({ children, value }) => (
+            <h3 id={`h${value._key}`}>
+              <a
+                href={`#${value._key}`}
+                aria-hidden='true'
+                tabIndex={-1}
+                className='text-gray-400'
+              >
+                #
+              </a>
+              {children}
+            </h3>
+          ),
+          h4: ({ children, value }) => (
+            <h4 id={`h${value._key}`}>
+              <a
+                href={`#${value._key}`}
+                aria-hidden='true'
+                tabIndex={-1}
+                className='text-gray-400'
+              >
+                #
+              </a>
+              {children}
+            </h4>
+          ),
           blockquote: ({ children }) => (
             <div className='py-1'>
               <blockquote className='flex'>

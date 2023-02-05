@@ -31,9 +31,16 @@ export default defineType({
             type: 'object',
             fields: [
               {
+                name: 'external',
+                type: 'url',
                 title: 'URL',
-                name: 'href',
-                type: 'url'
+                hidden: ({ parent, value }) => !value && !!parent?.internal
+              },
+              {
+                name: 'internal',
+                type: 'reference',
+                to: [{ type: 'snippet' }, { type: 'post' }],
+                hidden: ({ parent, value }) => !value && !!parent?.external
               }
             ]
           }
