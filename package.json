@@ -28,6 +28,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.2.6",
     "@tailwindcss/typography": "0.5.9",
+    "@wits/next-themes": "^0.2.16",
     "clsx": "^1.2.1",
     "next": "13.1.6",
     "next-sanity": "^4.1.2",

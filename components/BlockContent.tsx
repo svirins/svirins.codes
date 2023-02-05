@@ -61,10 +61,8 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
                 href={`#${value._key}`}
                 aria-hidden='true'
                 tabIndex={-1}
-                className='text-gray-400'
-              >
-                #
-              </a>
+                className='anchor'
+              ></a>
               {children}
             </h1>
           ),
@@ -74,10 +72,8 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
                 href={`#${value._key}`}
                 aria-hidden='true'
                 tabIndex={-1}
-                className='text-gray-400'
-              >
-                #
-              </a>
+                className='anchor'
+              ></a>
               {children}
             </h2>
           ),
@@ -87,10 +83,8 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
                 href={`#${value._key}`}
                 aria-hidden='true'
                 tabIndex={-1}
-                className='text-gray-400'
-              >
-                #
-              </a>
+                className='anchor'
+              ></a>
               {children}
             </h3>
           ),
@@ -100,10 +94,8 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
                 href={`#${value._key}`}
                 aria-hidden='true'
                 tabIndex={-1}
-                className='text-gray-400'
-              >
-                #
-              </a>
+                className='anchor'
+              ></a>
               {children}
             </h4>
           ),
