@@ -1,24 +1,17 @@
 'use client';
 
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '@wits/next-themes';
 export default function ToggleMode() {
-  // const [mode, setMode] = useState('dark');
-  // useEffect(() => {
-  //   if (document.documentElement.classList.contains('dark')) {
-  //     setMode('dark');
-  //   } else {
-  //     setMode('light');
-  //   }
-  // }, []);
-  // const onClick = () => {
-  //   const toggle = document.documentElement.classList.toggle('dark');
-  //   const theme = toggle ? 'dark' : 'light';
-  //   window.localStorage.setItem('theme', theme);
-  //   setMode(theme);
-  // };
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const onClick = () => {};
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
   return (
     <button
       aria-label='Toggle Dark Mode'

@@ -10,7 +10,8 @@ import {
   snippetSlugsQuery,
   snippetsQuery,
   tagRelatedPosts,
-  tagSlugsQuery
+  tagSlugsQuery,
+  documentSlugById
 } from './sanity-queries';
 
 export interface ITag {
@@ -50,6 +51,13 @@ export interface ISnippet {
   title: string;
   description: string;
   iconTitle: string;
+}
+
+export interface ReferencedDocument {
+  _id: string;
+  _type: 'post' | 'tag';
+  title: string;
+  slug: string;
 }
 
 export const getPosts = async (): Promise<IPost[]> => {
@@ -115,4 +123,11 @@ export const getPostsByTag = async (
   // const posts = await sanityClient.fetch(tagRelatedPosts, { slug });
   const posts = await clientFetch(tagRelatedPosts, { slug });
   return posts ?? null;
+};
+
+export const getDocumentById = async (
+  id: string
+): Promise<ReferencedDocument> => {
+  const document = await clientFetch(documentSlugById, { id });
+  return document ?? null;
 };

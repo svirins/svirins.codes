@@ -102,3 +102,11 @@ export const snippetSlugsQuery = groq`
 export const tagSlugsQuery = groq`
 *[_type == "tag" && defined(slug.current)][].slug.current
 `;
+
+export const documentSlugById = groq`
+*[_id == $id] {
+    _id,
+    _type,
+    title,
+    "slug": slug.current,
+}`;
