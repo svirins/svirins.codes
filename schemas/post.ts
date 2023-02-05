@@ -1,5 +1,6 @@
 import { RiPagesLine } from 'react-icons/ri';
 import { defineType, defineField } from 'sanity';
+import { getExtension, getImageDimensions } from '@sanity/asset-utils';
 
 export default defineType({
   name: 'post',
@@ -28,7 +29,27 @@ export default defineType({
       type: 'image',
       options: {
         hotspot: true
-      }
+      },
+      validation: (rule) =>
+        rule.custom((value) => {
+          if (!value) {
+            return true;
+          }
+
+          const filetype = getExtension(value.asset!._ref);
+
+          if (filetype !== 'jpg' && filetype !== 'png' && filetype !== 'webp') {
+            return 'Image must be a JPG or PNG';
+          }
+
+          const { width, height } = getImageDimensions(value.asset!._ref);
+
+          if (width < 672 || height < 256) {
+            return 'Image must be at least 672x256 pixels';
+          }
+
+          return true;
+        })
     }),
     defineField({
       name: 'body',
