@@ -54,10 +54,8 @@ export interface ISnippet {
 }
 
 export interface ReferencedDocument {
-  _id: string;
-  _type: 'post' | 'tag';
-  title: string;
-  slug: string;
+  alt: string;
+  url: string;
 }
 
 export const getPosts = async (): Promise<IPost[]> => {
@@ -129,5 +127,17 @@ export const getDocumentById = async (
   id: string
 ): Promise<ReferencedDocument> => {
   const document = await clientFetch(documentSlugById, { id });
-  return document ?? null;
+  let url = '';
+  let alt = document.title;
+  switch (document._type) {
+    case 'post':
+      url = `/blog/${document.slug}`;
+      break;
+    case 'snippet':
+      url = `/snippet/${document.slug}`;
+      break;
+    default:
+      url = '/';
+  }
+  return { url, alt };
 };

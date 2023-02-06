@@ -1,14 +1,32 @@
 import { PortableText } from '@portabletext/react';
-import type { BlockContent } from 'lib/sanity-api';
+import { getDocumentById } from 'lib/sanity-api';
 import Link from 'next/link';
 import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
-// TODO: imprlrmt external link processing
-const BlockContent = ({ section }: { section: BlockContent }) => {
-  // console.log('portable text is', { section });
+// TODO: implement external link processing
+// TODO: add correct type to block content
+const BlockContent = async ({ section }: { section: any }) => {
+  const replacedSection =
+    section.markDefs &&
+    section.markDefs.length > 0 &&
+    section.markDefs[0].internal
+      ? {
+          ...section,
+          urlwithAlt: await getDocumentById(section.markDefs[0].internal._ref)
+        }
+      : section;
+  if (
+    section.markDefs &&
+    section.markDefs.length > 0 &&
+    section.markDefs[0].internal
+  ) {
+    console.log('markdefs are:', section.markDefs[0].internal);
+    console.log('whole section is:', replacedSection);
+  }
+  // // console.log('portable text is', section.);
   return (
     <PortableText
-      value={section}
+      value={replacedSection}
       onMissingComponent={false}
       components={{
         types: {
@@ -21,31 +39,31 @@ const BlockContent = ({ section }: { section: BlockContent }) => {
         },
 
         marks: {
-          link: ({ children, value }) => (
-            // <a
-            //   className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-            //   href={`${value.href}`}
-            // >
-            //   {children}
-            // </a>
-            <>
-              {value?.internal ? (
-                <Link
-                  className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-                  href={value.internal}
-                >
-                  {children}
-                </Link>
-              ) : value?.external ? (
-                <a
-                  className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-                  href={value.external}
-                >
-                  {children}
-                </a>
-              ) : null}
-            </>
-          ),
+          // link: ({ children, value = {} }) => (
+          //   // <a
+          //   //   className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+          //   //   href={`${value.href}`}
+          //   // >
+          //   //   {children}
+          //   // </a>
+          //   <>
+          //     {value?.internal ? (
+          //       <Link
+          //         className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+          //         href={children.urlwithAlt}
+          //       >
+          //         {value.urlwithAlt}
+          //       </Link>
+          //     ) : value?.external ? (
+          //       <a
+          //         className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+          //         href={value.external}
+          //       >
+          //         {children}
+          //       </a>
+          //     ) : null}
+          //   </>
+          // ),
           italic: ({ children }) => <i className='font-medium'>{children}</i>,
           em: ({ children }) => <em>{children}</em>,
           highlight: ({ children }) => (

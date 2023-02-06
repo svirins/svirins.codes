@@ -109,4 +109,4 @@ export const documentSlugById = groq`
     _type,
     title,
     "slug": slug.current,
-}`;
+}[0]`;
