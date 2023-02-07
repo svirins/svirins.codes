@@ -7,17 +7,27 @@ import css from 'refractor/lang/css';
 import bash from 'refractor/lang/bash';
 import { font_mono } from 'fonts';
 
+interface CodeBlock {
+  _key: 'string';
+  _type: 'string';
+  code: 'string';
+  filename: 'string';
+  language: 'string';
+  highlightedLines?: number[];
+}
+
 Refractor.registerLanguage(js);
 Refractor.registerLanguage(typescript);
 Refractor.registerLanguage(jsx);
 Refractor.registerLanguage(css);
 Refractor.registerLanguage(bash);
+
 // TODO: pre tag - styling, make top padding smaller
-export function CodeBlock({ value }: { value: any }) {
+export function CodeBlock({ value }: { value: CodeBlock }) {
   const language = value.language ?? 'js';
   const markers = value.highlightedLines ?? [];
   return (
-    <div className={`font_mono ${font_mono.variable}`}>
+    <div className={`font_mono ${font_mono.variable} overflow-x-scroll`}>
       {value.filename && <span>{value.filename}</span>}
       <Refractor language={language} value={value.code} markers={markers} />
     </div>

@@ -54,7 +54,6 @@ export interface ISnippet {
 }
 
 export interface ReferencedDocument {
-  alt: string;
   url: string;
 }
 
@@ -139,5 +138,5 @@ export const getDocumentById = async (
     default:
       url = '/';
   }
-  return { url, alt };
+  return { url };
 };

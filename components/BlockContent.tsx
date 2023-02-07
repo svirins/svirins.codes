@@ -1,40 +1,20 @@
+import produce from 'immer';
 import { PortableText } from '@portabletext/react';
 import { getDocumentById } from 'lib/sanity-api';
 import Link from 'next/link';
 import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
-import produce from 'immer';
-// TODO: implement external link processing
-// TODO: add correct type to block content
+
 const BlockContent = async ({ section }: { section: any }) => {
-  // const replacedSection =
-  // section.markDefs &&
-  //   section.markDefs.length > 0 &&
-  //   section.markDefs[0].internal;
-  //     ? {
-  //         ...section,
-  //         urlwithAlt: await getDocumentById(section.markDefs[0].internal._ref)
-  //       }
-  //     : section;
-  // if (
-  //   section.markDefs &&
-  //   section.markDefs.length > 0 &&
-  //   section.markDefs[0].internal
-  // ) {
-  //   console.log('markdefs are:', replacedSection.children);
-  //   console.log('whole section is:', replacedSection);
-  // }
-  async function modifyInternalLink(section) {
+  async function modifyInternalLink(section: any) {
     if (
       section.markDefs &&
       section.markDefs.length > 0 &&
       section.markDefs[0].internal
     ) {
-      const { url, alt } = await getDocumentById(
-        section.markDefs[0].internal._ref
-      );
-      const modifiedSection = produce(section, (draft) => {
-        draft.markDefs[0].internal._ref = url;
+      const { url } = await getDocumentById(section.markDefs[0].internal._ref);
+      const modifiedSection = produce(section, (draft: any) => {
+        draft.markDefs[0].internal.path = url;
       });
       return modifiedSection;
     } else {
@@ -42,25 +22,11 @@ const BlockContent = async ({ section }: { section: any }) => {
     }
   }
 
-  // const clonedSection = produce(section, (draft) => {
-  //   if (
-  //     section.markDefs &&
-  //     section.markDefs.length > 0 &&
-  //     section.markDefs[0].internal
-  //   ) {
-  //     const { url, alt } = await getDocumentById(
-  //       section.markDefs[0].internal._ref
-  //     );
-  //     draft.markDefs[0].internal._ref = url;
-  //   }
-  // });
-  const result = await modifyInternalLink(section);
-  console.log(result.markDefs[0].internal);
+  const modifiedSection = await modifyInternalLink(section);
 
-  // // console.log('portable text is', section.);
   return (
     <PortableText
-      value={section}
+      value={modifiedSection}
       onMissingComponent={false}
       components={{
         types: {
@@ -71,22 +37,19 @@ const BlockContent = async ({ section }: { section: any }) => {
           bullet: ({ children }) => <ul>{children}</ul>,
           number: ({ children }) => <ol>{children}</ol>
         },
-
+        listItem: {
+          bullet: ({ children }) => <li>{children}</li>,
+          number: ({ children }) => <li>{children}</li>
+        },
         marks: {
           link: ({ children, value }) => (
-            // <a
-            //   className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-            //   href={`${value.href}`}
-            // >
-            //   {children}
-            // </a>
             <>
               {value?.internal ? (
                 <Link
                   className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-                  href={value.internal._ref}
+                  href={value.internal.path}
                 >
-                  {value.urlwithAlt}
+                  {children}
                 </Link>
               ) : value?.external ? (
                 <a
