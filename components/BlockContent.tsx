@@ -3,30 +3,64 @@ import { getDocumentById } from 'lib/sanity-api';
 import Link from 'next/link';
 import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
+import produce from 'immer';
 // TODO: implement external link processing
 // TODO: add correct type to block content
 const BlockContent = async ({ section }: { section: any }) => {
-  const replacedSection =
-    section.markDefs &&
-    section.markDefs.length > 0 &&
-    section.markDefs[0].internal
-      ? {
-          ...section,
-          urlwithAlt: await getDocumentById(section.markDefs[0].internal._ref)
-        }
-      : section;
-  if (
-    section.markDefs &&
-    section.markDefs.length > 0 &&
-    section.markDefs[0].internal
-  ) {
-    console.log('markdefs are:', section.markDefs[0].internal);
-    console.log('whole section is:', replacedSection);
+  // const replacedSection =
+  // section.markDefs &&
+  //   section.markDefs.length > 0 &&
+  //   section.markDefs[0].internal;
+  //     ? {
+  //         ...section,
+  //         urlwithAlt: await getDocumentById(section.markDefs[0].internal._ref)
+  //       }
+  //     : section;
+  // if (
+  //   section.markDefs &&
+  //   section.markDefs.length > 0 &&
+  //   section.markDefs[0].internal
+  // ) {
+  //   console.log('markdefs are:', replacedSection.children);
+  //   console.log('whole section is:', replacedSection);
+  // }
+  async function modifyInternalLink(section) {
+    if (
+      section.markDefs &&
+      section.markDefs.length > 0 &&
+      section.markDefs[0].internal
+    ) {
+      const { url, alt } = await getDocumentById(
+        section.markDefs[0].internal._ref
+      );
+      const modifiedSection = produce(section, (draft) => {
+        draft.markDefs[0].internal._ref = url;
+      });
+      return modifiedSection;
+    } else {
+      return section;
+    }
   }
+
+  // const clonedSection = produce(section, (draft) => {
+  //   if (
+  //     section.markDefs &&
+  //     section.markDefs.length > 0 &&
+  //     section.markDefs[0].internal
+  //   ) {
+  //     const { url, alt } = await getDocumentById(
+  //       section.markDefs[0].internal._ref
+  //     );
+  //     draft.markDefs[0].internal._ref = url;
+  //   }
+  // });
+  const result = await modifyInternalLink(section);
+  console.log(result.markDefs[0].internal);
+
   // // console.log('portable text is', section.);
   return (
     <PortableText
-      value={replacedSection}
+      value={section}
       onMissingComponent={false}
       components={{
         types: {
@@ -39,31 +73,31 @@ const BlockContent = async ({ section }: { section: any }) => {
         },
 
         marks: {
-          // link: ({ children, value = {} }) => (
-          //   // <a
-          //   //   className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-          //   //   href={`${value.href}`}
-          //   // >
-          //   //   {children}
-          //   // </a>
-          //   <>
-          //     {value?.internal ? (
-          //       <Link
-          //         className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-          //         href={children.urlwithAlt}
-          //       >
-          //         {value.urlwithAlt}
-          //       </Link>
-          //     ) : value?.external ? (
-          //       <a
-          //         className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-          //         href={value.external}
-          //       >
-          //         {children}
-          //       </a>
-          //     ) : null}
-          //   </>
-          // ),
+          link: ({ children, value }) => (
+            // <a
+            //   className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+            //   href={`${value.href}`}
+            // >
+            //   {children}
+            // </a>
+            <>
+              {value?.internal ? (
+                <Link
+                  className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+                  href={value.internal._ref}
+                >
+                  {value.urlwithAlt}
+                </Link>
+              ) : value?.external ? (
+                <a
+                  className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+                  href={value.external}
+                >
+                  {children}
+                </a>
+              ) : null}
+            </>
+          ),
           italic: ({ children }) => <i className='font-medium'>{children}</i>,
           em: ({ children }) => <em>{children}</em>,
           highlight: ({ children }) => (

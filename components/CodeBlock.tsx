@@ -12,13 +12,13 @@ Refractor.registerLanguage(typescript);
 Refractor.registerLanguage(jsx);
 Refractor.registerLanguage(css);
 Refractor.registerLanguage(bash);
-
+// TODO: pre tag - styling, make top padding smaller
 export function CodeBlock({ value }: { value: any }) {
-  // const language = value.filename.split('.').pop() ?? 'js';
   const language = value.language ?? 'js';
   const markers = value.highlightedLines ?? [];
   return (
     <div className={`font_mono ${font_mono.variable}`}>
+      {value.filename && <span>{value.filename}</span>}
       <Refractor language={language} value={value.code} markers={markers} />
     </div>
   );
