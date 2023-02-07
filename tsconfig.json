@@ -23,7 +23,8 @@
       "@/config/*": ["config/*"],
       "@/fonts/*": ["fonts/*"],
       "@/lib/*": ["lib/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "react": ["./node_modules/@types/react"]
     },
     "plugins": [
       {

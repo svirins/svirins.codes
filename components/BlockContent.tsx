@@ -38,8 +38,12 @@ const BlockContent = async ({ section }: { section: any }) => {
           number: ({ children }) => <ol>{children}</ol>
         },
         listItem: {
-          bullet: ({ children }) => <li>{children}</li>,
-          number: ({ children }) => <li>{children}</li>
+          bullet: ({ children }) => (
+            <li style={{ listStyleType: 'square' }}>{children}</li>
+          ),
+          number: ({ children }) => (
+            <li style={{ listStyleType: 'decimal' }}>{children}</li>
+          )
         },
         marks: {
           link: ({ children, value }) => (

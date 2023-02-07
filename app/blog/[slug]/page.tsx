@@ -6,7 +6,7 @@ import { urlForImage } from 'lib/sanity-client';
 import { getImageDimensions } from '@sanity/asset-utils';
 
 import BlockContent from 'components/BlockContent';
-//TODO:
+
 export async function generateStaticParams() {
   const paths = await getPostSlugs();
   return paths.map((slug) => ({ slug: slug }));
@@ -75,13 +75,11 @@ export default async function PostPage({
           {`${post.readingTime} min read`}
         </p>
       </div>
-      <div className='w-full max-w-2xl mt-4 prose prose-slate dark:prose-invert md:prose-lg'>
-        {post.body.map((section) => {
-          if (!section || Object.keys(section).length === 0) {
-            return null;
-          }
 
-          return <BlockContent key={section._key} section={section} />;
+      <div className='w-full max-w-2xl mt-4 prose prose-slate dark:prose-invert md:prose-lg'>
+        {/* @ts-expect-error Server Component */}
+        {post.body.map((section) => {
+          <BlockContent key={section._key} section={section} />;
         })}
       </div>
     </article>
