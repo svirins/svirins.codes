@@ -28,9 +28,9 @@ module.exports = {
 };
 
 const ContentSecurityPolicy = `
-    default-src 'self';
+    default-src 'self' *.sentry.io;
     script-src 'self' 'unsafe-eval' 'unsafe-inline'  *.spotify.com *.youtube.com *.sentry.io;
-    child-src *.youtube.com  *.spotify.com ;
+    child-src *.youtube.com  *.spotify.com *.sentry.io;
     style-src 'self' 'unsafe-inline'  *.spotify.com;
     img-src * blob: data:;
     media-src  *.spotify.com;
