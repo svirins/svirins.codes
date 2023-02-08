@@ -49,9 +49,12 @@ export default async function SnippetsPage({
         {/* <hr className="w-full border-1 max-w-2xl border-gray-200 dark:border-gray-800" /> */}
 
         <div className='prose dark:prose-invert prose-slate  max-w-2xl  w-full md:prose-lg'>
-          {/* @ts-expect-error Server Component */}
           {snippet.body.map((section) => {
-            <BlockContent key={section._key} section={section} />;
+            if (!section || Object.keys(section).length === 0) {
+              return null;
+            }
+
+            return <BlockContent key={section._key} section={section} />;
           })}
         </div>
       </div>

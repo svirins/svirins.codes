@@ -1,16 +1,21 @@
-import { SanityAsset, getImageDimensions } from '@sanity/asset-utils';
+import { SanityAsset } from '@sanity/asset-utils';
 import Image from 'next/image';
 import { urlForImage } from 'lib/sanity-client';
+import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts';
 // TODO: add alt tag completion for image
-export function InlineImage(asset: SanityAsset) {
-  const { width, height } = getImageDimensions(asset);
+export async function InlineImage(asset: SanityAsset) {
+  const { width, height, base64, img } = await createRemoteImageAttributes(
+    asset
+  );
   return (
     <Image
-      src={urlForImage(asset).url()}
+      src={img}
       width={width}
       height={height}
       alt='just text'
       className='rounded-lg  h-auto'
+      placeholder='blur'
+      blurDataURL={base64}
     />
   );
 }

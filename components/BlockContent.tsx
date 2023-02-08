@@ -23,7 +23,6 @@ const BlockContent = async ({ section }: { section: any }) => {
   }
 
   const modifiedSection = await modifyInternalLink(section);
-
   return (
     <PortableText
       value={modifiedSection}

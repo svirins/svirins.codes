@@ -2,10 +2,9 @@ import Image from 'next/image';
 import { ArticleJsonLd } from 'next-seo';
 import { getPost, getPostSlugs } from 'lib/sanity-api';
 import { Tags } from 'components/Tags';
-import { urlForImage } from 'lib/sanity-client';
-import { getImageDimensions } from '@sanity/asset-utils';
 
 import BlockContent from 'components/BlockContent';
+import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts';
 
 export async function generateStaticParams() {
   const paths = await getPostSlugs();
@@ -19,7 +18,9 @@ export default async function PostPage({
   };
 }) {
   const post = await getPost(params.slug);
-  const { width, height } = getImageDimensions(post.coverImage);
+  const { width, height, base64, img } = await createRemoteImageAttributes(
+    post.coverImage
+  );
   return (
     <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12'>
       <ArticleJsonLd
@@ -27,7 +28,7 @@ export default async function PostPage({
         type='BlogPosting'
         url='https://example.com/blog'
         title={`${post.title} Dzmitry Svirin`}
-        images={[urlForImage(post.coverImage).url()]}
+        images={[img.src]}
         datePublished={new Date(post.date).toISOString()}
         authorName='Dzmitry Svirin'
         description={post.excerpt}
@@ -39,11 +40,14 @@ export default async function PostPage({
       {post.coverImage && (
         <div className='flex flex-col w-full my-4'>
           <Image
-            src={urlForImage(post.coverImage).url()}
+            src={img.src}
             alt={`Image for ${post.title}`}
             width={width}
             height={height}
             className='rounded-lg  h-auto'
+            priority={true}
+            placeholder='blur'
+            blurDataURL={base64}
           />
         </div>
       )}
@@ -77,9 +81,12 @@ export default async function PostPage({
       </div>
 
       <div className='w-full max-w-2xl mt-4 prose prose-slate dark:prose-invert md:prose-lg'>
-        {/* @ts-expect-error Server Component */}
         {post.body.map((section) => {
-          <BlockContent key={section._key} section={section} />;
+          if (!section || Object.keys(section).length === 0) {
+            return null;
+          }
+
+          return <BlockContent key={section._key} section={section} />;
         })}
       </div>
     </article>

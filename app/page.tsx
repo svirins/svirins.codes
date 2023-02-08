@@ -39,9 +39,9 @@ export default async function IndexPage() {
               width={262}
               height={363}
               className='rounded-md'
-              // placeholder="blur"
-              // blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-              // priority
+              priority={true}
+              placeholder='blur'
+              blurDataURL='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
             />
           </div>
         </div>

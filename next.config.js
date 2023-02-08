@@ -2,13 +2,13 @@
 // with Sentry.
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-const { withSentryConfig } = require('@sentry/nextjs');
-
+// const { withSentryConfig } = require('@sentry/nextjs');
+const { withPlaiceholder } = require('@plaiceholder/next');
 /**
  * @type {import('next').NextConfig}
  */
 
-module.exports = {
+module.exports = withPlaiceholder({
   experimental: {
     appDir: true,
     swcMinify: true
@@ -16,26 +16,27 @@ module.exports = {
   images: {
     domains: ['cdn.sanity.io'],
     formats: ['image/webp']
-  },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders
-      }
-    ];
   }
-};
+  // async headers() {
+  //   return [
+  //     {
+  //       source: '/(.*)',
+  //       headers: securityHeaders
+  //     }
+  //   ];
+  // }
+});
 
 const ContentSecurityPolicy = `
-    default-src 'self' *.sentry.io;
+    default-src 'self';
+    worker-src 'self' 'unsafe-eval' 'unsafe-inline'  *.spotify.com *.youtube.com *.sentry.io;
     script-src 'self' 'unsafe-eval' 'unsafe-inline'  *.spotify.com *.youtube.com *.sentry.io;
     child-src *.youtube.com  *.spotify.com *.sentry.io;
-    style-src 'self' 'unsafe-inline'  *.spotify.com;
+    style-src 'self' 'unsafe-inline' *.spotify.com;
     img-src * blob: data:;
     media-src  *.spotify.com;
     connect-src *;
-    font-src 'self';
+    font-src '*.google.com *.gstatic.com';
 `;
 
 const securityHeaders = [
@@ -73,8 +74,8 @@ const securityHeaders = [
   }
 ];
 
-module.exports = withSentryConfig(
-  module.exports,
-  { silent: true },
-  { hideSourcemaps: true }
-);
+// module.exports = withSentryConfig(
+//   module.exports,
+//   { silent: false },
+//   { hideSourcemaps: false }
+// );

@@ -3,7 +3,7 @@ import 'styles/globals.css';
 import { font_sans } from 'fonts';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-// import { ServerThemeProvider } from '@wits/next-themes';
+import { ServerThemeProvider } from '@wits/next-themes';
 
 // TODO: Move mono font to snippets layout
 

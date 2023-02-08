@@ -1,3 +1,5 @@
+import { SanityAsset } from '@sanity/asset-utils';
+
 import { sanityClient, clientFetch } from './sanity-server';
 
 import {
@@ -40,7 +42,7 @@ export interface IPost {
   date: string;
   excerpt: string;
   tags: ITag[];
-  coverImage: string;
+  coverImage: SanityAsset;
   readingTime: number;
 }
 
