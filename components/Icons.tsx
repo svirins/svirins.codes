@@ -322,7 +322,7 @@ export function LightBulb() {
   return (
     <IconContext.Provider
       value={{
-        className: 'w-5 h-5 fill-gray-700  dark:fill-gray-400'
+        className: 'w-5 h-5 fill-gray-700  dark:fill-gray-400 inlime mr-3'
       }}
     >
       <div className='flex text-left'>

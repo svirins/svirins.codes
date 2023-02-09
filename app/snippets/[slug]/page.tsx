@@ -1,4 +1,3 @@
-`use client`;
 import { ArticleJsonLd } from 'next-seo';
 import { font_mono } from 'fonts';
 import BlockContent from 'components/BlockContent';

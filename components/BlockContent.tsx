@@ -52,7 +52,7 @@ const BlockContent = async ({ section }: { section: any }) => {
             <>
               {value?.internal ? (
                 <Link
-                  className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+                  className='text-gray-800 dark:text-gray-300 font-medium link-underline link-underline-gradient'
                   href={value.internal.path}
                 >
                   {children}
