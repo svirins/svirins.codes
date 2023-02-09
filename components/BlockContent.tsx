@@ -4,6 +4,8 @@ import { getDocumentById } from 'lib/sanity-api';
 import Link from 'next/link';
 import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
+import { MessageBox } from 'components/MessageBox';
+import type { SanityAsset } from '@sanity/asset-utils';
 
 const BlockContent = async ({ section }: { section: any }) => {
   async function modifyInternalLink(section: any) {
@@ -29,8 +31,9 @@ const BlockContent = async ({ section }: { section: any }) => {
       onMissingComponent={false}
       components={{
         types: {
-          image: ({ value }) => InlineImage(value),
-          code: ({ value }) => <CodeBlock value={value} />
+          image: ({ value }: { value: SanityAsset }) => InlineImage(value),
+          code: ({ value }) => <CodeBlock value={value} />,
+          messageBox: ({ value }) => <MessageBox value={value} />
         },
         list: {
           bullet: ({ children }) => <ul>{children}</ul>,
