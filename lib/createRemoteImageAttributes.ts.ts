@@ -6,8 +6,11 @@ import { getPlaiceholder } from 'plaiceholder';
 
 export async function createRemoteImageAttributes(src: SanityAsset) {
   const { width, height } = getImageDimensions(src);
-  const { base64, img } = await getPlaiceholder(urlForImage(src).url());
-  const actualHeight = (height / width) * 672;
+  const actualHeight = Math.trunc((height / width) * 672);
+  const sanityImageUrl = `${urlForImage(src)
+    .format('webp')
+    .url()}&w=${actualHeight}&h=672`;
+  const { base64, img } = await getPlaiceholder(sanityImageUrl);
   return {
     width: 672,
     height: actualHeight,
