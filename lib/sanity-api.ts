@@ -59,7 +59,7 @@ export interface ReferencedDocument {
   url: string;
 }
 
-export const getPosts = async (): Promise<IPost[]> => {
+export const getPosts = async (): Promise<Partial<IPost[]>> => {
   // const posts = await sanityClient.fetch(indexQuery);
   const posts = await clientFetch(indexQuery);
 
@@ -117,7 +117,7 @@ export const getPostsByTag = async (
   slug: string
 ): Promise<{
   title: string;
-  posts: IPost[];
+  posts: Partial<IPost[]>;
 }> => {
   // const posts = await sanityClient.fetch(tagRelatedPosts, { slug });
   const posts = await clientFetch(tagRelatedPosts, { slug });

@@ -25,11 +25,11 @@ export default async function TagPage({
         {posts.length ? (
           posts.map((post) => (
             <PostPreview
-              key={post.title}
-              slug={post.slug}
-              title={post.title}
-              excerpt={post.excerpt}
-              tags={post.tags}
+              key={post!.title}
+              slug={post!.slug}
+              title={post!.title}
+              excerpt={`${post!.excerpt.substring(0, 196)} ...`}
+              tags={post!.tags}
             />
           ))
         ) : (

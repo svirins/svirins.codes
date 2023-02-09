@@ -30,8 +30,6 @@ export const indexQuery = groq`
     _id,
     title,
     "slug": slug.current,
-    "date": _updatedAt,
-    coverImage,
     "tags": tags[] -> {
       _id,
       title,
@@ -71,7 +69,15 @@ export const tagRelatedPosts = groq`
 *[_type == "tag" && slug.current == $slug] {
   title,
   "posts":  *[_type == 'post' && references(^._id)] {
-    ${postFields}
+    _id,
+    title,
+    "slug": slug.current,
+    "tags": tags[] -> {
+      _id,
+      title,
+      "slug": slug.current
+    },
+    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..255], "") + "..."
   } [0...${POSTS_LIMIT}]  | order(_updatedAt desc)
 }[0]
 `;
