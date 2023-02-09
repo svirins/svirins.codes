@@ -5,9 +5,11 @@ import { MyStack } from 'components/Icons';
 
 import getWakaStats from 'lib/waka-api';
 import WakaStats from 'components/WakaStats';
+import { getPlaiceholder } from 'plaiceholder';
 // TODO: Consider move WakaStats fetch into it's own component
 export default async function IndexPage() {
   const { languages, totalHours } = await getWakaStats();
+  const { base64, img } = await getPlaiceholder('/me.webp');
   return (
     // <Container title="About me page | Dzmitry Svirin - svirins.codes">
     <>
@@ -35,13 +37,13 @@ export default async function IndexPage() {
           <div className='hidden md:block'>
             <Image
               alt='Dzmitry Svirin'
-              src='/me.webp'
+              src={img}
               width={262}
               height={363}
               className='rounded-md'
               priority={true}
               placeholder='blur'
-              blurDataURL='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
+              blurDataURL={base64}
             />
           </div>
         </div>
