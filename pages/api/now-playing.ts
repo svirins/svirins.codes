@@ -1,3 +1,4 @@
+import { wrapApiHandlerWithSentry } from '@sentry/nextjs';
 import getNowPlaying from 'lib/spotify-api';
 interface ICurrentlyPlaying {
   songUrl?: string;
@@ -9,7 +10,7 @@ export const config = {
   runtime: 'edge'
 };
 
-export default async function handler(): Promise<ICurrentlyPlaying | Response> {
+async function handler(): Promise<ICurrentlyPlaying | Response> {
   const response = await getNowPlaying();
   if (response.status === 204 || response.status > 400) {
     return new Response(JSON.stringify({ isPlaying: false }), {
@@ -51,3 +52,5 @@ export default async function handler(): Promise<ICurrentlyPlaying | Response> {
     }
   );
 }
+
+export default wrapApiHandlerWithSentry(handler);

@@ -1,31 +1,40 @@
-'use client'; // Error components must be Client components
+'use client';
+/**
+ * NOTE: This requires `@sentry/nextjs` version 7.3.0 or higher.
+ *
+ * NOTE: If using this with `next` version 12.2.0 or lower, uncomment the
+ * penultimate line in `CustomErrorComponent`.
+ *
+ * This page is loaded by Nextjs:
+ *  - on the server, when data-fetching methods throw or reject
+ *  - on the client, when `getInitialProps` throws or rejects
+ *  - on the client, when a React lifecycle method throws or rejects, and it's
+ *    caught by the built-in Nextjs error boundary
+ *
+ * See:
+ *  - https://nextjs.org/docs/basic-features/data-fetching/overview
+ *  - https://nextjs.org/docs/api-reference/data-fetching/get-initial-props
+ *  - https://reactjs.org/docs/error-boundaries.html
+ */
 
-import { useEffect } from 'react';
+import * as Sentry from '@sentry/nextjs';
+import NextErrorComponent from 'next/error';
 
-export default function Error({
-  error,
-  reset
-}: {
-  error: Error;
-  reset: () => void;
-}) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
+const CustomErrorComponent = (props) => {
+  // If you're using a Nextjs version prior to 12.2.1, uncomment this to
+  // compensate for https://github.com/vercel/next.js/issues/8592
+  // Sentry.captureUnderscoreErrorException(props);
 
-  return (
-    <div className='flex justify-center items-center mx-auto'>
-      <h2>Something went wrong!</h2>
-      <button
-        className='bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow'
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
-    </div>
-  );
-}
+  return <NextErrorComponent statusCode={props.statusCode} />;
+};
+
+CustomErrorComponent.getInitialProps = async (contextData: any) => {
+  // In case this is running in a serverless function, await this in order to give Sentry
+  // time to send the error before the lambda exits
+  await Sentry.captureUnderscoreErrorException(contextData);
+
+  // This will contain the status code of the response
+  return NextErrorComponent.getInitialProps(contextData);
+};
+
+export default CustomErrorComponent;

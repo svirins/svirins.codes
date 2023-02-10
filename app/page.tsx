@@ -1,10 +1,13 @@
+import { wrapAppDirComponentWithSentry } from '@sentry/nextjs';
+
 import Image from 'next/image';
 import getWakaStats from 'lib/waka-api';
 import { getPlaiceholder } from 'plaiceholder';
 import TypewriterEffect from 'components/TypewriterEffect';
 import { MyStack } from 'components/Icons';
 import WakaStats from 'components/WakaStats';
-export default async function IndexPage() {
+
+async function IndexPage() {
   const { languages, totalHours } = await getWakaStats();
   const { base64, img } = await getPlaiceholder('/svirins.webp');
   return (
@@ -144,3 +147,5 @@ export default async function IndexPage() {
     </>
   );
 }
+
+export default wrapAppDirComponentWithSentry(IndexPage);
