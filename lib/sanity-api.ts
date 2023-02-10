@@ -1,6 +1,7 @@
 import { SanityAsset } from '@sanity/asset-utils';
 
 import { sanityClient, clientFetch } from './sanity-server';
+import produce from 'immer';
 
 import {
   allSnippetsQuery,
@@ -22,16 +23,21 @@ export interface ITag {
   slug: string;
 }
 
-export interface SanityBlock {
-  [key: string]: any;
-  _type: 'block' | 'span';
-  // _type: 'block' | 'image';
+export type BlockType = 'block' | 'image' | 'code' | 'span | ';
+
+export interface BlockContentChildren {
+  _type: BlockType;
+  _key: string;
+  marks: any[];
+  text: string;
 }
 
 export interface BlockContent {
-  _type: 'blockContent';
+  _type: BlockType;
   _key: string;
-  text: string;
+  markDefs: any[];
+  children: BlockContentChildren[];
+  style: string;
 }
 export interface IPost {
   _id: string;
@@ -49,7 +55,7 @@ export interface IPost {
 export interface ISnippet {
   _id: string;
   slug: string;
-  body: BlockContent;
+  body: BlockContent[];
   title: string;
   description: string;
   iconTitle: string;
@@ -142,3 +148,28 @@ export const getDocumentById = async (
   }
   return { url };
 };
+
+// export const getPostWithMidifiedLinks = async ({
+//   post
+// }: {
+//   post: IPost;
+// }): Promise<IPost> => {};
+
+// if (
+//               section.markDefs &&
+//               section.markDefs.length > 0 &&
+//               section.markDefs[0].internal
+//             ) {
+//               const { url } = await getDocumentById(
+//                 section.markDefs[0].internal._ref
+//               );
+//               const modifiedSection = produce(section, (draft: any) => {
+//                 draft.markDefs[0].internal.path = url;
+//               });
+//               return (
+//                 <BlockContent key={modifiedSection._key} section={section} />
+//               );
+//             } else {
+//               return <BlockContent key={section._key} section={section} />;
+//             }
+//           })}

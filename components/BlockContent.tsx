@@ -1,4 +1,3 @@
-import produce from 'immer';
 import { PortableText } from '@portabletext/react';
 import { getDocumentById } from 'lib/sanity-api';
 import Link from 'next/link';
@@ -7,27 +6,12 @@ import { InlineImage } from 'components/InineImage';
 import { MessageBox } from 'components/MessageBox';
 import type { SanityAsset } from '@sanity/asset-utils';
 
-const BlockContent = async ({ section }: { section: any }) => {
-  async function modifyInternalLink(section: any) {
-    if (
-      section.markDefs &&
-      section.markDefs.length > 0 &&
-      section.markDefs[0].internal
-    ) {
-      const { url } = await getDocumentById(section.markDefs[0].internal._ref);
-      const modifiedSection = produce(section, (draft: any) => {
-        draft.markDefs[0].internal.path = url;
-      });
-      return modifiedSection;
-    } else {
-      return section;
-    }
-  }
-
-  const modifiedSection = await modifyInternalLink(section);
+const BlockContent = ({ section }: { section: any }) => {
+  section;
+  console.log('section is', section);
   return (
     <PortableText
-      value={modifiedSection}
+      value={section}
       onMissingComponent={false}
       components={{
         types: {
