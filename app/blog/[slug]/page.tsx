@@ -37,7 +37,7 @@ export default async function PostPage({
       />
       <div className={font_mono.variable}>
         <Tags tags={post.tags} />
-        <h1 className='my-2 text-3xl font-bold  tracking-tight capsize  text-gray-900 md:text-5xl dark:text-gray-100'>
+        <h1 className='mb-4 md:mb-6 text-3xl font-bold  tracking-tight capsize  text-gray-900 md:text-5xl dark:text-gray-100'>
           {post.title}
         </h1>
         {post.coverImage && (

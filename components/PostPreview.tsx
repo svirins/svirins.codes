@@ -11,7 +11,7 @@ export default function PostPreview({
 }: Partial<IPost>) {
   return (
     <div className='w-full py-4 text-left'>
-      <Tags tags={tags!} />
+      {/* <Tags tags={tags!} /> */}
       <Link
         href={`/blog/${slug}`}
         className='link-underline link-underline-gradient text-xl md:text-2xl font-medium  text-gray-900   dark:text-gray-100'

@@ -6,7 +6,7 @@ import { MyStack } from 'components/Icons';
 import WakaStats from 'components/WakaStats';
 export default async function IndexPage() {
   const { languages, totalHours } = await getWakaStats();
-  const { base64, img } = await getPlaiceholder('/me.webp');
+  const { base64, img } = await getPlaiceholder('/svirins.webp');
   return (
     // <Container title="About me page | Dzmitry Svirin - svirins.codes">
     <>
@@ -19,7 +19,7 @@ export default async function IndexPage() {
                   Hi, I&apos;m <span className='text-active'>Dzmitry</span>
                 </h1>
                 <h2 className='text-[22px] md:text-2xl tracking-tight text-gray-900 dark:text-gray-100 font-normal'>
-                  Full-stack developer I specialize in turning ideas into
+                  I specialize in turning ideas into{` `}
                   <span className='font-semibold  full-stack'>real-life </span>
                   products.
                 </h2>
@@ -35,9 +35,9 @@ export default async function IndexPage() {
             <Image
               alt='Dzmitry Svirin'
               src={img}
-              width={262}
-              height={363}
-              className='rounded-md'
+              width={256}
+              height={256}
+              className='rounded-xl'
               priority={true}
               placeholder='blur'
               blurDataURL={base64}

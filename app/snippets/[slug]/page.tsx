@@ -41,7 +41,7 @@ export default async function SnippetsPage({
               {snippet.description}
             </p>
           </div>
-          <div className='mt-2 md:mt-6 scale-125 md:scale-150 ml-4 origin-center'>
+          <div className='mt-2 md:mt-7 scale-125 md:scale-150 ml-4 origin-center'>
             <SnippetIcon iconTitle={snippet.iconTitle} />
           </div>
         </div>
