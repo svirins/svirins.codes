@@ -42,6 +42,7 @@ html {
 }
 
 .link-underline {
+  font-weight: 600;
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),
     linear-gradient(#fff, #fff);
@@ -239,5 +240,5 @@ table {
 }
 
 .full-stack {
-  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-code-blue to-code-pink;
+  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;
 }

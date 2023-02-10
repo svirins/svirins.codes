@@ -1,12 +1,9 @@
 import Image from 'next/image';
-
+import getWakaStats from 'lib/waka-api';
+import { getPlaiceholder } from 'plaiceholder';
 import TypewriterEffect from 'components/TypewriterEffect';
 import { MyStack } from 'components/Icons';
-
-import getWakaStats from 'lib/waka-api';
 import WakaStats from 'components/WakaStats';
-import { getPlaiceholder } from 'plaiceholder';
-// TODO: Consider move WakaStats fetch into it's own component
 export default async function IndexPage() {
   const { languages, totalHours } = await getWakaStats();
   const { base64, img } = await getPlaiceholder('/me.webp');
@@ -22,17 +19,17 @@ export default async function IndexPage() {
                   Hi, I&apos;m <span className='text-active'>Dzmitry</span>
                 </h1>
                 <h2 className='text-[22px] md:text-2xl tracking-tight text-gray-900 dark:text-gray-100 font-normal'>
-                  I specialize in turning ideas into{' '}
+                  Full-stack developer I specialize in turning ideas into
                   <span className='font-semibold  full-stack'>real-life </span>
                   products.
                 </h2>
               </div>
             </div>
-
+            {/* 
             <p className='text-gray-900 dark:text-gray-100 font-semibold md:text-lg mt-4 md:mt-10'>
               Full-stack developer with a passion for the React ecosystem,
               TypeScript, and serverless backends.
-            </p>
+            </p> */}
           </div>
           <div className='hidden md:block'>
             <Image
@@ -56,6 +53,11 @@ export default async function IndexPage() {
             In short:
           </h2>
           <ul className='list-inside list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]'>
+            <li className='text-gray-700 dark:text-gray-400 md:text-lg'>
+              {' '}
+              Full-stack developer with a passion for the React ecosystem,
+              TypeScript, and serverless backends.
+            </li>
             <li className='text-gray-700 dark:text-gray-400 md:text-lg'>
               10+ years of building products for clients across several
               countries;
