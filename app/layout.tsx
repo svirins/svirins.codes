@@ -5,8 +5,6 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import { ServerThemeProvider } from '@wits/next-themes';
 
-// TODO: Move mono font to snippets layout
-
 export default function RootLayout({
   children
 }: {

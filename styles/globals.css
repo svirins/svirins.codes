@@ -171,7 +171,7 @@ html {
 
 code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-gray-800 dark:text-gray-50;
+  @apply text-gray-800 dark:text-gray-50 mt-0;
 }
 
 pre::-webkit-scrollbar {
@@ -183,12 +183,8 @@ pre {
   scrollbar-width: none; /* Firefox */
 }
 
-.rehype-code-title {
-  @apply px-5 py-3 font-mono text-sm font-semibold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
-}
-
-.rehype-code-title + pre {
-  @apply mt-0 rounded-t-none;
+.code-title {
+  @apply px-2 py-2 font-mono text-sm font-semibold text-gray-800 bg-gray-200 border border-gray-200 rounded-sm  dark:text-gray-200 dark:border-gray-700 dark:bg-gray-700;
 }
 
 .highlight-line {
@@ -240,4 +236,8 @@ table {
   75% {
     transform: scaleY(0.15);
   }
+}
+
+.full-stack {
+  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-code-blue to-code-pink;
 }

@@ -35,6 +35,8 @@ import {
   SiVercel
 } from 'react-icons/si';
 
+import { RiLightbulbLine } from 'react-icons/ri';
+
 export const SOCIALS = [
   {
     Icon: <SiGithub />,
@@ -248,11 +250,11 @@ export function StackIcon({ iconTitle }: { iconTitle: string }) {
     STACKS.find((stack) => stack.iconTitle === iconTitle) ?? STACKS[0];
   return (
     <a
-      className="duration-150 transform  ease-in-out hover:scale-110"
+      className='duration-150 transform  ease-in-out hover:scale-110'
       href={url}
       title={iconTitle}
-      target="_blank"
-      rel="noopener noreferrer"
+      target='_blank'
+      rel='noopener noreferrer'
     >
       {Icon}
     </a>
@@ -281,15 +283,15 @@ export function SocialIcons() {
           'w-4 h-4 fill-gray-700  dark:fill-gray-400  hover:fill-gray-800 dark:hover:fill-gray-200'
       }}
     >
-      <div className="flex my-2 space-x-4 text-left md:text-center">
+      <div className='flex my-2 space-x-4 text-left md:text-center'>
         {SOCIALS.map((social, index) => (
           <a
             key={index}
             href={social.url}
             title={social.iconTitle}
-            className="duration-150 transform  ease-in-out hover:scale-110"
-            target="_blank"
-            rel="noopener noreferrer"
+            className='duration-150 transform  ease-in-out hover:scale-110'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             {social.Icon}
           </a>
@@ -307,11 +309,25 @@ export function MyStack() {
           'w-7 h-7 md:w-8 md:h-8  fill-gray-700  dark:fill-gray-300  hover:fill-gray-800 dark:hover:fill-gray-200'
       }}
     >
-      <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full">
+      <div className='grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full'>
         {STACKS.filter((el) => el.featured).map((el, index) => (
           <StackIcon key={index} iconTitle={el.iconTitle} />
         ))}
       </div>{' '}
+    </IconContext.Provider>
+  );
+}
+
+export function LightBulb() {
+  return (
+    <IconContext.Provider
+      value={{
+        className: 'w-5 h-5 fill-gray-700  dark:fill-gray-400 inlime mr-3'
+      }}
+    >
+      <div className='flex text-left'>
+        <RiLightbulbLine />
+      </div>
     </IconContext.Provider>
   );
 }

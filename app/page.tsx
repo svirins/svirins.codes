@@ -18,12 +18,12 @@ export default async function IndexPage() {
           <div className='md:col-span-4 '>
             <div className='flex flex-col  max-w-2xl mx-auto w-full'>
               <div className='flex flex-col items-start'>
-                <h1 className='text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold  text-gray-900 dark:text-gray-100'>
+                <h1 className='text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold  text-gray-700 dark:text-gray-300'>
                   Hi, I&apos;m <span className='text-active'>Dzmitry</span>
                 </h1>
                 <h2 className='text-[22px] md:text-2xl tracking-tight text-gray-900 dark:text-gray-100 font-normal'>
                   I specialize in turning ideas into{' '}
-                  <span className='font-semibold italic'>real-life </span>
+                  <span className='font-semibold  full-stack'>real-life </span>
                   products.
                 </h2>
               </div>
