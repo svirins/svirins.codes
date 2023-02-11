@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { ArticleJsonLd } from 'next-seo';
 import { font_mono } from 'fonts';
 
-import { getPost, getPostSlugs, getDocumentById } from 'lib/sanity-api';
+import { getPost, getPostSlugs } from 'lib/sanity-api';
 import { Tags } from 'components/Tags';
 
 import BlockContent from 'components/BlockContent';
@@ -20,7 +20,6 @@ export default async function PostPage({
   };
 }) {
   const post = await getPost(params.slug);
-  // const postWithReplacedLinks = await getPostWithMidifiedLinks(post);
   const { width, height, base64, img } = await createRemoteImageAttributes(
     post.coverImage
   );
@@ -80,7 +79,7 @@ export default async function PostPage({
             </p>
           </div>
           <p className='text-xs md:text-sm lg:text-base text-gray-400 min-w-32'>
-            {`${post.readingTime} min read`}
+            {`${post.readingTime && 1} min read`}
           </p>
         </div>
 

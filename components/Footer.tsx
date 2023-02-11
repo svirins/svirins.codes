@@ -4,7 +4,7 @@ import { SocialIcons } from 'components/Icons';
 export default function Footer() {
   return (
     <footer className='flex flex-col items-start md:items-center  max-w-2xl mx-auto mb-4 relative'>
-      <hr className='w-full border-1 border-gray-800 mb-4' />
+      <hr className='w-full max-w-2xl mx-auto border-1 border-gray-600 mb-4' />
       <NowPlaying />
       <SocialIcons />
       <p className='w-full text-gray-400 mb-1 pt-2  text-left md:text-center text-xs'>

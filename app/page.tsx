@@ -18,7 +18,7 @@ async function IndexPage() {
           <div className='md:col-span-4 '>
             <div className='flex flex-col  max-w-2xl mx-auto w-full'>
               <div className='flex flex-col items-start'>
-                <h1 className='text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-300'>
+                <h1 className='text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-100'>
                   Hi, I&apos;m <span className='text-active'>Dzmitry</span>
                 </h1>
                 <h2 className='text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal'>
@@ -48,7 +48,6 @@ async function IndexPage() {
           </div>
         </div>
       </div>
-      <hr className='w-full  max-w-2xl mx-auto  border-1 border-gray-800 mt-4' />
 
       <div className='flex flex-col max-w-2xl mx-auto pb-16 w-full'>
         <div className='flex flex-col'>

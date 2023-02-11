@@ -52,7 +52,7 @@ export default function NowPlaying() {
       <div className='inline-flex flex-col sm:flex-row w-full max-w-full truncate self-baseline'>
         {data?.songUrl ? (
           <a
-            className='capsize text-gray-700 dark:text-gray-300 font-medium   text-sm max-w-max truncate'
+            className='capsize text-gray-300 font-medium   text-sm max-w-max truncate'
             href={data.songUrl}
             target='_blank'
             rel='noopener noreferrer'

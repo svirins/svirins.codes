@@ -10,18 +10,21 @@ export default async function Blog() {
   // // );
   return (
     <div className='flex flex-col  max-w-2xl mx-auto w-full'>
-      <div className='flex flex-col'>
+      <div className='flex flex-col mb-4'>
         <h1 className='mb-4 text-3xl font-bold tracking-tight capsize  md:text-5xl text-gray-100'>
           Blog
         </h1>
-        <p className=' font-semibold text-gray-100 text-base mt-2 md:text-lg'>
-          Posts about code, dev life and various{' '}
+        <h2 className='text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal'>
+          Posts about code, dev life and{' '}
+          <span className='font-semibold  full-stack'>various</span>{' '}
           <span role='image' aria-label='technomagical'>
             ⚗️
           </span>{' '}
           things.
-        </p>
+        </h2>
       </div>
+      <hr className='w-full max-w-2xl mx-auto border-1 border-gray-600 mt-4' />
+
       {/* <div className="relative w-full mt-4 mb-2">
         <input
           aria-label="Search articles"
@@ -45,14 +48,14 @@ export default async function Blog() {
           />
         </svg>
       </div> */}
-      <div className='grid grid-cols-1 divide-ydivide-gray-300/25'>
+      <div className='grid grid-cols-1 divide-y divide-gray-600'>
         {posts.length ? (
           posts.map((post) => (
             <PostPreview
               key={post!.title}
               slug={post!.slug}
               title={post!.title}
-              excerpt={`${post!.excerpt.substring(0, 196)} ...`}
+              excerpt={post!.excerpt}
               tags={post!.tags}
             />
           ))
