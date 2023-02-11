@@ -38,7 +38,7 @@ export default async function PostPage({
       />
       <div className={font_mono.variable}>
         <Tags tags={post.tags} />
-        <h1 className='mb-4 md:mb-6 text-3xl font-bold  tracking-tight capsize  text-gray-900 md:text-5xl dark:text-gray-100'>
+        <h1 className='mb-4 md:mb-6 text-3xl font-bold  tracking-tight capsize  md:text-5xl text-gray-100'>
           {post.title}
         </h1>
         {post.coverImage && (
@@ -64,9 +64,9 @@ export default async function PostPage({
               src='/svirins.png'
               className='rounded-full'
             />
-            <p className='ml-2 text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-400'>
+            <p className='ml-2 text-xs md:text-sm lg:text-base text-gray-400'>
               <a
-                className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+                className=' text-gray-300  font-medium link-underline link-underline-gradient'
                 href='https://twitter.com/svirins'
               >
                 Dzmitry Svirin
@@ -79,12 +79,12 @@ export default async function PostPage({
               }).format(new Date(post.date))}
             </p>
           </div>
-          <p className='text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400 min-w-32'>
+          <p className='text-xs md:text-sm lg:text-base text-gray-400 min-w-32'>
             {`${post.readingTime} min read`}
           </p>
         </div>
 
-        <div className='w-full max-w-2xl mt-4 prose prose-slate dark:prose-invert md:prose-lg'>
+        <div className='w-full max-w-2xl mt-4 prose prose-invert md:prose-lg'>
           {post.body.map((section) => {
             if (!section || Object.keys(section).length === 0) {
               return null;

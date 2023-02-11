@@ -34,10 +34,10 @@ export default async function SnippetsPage({
         />
         <div className='flex justify-between w-full'>
           <div>
-            <h1 className='font-bold capsize text-3xl  md:text-5xl tracking-tight mb-4 text-gray-900 dark:text-gray-100'>
+            <h1 className='font-bold capsize text-3xl  md:text-5xl tracking-tight mb-4:text-gray-100'>
               {snippet.title}
             </h1>
-            <p className='text-gray-800 dark:text-gray-200 py-2 md:text-lg'>
+            <p className='text-gray-200 py-2 md:text-lg'>
               {snippet.description}
             </p>
           </div>
@@ -47,7 +47,7 @@ export default async function SnippetsPage({
         </div>
         {/* <hr className="w-full border-1 max-w-2xl border-gray-200 dark:border-gray-800" /> */}
 
-        <div className='prose dark:prose-invert prose-slate  max-w-2xl  w-full md:prose-lg'>
+        <div className='prose prose-invert   max-w-2xl  w-full md:prose-lg'>
           {snippet.body.map((section) => {
             if (!section || Object.keys(section).length === 0) {
               return null;

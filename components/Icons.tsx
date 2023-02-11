@@ -267,7 +267,7 @@ export function SnippetIcon({ iconTitle }: { iconTitle: string }) {
   return (
     <IconContext.Provider
       value={{
-        className: 'w-7 h-7 md:w-8 md:h-8 fill-gray-900  dark:fill-gray-100'
+        className: 'w-7 h-7 md:w-8 md:h-8 fill-gray-100'
       }}
     >
       {Icon}
@@ -280,7 +280,7 @@ export function SocialIcons() {
     <IconContext.Provider
       value={{
         className:
-          'w-4 h-4 fill-gray-700  dark:fill-gray-400  hover:fill-gray-800 dark:hover:fill-gray-200'
+          'w-4 h-4 fill-gray-400  hover:fill-gray-200'
       }}
     >
       <div className='flex my-2 space-x-4 text-left md:text-center'>
@@ -306,7 +306,7 @@ export function MyStack() {
     <IconContext.Provider
       value={{
         className:
-          'w-7 h-7 md:w-8 md:h-8  fill-gray-700  dark:fill-gray-300  hover:fill-gray-800 dark:hover:fill-gray-200'
+          'w-7 h-7 md:w-8 md:h-8 fill-gray-300  hover:fill-gray-200'
       }}
     >
       <div className='grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full'>
@@ -322,7 +322,7 @@ export function LightBulb() {
   return (
     <IconContext.Provider
       value={{
-        className: 'w-5 h-5 fill-gray-700  dark:fill-gray-400 inlime mr-3'
+        className: 'w-5 h-5 fill-gray-400 inlime mr-3'
       }}
     >
       <div className='flex text-left'>

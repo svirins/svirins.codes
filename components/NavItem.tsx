@@ -16,10 +16,10 @@ export default function NavItem({ href, text }: INavItem) {
     <Link
       href={href}
       className={clsx(
-        'hidden md:inline-block  transition-all pr-4 duration-150 hover:text-gray-800 dark:hover:text-gray-200 ease-in-out text-lg',
+        'hidden md:inline-block  transition-all pr-4 duration-150 hover:text-gray-200 ease-in-out text-lg',
         {
-          'font-semibold text-gray-800 dark:text-gray-200': path === href,
-          'font-medium text-gray-600 dark:text-gray-400': path !== href
+          'font-semibold text-gray-200': path === href,
+          'font-medium text-gray-400': path !== href
         }
       )}
     >

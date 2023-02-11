@@ -9,7 +9,7 @@ export function Tags({ tags }: { tags: ITag[] }) {
           <Link
             key={tag.slug}
             href={`/tags/${tag.slug}`}
-            className='mr-2 text-sm md:text-base font-medium text-gray-800 dark:text-gray-300   link-underline link-underline-gradient lowercase'
+            className='mr-2 text-sm md:text-base font-medium text-gray-300 link-underline link-underline-gradient lowercase'
           >
             {`#${tag.title}`}
           </Link>

@@ -33,7 +33,7 @@ const Bar = ({
   x: number;
 }) => (
   <g fill={color}>
-    <rect width={width} height="50" x={x}></rect>
+    <rect width={width} height='50' x={x}></rect>
   </g>
 );
 
@@ -52,7 +52,7 @@ export default function WakaStats({ languages, totalHours }: IWakaAPIResponse) {
           >
             {lang}
           </span>
-          <span className=" text-gray-800 dark:text-gray-200 text-xs md:text-sm">
+          <span className='text-gray-200 text-xs md:text-sm'>
             {` • ${hours}h ${minutes}m`}
           </span>
         </div>
@@ -63,15 +63,15 @@ export default function WakaStats({ languages, totalHours }: IWakaAPIResponse) {
 
   return (
     <>
-      <h2 className="text-xl md:text-2xl mb-3 mt-10 tracking-tight text-gray-700 dark:text-gray-200 font-normal">
+      <h2 className='text-xl md:text-2xl mb-3 mt-10 tracking-tight placeholder:text-gray-200 font-normal'>
         Some stats:
       </h2>
       {stackedBarComments ? (
-        <div className="flex-col w-full min-w-2xl">
-          <div className="flex flex-row space-x-1">
-            <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} height="20" width={'100%'}>
-              <title id="title">A bar chart showing information</title>
-              <desc id="desc">Dzmitry Svirin top 4 programming languages/</desc>
+        <div className='flex-col w-full min-w-2xl'>
+          <div className='flex flex-row space-x-1'>
+            <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} height='20' width={'100%'}>
+              <title id='title'>A bar chart showing information</title>
+              <desc id='desc'>Dzmitry Svirin top 4 programming languages/</desc>
               <Bar
                 color={WAKA_STATS_COLORS[0].barColor}
                 width={(datum[0].percent / 100) * WIDTH}
@@ -92,14 +92,14 @@ export default function WakaStats({ languages, totalHours }: IWakaAPIResponse) {
               />
             </svg>
           </div>{' '}
-          <div className="flex flex-col md:flex-row mt-2 md:space-x-2">
+          <div className='flex flex-col md:flex-row mt-2 md:space-x-2'>
             {stackedBarComments}
           </div>
-          <p className=" text-gray-700 dark:text-gray-400 text-xs mt-2">
+          <p className='text-gray-400 text-xs mt-2'>
             My last week coding stats taken from a{' '}
             <a
-              className=" text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient"
-              href="https://wakatime.com/@svirins"
+              className='text-gray-300  font-medium link-underline link-underline-gradient'
+              href='https://wakatime.com/@svirins'
             >
               WakaTime
             </a>

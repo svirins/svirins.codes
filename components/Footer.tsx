@@ -4,28 +4,28 @@ import { SocialIcons } from 'components/Icons';
 export default function Footer() {
   return (
     <footer className='flex flex-col items-start md:items-center  max-w-2xl mx-auto mb-4 relative'>
-      <hr className='w-full border-1 border-gray-200 dark:border-gray-800 mb-4' />
+      <hr className='w-full border-1 border-gray-800 mb-4' />
       <NowPlaying />
       <SocialIcons />
-      <p className='w-full text-gray-500 dark:text-gray-400 mb-1 pt-2  text-left md:text-center text-xs'>
+      <p className='w-full text-gray-400 mb-1 pt-2  text-left md:text-center text-xs'>
         © <span className='font-medium'>{new Date().getFullYear()}</span>
         <span>{` • `}</span>
         Dzmitry Svirin{` • `}
         <a
           target='_blank'
           rel='noopener noreferrer'
-          className='text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+          className='text-gray-300 link-underline link-underline-gradient'
           href='https://svirins.codes/feed.xml'
         >
           RSS
         </a>
       </p>
-      <p className='w-full  text-xs text-gray-500 dark:text-gray-400 text-left md:text-center'>
+      <p className='w-full  text-xs text-gray-400 text-left md:text-center'>
         <span>The code of this site was originally a fork of </span>
         <a
           target='_blank'
           rel='noopener noreferrer'
-          className='text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
+          className='text-gray-300 link-underline link-underline-gradient'
           href='https://leerob.io'
         >
           Lee Robinson

@@ -18,10 +18,10 @@ export default async function TagPage({
 
   return (
     <div className='flex flex-col max-w-2xl mx-auto pb-16 w-full'>
-      <h1 className='mb-4 text-3xl font-bold capsize tracking-tight text-gray-900 md:text-5xl dark:text-gray-100'>
+      <h1 className='mb-4 text-3xl font-bold capsize tracking-tight  md:text-5xl text-gray-100'>
         {`Posts with tag #${title}`}
       </h1>
-      <div className='grid grid-cols-1 divide-y  divide-gray-700/25 dark:divide-gray-300/25'>
+      <div className='grid grid-cols-1 divide-y  divide-gray-300/25'>
         {posts.length ? (
           posts.map((post) => (
             <PostPreview
@@ -33,9 +33,7 @@ export default async function TagPage({
             />
           ))
         ) : (
-          <p className=' text-gray-700 dark:text-gray-400 italic text-lg'>
-            No results found
-          </p>
+          <p className=' text-gray-400 italic text-lg'>No results found</p>
         )}
       </div>
     </div>

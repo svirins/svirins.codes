@@ -52,23 +52,22 @@ export default function MobileMenu() {
         <ul
           className={clsx(
             styles.menu,
-            'flex flex-col absolute bg-gray-50 dark:bg-gray-900',
+            'flex flex-col absolute bg-gray-900',
             isMenuRendered && styles.menuRendered
           )}
         >
           {NAV_LINKS.map((item, index) => (
             <li
               key={index}
-              className='border-b border-gray-500/50 text-gray-600 dark:text-gray-400 dark:border-gray-500/50'
+              className='border-0 text-gray-400 border-gray-500/50'
               style={{ transitionDelay: '150ms' }}
             >
               <Link
                 href={item.href}
                 className={clsx(
-                  'transition-all  duration-150 hover:text-gray-800 dark:hover:text-gray-200 ease-in-out text-lg',
+                  'transition-all  duration-150  hover:text-gray-200 ease-in-out text-lg',
                   {
-                    'font-medium text-gray-800 dark:text-gray-200':
-                      path === item.href,
+                    'font-medium text-gray-200': path === item.href,
                     '': path !== item.href
                   }
                 )}

@@ -25,10 +25,7 @@ const TypewriterEffect = () => {
   }, []);
 
   return (
-    <span
-      ref={el}
-      className="text-gray-800 dark:text-gray-200 md:text-lg italic font-medium"
-    />
+    <span ref={el} className='text-gray-200 md:text-lg italic font-medium' />
   );
 };
 

@@ -14,11 +14,11 @@ export default function PostPreview({
       {/* <Tags tags={tags!} /> */}
       <Link
         href={`/blog/${slug}`}
-        className='link-underline link-underline-gradient text-xl md:text-2xl font-medium  text-gray-900   dark:text-gray-100'
+        className='link-underline link-underline-gradient text-xl md:text-2xl font-medium text-gray-100'
       >
         {title}
       </Link>
-      <p className='text-gray-700 dark:text-gray-400 md:text-lg'>{excerpt}</p>
+      <p className='text-gray-400 md:text-lg'>{excerpt}</p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const { spacing, defaultTheme } = require('tailwindcss/defaultTheme');
+const { spacing } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 // TODO: add fallback fonts
 module.exports = {
@@ -8,7 +8,6 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}', // Note the addition of the `app` directory.
     './components/**/*.{js,ts,jsx,tsx}'
   ],
-  darkMode: 'class',
   theme: {
     colors: {
       active: 'rgb(255 49 46 / 95%)',
@@ -44,9 +43,6 @@ module.exports = {
         }
       })
     }
-  },
-  variants: {
-    typography: ['dark']
   },
   plugins: [require('@tailwindcss/typography')]
 };
