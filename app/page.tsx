@@ -1,8 +1,7 @@
 import { wrapAppDirComponentWithSentry } from '@sentry/nextjs';
-
 import Image from 'next/image';
-import getWakaStats from 'lib/waka-api';
 import { getPlaiceholder } from 'plaiceholder';
+import getWakaStats from 'lib/waka-api';
 import TypewriterEffect from 'components/TypewriterEffect';
 import { MyStack } from 'components/Icons';
 import WakaStats from 'components/WakaStats';
@@ -11,7 +10,6 @@ async function IndexPage() {
   const { languages, totalHours } = await getWakaStats();
   const { base64, img } = await getPlaiceholder('/svirins.webp');
   return (
-    // <Container title="About me page | Dzmitry Svirin - svirins.codes">
     <>
       <div className='flex flex-col  max-w-2xl mx-auto w-full'>
         <div className='md:grid md:grid-cols-5'>
@@ -24,15 +22,11 @@ async function IndexPage() {
                 <h2 className='text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal'>
                   I specialize in turning ideas into{` `}
                   <span className='font-semibold  full-stack'>real-life </span>
-                  products.
+                  products. Full-stack developer with a passion for the React
+                  ecosystem, TypeScript, and serverless backends.
                 </h2>
               </div>
             </div>
-            {/* 
-            <p className='text-gray-900 dark:text-gray-100 font-semibold md:text-lg mt-4 md:mt-10'>
-              Full-stack developer with a passion for the React ecosystem,
-              TypeScript, and serverless backends.
-            </p> */}
           </div>
           <div className='hidden md:block'>
             <Image

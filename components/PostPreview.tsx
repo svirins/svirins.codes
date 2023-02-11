@@ -14,7 +14,7 @@ export default function PostPreview({
       <Tags tags={tags!} />
       <Link
         href={`/blog/${slug}`}
-        className='link-underline link-underline-gradient text-xl md:text-2xl font-medium text-gray-100'
+        className='link-underline link-underline-gradient text-xl md:text-2xl text-gray-100'
       >
         {title}
       </Link>

@@ -4,7 +4,7 @@ import { getSnippets } from 'lib/sanity-api';
 export default async function Snippets() {
   const snippets = await getSnippets();
   return (
-    <div className='flex flex-col  max-w-2xl mx-auto pb-16'>
+    <div className='flex flex-col  max-w-2xl mx-auto w-full'>
       <div className='flex flex-col mb-4'>
         <h1 className='mb-4 text-3xl font-bold tracking-tight capsize  md:text-5xl text-gray-100'>
           Code Snippets
@@ -18,10 +18,10 @@ export default async function Snippets() {
           found useful and want to share.
         </h2>
       </div>
-
-      <div className='grid w-full grid-cols-1 gap-4 my-2 mt-2'>
-        {snippets?.length &&
-          snippets?.map((snippet) => (
+      <hr className='w-full max-w-2xl mx-auto border-1 border-gray-600 mt-4' />
+      <div className='grid grid-cols-1 divide-y divide-gray-600'>
+        {snippets.length > 0 ? (
+          snippets.map((snippet) => (
             <SnippetPreview
               key={snippet.slug}
               title={snippet.title}
@@ -29,7 +29,10 @@ export default async function Snippets() {
               iconTitle={snippet.iconTitle}
               description={snippet.description}
             />
-          ))}
+          ))
+        ) : (
+          <p className='text-gray-400 italic text-lg'>No results found</p>
+        )}
       </div>
     </div>
   );

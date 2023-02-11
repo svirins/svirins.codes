@@ -64,11 +64,11 @@ export interface ReferencedDocument {
   url: string;
 }
 
-export const getPosts = async (): Promise<Partial<IPost[]>> => {
+export const getPosts = async (): Promise<IPost[]> => {
   // const posts = await sanityClient.fetch(indexQuery);
   const posts = await clientFetch(indexQuery);
 
-  return posts;
+  return posts ?? null;
 };
 
 export const getPostSlugs = async (): Promise<string[]> => {
