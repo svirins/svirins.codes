@@ -84,11 +84,6 @@ export const getPost = async (slug: string): Promise<IPost> => {
   return post ?? null;
 };
 
-export const getPostBySlug = async (slug: string): Promise<IPost> => {
-  // const { post } = await sanityClient.fetch(postBySlugQuery, { slug });
-  const { post } = await clientFetch(postBySlugQuery, { slug });
-  return post ?? null;
-};
 export const getUpdatedPostSlug = async (id: string): Promise<string> => {
   // const slug = sanityClient.fetch(postUpdatedQuery, { id });
   const slug = clientFetch(postUpdatedQuery, { id });

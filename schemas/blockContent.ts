@@ -1,5 +1,5 @@
 import { defineType, defineArrayMember } from 'sanity';
-import { RiBallPenFill } from 'react-icons/ri';
+import { RiBallPenFill, RiLinksLine } from 'react-icons/ri';
 
 export default defineType({
   title: 'Block Content',
@@ -30,21 +30,33 @@ export default defineType({
         ],
         annotations: [
           {
-            title: 'URL',
             name: 'link',
             type: 'object',
+            title: 'External link',
             fields: [
               {
-                name: 'external',
+                name: 'href',
                 type: 'url',
-                title: 'URL',
-                hidden: ({ parent, value }) => !value && !!parent?.internal
+                title: 'URL'
               },
               {
-                name: 'internal',
+                title: 'Open in new tab',
+                name: 'blank',
+                type: 'boolean'
+              }
+            ]
+          },
+          {
+            name: 'internalLink',
+            type: 'object',
+            icon: RiLinksLine,
+            title: 'Internal link',
+            fields: [
+              {
+                name: 'reference',
                 type: 'reference',
-                to: [{ type: 'snippet' }, { type: 'post' }],
-                hidden: ({ parent, value }) => !value && !!parent?.external
+                title: 'Reference',
+                to: [{ type: 'post' }, { type: 'snippet' }]
               }
             ]
           }

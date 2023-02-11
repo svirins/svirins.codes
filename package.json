@@ -58,7 +58,7 @@
     "autoprefixer": "10.4.13",
     "concurrently": "^7.6.0",
     "date-fns": "^2.29.3",
-    "eslint": "8.33.0",
+    "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "feed": "^4.2.2",
     "husky": "^8.0.3",

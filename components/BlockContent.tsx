@@ -8,7 +8,6 @@ import type { SanityAsset } from '@sanity/asset-utils';
 
 const BlockContent = ({ section }: { section: any }) => {
   section;
-  console.log('section is', section);
   return (
     <PortableText
       value={section}
