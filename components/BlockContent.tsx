@@ -1,5 +1,4 @@
 import { PortableText } from '@portabletext/react';
-import { getDocumentById } from 'lib/sanity-api';
 import Link from 'next/link';
 import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
@@ -7,7 +6,7 @@ import { MessageBox } from 'components/MessageBox';
 import type { SanityAsset } from '@sanity/asset-utils';
 
 const BlockContent = ({ section }: { section: any }) => {
-  section;
+  console.log('section is', section.markDefs);
   return (
     <PortableText
       value={section}
@@ -31,25 +30,29 @@ const BlockContent = ({ section }: { section: any }) => {
           )
         },
         marks: {
-          link: ({ children, value }) => (
-            <>
-              {value?.internal ? (
-                <Link
-                  className='text-gray-800 dark:text-gray-300 font-medium link-underline link-underline-gradient'
-                  href={value.internal.path}
-                >
-                  {children}
-                </Link>
-              ) : value?.external ? (
-                <a
-                  className=' text-gray-800 dark:text-gray-300  font-medium link-underline link-underline-gradient'
-                  href={value.external}
-                >
-                  {children}
-                </a>
-              ) : null}
-            </>
-          ),
+          internalLink: ({ children, value }) => {
+            const { slug = {} } = value;
+            const href = `/${slug.current}`;
+            return (
+              <Link
+                className='text-gray-800 dark:text-gray-300 font-medium link-underline link-underline-gradient'
+                href={href}
+              >
+                {children}
+              </Link>
+            );
+          },
+          externalLink: ({ children, value }) => {
+            const { slug = {} } = value;
+            return (
+              <a
+                className='text-gray-800 dark:text-gray-300 font-medium link-underline link-underline-gradient'
+                href={slug.current}
+              >
+                {children}
+              </a>
+            );
+          },
           italic: ({ children }) => <i className='font-medium'>{children}</i>,
           em: ({ children }) => <em>{children}</em>,
           highlight: ({ children }) => (

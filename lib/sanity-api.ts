@@ -13,8 +13,7 @@ import {
   snippetSlugsQuery,
   snippetsQuery,
   tagRelatedPosts,
-  tagSlugsQuery,
-  documentSlugById
+  tagSlugsQuery
 } from './sanity-queries';
 
 export interface ITag {
@@ -125,46 +124,21 @@ export const getPostsByTag = async (
   return posts ?? null;
 };
 
-export const getDocumentById = async (
-  id: string
-): Promise<ReferencedDocument> => {
-  const document = await clientFetch(documentSlugById, { id });
-  let url = '';
-  let alt = document.title;
-  switch (document._type) {
-    case 'post':
-      url = `/blog/${document.slug}`;
-      break;
-    case 'snippet':
-      url = `/snippet/${document.slug}`;
-      break;
-    default:
-      url = '/';
-  }
-  return { url };
-};
-
-// export const getPostWithMidifiedLinks = async ({
-//   post
-// }: {
-//   post: IPost;
-// }): Promise<IPost> => {};
-
-// if (
-//               section.markDefs &&
-//               section.markDefs.length > 0 &&
-//               section.markDefs[0].internal
-//             ) {
-//               const { url } = await getDocumentById(
-//                 section.markDefs[0].internal._ref
-//               );
-//               const modifiedSection = produce(section, (draft: any) => {
-//                 draft.markDefs[0].internal.path = url;
-//               });
-//               return (
-//                 <BlockContent key={modifiedSection._key} section={section} />
-//               );
-//             } else {
-//               return <BlockContent key={section._key} section={section} />;
-//             }
-//           })}
+// export const getDocumentById = async (
+//   id: string
+// ): Promise<ReferencedDocument> => {
+//   const document = await clientFetch(documentSlugById, { id });
+//   let url = '';
+//   let alt = document.title;
+//   switch (document._type) {
+//     case 'post':
+//       url = `/blog/${document.slug}`;
+//       break;
+//     case 'snippet':
+//       url = `/snippet/${document.slug}`;
+//       break;
+//     default:
+//       url = '/';
+//   }
+//   return { url };
+// };

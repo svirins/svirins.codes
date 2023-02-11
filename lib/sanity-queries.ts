@@ -50,11 +50,22 @@ export const postQuery = groq`{
       title,
       "slug": slug.current
     },
-    body,
+    body[] {
+      ...,
+      markDefs[] {
+        ...,
+        _type == "internalLink" => {
+          "slug": @.reference->slug.current,
+          "type": @.reference->_type,
+          "title": @.reference->title
+        }
+      }
+    },
     "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..255], "") + "...",
     "readingTime": round(length(pt::text(body)) / 5 / 180 ),
   }
-}`;
+}
+`;
 
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
@@ -94,8 +105,22 @@ export const allSnippetsQuery = groq`
 export const snippetsQuery = groq`
 {
   "snippet": *[_type == "snippet" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    body,
-    ${snippetFields}
+    _id,
+    title,
+    description,
+    iconTitle,
+    "slug": slug.current,
+    body[] {
+      ...,
+      markDefs[] {
+        ...,
+        _type == "internalLink" => {
+          "slug": @.reference->slug.current,
+          "type": @.reference->_type,
+          "title": @.reference->title,
+        }
+      }
+    },
   }
 }`;
 
@@ -108,11 +133,3 @@ export const snippetSlugsQuery = groq`
 export const tagSlugsQuery = groq`
 *[_type == "tag" && defined(slug.current)][].slug.current
 `;
-
-export const documentSlugById = groq`
-*[_id == $id] {
-    _id,
-    _type,
-    title,
-    "slug": slug.current,
-}[0]`;
