@@ -6,7 +6,6 @@ import { MessageBox } from 'components/MessageBox';
 import type { SanityAsset } from '@sanity/asset-utils';
 
 const BlockContent = ({ section }: { section: any }) => {
-  console.log('section is', section.markDefs);
   return (
     <PortableText
       value={section}
@@ -31,11 +30,11 @@ const BlockContent = ({ section }: { section: any }) => {
         },
         marks: {
           internalLink: ({ children, value }) => {
-            const { slug = {} } = value;
-            const href = `/${slug.current}`;
+            const { slug = {}, type } = value;
+            const href = type === 'post' ? `/blog/${slug}` : `/snippet/${slug}`;
             return (
               <Link
-                className='text-gray-800 dark:text-gray-300 font-medium link-underline link-underline-gradient'
+                className='link-underline link-underline-gradient'
                 href={href}
               >
                 {children}
@@ -43,11 +42,13 @@ const BlockContent = ({ section }: { section: any }) => {
             );
           },
           externalLink: ({ children, value }) => {
-            const { slug = {} } = value;
+            const { slug = {}, blank = false } = value;
             return (
               <a
-                className='text-gray-800 dark:text-gray-300 font-medium link-underline link-underline-gradient'
+                className='link-underline link-underline-gradient'
                 href={slug.current}
+                target={blank ? '_blank' : '_self'}
+                rel='norefferer noreferrer'
               >
                 {children}
               </a>

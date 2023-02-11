@@ -62,7 +62,7 @@ html {
   background-position: 0 100%;
 }
 .prose a {
-  @apply text-gray-800 dark:text-gray-300 no-underline font-medium;
+  @apply text-gray-900 dark:text-gray-100 no-underline link-underline link-underline-gradient;
 }
 .prose .anchor {
   @apply absolute invisible no-underline;
