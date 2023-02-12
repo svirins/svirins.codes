@@ -1,4 +1,3 @@
-'use client';
 import clsx from 'clsx';
 import { IWakaAPIResponse } from 'lib/waka-api';
 const HEIGHT = 20;

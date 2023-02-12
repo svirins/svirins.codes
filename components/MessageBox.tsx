@@ -1,10 +1,11 @@
-import type { SanityBlock } from 'lib/sanity-api';
 import { LightBulb } from 'components/Icons';
+import type { PortableTextObject } from '@sanity/types';
+
 interface MessageBox {
   _key: string;
   _type: 'messageBox';
   title: 'string';
-  message: SanityBlock[];
+  message: PortableTextObject;
 }
 
 export function MessageBox({ value }: { value: MessageBox }) {

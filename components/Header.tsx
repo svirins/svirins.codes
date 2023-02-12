@@ -1,7 +1,4 @@
-`use client`;
-import MobileMenu from './MobileMenu';
 import NavItem from './NavItem';
-import ToggleMode from './ToggleMode';
 
 import { NAV_LINKS } from 'config';
 
@@ -13,12 +10,10 @@ export default function Header() {
           Skip to content
         </a>
         <div className='ml-[-0.60rem'>
-          <MobileMenu />
           {NAV_LINKS.map((item, index) => (
             <NavItem key={index} href={item.href} text={item.text} />
           ))}
         </div>
-        {/* <ToggleMode /> */}
       </nav>
     </header>
   );

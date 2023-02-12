@@ -24,10 +24,7 @@ export default async function PostPage({
   if (!post) {
     return notFound();
   }
-  const { width, height, img } = await createRemoteImageAttributes(
-    post.coverImage
-  );
-  console.log('sanity asset is', post.coverImage);
+  const { width, height, img } = createRemoteImageAttributes(post.coverImage);
 
   return (
     <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto pb-8'>
@@ -43,7 +40,7 @@ export default async function PostPage({
       />
       <div className={font_mono.variable}>
         <Tags tags={post.tags} />
-        <h1 className='mb-4 md:mb-6 text-3xl font-bold  tracking-tight capsize  md:text-5xl text-gray-100'>
+        <h1 className='mb-4 md:mb-6 md:mt-4 text-3xl font-bold  tracking-tight capsize  md:text-5xl text-gray-100'>
           {post.title}
         </h1>
         {post.coverImage && (
@@ -53,7 +50,7 @@ export default async function PostPage({
               alt={`Image for ${post.title}`}
               width={width}
               height={height}
-              className='rounded-lg  h-auto'
+              className='rounded-lg h-auto w-auto'
               priority={true}
               placeholder='blur'
               blurDataURL={post.coverImage.lqip}
