@@ -24,25 +24,25 @@ export interface ITag {
 
 export type BlockType = 'block' | 'image' | 'code' | 'span | ';
 
-export interface BlockContentChildren {
+export interface IBlockContentChildren {
   _type: BlockType;
   _key: string;
   marks: any[];
   text: string;
 }
 
-export interface BlockContent {
+export interface IBlockContent {
   _type: BlockType;
   _key: string;
   markDefs: any[];
-  children: BlockContentChildren[];
+  children: IBlockContentChildren[];
   style: string;
 }
 export interface IPost {
   _id: string;
   slug: string;
   content: string;
-  body: BlockContent[];
+  body: IBlockContent[];
   title: string;
   date: string;
   excerpt: string;
@@ -54,7 +54,7 @@ export interface IPost {
 export interface ISnippet {
   _id: string;
   slug: string;
-  body: BlockContent[];
+  body: IBlockContent[];
   title: string;
   description: string;
   iconTitle: string;

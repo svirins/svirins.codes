@@ -4,8 +4,9 @@ import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
 import { MessageBox } from 'components/MessageBox';
 import type { SanityAsset } from '@sanity/asset-utils';
+import { IBlockContent } from 'lib/sanity-api';
 
-const BlockContent = ({ section }: { section: any }) => {
+const BlockContent = ({ section }: { section: IBlockContent }) => {
   return (
     <PortableText
       value={section}
