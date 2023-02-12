@@ -24,9 +24,11 @@ export default async function PostPage({
   if (!post) {
     return notFound();
   }
-  const { width, height, base64, img } = await createRemoteImageAttributes(
+  const { width, height, img } = await createRemoteImageAttributes(
     post.coverImage
   );
+  console.log('sanity asset is', post.coverImage);
+
   return (
     <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto pb-8'>
       <ArticleJsonLd
@@ -34,7 +36,7 @@ export default async function PostPage({
         type='BlogPosting'
         url='https://example.com/blog'
         title={`${post.title} Dzmitry Svirin`}
-        images={[img.src]}
+        images={[img]}
         datePublished={new Date(post.date).toISOString()}
         authorName='Dzmitry Svirin'
         description={post.excerpt}
@@ -47,14 +49,14 @@ export default async function PostPage({
         {post.coverImage && (
           <div className='flex flex-col w-full my-4'>
             <Image
-              src={img.src}
+              src={img}
               alt={`Image for ${post.title}`}
               width={width}
               height={height}
               className='rounded-lg  h-auto'
               priority={true}
               placeholder='blur'
-              blurDataURL={base64}
+              blurDataURL={post.coverImage.lqip}
             />
           </div>
         )}

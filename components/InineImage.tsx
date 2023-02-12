@@ -2,6 +2,7 @@ import { SanityAsset } from '@sanity/asset-utils';
 import Image from 'next/image';
 import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts';
 // TODO: add alt tag completion for image
+
 export async function InlineImage(asset: SanityAsset) {
   const { width, height, base64, img } = await createRemoteImageAttributes(
     asset
@@ -14,7 +15,7 @@ export async function InlineImage(asset: SanityAsset) {
       alt='just text'
       className='rounded-lg  h-auto'
       placeholder='blur'
-      blurDataURL={base64}
+      blurDataURL={asset.lqip}
     />
   );
 }

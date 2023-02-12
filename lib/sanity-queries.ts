@@ -2,17 +2,16 @@ import { groq } from 'next-sanity';
 
 import { POSTS_LIMIT } from 'config';
 
-const postFields = `
-  _id,
-  title,
-  "slug": slug.current,
-  "date": _updatedAt,
-  coverImage,
-  "tags": tags[] -> {
-    _id,
-    title,
-    "slug": slug.current
-  },
+export const imageMeta = `
+  "alt": coalesce(alt, asset->altText),
+  asset,
+  crop,
+  customRatio,
+  hotspot,
+  "id": asset->assetId,
+  "type": asset->mimeType,
+  "aspectRatio": asset->metadata.dimensions.aspectRatio,
+  "lqip": asset->metadata.lqip
 `;
 
 const snippetFields = groq`
@@ -44,7 +43,11 @@ export const postQuery = groq`{
     title,
     "slug": slug.current,
     "date": _updatedAt,
-    coverImage,
+    coverImage {
+      asset,
+      "aspectRatio": asset->metadata.dimensions.aspectRatio,
+      "lqip": asset->metadata.lqip
+    },
     "tags": tags[] -> {
       _id,
       title,
@@ -71,11 +74,6 @@ export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `;
 
-export const postBySlugQuery = groq`
-*[_type == "post" && slug.current == $slug][0] {
-  ${postFields}
-}
-`;
 export const tagRelatedPosts = groq`
 *[_type == "tag" && slug.current == $slug] {
   title,

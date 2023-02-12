@@ -1,12 +1,11 @@
-import { SanityAsset } from '@sanity/asset-utils';
+import type { SanityAsset } from '@sanity/asset-utils';
+import type { PortableTextBlock } from '@sanity/types';
 
 import { sanityClient, clientFetch } from './sanity-server';
-import produce from 'immer';
 
 import {
   allSnippetsQuery,
   indexQuery,
-  postBySlugQuery,
   postQuery,
   postSlugsQuery,
   postUpdatedQuery,
@@ -21,40 +20,28 @@ export interface ITag {
   title: string;
   slug: string;
 }
-
-export type BlockType = 'block' | 'image' | 'code' | 'span | ';
-
-export interface IBlockContentChildren {
-  _type: BlockType;
-  _key: string;
-  marks: any[];
-  text: string;
+export interface SanityAssetExtended extends SanityAsset {
+  aspectRatio: number;
+  lqip: string;
 }
 
-export interface IBlockContent {
-  _type: BlockType;
-  _key: string;
-  markDefs: any[];
-  children: IBlockContentChildren[];
-  style: string;
-}
 export interface IPost {
   _id: string;
   slug: string;
   content: string;
-  body: IBlockContent[];
+  body: PortableTextBlock[];
   title: string;
   date: string;
   excerpt: string;
   tags: ITag[];
-  coverImage: SanityAsset;
+  coverImage: SanityAssetExtended;
   readingTime: number;
 }
 
 export interface ISnippet {
   _id: string;
   slug: string;
-  body: IBlockContent[];
+  body: PortableTextBlock[];
   title: string;
   description: string;
   iconTitle: string;

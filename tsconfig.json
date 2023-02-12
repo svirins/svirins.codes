@@ -43,6 +43,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "sanity.cli.js",
-    "sanity.config.ts"
+    "sanity.config.ts",
+    " sanity-codegen.config.js"
   ]
 }

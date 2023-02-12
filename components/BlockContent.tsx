@@ -4,16 +4,17 @@ import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
 import { MessageBox } from 'components/MessageBox';
 import type { SanityAsset } from '@sanity/asset-utils';
-import { IBlockContent } from 'lib/sanity-api';
+import type { PortableTextBlock } from '@sanity/types';
 
-const BlockContent = ({ section }: { section: IBlockContent }) => {
+const BlockContent = ({ section }: { section: PortableTextBlock }) => {
   return (
     <PortableText
       value={section}
       onMissingComponent={false}
       components={{
         types: {
-          image: ({ value }: { value: SanityAsset }) => InlineImage(value),
+          image: async ({ value }: { value: SanityAsset }) =>
+            await InlineImage(value),
           code: ({ value }) => <CodeBlock value={value} />,
           messageBox: ({ value }) => <MessageBox value={value} />
         },
