@@ -1,7 +1,7 @@
+import { notFound } from 'next/navigation';
 import PostPreview from 'components/PostPreview';
 import { getPostsByTag, getTagSlugs } from 'lib/sanity-api';
-// title={`Posts for tag ${title}`}
-// description="Posts about code, dev life and various other things."
+
 export async function generateStaticParams() {
   const paths = await getTagSlugs();
   return paths.map((slug) => ({ slug: slug }));
@@ -22,19 +22,17 @@ export default async function TagPage({
         {`Posts with tag #${title}`}
       </h1>
       <div className='grid grid-cols-1 divide-y  divide-gray-300/25'>
-        {posts.length ? (
-          posts.map((post) => (
-            <PostPreview
-              key={post!.title}
-              slug={post!.slug}
-              title={post!.title}
-              excerpt={`${post!.excerpt.substring(0, 196)} ...`}
-              tags={post!.tags}
-            />
-          ))
-        ) : (
-          <p className=' text-gray-400 italic text-lg'>No results found</p>
-        )}
+        {posts.length > 0
+          ? posts.map((post) => (
+              <PostPreview
+                key={post!.title}
+                slug={post!.slug}
+                title={post!.title}
+                excerpt={`${post!.excerpt.substring(0, 196)} ...`}
+                tags={post!.tags}
+              />
+            ))
+          : notFound()}
       </div>
     </div>
   );

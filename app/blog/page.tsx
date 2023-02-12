@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { getPosts } from 'lib/sanity-api';
 import PostPreview from 'components/PostPreview';
 
@@ -20,19 +21,17 @@ export default async function Blog() {
       </div>
       <hr className='w-full max-w-2xl mx-auto border-1 border-gray-600 mt-4' />
       <div className='grid grid-cols-1 divide-y divide-gray-600'>
-        {posts.length > 0 ? (
-          posts.map((post) => (
-            <PostPreview
-              key={post.title}
-              slug={post.slug}
-              title={post.title}
-              excerpt={post.excerpt}
-              tags={post.tags}
-            />
-          ))
-        ) : (
-          <p className='text-gray-400 italic text-lg'>No results found</p>
-        )}
+        {posts.length > 0
+          ? posts.map((post) => (
+              <PostPreview
+                key={post.title}
+                slug={post.slug}
+                title={post.title}
+                excerpt={post.excerpt}
+                tags={post.tags}
+              />
+            ))
+          : notFound()}
       </div>
     </div>
   );

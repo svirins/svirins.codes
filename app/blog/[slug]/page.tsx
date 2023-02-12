@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { ArticleJsonLd } from 'next-seo';
 import { font_mono } from 'fonts';
@@ -20,6 +21,9 @@ export default async function PostPage({
   };
 }) {
   const post = await getPost(params.slug);
+  if (!post) {
+    return notFound();
+  }
   const { width, height, base64, img } = await createRemoteImageAttributes(
     post.coverImage
   );

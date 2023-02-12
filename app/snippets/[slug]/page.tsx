@@ -1,8 +1,8 @@
 import { ArticleJsonLd } from 'next-seo';
+import { notFound } from 'next/navigation';
 import { font_mono } from 'fonts';
 import BlockContent from 'components/BlockContent';
 import { getSnippet, getSnippetSlugs } from 'lib/sanity-api';
-
 import { SnippetIcon } from 'components/Icons';
 
 export async function generateStaticParams() {
@@ -18,7 +18,9 @@ export default async function SnippetsPage({
   };
 }) {
   const snippet = await getSnippet(params.slug);
-
+  if (!snippet) {
+    return notFound();
+  }
   return (
     <article className='flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full'>
       <div className={font_mono.variable}>
