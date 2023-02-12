@@ -3,12 +3,11 @@
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 // const { withSentryConfig } = require('@sentry/nextjs');
-const { withPlaiceholder } = require('@plaiceholder/next');
 /**
  * @type {import('next').NextConfig}
  */
 
-module.exports = withPlaiceholder({
+module.exports = {
   experimental: {
     appDir: true,
     swcMinify: true
@@ -25,7 +24,7 @@ module.exports = withPlaiceholder({
   //     }
   //   ];
   // }
-});
+};
 
 const ContentSecurityPolicy = `
     default-src 'self';

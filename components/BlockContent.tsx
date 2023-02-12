@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { CodeBlock } from 'components/CodeBlock';
 import { InlineImage } from 'components/InineImage';
 import { MessageBox } from 'components/MessageBox';
-import type { SanityAsset } from '@sanity/asset-utils';
 import type { PortableTextBlock } from '@sanity/types';
+import type { SanityAssetExtended } from 'lib/sanity-api';
 
 const BlockContent = ({ section }: { section: PortableTextBlock }) => {
   return (
@@ -13,8 +13,8 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
       onMissingComponent={false}
       components={{
         types: {
-          image: async ({ value }: { value: SanityAsset }) =>
-            await InlineImage(value),
+          image: ({ value }: { value: SanityAssetExtended }) =>
+            InlineImage(value),
           code: ({ value }) => <CodeBlock value={value} />,
           messageBox: ({ value }) => <MessageBox value={value} />
         },

@@ -1,26 +1,6 @@
 import { groq } from 'next-sanity';
-
 import { POSTS_LIMIT } from 'config';
 
-export const imageMeta = `
-  "alt": coalesce(alt, asset->altText),
-  asset,
-  crop,
-  customRatio,
-  hotspot,
-  "id": asset->assetId,
-  "type": asset->mimeType,
-  "aspectRatio": asset->metadata.dimensions.aspectRatio,
-  "lqip": asset->metadata.lqip
-`;
-
-const snippetFields = groq`
-  _id,
-  title,
-  description,
-  iconTitle,
-  "slug": slug.current,
-`;
 
 // post-related queries
 
@@ -97,7 +77,11 @@ export const postUpdatedQuery = groq`*[_type == "post" && _id == $id].slug.curre
 
 export const allSnippetsQuery = groq`
 *[_type == "snippet"] | order(date desc, _updatedAt desc) {
-  ${snippetFields}
+  _id,
+  title,
+  description,
+  iconTitle,
+  "slug": slug.current,
 }`;
 
 export const snippetsQuery = groq`
