@@ -5,8 +5,8 @@ import { getSnippets } from 'lib/sanity-api';
 export default async function Snippets() {
   const snippets = await getSnippets();
   return (
-    <div className='flex flex-col  max-w-2xl mx-auto w-full'>
-      <div className='flex flex-col mb-4'>
+    <div className='flex flex-col  max-w-2xl mx-auto w-full pb-8'>
+      <div className='flex flex-col'>
         <h1 className='mb-4 text-3xl font-bold tracking-tight capsize  md:text-5xl text-gray-100'>
           Code Snippets
         </h1>

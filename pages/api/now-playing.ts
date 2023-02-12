@@ -1,4 +1,4 @@
-import { wrapApiHandlerWithSentry } from '@sentry/nextjs';
+// import { wrapApiHandlerWithSentry } from '@sentry/nextjs';
 import getNowPlaying from 'lib/spotify-api';
 interface ICurrentlyPlaying {
   songUrl?: string;
@@ -52,5 +52,5 @@ async function handler(): Promise<ICurrentlyPlaying | Response> {
     }
   );
 }
-
-export default wrapApiHandlerWithSentry(handler);
+// export default wrapApiHandlerWithSentry(handler);
+export default handler;

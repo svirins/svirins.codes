@@ -28,7 +28,7 @@ export default async function PostPage({
     post.coverImage
   );
   return (
-    <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12'>
+    <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto pb-8'>
       <ArticleJsonLd
         useAppDir={true}
         type='BlogPosting'

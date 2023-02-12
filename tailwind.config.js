@@ -33,7 +33,7 @@ module.exports = {
       mono: ['var(--font-mono)', 'sans-serif']
     },
     extend: {
-      typography: (theme) => ({
+      typography: () => ({
         DEFAULT: {
           css: {
             'h2,h3,h4': {

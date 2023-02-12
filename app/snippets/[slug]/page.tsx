@@ -22,7 +22,7 @@ export default async function SnippetsPage({
     return notFound();
   }
   return (
-    <article className='flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full'>
+    <article className='flex flex-col justify-center items-start max-w-2xl mx-auto pb-8 w-full'>
       <div className={font_mono.variable}>
         <ArticleJsonLd
           useAppDir={true}
@@ -47,8 +47,6 @@ export default async function SnippetsPage({
             <SnippetIcon iconTitle={snippet.iconTitle} />
           </div>
         </div>
-        {/* <hr className="w-full border-1 max-w-2xl border-gray-200 dark:border-gray-800" /> */}
-
         <div className='prose prose-invert   max-w-2xl  w-full md:prose-lg'>
           {snippet.body.map((section) => {
             if (!section || Object.keys(section).length === 0) {

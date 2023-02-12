@@ -2,7 +2,7 @@
 // with Sentry.
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-const { withSentryConfig } = require('@sentry/nextjs');
+// const { withSentryConfig } = require('@sentry/nextjs');
 const { withPlaiceholder } = require('@plaiceholder/next');
 /**
  * @type {import('next').NextConfig}
@@ -74,8 +74,8 @@ const securityHeaders = [
   }
 ];
 
-module.exports = withSentryConfig(
-  module.exports,
-  { silent: false },
-  { hideSourcemaps: false }
-);
+// module.exports = withSentryConfig(
+//   module.exports,
+//   { silent: false },
+//   { hideSourcemaps: false }
+// );

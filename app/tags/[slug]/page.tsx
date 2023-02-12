@@ -17,7 +17,7 @@ export default async function TagPage({
   const { posts, title } = await getPostsByTag(params.slug);
 
   return (
-    <div className='flex flex-col max-w-2xl mx-auto pb-16 w-full'>
+    <div className='flex flex-col max-w-2xl mx-auto pb-8 w-full'>
       <h1 className='mb-4 text-3xl font-bold capsize tracking-tight  md:text-5xl text-gray-100'>
         {`Posts with tag #${title}`}
       </h1>

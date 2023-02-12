@@ -1,4 +1,4 @@
-import { wrapAppDirComponentWithSentry } from '@sentry/nextjs';
+// import { wrapAppDirComponentWithSentry } from '@sentry/nextjs';
 import Image from 'next/image';
 import { getPlaiceholder } from 'plaiceholder';
 import getWakaStats from 'lib/waka-api';
@@ -43,7 +43,7 @@ async function IndexPage() {
         </div>
       </div>
 
-      <div className='flex flex-col max-w-2xl mx-auto pb-16 w-full'>
+      <div className='flex flex-col max-w-2xl mx-auto pb-8 w-full'>
         <div className='flex flex-col'>
           <h2 className='text-xl md:text-2xl mt-4 tracking-tight text-gray-200 font-normal'>
             In short:
@@ -141,4 +141,5 @@ async function IndexPage() {
   );
 }
 
-export default wrapAppDirComponentWithSentry(IndexPage);
+// export default wrapAppDirComponentWithSentry(IndexPage);
+export default IndexPage;
