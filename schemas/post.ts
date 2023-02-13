@@ -24,32 +24,9 @@ export default defineType({
       validation: (Rule: { required: () => any }) => Rule.required()
     }),
     defineField({
-      name: 'coverImage',
+      name: 'imageWithAlt',
       title: 'Cover image',
-      type: 'image',
-      options: {
-        hotspot: true
-      },
-      validation: (rule) =>
-        rule.custom((value) => {
-          if (!value) {
-            return true;
-          }
-
-          const filetype = getExtension(value.asset!._ref);
-
-          if (filetype !== 'jpg' && filetype !== 'png' && filetype !== 'webp') {
-            return 'Image must be a JPG or PNG or WEBP';
-          }
-
-          const { width, height } = getImageDimensions(value.asset!._ref);
-
-          if (width < 672 || height < 152) {
-            return 'Image must be at least 672x152 pixels';
-          }
-
-          return true;
-        })
+      type: 'imageWithAlt',
     }),
     defineField({
       name: 'body',
@@ -76,7 +53,7 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      media: 'coverImage'
+      media: 'imageWithAlt'
     }
   }
 });

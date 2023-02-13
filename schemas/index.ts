@@ -4,6 +4,7 @@ import post from './post';
 import blockContent from './blockContent';
 import messageBox from './messageBox';
 import simpleBlockContent from './simpleBlockContent';
+import imageWithAlt from './imageWithAlt';
 
 export const schemaTypes = [
   post,
@@ -11,5 +12,6 @@ export const schemaTypes = [
   snippet,
   blockContent,
   messageBox,
-  simpleBlockContent
+  simpleBlockContent,
+  imageWithAlt
 ];
