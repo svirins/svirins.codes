@@ -27,6 +27,7 @@
     "@sanity/code-input": "^4.0.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.3.1",
+    "@vercel/og": "^0.1.0",
     "clsx": "^1.2.1",
     "next": "13.1.6",
     "next-sanity": "^4.1.2",
@@ -37,8 +38,7 @@
     "sanity": "^3.3.1",
     "styled-components": "^5.3.6",
     "swr": "2.0.3",
-    "typed.js": "^2.0.12",
-    "use-delayed-render": "^0.0.7"
+    "typed.js": "^2.0.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { SnippetIcon } from 'components/Icons';
-import { ISnippet } from 'lib/sanity-api';
+import type { ISnippet } from 'lib/sanity-api';
 
 export default function SnippetPreview({
   title,

@@ -20,9 +20,12 @@ export default async function getWakaStats(): Promise<IWakaAPIResponse> {
     next: { revalidate: 86400 }
   });
   const { data } = await response.json();
+  if (!data) {
+    return { languages: [], totalHours: 0 };
+  }
   let totalHours = 0;
   for (const element of data.languages) {
     totalHours += element.minutes;
   }
-  return { languages: data.languages, totalHours: totalHours };
+  return { languages: data.languages, totalHours };
 }

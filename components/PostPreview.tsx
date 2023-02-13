@@ -1,6 +1,5 @@
-import { IPost } from 'lib/sanity-api';
+import type { IPost } from 'lib/sanity-api';
 import Link from 'next/link';
-
 import { Tags } from 'components/Tags';
 
 export default function PostPreview({
