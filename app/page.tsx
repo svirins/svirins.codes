@@ -1,4 +1,3 @@
-// import { wrapAppDirComponentWithSentry } from '@sentry/nextjs';
 import Image from 'next/image';
 import getWakaStats from 'lib/waka-api';
 import TypewriterEffect from 'components/TypewriterEffect';
@@ -139,5 +138,4 @@ async function IndexPage() {
   );
 }
 
-// export default wrapAppDirComponentWithSentry(IndexPage);
 export default IndexPage;

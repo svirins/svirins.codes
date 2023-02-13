@@ -36,7 +36,21 @@ interface INowPlaying {
 }
 
 export default function NowPlaying() {
-  const { data } = useSWR<INowPlaying>('/api/now-playing', fetcher);
+  const { data, isLoading, isValidating } = useSWR<INowPlaying>(
+    '/api/now-playing',
+    fetcher,
+    {
+      refreshInterval: 5000
+    }
+  );
+  console.log(
+    'Spotify data is : ',
+    data,
+    'Loading : ',
+    isLoading,
+    'Validating is : ',
+    isValidating
+  );
   return (
     <div className='flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full'>
       {data?.songUrl ? (

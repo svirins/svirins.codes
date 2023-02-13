@@ -72,9 +72,3 @@ const securityHeaders = [
     value: '1; mode=block'
   }
 ];
-
-// module.exports = withSentryConfig(
-//   module.exports,
-//   { silent: false },
-//   { hideSourcemaps: false }
-// );
