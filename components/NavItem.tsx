@@ -1,4 +1,4 @@
-`use client`;
+'use client';
 
 import { getActiveStatus } from 'lib/utils';
 import clsx from 'clsx';

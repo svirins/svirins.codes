@@ -1,7 +1,6 @@
 import { groq } from 'next-sanity';
 import { POSTS_LIMIT } from 'config';
 
-
 // post-related queries
 
 export const indexQuery = groq`
@@ -23,8 +22,9 @@ export const postQuery = groq`{
     title,
     "slug": slug.current,
     "date": _updatedAt,
-    coverImage {
+    imageWithAlt {
       asset,
+      alt,
       "aspectRatio": asset->metadata.dimensions.aspectRatio,
       "lqip": asset->metadata.lqip
     },

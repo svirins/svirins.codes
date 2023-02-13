@@ -24,7 +24,7 @@ export default async function PostPage({
   if (!post) {
     return notFound();
   }
-  const { width, height, img } = createRemoteImageAttributes(post.coverImage);
+  const { width, height, img } = createRemoteImageAttributes(post.imageWithAlt);
 
   return (
     <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto pb-8'>
@@ -43,17 +43,17 @@ export default async function PostPage({
         <h1 className='mb-4 md:mb-6 md:mt-4 text-3xl font-bold  tracking-tight capsize  md:text-5xl text-gray-100'>
           {post.title}
         </h1>
-        {post.coverImage && (
+        {post.imageWithAlt && (
           <div className='flex flex-col w-full my-4'>
             <Image
               src={img}
-              alt={`Image for ${post.title}`}
+              alt={post.imageWithAlt.alt}
               width={width}
               height={height}
               className='rounded-lg h-auto w-auto'
               priority={true}
               placeholder='blur'
-              blurDataURL={post.coverImage.lqip}
+              blurDataURL={post.imageWithAlt.lqip}
             />
           </div>
         )}
@@ -63,7 +63,7 @@ export default async function PostPage({
               alt='Dzmitry Svirin'
               height={36}
               width={36}
-              src='/svirins.png'
+              src='/svirins-light.webp'
               className='rounded-full'
             />
             <p className='ml-2 text-xs md:text-sm lg:text-base text-gray-400'>

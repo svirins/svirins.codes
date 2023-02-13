@@ -1,10 +1,10 @@
-import tag from './tag';
-import snippet from './snippet';
-import post from './post';
-import blockContent from './blockContent';
-import messageBox from './messageBox';
-import simpleBlockContent from './simpleBlockContent';
-import imageWithAlt from './imageWithAlt';
+import tag from './documents/tag';
+import snippet from './documents/snippet';
+import post from './documents/post';
+import blockContent from './objects/blockContent';
+import messageBox from './objects/messageBox';
+import simpleBlockContent from './objects/simpleBlockContent';
+import imageWithAlt from './objects/imageWithAlt';
 
 export const schemaTypes = [
   post,

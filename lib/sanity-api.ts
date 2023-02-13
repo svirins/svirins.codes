@@ -23,6 +23,7 @@ export interface ITag {
 export interface SanityAssetExtended extends SanityAsset {
   aspectRatio: number;
   lqip: string;
+  alt: string;
 }
 
 export interface IPost {
@@ -34,7 +35,7 @@ export interface IPost {
   date: string;
   excerpt: string;
   tags: ITag[];
-  coverImage: SanityAssetExtended;
+  imageWithAlt: SanityAssetExtended;
   readingTime: number;
 }
 
