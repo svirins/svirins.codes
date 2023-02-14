@@ -36,6 +36,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "sanity": "^3.3.1",
+    "sanity-plugin-asset-source-openai": "^1.1.2",
+    "server-only": "^0.0.1",
     "styled-components": "^5.3.6",
     "swr": "2.0.3",
     "typed.js": "^2.0.12"
