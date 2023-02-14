@@ -6,14 +6,16 @@ import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts'
 export function InlineImage(asset: SanityAssetExtended) {
   const { width, height, img } = createRemoteImageAttributes(asset);
   return (
-    <Image
-      src={img}
-      width={width}
-      height={height}
-      alt={asset.alt}
-      className='rounded-lg h-auto w-auto'
-      placeholder='blur'
-      blurDataURL={asset.lqip}
-    />
+    <div className='flex flex-col w-full my-4'>
+      <Image
+        src={img}
+        width={width}
+        height={height}
+        alt={asset.alt}
+        className='rounded-lg h-auto w-auto'
+        placeholder='blur'
+        blurDataURL={asset.lqip}
+      />
+    </div>
   );
 }

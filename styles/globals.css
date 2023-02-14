@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  min-width: 360px;
+  min-width: 480px;
   scroll-behavior: smooth;
 }
 
@@ -184,14 +184,6 @@ pre {
   scrollbar-width: none; /* Firefox */
 }
 
-.code-title {
-  @apply px-2 py-2 font-mono text-sm font-semibold border rounded-sm  text-gray-200 border-gray-700 bg-gray-700;
-}
-
-.highlight-line {
-  @apply block px-4 -mx-4  border-l-4 border-active  bg-gray-800;
-}
-
 /* Remove Safari input shadow on mobile */
 input[type='text'],
 input[type='email'] {
@@ -255,4 +247,12 @@ table {
 
 .prose :where(code):not(:where([class~='not-prose'] *))::after {
   content: '';
+}
+
+.code-title {
+  @apply px-2 py-2 font-mono text-sm font-semibold border rounded-sm  text-gray-200 border-gray-700 bg-gray-700;
+}
+
+.highlight-line {
+  @apply bg-code-purple/50 text-gray-50 px-[4px] py-[2px];
 }

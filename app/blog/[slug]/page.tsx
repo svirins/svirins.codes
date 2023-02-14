@@ -57,7 +57,7 @@ export default async function PostPage({
             />
           </div>
         )}
-        <div className='flex flex-row items-start justify-between w-full mt-2 tems-center'>
+        <div className='flex flex-row items-start justify-between w-full mt-2 items-center'>
           <div className='flex items-center'>
             <Image
               alt='Dzmitry Svirin'
@@ -66,7 +66,7 @@ export default async function PostPage({
               src='/svirins-light.webp'
               className='rounded-full'
             />
-            <p className='ml-2 text-xs md:text-sm lg:text-base text-gray-400'>
+            <p className='ml-2 text-sm md:text-base  text-gray-400'>
               <a
                 className=' text-gray-300  font-medium link-underline link-underline-gradient'
                 href='https://twitter.com/svirins'
@@ -81,7 +81,7 @@ export default async function PostPage({
               }).format(new Date(post.date))}
             </p>
           </div>
-          <p className='text-xs md:text-sm lg:text-base text-gray-400 min-w-32'>
+          <p className='text-sm md:text-base text-gray-400 min-w-32'>
             {`${post.readingTime && 1} min read`}
           </p>
         </div>

@@ -59,9 +59,7 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
           italic: ({ children }) => <i className='font-medium'>{children}</i>,
           em: ({ children }) => <em>{children}</em>,
           highlight: ({ children }) => (
-            <span className='underline underline-offset-2 bg-code-pink'>
-              {children}
-            </span>
+            <span className='highlight-line'>{children}</span>
           )
         },
         block: {
