@@ -45,3 +45,5 @@ dist
 # Sentry
 next.config.original.js
 .sentryclirc
+
+.turbo
