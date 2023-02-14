@@ -11,9 +11,9 @@ interface MessageBox {
 export function MessageBox({ value }: { value: MessageBox }) {
   return (
     <div className='flex flex-col w-full bg-message rounded-lg p-4 mb-4'>
-      <div className='flex-row'>
+      <div className='flex-row flex-1'>
         <LightBulb />
-        <h6 className='font-semibold text-gray-100'>{value.title}</h6>
+        <h6 className='font-semibold'>{value.title}</h6>
       </div>
       <div>
         <span className='text-gray-300'>just text here</span>

@@ -13,7 +13,7 @@ module.exports = {
       active: 'rgb(255 49 46 / 95%)',
       gray: colors.slate,
       transparent: 'rgb(255 255 255 / 0%)',
-      message: '#1a3830',
+      message: '#1e293b',
       wakatime: {
         blue: '#2563EB',
         amber: '#D97706',

@@ -242,3 +242,17 @@ table {
 .full-stack {
   @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;
 }
+
+.prose code {
+  background-color: #1e293b;
+  border-color: #475569;
+  border-radius: 2px;
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *))::before {
+  content: '';
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
+  content: '';
+}
