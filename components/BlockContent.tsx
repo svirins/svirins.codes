@@ -13,7 +13,7 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
       onMissingComponent={false}
       components={{
         types: {
-          image: ({ value }: { value: SanityAssetExtended }) =>
+          imageWithAlt: ({ value }: { value: SanityAssetExtended }) =>
             InlineImage(value),
           code: ({ value }) => <CodeBlock value={value} />,
           messageBox: ({ value }) => <MessageBox value={value} />

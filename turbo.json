@@ -5,5 +5,8 @@
       "outputs": [".next/**"]
     },
     "lint": {}
+  },
+  "remoteCache": {
+    "signature": true
   }
 }

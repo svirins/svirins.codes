@@ -10,7 +10,7 @@ export default function SnippetPreview({
 }: Partial<ISnippet>) {
   return (
     <div className='w-full py-4 text-left'>
-      <div className='float-right  scale-125 ml-4 origin-centers pr-2 pt-1 md:pt-2'>
+      <div className='float-right  scale-125 ml-4 origin-centers  pt-1 md:pt-2'>
         <SnippetIcon iconTitle={iconTitle!} />
       </div>
       <Link
