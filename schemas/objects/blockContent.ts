@@ -11,7 +11,6 @@ export default defineType({
       type: 'block',
       styles: [
         { title: 'Normal', value: 'normal' },
-        { title: 'H1', value: 'h1' },
         { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
@@ -70,7 +69,7 @@ export default defineType({
       type: 'messageBox'
     }),
     defineArrayMember({
-      type: 'code',
+      type: 'code' as 'codeInput',
       title: 'Code with all options',
       options: {
         language: 'javascript',

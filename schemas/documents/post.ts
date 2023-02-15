@@ -1,6 +1,5 @@
 import { RiPagesLine } from 'react-icons/ri';
 import { defineType, defineField } from 'sanity';
-import { getExtension, getImageDimensions } from '@sanity/asset-utils';
 
 export default defineType({
   name: 'post',
@@ -26,7 +25,7 @@ export default defineType({
     defineField({
       name: 'imageWithAlt',
       title: 'Cover image',
-      type: 'imageWithAlt',
+      type: 'imageWithAlt'
     }),
     defineField({
       name: 'body',
@@ -48,6 +47,11 @@ export default defineType({
         }
       ],
       validation: (Rule: { required: () => any }) => Rule.required()
+    }),
+    defineField({
+      name: 'openGraphData',
+      title: 'Open Graph Data',
+      type: 'openGraph'
     })
   ],
   preview: {
