@@ -6,7 +6,9 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}', // Note the addition of the `app` directory.
-    './components/**/*.{js,ts,jsx,tsx}'
+    './components/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './plugins/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     colors: {
@@ -30,7 +32,7 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['var(--font-sans)', 'sans-serif'],
+      sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       mono: ['var(--font-mono)', 'sans-serif']
     },
     extend: {

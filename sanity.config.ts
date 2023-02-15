@@ -1,8 +1,10 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
-import { schemaTypes } from './schemas';
+import { schemaTypes } from './studio';
 import { codeInput } from '@sanity/code-input';
+import { previewDocumentNode } from './studio/plugins/preview';
+
 import { openaiImageAsset } from 'sanity-plugin-asset-source-openai';
 import { loadEnvConfig } from '@next/env';
 
@@ -18,11 +20,11 @@ const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 const singletonTypes = new Set(['siteMeta']);
 
 export default defineConfig({
-  name: 'default',
+  name: 'Studio',
+  basePath: '/studio',
   title: 'svirins-codes-studio',
-
-  projectId: 'q60wk43i',
-  dataset: 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET as string,
 
   plugins: [
     deskTool({
@@ -39,12 +41,12 @@ export default defineConfig({
                 .schemaType('siteMeta')
                 .documentId('80ae3d7d-426b-41cb-b9d5-6310d3f0cd8a')
             ),
-
             // Regular document types
             S.documentTypeListItem('post').title('Blog Posts'),
             S.documentTypeListItem('snippet').title('Snippet'),
             S.documentTypeListItem('tag').title('Tag')
-          ])
+          ]),
+      defaultDocumentNode: previewDocumentNode()
     }),
     visionTool(),
     codeInput()

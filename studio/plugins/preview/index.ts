@@ -1,0 +1,23 @@
+import type { DefaultDocumentNodeResolver } from 'sanity/desk';
+import PostPreview from './post-preview';
+import SnippetPreview from './snippet-preview';
+
+export const previewDocumentNode = (): DefaultDocumentNodeResolver => {
+  return (S, { schemaType }) => {
+    if (schemaType === 'post') {
+      return S.document().views([
+        S.view.form(),
+        S.view.component(PostPreview).title('Preview Post')
+      ]);
+    }
+
+    if (schemaType === 'page') {
+      return S.document().views([
+        S.view.form(),
+        S.view.component(SnippetPreview).title('Preview Snipprt')
+      ]);
+    }
+
+    return S.document().views([S.view.form()]);
+  };
+};
