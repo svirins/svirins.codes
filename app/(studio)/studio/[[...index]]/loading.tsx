@@ -1,7 +1,8 @@
 'use client';
 
-/**
- * This route enables showing a loading state right away so that the user knows the studio is loading
- */
+import config from '../../../../sanity.config';
+import { NextStudioLoading } from 'next-sanity/studio/loading';
 
-export { NextStudioLoading as default } from 'next-sanity/studio/loading';
+export default function Loading() {
+  return <NextStudioLoading config={config} />;
+}

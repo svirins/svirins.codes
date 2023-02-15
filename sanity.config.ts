@@ -3,15 +3,8 @@ import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './studio';
 import { codeInput } from '@sanity/code-input';
-import { previewDocumentNode } from './studio/plugins/preview';
 
 import { openaiImageAsset } from 'sanity-plugin-asset-source-openai';
-import { loadEnvConfig } from '@next/env';
-
-// const dev = process.env.NODE_ENV !== 'production';
-// loadEnvConfig(__dirname, dev, { info: () => null, error: console.error });
-
-// const openaiAPIkey = process.env.OPENAI_API_KEY as string;
 
 // Define the actions that should be available for singleton documents
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
@@ -45,8 +38,7 @@ export default defineConfig({
             S.documentTypeListItem('post').title('Blog Posts'),
             S.documentTypeListItem('snippet').title('Snippet'),
             S.documentTypeListItem('tag').title('Tag')
-          ]),
-      defaultDocumentNode: previewDocumentNode()
+          ])
     }),
     visionTool(),
     codeInput()
