@@ -30,7 +30,7 @@ export default defineConfig({
         S.list()
           .title('Content')
           .items([
-            // Our singleton type has a list item with a custom child
+            // singleton type has a list item with a custom child
             S.listItem().title('Site Meta').id('siteMeta').child(
               // Instead of rendering a list of documents, we render a single
               // document, specifying the `documentId` manually to ensure
@@ -55,12 +55,10 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
-
     // Filter out singleton types from the global “New document” menu options
     templates: (templates) =>
       templates.filter(({ schemaType }) => !singletonTypes.has(schemaType))
   },
-
   document: {
     // For singleton types, filter out actions that are not explicitly included
     // in the `singletonActions` list defined above
