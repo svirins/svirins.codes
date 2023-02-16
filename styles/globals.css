@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './prism.css';
-
 html {
   min-width: 480px;
   scroll-behavior: smooth;
@@ -183,6 +181,7 @@ input[type='email'] {
 table {
   display: block;
   max-width: fit-content;
+  overflow-x: auto;
   white-space: nowrap;
 }
 
@@ -218,10 +217,6 @@ table {
   }
 }
 
-.full-stack {
-  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;
-}
-
 .prose :where(code):not(:where([class~='not-prose'] *))::before {
   content: '';
 }
@@ -238,6 +233,47 @@ table {
   @apply bg-code-purple/20 border-b-2 border-code-purple/60  text-gray-50 px-[4px] py-[2px];
 }
 
+code[class*='language-'],
 pre[class*='language-'] {
-  @apply mt-0 overflow-x-scroll break-normal whitespace-pre;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
 }
+pre[class*='language-'] {
+  margin-top: 0;
+  overflow: auto;
+}
+
+/* font styling */
+
+/* .page-header {
+  @apply;
+} */
+
+.text-gradient {
+  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;
+}
+
+.inner-header {
+  @apply text-xl md:text-2xl mt-4 tracking-tight text-gray-200 font-normal leading-5;
+}
+
+/* .text-extra-small {
+  @apply;
+}
+
+.common-text {
+  @apply;
+} */

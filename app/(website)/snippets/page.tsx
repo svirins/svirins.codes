@@ -10,12 +10,12 @@ export default async function Snippets() {
         <h1 className='mb-4 text-3xl font-bold tracking-tight capsize  md:text-5xl text-gray-100'>
           Code Snippets
         </h1>
-        <h2 className='text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal'>
+        <h2 className='inner-header'>
           Some{' '}
           <span role='image' aria-label='random'>
             🎲
           </span>{' '}
-          <span className='font-semibold  full-stack'>stuff</span> I&lsquo;ve
+          <span className='font-semibold  text-gradient'>stuff</span> I&lsquo;ve
           found useful and want to share.
         </h2>
       </div>

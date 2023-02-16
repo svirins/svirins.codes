@@ -31,9 +31,16 @@ module.exports = {
         green: '#22c55e'
       }
     },
+    screens: {
+      xs: '480px',
+      sm: '660px',
+      md: '820px',
+      lg: '980px',
+      xl: '1280px'
+    },
     fontFamily: {
       sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-      mono: ['var(--font-mono)', 'sans-serif']
+      mono: ['var(--font-mono)', 'monospace']
     },
     extend: {
       typography: () => ({

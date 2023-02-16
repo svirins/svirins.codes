@@ -62,9 +62,7 @@ export default function WakaStats({ languages, totalHours }: IWakaAPIResponse) {
 
   return (
     <>
-      <h2 className='text-xl md:text-2xl mb-3 mt-10 tracking-tight placeholder:text-gray-200 font-normal'>
-        Some stats:
-      </h2>
+      <h2 className='inner-header mb-4'>Some stats:</h2>
       {stackedBarComments ? (
         <div className='flex-col w-full min-w-2xl'>
           <div className='flex flex-row space-x-1'>

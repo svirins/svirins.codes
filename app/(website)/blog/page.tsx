@@ -10,9 +10,9 @@ export default async function Blog() {
         <h1 className='mb-4 text-3xl font-bold tracking-tight capsize  md:text-5xl text-gray-100'>
           Blog
         </h1>
-        <h2 className='text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal'>
+        <h2 className='inner-header'>
           Posts about code, dev life and{' '}
-          <span className='font-semibold  full-stack'>various</span>{' '}
+          <span className='font-semibold  text-gradient'>various</span>{' '}
           <span role='image' aria-label='technomagical'>
             ⚗️
           </span>{' '}
