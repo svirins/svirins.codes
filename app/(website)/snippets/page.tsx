@@ -21,7 +21,7 @@ export default async function Snippets() {
       </div>
       <hr className='w-full max-w-2xl mx-auto border-1 border-gray-600 mt-4' />
       <div className='grid grid-cols-1 divide-y divide-gray-600'>
-        {snippets.length > 0
+        {snippets && snippets.length > 0
           ? snippets.map((snippet) => (
               <SnippetPreview
                 key={snippet.slug}

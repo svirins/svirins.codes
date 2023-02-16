@@ -170,20 +170,6 @@ html {
   @apply text-code-yellow;
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
-  @apply text-gray-50 mt-0;
-}
-
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
 /* Remove Safari input shadow on mobile */
 input[type='text'],
 input[type='email'] {
@@ -235,12 +221,6 @@ table {
   @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;
 }
 
-.prose code {
-  background-color: #1e293b;
-  border-color: #475569;
-  border-radius: 2px;
-}
-
 .prose :where(code):not(:where([class~='not-prose'] *))::before {
   content: '';
 }
@@ -255,4 +235,8 @@ table {
 
 .highlight-line {
   @apply bg-code-purple/20 border-b-2 border-code-purple/60  text-gray-50 px-[4px] py-[2px];
+}
+
+pre[class*='language-'] {
+  @apply overflow-x-scroll mt-0 overflow-thin;
 }

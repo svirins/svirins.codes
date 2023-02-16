@@ -21,7 +21,7 @@ export default async function Blog() {
       </div>
       <hr className='w-full max-w-2xl mx-auto border-1 border-gray-600 mt-4' />
       <div className='grid grid-cols-1 divide-y divide-gray-600'>
-        {posts.length > 0
+        {posts && posts.length > 0
           ? posts.map((post) => (
               <PostPreview
                 key={post.title}

@@ -57,7 +57,7 @@ export default async function PostPage({
             />
           </div>
         )}
-        <div className='flex flex-row items-start justify-between w-full mt-2 items-center'>
+        <div className='flex flex-row items-start justify-between w-full mt-2'>
           <div className='flex items-center'>
             <Image
               alt='Dzmitry Svirin'

@@ -22,7 +22,7 @@ export default async function TagPage({
         {`Posts with tag #${title}`}
       </h1>
       <div className='grid grid-cols-1 divide-y  divide-gray-300/25'>
-        {posts.length > 0
+        {posts && posts.length > 0
           ? posts.map((post) => (
               <PostPreview
                 key={post!.title}

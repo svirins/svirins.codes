@@ -56,6 +56,11 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
               </a>
             );
           },
+          code: ({ children }) => (
+            <span className=' bg-[#1e293b] border-[#475569] border px-2 py-1 rounded-md'>
+              {children}
+            </span>
+          ),
           italic: ({ children }) => <i className='font-medium'>{children}</i>,
           em: ({ children }) => <em>{children}</em>,
           highlight: ({ children }) => (
