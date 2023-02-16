@@ -254,5 +254,5 @@ table {
 }
 
 .highlight-line {
-  @apply bg-code-purple/50 text-gray-50 px-[4px] py-[2px];
+  @apply bg-code-purple/20 border-b-2 border-code-purple/60  text-gray-50 px-[4px] py-[2px];
 }

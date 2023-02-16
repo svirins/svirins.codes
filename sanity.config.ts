@@ -14,7 +14,6 @@ const singletonTypes = new Set(['siteMeta']);
 
 export default defineConfig({
   name: 'Studio',
-  basePath: '/studio',
   title: 'svirins-codes-studio',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET as string,
