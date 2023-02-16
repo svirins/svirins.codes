@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './prism.css';
+
 html {
   min-width: 480px;
   scroll-behavior: smooth;
