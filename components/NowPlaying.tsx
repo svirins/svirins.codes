@@ -4,7 +4,7 @@ import useSWR from 'swr';
 
 function AnimatedBars() {
   return (
-    <div className='w-auto flex items-end overflow-hidden md:mb-4'>
+    <div className='w-auto flex items-end  md:mb-4'>
       <svg
         id='loading-bar'
         xmlns='http://www.w3.org/2000/svg'

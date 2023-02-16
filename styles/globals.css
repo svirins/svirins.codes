@@ -181,7 +181,6 @@ input[type='email'] {
 table {
   display: block;
   max-width: fit-content;
-  overflow-x: auto;
   white-space: nowrap;
 }
 
@@ -238,5 +237,5 @@ table {
 }
 
 pre[class*='language-'] {
-  @apply overflow-x-scroll mt-0 overflow-thin;
+  @apply mt-0 overflow-x-scroll break-normal whitespace-pre;
 }

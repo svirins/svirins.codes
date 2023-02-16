@@ -57,7 +57,7 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
             );
           },
           code: ({ children }) => (
-            <span className=' bg-[#1e293b] border-[#475569] border px-2 py-1 rounded-md'>
+            <span className=' bg-[#1e293b] border-[#475569] border  rounded-md px-0.5'>
               {children}
             </span>
           ),

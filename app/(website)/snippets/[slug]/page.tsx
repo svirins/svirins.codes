@@ -36,7 +36,7 @@ export default async function SnippetsPage({
         />
         <div className='flex justify-between w-full'>
           <div>
-            <h1 className='font-bold capsize text-3xl  md:text-5xl tracking-tight mb-4:text-gray-100'>
+            <h1 className='font-bold capsize text-3xl  md:text-5xl tracking-tight mb-4 text-gray-100'>
               {snippet.title}
             </h1>
             <p className='text-gray-200 py-2 md:text-lg'>
