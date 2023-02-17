@@ -29,20 +29,35 @@ function AnimatedBars() {
   );
 }
 
-interface INowPlaying {
+interface ICurrentlyPlaying {
   songUrl?: string;
-  title?: string;
   artist?: string;
+  title?: string;
+  isPlaying: boolean;
+  isError: boolean;
+}
+
+interface IAPIResponse extends ICurrentlyPlaying {
+  isLoading: boolean;
+  isValidating: boolean;
 }
 
 export default function NowPlaying() {
-  const { data, isLoading, isValidating } = useSWR<INowPlaying>(
+  const { data, isLoading, isValidating } = useSWR<IAPIResponse>(
     '/api/now-playing',
     fetcher,
     {
-      refreshInterval: 5000
+      refreshInterval: 10000
     }
   );
+
+  if (data?.isError) {
+    throw new Error('Spotify API Response');
+  }
+  if (data?.isLoading && data?.isValidating) {
+    return;
+  }
+
   return (
     <div className='flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full'>
       {data?.songUrl ? (
