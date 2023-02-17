@@ -1,12 +1,11 @@
-// import { wrapApiHandlerWithSentry } from '@sentry/nextjs';
 import { NextResponse } from 'next/server';
 
-export const runtime = 'experimental-edge';
+export const runtime = 'edge';
 export const revalidate = 10;
 
 import getNowPlaying from 'lib/spotify-api';
 
-export async function GET(request: Request): Promise<NextResponse> {
+async function handler(): Promise<NextResponse> {
   const response = await getNowPlaying();
 
   if (response.status === 204 || response.status > 400) {
@@ -32,3 +31,5 @@ export async function GET(request: Request): Promise<NextResponse> {
     isError: false
   });
 }
+
+export default handler;

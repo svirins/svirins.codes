@@ -10,7 +10,7 @@
 module.exports = {
   experimental: {
     appDir: true,
-    swcMinify: true
+    swcMinify: true,
   },
   images: {
     domains: ['cdn.sanity.io'],
