@@ -258,9 +258,9 @@ pre[class*='language-'] {
 
 /* font styling */
 
-/* .page-header {
-  @apply;
-} */
+.page-header {
+  @apply text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-100;
+}
 
 .text-gradient {
   @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;

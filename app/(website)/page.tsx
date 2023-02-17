@@ -13,16 +13,15 @@ async function IndexPage() {
           <div className='md:col-span-4 '>
             <div className='flex flex-col  max-w-2xl mx-auto w-full'>
               <div className='flex flex-col items-start'>
-                <h1 className='text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-100'>
+                <h1 className='page-header'>
                   Hi, I&apos;m <span className='text-active'>Dzmitry</span>
                 </h1>
-                <h2 className='text-xl md:text-2xl mt-4 tracking-tight text-gray-200 font-normal'>
-                  I specialize in turning ideas into{` `}
-                  <span className='font-semibold  text-gradient'>
-                    real-life{' '}
-                  </span>
-                  products. Full-stack developer with a passion for the React
-                  ecosystem, TypeScript, and serverless backends.
+                <h2 className='text-gray-50 md:text-lg'>
+                  A Full-stack developer with a passion for the React ecosystem,
+                  TypeScript, and serverless backends.
+                  <br /> Specialized in turning ideas into{` `}
+                  <span className='font-semibold  text-gradient'>real </span>
+                  products.
                 </h2>
               </div>
             </div>
@@ -46,11 +45,6 @@ async function IndexPage() {
         <div className='flex flex-col'>
           <h2 className='inner-header'>In short:</h2>
           <ul className='list-inside list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]'>
-            <li className='text-gray-400 md:text-lg'>
-              {' '}
-              Full-stack developer with a passion for the React ecosystem,
-              TypeScript, and serverless backends.
-            </li>
             <li className='text-gray-400 md:text-lg'>
               10+ years of building products for clients across several
               countries;
@@ -88,7 +82,7 @@ async function IndexPage() {
               be curious, learn iteratively;
             </li>
           </ul>
-          <h2 className='inner-header mb-6'>Technologies I use frequently:</h2>
+          <h2 className='inner-header mb-4'>Technologies I use frequently:</h2>
           <MyStack />
           {totalHours > 8 && (
             <WakaStats languages={languages} totalHours={totalHours} />

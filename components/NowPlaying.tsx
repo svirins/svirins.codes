@@ -51,11 +51,11 @@ export default function NowPlaying() {
     }
   );
 
-  if (data?.isError) {
-    throw new Error('Spotify API Response');
-  }
+  // if (data?.isError) {
+  //   throw new Error('Spotify API Response');
+  // }
   if (data?.isLoading && data?.isValidating) {
-    return;
+    return <span>Fetching data ...</span>;
   }
 
   return (
