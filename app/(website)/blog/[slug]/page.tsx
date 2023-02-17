@@ -50,6 +50,7 @@ export default async function PostPage({
               alt={post.imageWithAlt.alt}
               width={width}
               height={height}
+              quality='100'
               className='rounded-lg h-auto w-auto'
               priority={true}
               placeholder='blur'
@@ -61,10 +62,12 @@ export default async function PostPage({
           <div className='flex items-center'>
             <Image
               alt='Dzmitry Svirin'
-              height={36}
-              width={36}
-              src='/svirins-light.webp'
+              height={48}
+              width={48}
+              quality='100'
+              src='/svirins-light-small.webp'
               className='rounded-full'
+              placeholder='blur'
             />
             <p className='ml-2 text-sm md:text-base  text-gray-400'>
               <a

@@ -43,8 +43,8 @@
     "typed.js": "^2.0.12"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.3",
-    "@commitlint/config-conventional": "^17.4.3",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@sanity/cli": "^3.4.0",
     "@sanity/types": "^3.4.0",
     "@tailwindcss/typography": "0.5.9",

@@ -14,6 +14,7 @@ export function InlineImage(asset: SanityAssetExtended) {
         alt={asset.alt}
         className='rounded-lg h-auto w-auto'
         placeholder='blur'
+        quality='100'
         blurDataURL={asset.lqip}
       />
     </div>

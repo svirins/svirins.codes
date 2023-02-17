@@ -17,7 +17,7 @@ export default function PostPreview({
       >
         {title}
       </Link>
-      <p className='text-gray-400 md:text-lg'>{excerpt}</p>
+      <p className='common-text'>{excerpt}</p>
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default defineType({
   fields: [
     defineField({
       type: 'string',
-      name: 'site_name',
+      name: 'siteName',
       title: 'Site Name',
       group: ['og', 'meta']
       // fieldset: "optional"

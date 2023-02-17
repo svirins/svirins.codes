@@ -9,7 +9,7 @@ async function IndexPage() {
   return (
     <>
       <div className='flex flex-col  max-w-2xl mx-auto w-full'>
-        <div className='md:grid md:grid-cols-5'>
+        <div className='md:grid md:grid-cols-5 pb-2'>
           <div className='md:col-span-4 '>
             <div className='flex flex-col  max-w-2xl mx-auto w-full'>
               <div className='flex flex-col items-start'>
@@ -18,8 +18,12 @@ async function IndexPage() {
                 </h1>
                 <h2 className='text-gray-50 md:text-lg'>
                   A Full-stack developer with a passion for the React ecosystem,
-                  TypeScript, and serverless backends.
-                  <br /> Specialized in turning ideas into{` `}
+                  TypeScript, and serverless backends. Specialized in turning
+                  <span className='font-semibold  text-gradient'>
+                    {' '}
+                    ideas{' '}
+                  </span>{' '}
+                  into{' '}
                   <span className='font-semibold  text-gradient'>real </span>
                   products.
                 </h2>
@@ -32,10 +36,10 @@ async function IndexPage() {
               src='/svirins-light.webp'
               width={192}
               height={192}
+              quality='100'
               className='rounded-full'
               priority={true}
               placeholder='blur'
-              blurDataURL='data:image/webp;base64,UklGRlIDAABXRUJQVlA4WAoAAAAgAAAArQAArQAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDggZAEAAJAPAJ0BKq4ArgA+7XSwVKmmpSMgS3kwHYlpbuADjY4W22fPvsn7mfIBRYF49s2JNY1CtYbJ6kl/x3ag9Bq4oOepgpoYblXSaIwYas/4pv66VDdBUBR/DfyhDzKqvJJiRlVAX9+ctSuVeq46VRYrooxnnDqFlc3oPMro/RSBlrG91id0z8AA/usJ+g+LjMDH8cfFv0KoEfqWyH0o5GTpN1WctcLH/JC1tg3twjcoJUIopBjmUqzimAqgUohzYl17VDFzqirgAKO9u1M0FYFwojR1wFVQqlaUr3WEYQ7KpX/hqKSeYRVeqv/X094Vjvp7GkJ9HyOSDXVpAZ+UTSVYnkJJ+GO8jo8Q1CaueziCR2SZqKE5xCZ8bXn6DB0PYvIVRUotVnf9jBpRoiYFnSgEB5spmvuC2jxgpz0m7yeLmOoKuL9ML+1tg6FWnPGJdQ8V1mOjsY+b3bzM+SnwXoR7rqSY0AAA'
             />
           </div>
         </div>
@@ -44,16 +48,16 @@ async function IndexPage() {
       <div className='flex flex-col max-w-2xl mx-auto pb-8 w-full'>
         <div className='flex flex-col'>
           <h2 className='inner-header'>In short:</h2>
-          <ul className='list-inside list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]'>
-            <li className='text-gray-400 md:text-lg'>
+          <ul className='u-list'>
+            <li className='common-text'>
               10+ years of building products for clients across several
               countries;
             </li>
-            <li className='text-gray-400 md:text-lg'>
+            <li className='common-text'>
               currently working with regular clients, but open to new
               opportunities;
             </li>
-            <li className='text-gray-400 md:text-lg'>
+            <li className='common-text'>
               I live in Batumi{' '}
               <span role='img' aria-label='wave'>
                 🌊
@@ -68,28 +72,24 @@ async function IndexPage() {
             </li>
           </ul>
           <h2 className='inner-header'>My values:</h2>
-          <ul className='list-inside  list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]'>
-            <li className='text-gray-400 md:text-lg'>
-              consistency over speed;
-            </li>
-            <li className='text-gray-400 md:text-lg'>
+          <ul className='list-inside  list-[square] pt-2 pb-4 [&>*]:py-[0.1rem]'>
+            <li className='common-text'>consistency over speed;</li>
+            <li className='common-text'>
               honesty, reliability, responsibility;
             </li>
-            <li className='text-gray-400 md:text-lg'>
+            <li className='common-text'>
               keep coding standards and best practices;
             </li>
-            <li className='text-gray-400 md:text-lg'>
-              be curious, learn iteratively;
-            </li>
+            <li className='common-text'>be curious, learn iteratively;</li>
           </ul>
           <h2 className='inner-header mb-4'>Technologies I use frequently:</h2>
           <MyStack />
           {totalHours > 8 && (
             <WakaStats languages={languages} totalHours={totalHours} />
           )}
-          <h2 className='inner-header'>Get in touch:</h2>
-          <ul className='list-inside  list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]'>
-            <li className='text-gray-400 md:text-lg'>
+          <h2 className='inner-header pt-2'>Get in touch:</h2>
+          <ul className='list-inside  list-[square] pt-2 pb-4 [&>*]:py-[0.1rem]'>
+            <li className='common-text'>
               Twitter:{' '}
               <a
                 className=' text-gray-300  link-underline link-underline-gradient'
@@ -98,7 +98,7 @@ async function IndexPage() {
                 @svirins
               </a>
             </li>
-            <li className='text-gray-400 md:text-lg'>
+            <li className='common-text'>
               GitHub:{' '}
               <a
                 className=' text-gray-300  link-underline link-underline-gradient'
@@ -107,7 +107,7 @@ async function IndexPage() {
                 @svirins
               </a>
             </li>
-            <li className='text-gray-400 md:text-lg'>
+            <li className='common-text'>
               Mail:{' '}
               <a
                 className='text-gray-300  link-underline link-underline-gradient'

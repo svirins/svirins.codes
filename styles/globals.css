@@ -267,13 +267,18 @@ pre[class*='language-'] {
 }
 
 .inner-header {
-  @apply text-xl md:text-2xl mt-4 tracking-tight text-gray-200 font-normal leading-5;
+  @apply text-xl md:text-2xl  tracking-tight text-gray-200 font-normal leading-5;
 }
 
 /* .text-extra-small {
   @apply;
-}
+} */
 
 .common-text {
-  @apply;
-} */
+  @apply text-gray-400 md:text-lg;
+} 
+
+
+.u-list {
+@apply list-inside list-[square] pt-2 pb-4 [&>*]:py-[0.1rem];
+ }
