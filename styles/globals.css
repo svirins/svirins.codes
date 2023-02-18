@@ -54,19 +54,21 @@ html {
 
 .common-text {
   @apply text-gray-400 md:text-lg;
-} 
-
+}
 
 .u-list {
-@apply list-inside list-[square] pt-2 pb-4 [&>*]:py-[0.1rem];
- }
+  @apply list-inside list-[square] pt-2 pb-4 [&>*]:py-[0.1rem];
+}
 
-
- table {
+table {
   display: block;
   max-width: fit-content;
   overflow-x: auto;
   white-space: nowrap;
+}
+
+.horizontal-divider {
+  @apply w-full max-w-2xl mx-auto border border-gray-600;
 }
 
 /* Links styles */
@@ -275,5 +277,3 @@ pre[class*='language-'] {
     transform: scaleY(0.15);
   }
 }
-
-

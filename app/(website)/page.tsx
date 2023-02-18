@@ -13,12 +13,11 @@ async function IndexPage() {
           <div className='md:col-span-4 '>
             <div className='flex flex-col  max-w-2xl mx-auto w-full'>
               <div className='flex flex-col items-start'>
-                <h1 className='page-header'>
+                <h1 className='page-header pt-6'>
                   Hi, I&apos;m <span className='text-active'>Dzmitry</span>
                 </h1>
-                <h2 className='text-gray-50 md:text-lg'>
-                  A Full-stack developer with a passion for the React ecosystem,
-                  TypeScript, and serverless backends. Specialized in turning
+                <h2 className='inner-header pb-6'>
+                  I Specialize in turning
                   <span className='font-semibold  text-gradient'>
                     {' '}
                     ideas{' '}
@@ -34,12 +33,13 @@ async function IndexPage() {
             <Image
               alt='Dzmitry Svirin'
               src='/svirins-light.webp'
-              width={192}
-              height={192}
+              width={128}
+              height={128}
               quality='100'
               className='rounded-full'
               priority={true}
               placeholder='blur'
+              blurDataURL='data:image/webp;base64,UklGRjIDAABXRUJQVlA4WAoAAAAgAAAAkAAAkAAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDggRAEAALAOAJ0BKpEAkQA+7WivU6mlJCKk0Rw5MB2JaW7f/22MjVMD5B61/AB8CZP/IjoMUbQMm7MXmkxFr9QngBAZb+tnhpS8nFCC59PM0UIbnc4CY3YMS1/fWdzs9NbbzxSY5VBiWBjinA1H2kO5s6fGLq/u1Igqu5BssWTPNY6HwAD+6wn6D4uMwNSr/qpk3Y6OlvKe1JHACTRF+Mhy6+3GRyecK+HSChuQltUe3A0iJckMCSuhZFt+MD1dmJyfSBAxslxxU1JxLDf904KhU7Eghfc1mK8Q4VGaQ6dmFf693iOPYbuOT0L1K63s+h3PiVgDg5QW0E+BBjd3hBOdFlNldBgjGsQvjc2krnJjJ5UPqfPcb5etC55TsrVxk0khIPnCNg19S0/Kz8oT1SKDt5P1I21MGJ/e5J+GErg473J1J4yAtAgAAA=='
             />
           </div>
         </div>
@@ -50,11 +50,15 @@ async function IndexPage() {
           <h2 className='inner-header'>In short:</h2>
           <ul className='u-list'>
             <li className='common-text'>
-              10+ years of building products for clients across several
+              A full-stack developer with a passion for the Next.js, TypeScript
+              and serverless backends.
+            </li>
+            <li className='common-text'>
+              10+ years of building products for customers in multiple
               countries;
             </li>
             <li className='common-text'>
-              currently working with regular clients, but open to new
+              currently working with regular customers, but open to new
               opportunities;
             </li>
             <li className='common-text'>
@@ -68,7 +72,7 @@ async function IndexPage() {
               <span role='img' aria-label='georgia flag'>
                 🇬🇪
               </span>{' '}
-              and enjoy swimming, mountains and good movies;
+              and I like swimming, mountains and good movies;
             </li>
           </ul>
           <h2 className='inner-header'>My values:</h2>

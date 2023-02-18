@@ -4,7 +4,7 @@ import { NAV_LINKS } from 'config';
 
 export default function Header() {
   return (
-    <header className='flex flex-col justify-center px-8'>
+    <header className='flex flex-col justify-center px-6'>
       <nav className='flex items-center justify-between w-full relative max-w-2xl mx-auto pt-8 pb-8 md:pb-16'>
         <a href='#skip' className='skip-nav'>
           Skip to content

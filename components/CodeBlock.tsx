@@ -29,7 +29,12 @@ export function CodeBlock({ value }: { value: CodeBlock }) {
   return (
     <div className={`font_mono ${font_mono.variable}`}>
       {value.filename && <span className='code-title'>{value.filename}</span>}
-      <Refractor language={language} value={value.code} markers={markers} />
+      <Refractor
+        className='scrollbar overflow-visible'
+        language={language}
+        value={value.code}
+        markers={markers}
+      />
     </div>
   );
 }

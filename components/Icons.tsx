@@ -282,7 +282,7 @@ export function SocialIcons() {
         className: 'w-4 h-4 fill-gray-400  hover:fill-gray-200'
       }}
     >
-      <div className='flex my-2 space-x-4 text-left md:text-center'>
+      <div className='flex my-2 space-x-4'>
         {SOCIALS.map((social, index) => (
           <a
             key={index}
@@ -307,7 +307,7 @@ export function MyStack() {
         className: 'w-7 h-7 md:w-8 md:h-8 fill-gray-300  hover:fill-gray-200'
       }}
     >
-      <div className='grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full pb-4'>
+      <div className='grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full pb-6'>
         {STACKS.filter((el) => el.featured).map((el, index) => (
           <StackIcon key={index} iconTitle={el.iconTitle} />
         ))}

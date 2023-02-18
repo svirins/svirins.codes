@@ -20,7 +20,7 @@ export default function RootLayout({
         <Header />
         <main
           id='skip'
-          className='flex flex-col justify-center px-8 bg-gray-900 min-w-full'
+          className='flex flex-col justify-center px-6 bg-gray-900 min-w-full'
         >
           {children}
           <AnalyticsWrapper />

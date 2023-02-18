@@ -3,11 +3,11 @@ import { SocialIcons } from 'components/Icons';
 
 export default function Footer() {
   return (
-    <footer className='flex flex-col items-start md:items-center  max-w-2xl mx-auto mb-4 relative'>
-      <hr className='w-full max-w-2xl mx-auto border-1 border-gray-600 mb-4' />
+    <footer className='flex flex-col items-start md:items-center min-w-full mb-4 mx-auto px-6'>
+      <hr className='horizontal-divider mb-4' />
       <NowPlaying />
       <SocialIcons />
-      <p className='w-full text-gray-400 mb-1 pt-2  text-left md:text-center text-xs'>
+      <p className='min-w-full mx-auto text-gray-400 mb-1 pt-2  text-left md:text-center text-xs'>
         © <span className='font-medium'>{new Date().getFullYear()}</span>
         <span>{` • `}</span>
         Dzmitry Svirin{` • `}
@@ -20,7 +20,7 @@ export default function Footer() {
           RSS
         </a>
       </p>
-      <p className='w-full  text-xs text-gray-400 text-left md:text-center'>
+      <p className='min-w-full mx-auto  text-xs text-gray-400 text-left md:text-center'>
         <span>The code of this site was originally a fork of </span>
         <a
           target='_blank'

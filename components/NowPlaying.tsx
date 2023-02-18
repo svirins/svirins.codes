@@ -70,7 +70,7 @@ export default function NowPlaying() {
           />
         </svg>
       )}
-      <div className='inline-flex flex-col sm:flex-row w-full max-w-full truncate self-baseline'>
+      <div className='inline-flex flex-col sm:flex-row max-w-full truncate self-baseline'>
         {data?.songUrl ? (
           <a
             className='capsize text-gray-300 font-medium   text-sm max-w-max truncate'

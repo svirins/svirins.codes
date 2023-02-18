@@ -67,7 +67,6 @@ export default async function PostPage({
               quality='100'
               src='/svirins-light-small.webp'
               className='rounded-full'
-              placeholder='blur'
             />
             <p className='ml-2 text-sm md:text-base  text-gray-400'>
               <a

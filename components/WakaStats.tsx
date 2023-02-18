@@ -64,7 +64,7 @@ export default function WakaStats({ languages, totalHours }: IWakaAPIResponse) {
     <>
       <h2 className='inner-header mb-4'>Some stats:</h2>
       {stackedBarComments ? (
-        <div className='flex-col w-full min-w-2xl'>
+        <div className='flex-col w-full min-w-2xl pb-2'>
           <div className='flex flex-row space-x-1'>
             <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} height='20' width={'100%'}>
               <title id='title'>A bar chart showing information</title>

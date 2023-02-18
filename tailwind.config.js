@@ -2,13 +2,14 @@
 
 const { spacing } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
-// TODO: add fallback fonts
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   future: {
     hoverOnlyWhenSupported: true
   },
   content: [
-    './app/**/*.{js,ts,jsx,tsx}', // Note the addition of the `app` directory.
+    './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}'
   ],
@@ -18,6 +19,7 @@ module.exports = {
       gray: colors.slate,
       transparent: 'rgb(255 255 255 / 0%)',
       message: '#1e293b',
+      scrolbar: '#2563EB',
       wakatime: {
         blue: '#2563EB',
         amber: '#D97706',
@@ -56,5 +58,28 @@ module.exports = {
       })
     }
   },
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [
+    require('@tailwindcss/typography'),
+    plugin(({ addBase, theme }) => {
+      addBase({
+        '.scrollbar': {
+          overflowY: 'auto',
+          scrollbarColor: `${theme('colors.scrollbar/75')} ${theme(
+            'colors.scrollbar/25'
+          )}`,
+          scrollbarWidth: 'thin'
+        },
+        '.scrollbar::-webkit-scrollbar': {
+          height: '2px',
+          width: '2px'
+        },
+        '.scrollbar::-webkit-scrollbar-thumb': {
+          backgroundColor: theme('colors.scrollbar/75')
+        },
+        '.scrollbar::-webkit-scrollbar-track-piece': {
+          backgroundColor: theme('colors.scrollbar/25')
+        }
+      });
+    })
+  ]
 };

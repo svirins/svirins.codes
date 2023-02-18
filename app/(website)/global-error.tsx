@@ -15,9 +15,7 @@ export default function GlobalError({
 
   return (
     <div className='flex flex-col  max-w-2xl mx-auto w-full'>
-      <h1 className='mb-4 text-3xl font-bold tracking-tight capsize  md:text-5xl text-gray-100'>
-        Something went wrong!
-      </h1>
+      <h2 className='inner-header mb-4'>Something went wrong!</h2>
       {/* <button
         className='mt-4 bg-wakatime-blue hover:bg-wakatime-indigo text-white font-bold py-2 px-4 rounded'
         onClick={() => reset()}
