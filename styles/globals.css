@@ -34,12 +34,42 @@ html {
   scroll-margin-top: 1.125rem;
 }
 
-@supports not (backdrop-filter: none) {
-  .sticky-nav {
-    backdrop-filter: none;
-    @apply bg-opacity-100;
-  }
+/* Common html  styles incl text */
+
+.page-header {
+  @apply text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-100;
 }
+
+.text-gradient {
+  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;
+}
+
+.inner-header {
+  @apply text-xl md:text-2xl  tracking-tight text-gray-200 font-normal leading-5;
+}
+
+/* .text-extra-small {
+  @apply;
+} */
+
+.common-text {
+  @apply text-gray-400 md:text-lg;
+} 
+
+
+.u-list {
+@apply list-inside list-[square] pt-2 pb-4 [&>*]:py-[0.1rem];
+ }
+
+
+ table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Links styles */
 
 .link-underline {
   font-weight: 600;
@@ -61,6 +91,9 @@ html {
   background-size: 100% 2px;
   background-position: 0 100%;
 }
+
+/* prose styles */
+
 .prose a {
   @apply text-gray-100 no-underline link-underline link-underline-gradient;
 }
@@ -101,14 +134,53 @@ html {
 }
 
 .prose img {
-  /* Don't apply styles to next/future/image */
   @apply m-0;
 }
 
 .prose > :first-child {
-  /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
+}
+
+/* Code styles */
+
+.prose :where(code):not(:where([class~='not-prose'] *))::before {
+  content: '';
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
+  content: '';
+}
+
+.code-title {
+  @apply px-2 py-2 font-mono text-sm font-semibold border rounded-sm  text-gray-200 border-gray-700 bg-gray-700;
+}
+
+.highlight-line {
+  @apply bg-code-purple/20 border-b-2 border-code-purple/60  text-gray-50 px-[4px] py-[2px];
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*='language-'] {
+  margin-top: 0;
+  overflow: auto;
 }
 
 .token {
@@ -170,20 +242,7 @@ html {
   @apply text-code-yellow;
 }
 
-/* Remove Safari input shadow on mobile */
-input[type='text'],
-input[type='email'] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
-}
+/* Now playing styles*/
 
 #loading-bar-1 {
   animation: loading-bar-morph 2s linear 0.6s infinite;
@@ -217,68 +276,4 @@ table {
   }
 }
 
-.prose :where(code):not(:where([class~='not-prose'] *))::before {
-  content: '';
-}
 
-.prose :where(code):not(:where([class~='not-prose'] *))::after {
-  content: '';
-}
-
-.code-title {
-  @apply px-2 py-2 font-mono text-sm font-semibold border rounded-sm  text-gray-200 border-gray-700 bg-gray-700;
-}
-
-.highlight-line {
-  @apply bg-code-purple/20 border-b-2 border-code-purple/60  text-gray-50 px-[4px] py-[2px];
-}
-
-code[class*='language-'],
-pre[class*='language-'] {
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
-pre[class*='language-'] {
-  margin-top: 0;
-  overflow: auto;
-}
-
-/* font styling */
-
-.page-header {
-  @apply text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-100;
-}
-
-.text-gradient {
-  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;
-}
-
-.inner-header {
-  @apply text-xl md:text-2xl  tracking-tight text-gray-200 font-normal leading-5;
-}
-
-/* .text-extra-small {
-  @apply;
-} */
-
-.common-text {
-  @apply text-gray-400 md:text-lg;
-} 
-
-
-.u-list {
-@apply list-inside list-[square] pt-2 pb-4 [&>*]:py-[0.1rem];
- }

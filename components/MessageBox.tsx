@@ -1,6 +1,6 @@
 import { LightBulb } from 'components/Icons';
 import type { PortableTextObject } from '@sanity/types';
-import SimpleBlockContent from '@/components/SimpleBlockContent';
+import SimpleBlockContent from 'components/SimpleBlockContent';
 interface MessageBox {
   _key: string;
   _type: 'messageBox';

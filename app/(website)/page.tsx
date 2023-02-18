@@ -92,7 +92,7 @@ async function IndexPage() {
             <li className='common-text'>
               Twitter:{' '}
               <a
-                className=' text-gray-300  link-underline link-underline-gradient'
+                className='text-gray-300  link-underline link-underline-gradient'
                 href='https://twitter.com/svirins'
               >
                 @svirins
@@ -101,7 +101,7 @@ async function IndexPage() {
             <li className='common-text'>
               GitHub:{' '}
               <a
-                className=' text-gray-300  link-underline link-underline-gradient'
+                className='text-gray-300  link-underline link-underline-gradient'
                 href='https://github.com/svirins'
               >
                 @svirins

@@ -2,6 +2,7 @@ import 'styles/globals.css';
 import { font_sans } from 'fonts';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import { AnalyticsWrapper } from 'components/analytics';
 
 export default function RootLayout({
   children
@@ -22,6 +23,7 @@ export default function RootLayout({
           className='flex flex-col justify-center px-8 bg-gray-900 min-w-full'
         >
           {children}
+          <AnalyticsWrapper />
         </main>
         <Footer />
       </body>
