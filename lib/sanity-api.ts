@@ -114,7 +114,7 @@ export const getPostsByTag = async (
   slug: string
 ): Promise<{
   title: string;
-  posts: Partial<IPost[]>;
+  posts: IPost[];
 }> => {
   const posts = await clientFetch(tagRelatedPosts, { slug });
   return posts ?? null;

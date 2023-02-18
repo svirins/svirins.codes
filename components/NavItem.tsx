@@ -19,8 +19,8 @@ export default function NavItem({ href, text }: INavItem) {
       className={clsx(
         'inline-block  transition-all pr-4 duration-150 hover:text-gray-200 ease-in-out text-lg',
         {
-          'font-semibold text-gray-200': isActive,
-          'font-medium text-gray-400': !isActive
+          'text-gray-200': isActive,
+          'text-gray-400': !isActive
         }
       )}
     >

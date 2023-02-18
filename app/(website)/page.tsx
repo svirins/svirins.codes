@@ -13,11 +13,11 @@ async function IndexPage() {
           <div className='md:col-span-4 '>
             <div className='flex flex-col  max-w-2xl mx-auto w-full'>
               <div className='flex flex-col items-start'>
-                <h1 className='page-header pt-6'>
+                <h1 className='page-header'>
                   Hi, I&apos;m <span className='text-active'>Dzmitry</span>
                 </h1>
                 <h2 className='inner-header pb-6'>
-                  I Specialize in turning
+                  I specialize in turning
                   <span className='font-semibold  text-gradient'>
                     {' '}
                     ideas{' '}

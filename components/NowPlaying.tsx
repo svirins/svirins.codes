@@ -59,7 +59,7 @@ export default function NowPlaying() {
   }
 
   return (
-    <div className='flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full'>
+    <div className='flex flex-row-reverse items-center sm:flex-row mb-2 space-x-0 sm:space-x-2  max-w-2xl mx-auto w-full'>
       {data?.songUrl ? (
         <AnimatedBars />
       ) : (
@@ -70,7 +70,7 @@ export default function NowPlaying() {
           />
         </svg>
       )}
-      <div className='inline-flex flex-col sm:flex-row max-w-full truncate self-baseline'>
+      <div className='inline-flex flex-col sm:flex-row w-full truncate self-baseline'>
         {data?.songUrl ? (
           <a
             className='capsize text-gray-300 font-medium   text-sm max-w-max truncate'

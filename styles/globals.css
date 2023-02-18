@@ -37,15 +37,27 @@ html {
 /* Common html  styles incl text */
 
 .page-header {
-  @apply text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-100;
+  @apply text-3xl md:text-5xl tracking-tight mb-4 pt-6 capsize font-bold text-gray-100;
 }
 
 .text-gradient {
-  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple;
+  @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-active to-code-purple ;
 }
 
 .inner-header {
   @apply text-xl md:text-2xl  tracking-tight text-gray-200 font-normal leading-5;
+}
+
+.container {
+  @apply flex flex-col max-w-2xl mx-auto pb-8 w-full;
+}
+
+.items-grid {
+  @apply grid grid-cols-1 divide-y divide-gray-600;
+}
+
+.items-flex-col {
+  @apply flex flex-col;
 }
 
 /* .text-extra-small {
@@ -68,7 +80,7 @@ table {
 }
 
 .horizontal-divider {
-  @apply w-full max-w-2xl mx-auto border border-gray-600;
+  @apply w-full max-w-2xl mx-auto border-[0.5px] border-gray-600;
 }
 
 /* Links styles */

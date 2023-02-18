@@ -22,7 +22,7 @@ export default async function SnippetsPage({
     return notFound();
   }
   return (
-    <article className='flex flex-col justify-center items-start max-w-2xl mx-auto pb-8 w-full'>
+    <article className='container justify-center items-start'>
       <div className={font_mono.variable}>
         <ArticleJsonLd
           useAppDir={true}
@@ -36,12 +36,8 @@ export default async function SnippetsPage({
         />
         <div className='flex justify-between w-full'>
           <div>
-            <h1 className='font-bold capsize text-3xl  md:text-5xl tracking-tight mb-4 text-gray-100'>
-              {snippet.title}
-            </h1>
-            <p className='text-gray-200 py-2 md:text-lg'>
-              {snippet.description}
-            </p>
+            <h1 className='page-header'>{snippet.title}</h1>
+            <p className='py-2 common-text'>{snippet.description}</p>
           </div>
           <div className='mt-2 md:mt-7 scale-125 md:scale-150 ml-4 origin-center'>
             <SnippetIcon iconTitle={snippet.iconTitle} />

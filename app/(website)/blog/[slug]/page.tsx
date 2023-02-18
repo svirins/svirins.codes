@@ -27,7 +27,7 @@ export default async function PostPage({
   const { width, height, img } = createRemoteImageAttributes(post.imageWithAlt);
 
   return (
-    <article className='flex flex-col items-start justify-center w-full max-w-2xl mx-auto pb-8'>
+    <article className='container items-start justify-center '>
       <ArticleJsonLd
         useAppDir={true}
         type='BlogPosting'
@@ -39,10 +39,8 @@ export default async function PostPage({
         description={post.excerpt}
       />
       <div className={font_mono.variable}>
+        <h1 className='page-header'>{post.title}</h1>
         <Tags tags={post.tags} />
-        <h1 className='mb-4 md:mb-6 md:mt-4 text-3xl font-bold  tracking-tight capsize  md:text-5xl text-gray-100'>
-          {post.title}
-        </h1>
         {post.imageWithAlt && (
           <div className='flex flex-col w-full my-4'>
             <Image
@@ -70,7 +68,7 @@ export default async function PostPage({
             />
             <p className='ml-2 text-sm md:text-base  text-gray-400'>
               <a
-                className=' text-gray-300  font-medium link-underline link-underline-gradient'
+                className=' text-gray-300  link-underline link-underline-gradient'
                 href='https://twitter.com/svirins'
               >
                 Dzmitry Svirin
@@ -81,11 +79,11 @@ export default async function PostPage({
                 month: 'long',
                 day: 'numeric'
               }).format(new Date(post.date))}
+            </p>{' '}
+            <p className='text-sm md:text-base text-gray-400 min-w-32'>
+              {`${post.readingTime && 1} min read`}
             </p>
           </div>
-          <p className='text-sm md:text-base text-gray-400 min-w-32'>
-            {`${post.readingTime && 1} min read`}
-          </p>
         </div>
 
         <div className='w-full max-w-2xl mt-4 prose prose-invert md:prose-lg'>
