@@ -49,7 +49,7 @@ html {
 }
 
 .container {
-  @apply flex flex-col max-w-2xl mx-auto pb-8 w-full;
+  @apply flex flex-col max-w-2xl mx-auto w-full;
 }
 
 .items-grid {
@@ -90,10 +90,10 @@ table {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),
     linear-gradient(#fff, #fff);
-  background-size: 0 2px;
+  background-size: 0 1px;
   background-position: 0 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.5s ease-in-out;
+  transition: background-size 0.3s ease-in-out;
 }
 
 .link-underline-gradient {
@@ -102,7 +102,7 @@ table {
 }
 
 .link-underline:hover {
-  background-size: 100% 2px;
+  background-size: 100% 1px;
   background-position: 0 100%;
 }
 

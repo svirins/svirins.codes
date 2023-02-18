@@ -10,13 +10,13 @@ export default function PostPreview({
 }: Partial<IPost>) {
   return (
     <div className='w-full py-4 text-left'>
-      <Tags tags={tags!} />
       <Link
         href={`/blog/${slug}`}
         className='link-underline link-underline-gradient text-xl md:text-2xl text-gray-100'
       >
         {title}
       </Link>
+      <Tags tags={tags!} />
       <p className='common-text'>{excerpt}</p>
     </div>
   );

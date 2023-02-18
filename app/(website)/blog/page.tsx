@@ -6,7 +6,7 @@ export default async function Blog() {
   const posts = await getPosts();
   return (
     <div className='container'>
-      <div className='items-flex-col'>
+      <div className='items-flex-col pb-4'>
         <h1 className='page-header'>Blog</h1>
         <h2 className='inner-header'>
           Posts about code, dev life and{' '}

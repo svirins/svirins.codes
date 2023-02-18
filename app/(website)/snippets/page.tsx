@@ -6,7 +6,7 @@ export default async function Snippets() {
   const snippets = await getSnippets();
   return (
     <div className='container'>
-      <div className='items-flex-col'>
+      <div className='items-flex-col pb-4'>
         <h1 className='page-header'>Code Snippets</h1>
         <h2 className='inner-header'>
           Some{' '}

@@ -39,7 +39,7 @@ export default async function SnippetsPage({
             <h1 className='page-header'>{snippet.title}</h1>
             <p className='py-2 common-text'>{snippet.description}</p>
           </div>
-          <div className='mt-2 md:mt-7 scale-125 md:scale-150 ml-4 origin-center'>
+          <div className='mt-2 md:mt-7'>
             <SnippetIcon iconTitle={snippet.iconTitle} />
           </div>
         </div>
