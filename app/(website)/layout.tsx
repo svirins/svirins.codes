@@ -2,7 +2,7 @@ import 'styles/globals.css';
 import { font_sans } from 'fonts';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import { AnalyticsWrapper } from 'components/analytics';
+import { AnalyticsWrapper } from '@/components/Analytics';
 
 export default function RootLayout({
   children

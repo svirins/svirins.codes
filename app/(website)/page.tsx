@@ -17,14 +17,9 @@ async function IndexPage() {
                   Hi, I&apos;m <span className='text-active'>Dzmitry</span>
                 </h1>
                 <h2 className='inner-header pb-6'>
-                  I specialize in turning
-                  <span className='font-semibold  text-gradient'>
-                    {' '}
-                    ideas{' '}
-                  </span>{' '}
-                  into{' '}
+                  I specialize in turning ideas into{' '}
                   <span className='font-semibold  text-gradient'>real </span>
-                  products.
+                  🚀 products.
                 </h2>
               </div>
             </div>

@@ -2,7 +2,6 @@
 
 const { spacing } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
-const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   future: {
@@ -58,28 +57,5 @@ module.exports = {
       })
     }
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    plugin(({ addBase, theme }) => {
-      addBase({
-        '.scrollbar': {
-          overflowY: 'auto',
-          scrollbarColor: `${theme('colors.scrollbar/75')} ${theme(
-            'colors.scrollbar/25'
-          )}`,
-          scrollbarWidth: 'thin'
-        },
-        '.scrollbar::-webkit-scrollbar': {
-          height: '2px',
-          width: '2px'
-        },
-        '.scrollbar::-webkit-scrollbar-thumb': {
-          backgroundColor: theme('colors.scrollbar/75')
-        },
-        '.scrollbar::-webkit-scrollbar-track-piece': {
-          backgroundColor: theme('colors.scrollbar/25')
-        }
-      });
-    })
-  ]
+  plugins: [require('@tailwindcss/typography')]
 };

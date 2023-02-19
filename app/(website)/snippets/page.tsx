@@ -9,7 +9,7 @@ export default async function Snippets() {
       <div className='items-flex-col pb-4'>
         <h1 className='page-header'>Code Snippets</h1>
         <h2 className='inner-header'>
-          Some{' '}
+          Some random{' '}
           <span role='image' aria-label='random'>
             🎲
           </span>{' '}

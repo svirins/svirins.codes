@@ -1,7 +1,6 @@
 import type { SanityAssetExtended } from 'lib/sanity-api';
 import Image from 'next/image';
 import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts';
-// TODO: add alt tag completion for image
 
 export function InlineImage(asset: SanityAssetExtended) {
   const { width, height, img } = createRemoteImageAttributes(asset);

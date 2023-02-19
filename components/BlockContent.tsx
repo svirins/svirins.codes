@@ -68,17 +68,6 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
           )
         },
         block: {
-          h1: ({ children, value }) => (
-            <h1 id={`h${value._key}`}>
-              <a
-                href={`#${value._key}`}
-                aria-hidden='true'
-                tabIndex={-1}
-                className='anchor'
-              ></a>
-              {children}
-            </h1>
-          ),
           h2: ({ children, value }) => (
             <h2 id={`h${value._key}`}>
               <a

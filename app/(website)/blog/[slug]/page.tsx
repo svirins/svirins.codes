@@ -27,7 +27,7 @@ export default async function PostPage({
   const { width, height, img } = createRemoteImageAttributes(post.imageWithAlt);
 
   return (
-    <article className='container items-start justify-center '>
+    <article className='container items-start justify-center pb-4'>
       <ArticleJsonLd
         useAppDir={true}
         type='BlogPosting'

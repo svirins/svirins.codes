@@ -12,9 +12,9 @@ export default async function Blog() {
           Posts about code, dev life and{' '}
           <span className=' text-gradient'>various</span>{' '}
           <span role='image' aria-label='technomagical'>
-            ⚗️
+            🛸
           </span>{' '}
-          things.
+          other exiting things.
         </h2>
       </div>
       <hr className='horizontal-divider' />

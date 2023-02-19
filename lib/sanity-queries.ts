@@ -20,7 +20,7 @@ export const indexQuery = groq`
       title,
       "slug": slug.current
     },
-    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..255], "") + "..."
+    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..225], "") + "..."
   }`;
 
 export const postQuery = groq`{
@@ -52,7 +52,7 @@ export const postQuery = groq`{
         }
       }
     },
-    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..255], "") + "...",
+    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..225], "") + "...",
     "readingTime": round(length(pt::text(body)) / 5 / 180 ),
   }
 }
@@ -74,7 +74,7 @@ export const tagRelatedPosts = groq`
       title,
       "slug": slug.current
     },
-    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..255], "") + "..."
+    "excerpt": array::join(string::split((pt::text(body[_type == "block"][0...1])), "")[0..225], "") + "..."
   } [0...${POSTS_LIMIT}]  | order(_updatedAt desc)
 }[0]
 `;

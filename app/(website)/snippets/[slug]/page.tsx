@@ -22,7 +22,7 @@ export default async function SnippetsPage({
     return notFound();
   }
   return (
-    <article className='container justify-center items-start'>
+    <article className='container justify-center items-start pb-4'>
       <div className={font_mono.variable}>
         <ArticleJsonLd
           useAppDir={true}

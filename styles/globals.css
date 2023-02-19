@@ -289,3 +289,25 @@ pre[class*='language-'] {
     transform: scaleY(0.15);
   }
 }
+
+
+/* Scrollbar
+
+.scrollbar': {
+overflowY: 'auto',
+scrollbarColor: 
+},
+.scrollbar::-webkit-scrollbar': {
+height: '2px',
+width: '2px'
+},
+.scrollbar::-webkit-scrollbar-thumb {
+ @apply bg-colors.scrollbar/75;
+},
+'.scrollbar::-webkit-scrollbar-track-piece': {
+backgroundColor: theme('colors.scrollbar/25')
+} */
+
+.scrollbar {
+  @apply overflow-x-visible;
+}

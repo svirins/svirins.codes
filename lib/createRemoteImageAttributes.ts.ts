@@ -7,7 +7,7 @@ export function createRemoteImageAttributes(src: SanityAssetExtended) {
   const actualHeight = Math.trunc((height / width) * 672);
   const sanityImageUrl = `${urlForImage(src)
     .format('webp')
-    .url()}&w=${actualHeight}&h=672`;
+    .url()}&w=672&h=${actualHeight}`;
   return {
     width: 672,
     height: actualHeight,

@@ -9,12 +9,11 @@
 
 module.exports = {
   experimental: {
-    appDir: true,
-    swcMinify: true,
+    appDir: true
   },
   images: {
     domains: ['cdn.sanity.io'],
-    formats: ['image/webp']
+    formats: ['image/avif', 'image/webp']
   }
   // async headers() {
   //   return [
