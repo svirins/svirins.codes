@@ -15,7 +15,6 @@ import {
   snippetsQuery,
   tagRelatedPosts,
   tagSlugsQuery,
-  siteMetaQuery
 } from './sanity-queries';
 
 export interface ITag {
@@ -38,7 +37,6 @@ export interface IPost {
   date: string;
   excerpt: string;
   tags: ITag[];
-  openGraphData: IOGData;
   imageWithAlt: SanityAssetExtended;
   readingTime: number;
 }
@@ -48,24 +46,9 @@ export interface ISnippet {
   slug: string;
   body: PortableTextBlock[];
   title: string;
+  date: string;
   description: string;
   iconTitle: string;
-  openGraphData: IOGData;
-}
-
-export interface ISiteMeta {
-  description: string;
-  ogDescription: string;
-  ogImage: SanityAsset;
-  ogTitle: string;
-  siteName: string;
-  url: string;
-}
-
-export interface IOGData {
-  ogTitle: string;
-  ogDescription: string;
-  locale: 'en-US' | 'en-GB';
 }
 
 export interface ReferencedDocument {
@@ -120,9 +103,4 @@ export const getPostsByTag = async (
 }> => {
   const posts = await clientFetch(tagRelatedPosts, { slug });
   return posts ?? null;
-};
-
-export const getSiteMeta = async (): Promise<ISiteMeta> => {
-  const siteMeta = await clientFetch(siteMetaQuery);
-  return siteMeta ?? null;
 };

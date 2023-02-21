@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import SnippetPreview from 'components/SnippetPreview';
 import { getSnippets } from 'lib/sanity-api';
+
+export const metadata: Metadata = {
+  title: 'Snippets',
+  description: 'Some random stuff I&lsquo;ve found useful and want to share.'
+};
 
 export default async function Snippets() {
   const snippets = await getSnippets();

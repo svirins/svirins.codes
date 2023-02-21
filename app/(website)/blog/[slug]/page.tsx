@@ -1,11 +1,9 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { ArticleJsonLd } from 'next-seo';
 import { font_mono } from 'fonts';
-
 import { getPost, getPostSlugs } from 'lib/sanity-api';
 import { Tags } from 'components/Tags';
-
 import BlockContent from 'components/BlockContent';
 import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts';
 import Balancer from 'react-wrap-balancer';
@@ -14,6 +12,53 @@ export async function generateStaticParams() {
   const paths = await getPostSlugs();
   return paths.map((slug) => ({ slug: slug }));
 }
+
+export async function generateMetadata({
+  params
+}: {
+  params: any;
+}): Promise<Metadata | undefined> {
+  const post = await getPost(params.slug);
+  if (!post) {
+    return;
+  }
+  // todo: add og generation logic
+  const {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+    slug
+  } = post;
+
+  const ogImage = image;
+  // ? `https://svirins.codes${image}`
+  // : `https://svirins.codes/api/og?title=${title}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime,
+      url: `https://svirins.codes/blog/${slug}`,
+      images: [
+        {
+          url: ogImage
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage]
+    }
+  };
+}
+
 export default async function PostPage({
   params
 }: {
@@ -29,16 +74,6 @@ export default async function PostPage({
 
   return (
     <article className='container items-start justify-center pb-4'>
-      <ArticleJsonLd
-        useAppDir={true}
-        type='BlogPosting'
-        url='https://example.com/blog'
-        title={`${post.title} Dzmitry Svirin`}
-        images={[img]}
-        datePublished={new Date(post.date).toISOString()}
-        authorName='Dzmitry Svirin'
-        description={post.excerpt}
-      />
       <div className={font_mono.variable}>
         <h1 className='page-header'>
           <Balancer ratio={0.65}>{post.title}</Balancer>

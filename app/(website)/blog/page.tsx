@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getPosts } from 'lib/sanity-api';
 import PostPreview from 'components/PostPreview';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: ' Posts about code, dev life and other exiting things.'
+};
 
 export default async function Blog() {
   const posts = await getPosts();

@@ -3,12 +3,12 @@ import { POSTS_LIMIT } from 'config';
 
 // post-related queries
 
-const openGraph = groq`
-  openGraphData {
-    ogTitle,
-    ogDescription,
-    locale
-  }`;
+// const openGraph = groq`
+//   openGraphData {
+//     ogTitle,
+//     ogDescription,
+//     locale
+//   }`;
 
 export const indexQuery = groq`
   *[_type == "post"] | order(date desc, _updatedAt desc) {
@@ -40,7 +40,6 @@ export const postQuery = groq`{
       title,
       "slug": slug.current
     },
-    ${openGraph},
     body[] {
       ...,
       markDefs[] {
@@ -100,7 +99,7 @@ export const snippetsQuery = groq`
     description,
     iconTitle,
     "slug": slug.current,
-    ${openGraph},
+    date,
     body[] {
       ...,
       markDefs[] {
@@ -125,12 +124,3 @@ export const tagSlugsQuery = groq`
 *[_type == "tag" && defined(slug.current)][].slug.current
 `;
 
-export const siteMetaQuery = groq`
-*[_type == 'siteMeta'] [0...1] {
-  description,
-  ogDescription,
-  ogImage,
-  ogTitle,
-  siteName,
-  url
-}`;

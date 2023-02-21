@@ -1,8 +1,7 @@
-'use client'; // Error components must be Client components
-
+'use client';
 import { useEffect } from 'react';
 
-export default function GlobalError({
+export default function Error({
   error
 }: // reset
 {
@@ -15,13 +14,9 @@ export default function GlobalError({
 
   return (
     <div className='flex flex-col  max-w-2xl mx-auto w-full'>
-      <h2 className='inner-header mb-4'>Something went wrong!</h2>
-      {/* <button
-        className='mt-4 bg-wakatime-blue hover:bg-wakatime-indigo text-white font-bold py-2 px-4 rounded'
-        onClick={() => reset()}
-      >
-        Try again
-      </button> */}
+      <h2 className='inner-header mb-4'>
+        Something went wrong ... try to refresh a page
+      </h2>
     </div>
   );
 }

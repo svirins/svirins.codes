@@ -47,12 +47,12 @@ export default defineType({
         }
       ],
       validation: (Rule: { required: () => any }) => Rule.required()
-    }),
-    defineField({
-      name: 'openGraphData',
-      title: 'Open Graph Data',
-      type: 'openGraph'
     })
+    // defineField({
+    //   name: 'openGraphData',
+    //   title: 'Open Graph Data',
+    //   type: 'openGraph'
+    // })
   ],
   preview: {
     select: {

@@ -1,5 +1,11 @@
+import { STACKS } from '../../components/Icons';
 import { RiCodeBoxLine } from 'react-icons/ri';
 import { defineType, defineField } from 'sanity';
+
+const STACK_ICONS = STACKS.map((stack) => ({
+  title: stack.iconTitle,
+  value: stack.iconTitle
+}));
 
 const snippet = defineType({
   name: 'snippet',
@@ -39,13 +45,17 @@ const snippet = defineType({
       name: 'iconTitle',
       title: 'Icon Title',
       type: 'string',
+      options: {
+        list: STACK_ICONS
+      },
+      initialValue: STACK_ICONS[0].value,
       validation: (Rule: { required: () => any }) => Rule.required()
-    }),
-    defineField({
-      name: 'openGraphData',
-      title: 'Open Graph Data',
-      type: 'openGraph'
     })
+    // defineField({
+    //   name: 'openGraphData',
+    //   title: 'Open Graph Data',
+    //   type: 'openGraph'
+    // })
   ]
 });
 

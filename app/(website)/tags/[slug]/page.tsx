@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PostPreview from 'components/PostPreview';
 import { getPostsByTag, getTagSlugs } from 'lib/sanity-api';
@@ -6,6 +7,11 @@ export async function generateStaticParams() {
   const paths = await getTagSlugs();
   return paths.map((slug) => ({ slug: slug }));
 }
+
+export const metadata: Metadata = {
+  title: 'Tags',
+  description: 'Posts with particular tag'
+};
 
 export default async function TagPage({
   params
