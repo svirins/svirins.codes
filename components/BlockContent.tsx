@@ -5,8 +5,10 @@ import { InlineImage } from 'components/InineImage';
 import { MessageBox } from 'components/MessageBox';
 import type { PortableTextBlock } from '@sanity/types';
 import type { SanityAssetExtended } from 'lib/sanity-api';
+import StaticTweet from 'components/StaticTweet';
 
 const BlockContent = ({ section }: { section: PortableTextBlock }) => {
+  console.log('section is ', section);
   return (
     <PortableText
       value={section}
@@ -16,7 +18,8 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
           imageWithAlt: ({ value }: { value: SanityAssetExtended }) =>
             InlineImage(value),
           code: ({ value }) => <CodeBlock value={value} />,
-          messageBox: ({ value }) => <MessageBox value={value} />
+          messageBox: ({ value }) => <MessageBox value={value} />,
+          tweet: ({ value }) => StaticTweet(value)
         },
         list: {
           bullet: ({ children }) => <ul>{children}</ul>,

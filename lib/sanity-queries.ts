@@ -58,7 +58,7 @@ export const postQuery = groq`{
 `;
 
 export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
+*[_type == "post" && defined(slug.current)] | order(_updatedAt desc) [].slug.current
 `;
 
 export const tagRelatedPosts = groq`
@@ -115,7 +115,7 @@ export const snippetsQuery = groq`
 }`;
 
 export const snippetSlugsQuery = groq`
-*[_type == "snippet" && defined(slug.current)][].slug.current
+*[_type == "snippet" && defined(slug.current)] | order(_updatedAt desc) [].slug.current
 `;
 
 // tag-related queries

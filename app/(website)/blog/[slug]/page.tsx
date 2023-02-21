@@ -66,6 +66,7 @@ export default async function PostPage({
   if (!post) {
     return notFound();
   }
+
   const { width, height, img } = createRemoteImageAttributes(post.imageWithAlt);
 
   return (
