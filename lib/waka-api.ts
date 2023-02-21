@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { WAKATIME_API_ENDPOINT } from 'config';
 interface IWakaLanguageStats {
   dexportecimal: string;

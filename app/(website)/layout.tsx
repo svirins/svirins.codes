@@ -2,8 +2,8 @@ import 'styles/globals.css';
 import { font_sans } from 'fonts';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import { AnalyticsWrapper } from '@/components/Analytics';
-
+// import Providers from 'components/Providers';
+import { AnalyticsWrapper } from 'components/AnalyticsWrapper';
 export default function RootLayout({
   children
 }: {
@@ -17,15 +17,17 @@ export default function RootLayout({
     >
       <head />
       <body className='bg-gray-900 text-gray-100'>
-        <Header />
-        <main
-          id='skip'
-          className='flex flex-col justify-center px-6 bg-gray-900 min-w-full'
-        >
-          {children}
-          <AnalyticsWrapper />
-        </main>
-        <Footer />
+        {/* <Providers> */}
+          <Header />
+          <main
+            id='skip'
+            className='flex flex-col justify-center px-6 bg-gray-900 min-w-full'
+          >
+            {children}
+            <AnalyticsWrapper />
+          </main>
+          <Footer />
+        {/* </Providers> */}
       </body>
     </html>
   );

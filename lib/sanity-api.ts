@@ -1,3 +1,5 @@
+import 'server-only';
+
 import type { SanityAsset } from '@sanity/asset-utils';
 import type { PortableTextBlock } from '@sanity/types';
 

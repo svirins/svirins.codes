@@ -8,6 +8,7 @@ import { Tags } from 'components/Tags';
 
 import BlockContent from 'components/BlockContent';
 import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts';
+import Balancer from 'react-wrap-balancer';
 
 export async function generateStaticParams() {
   const paths = await getPostSlugs();
@@ -39,7 +40,9 @@ export default async function PostPage({
         description={post.excerpt}
       />
       <div className={font_mono.variable}>
-        <h1 className='page-header'>{post.title}</h1>
+        <h1 className='page-header'>
+          <Balancer ratio={0.65}>{post.title}</Balancer>
+        </h1>
         <Tags tags={post.tags} />
         {post.imageWithAlt && (
           <div className='flex flex-col w-full my-4'>

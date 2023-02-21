@@ -69,6 +69,9 @@ export default defineType({
       type: 'messageBox'
     }),
     defineArrayMember({
+      type: 'tweet'
+    }),
+    defineArrayMember({
       type: 'code' as 'codeInput',
       title: 'Code with all options',
       options: {

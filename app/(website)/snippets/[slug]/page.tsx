@@ -4,6 +4,7 @@ import { font_mono } from 'fonts';
 import BlockContent from 'components/BlockContent';
 import { getSnippet, getSnippetSlugs } from 'lib/sanity-api';
 import { SnippetIcon } from 'components/Icons';
+import Balancer from 'react-wrap-balancer';
 
 export async function generateStaticParams() {
   const paths = await getSnippetSlugs();
@@ -36,7 +37,9 @@ export default async function SnippetsPage({
         />
         <div className='flex justify-between w-full'>
           <div>
-            <h1 className='page-header'>{snippet.title}</h1>
+            <h1 className='page-header'>
+              <Balancer>{snippet.title}</Balancer>
+            </h1>
             <p className='py-2 common-text'>{snippet.description}</p>
           </div>
           <div className='mt-2 md:mt-7'>

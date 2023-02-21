@@ -8,6 +8,7 @@ import messageBox from './objects/messageBox';
 import simpleBlockContent from './objects/simpleBlockContent';
 import imageWithAlt from './objects/imageWithAlt';
 import openGraph from './objects/openGraph';
+import staticTweet from './objects/staticTweet'
 
 export const schemaTypes = [
   post,
@@ -18,5 +19,6 @@ export const schemaTypes = [
   blockContent,
   messageBox,
   simpleBlockContent,
-  imageWithAlt
+  imageWithAlt,
+  staticTweet
 ];

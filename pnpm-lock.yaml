@@ -38,9 +38,11 @@ specifiers:
   react-dom: 18.2.0
   react-icons: ^4.7.1
   react-refractor: ^2.1.7
+  react-wrap-balancer: ^0.4.0
   refractor: ^4.8.0
   sanity: ^3.4.0
   sanity-plugin-asset-source-openai: ^1.1.2
+  sanity-plugin-vercel-deploy: ^3.3.3
   server-only: ^0.0.1
   sharp: ^0.31.3
   styled-components: ^5.3.6
@@ -67,8 +69,10 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
+  react-wrap-balancer: 0.4.0_react@18.2.0
   sanity: 3.4.0_lebhdovg7wki4rozs5ke2xrfmi
   sanity-plugin-asset-source-openai: 1.1.2_da5eo7rybeksnu7mhletxejbu4
+  sanity-plugin-vercel-deploy: 3.3.3_da5eo7rybeksnu7mhletxejbu4
   server-only: 0.0.1
   styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
   swr: 2.0.3_react@18.2.0
@@ -2659,6 +2663,14 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /axios/0.24.0:
+    resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /axobject-query/3.1.1:
     resolution: {integrity: sha512-goKlv8DZrK9hUh975fnHzhNIO4jUnFCfv/dszV5VwUGDFjI6vQ2VwoyjYjYNEbBE8AH87TduWP5uyDR1D+Iteg==}
     dependencies:
@@ -4134,7 +4146,7 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /follow-redirects/1.15.2_debug@4.3.4:
+  /follow-redirects/1.15.2:
     resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
     engines: {node: '>=4.0'}
     peerDependencies:
@@ -4142,8 +4154,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dependencies:
-      debug: 4.3.4
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -4309,7 +4319,7 @@ packages:
     dependencies:
       debug: 4.3.4
       decompress-response: 7.0.0
-      follow-redirects: 1.15.2_debug@4.3.4
+      follow-redirects: 1.15.2
       into-stream: 6.0.0
       is-plain-object: 5.0.0
       is-retry-allowed: 2.2.0
@@ -6389,6 +6399,14 @@ packages:
       prop-types: 15.8.1
     dev: false
 
+  /react-wrap-balancer/0.4.0_react@18.2.0:
+    resolution: {integrity: sha512-MUsROihHd7bFHCo9kCOifKDYBEZPgKTyGvfa8RcwRQKtT2cL7Um9Cc8A7GvuT8t3np7LAGsEkzdEyJdKrr5lVQ==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
@@ -6643,6 +6661,30 @@ packages:
       react-icons: 4.7.1_react@18.2.0
       sanity: 3.4.0_lebhdovg7wki4rozs5ke2xrfmi
     transitivePeerDependencies:
+      - react-dom
+      - react-is
+      - styled-components
+    dev: false
+
+  /sanity-plugin-vercel-deploy/3.3.3_da5eo7rybeksnu7mhletxejbu4:
+    resolution: {integrity: sha512-GDDFckChL6wCciWkETRpvIyELLI+TjmQCtbdNDhNYlfxqg9PneI04vc1oZtawrp47RTovOebRU/sQ0xb+4oL2g==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      sanity: ^3
+    dependencies:
+      '@sanity/icons': 1.3.10_react@18.2.0
+      '@sanity/incompatible-plugin': 1.0.4_biqbaboplfbrettd7655fr4n2y
+      '@sanity/ui': 1.2.4_23mhwjhnzfjwvdn7ol54k26zom
+      axios: 0.24.0
+      nanoid: 3.3.4
+      prop-types: 15.8.1
+      react: 18.2.0
+      sanity: 3.4.0_lebhdovg7wki4rozs5ke2xrfmi
+      spacetime: 6.16.3
+      swr: 1.3.0_react@18.2.0
+    transitivePeerDependencies:
+      - debug
       - react-dom
       - react-is
       - styled-components
@@ -6967,6 +7009,10 @@ packages:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
     dev: true
 
+  /spacetime/6.16.3:
+    resolution: {integrity: sha512-JQEfj3VHT1gU1IMV5NvhgAP8P+2mDFd84ZCiHN//dp6hRKmuW0IizHissy62lO0nilfFjVhnoSaMC7te+Y5f4A==}
+    dev: false
+
   /spawn-command/0.0.2-1:
     resolution: {integrity: sha512-n98l9E2RMSJ9ON1AKisHzz7V42VDiBQGY6PB1BwRglz99wpVsSuGzQ+jOi6lFXBGVTCrRpltvjm+/XA+tpeJrg==}
     dev: true
@@ -7218,6 +7264,14 @@ packages:
     resolution: {integrity: sha512-668Pxy4z54fhjpnPqw6olj3vvpV03VywFNXazyNSYSTuHaRw3NJJjO5l8R49AUk5fMTkJXGVGaaVSgdaO01S3w==}
     peerDependencies:
       react: '>=17.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /swr/1.3.0_react@18.2.0:
+    resolution: {integrity: sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
     dev: false
