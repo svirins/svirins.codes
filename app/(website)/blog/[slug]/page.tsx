@@ -7,6 +7,7 @@ import { Tags } from 'components/Tags';
 import BlockContent from 'components/BlockContent';
 import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts';
 import Balancer from 'react-wrap-balancer';
+import { urlForImage } from 'lib/sanity-client';
 
 export async function generateStaticParams() {
   const paths = await getPostSlugs();
@@ -22,16 +23,11 @@ export async function generateMetadata({
   if (!post) {
     return;
   }
+  // const sanityOGImage = urlForImage(post.imageWithAlt);
   // todo: add og generation logic
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-    slug
-  } = post;
+  const { title, date: publishedTime, excerpt: description, slug } = post;
 
-  const ogImage = image;
+  const ogImage = 'https://www.svirins.codes/social-banner.webp';
   // ? `https://svirins.codes${image}`
   // : `https://svirins.codes/api/og?title=${title}`;
 

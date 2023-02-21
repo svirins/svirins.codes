@@ -62,17 +62,17 @@ export default function RootLayout({
       className={`${font_sans.variable}`}
     >
       <head />
-      <body className='bg-gray-900 text-gray-100'>
+      <body className='bg-gray-900 text-gray-100 antialiased'>
         {/* <Providers> */}
-          <Header />
-          <main
-            id='skip'
-            className='flex flex-col justify-center px-6 bg-gray-900 min-w-full'
-          >
-            {children}
-            <AnalyticsWrapper />
-          </main>
-          <Footer />
+        <Header />
+        <main
+          id='skip'
+          className='flex flex-col justify-center px-6 min-w-full'
+        >
+          {children}
+          <AnalyticsWrapper />
+        </main>
+        <Footer />
         {/* </Providers> */}
       </body>
     </html>

@@ -3,7 +3,7 @@ import { parseBody } from 'next-sanity/webhook';
 import { NextApiRequest, NextApiResponse } from 'next';
 export { config } from 'next-sanity/webhook';
 
-export const runtime = 'node';
+export const runtime = 'nodejs';
 
 async function handler(
   request: NextApiRequest,
