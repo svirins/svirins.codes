@@ -7,7 +7,7 @@ import { Tags } from 'components/Tags';
 import BlockContent from 'components/BlockContent';
 import { createRemoteImageAttributes } from 'lib/createRemoteImageAttributes.ts';
 import Balancer from 'react-wrap-balancer';
-import { urlForImage } from 'lib/sanity-client';
+import { format } from 'date-fns';
 
 export async function generateStaticParams() {
   const paths = await getPostSlugs();
@@ -121,21 +121,22 @@ export default async function PostPage({
                 Dzmitry Sviryn
               </span>
               <span
-                className='text-sm text-gray-400 leading-4'
+                className='text-sm text-gray-400 leading-4 font-semibold'
                 title='@svirins'
               >
                 @svirins
               </span>
             </a>
-            <div className=' ml-auto'>
-              <span className='flex ml-4 text-sm text-gray-400'>
-                {new Intl.DateTimeFormat('en-US', {
-                  year: 'numeric',
-                  month: 'numeric',
-                  day: 'numeric'
-                }).format(new Date(post.date))}
+            <div className='ml-auto flex text-right items-center'>
+              <span className='flex font-semibold text-sm text-gray-400 '>
+                <time
+                  title={`Updated at: ${new Date(post.date).toUTCString()}`}
+                  dateTime={new Date(post.date).toISOString()}
+                >
+                  {format(new Date(post.date), 'MMM d, y')}
+                </time>
               </span>
-              <span className=' text-gray-400'>
+              <span className='flex text-sm text-gray-400 font-semibold'>
                 {`${post.readingTime && 1} min read`}
               </span>
             </div>

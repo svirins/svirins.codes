@@ -7,7 +7,7 @@ import { getTweetData } from 'lib/twitter-api';
 export default async function StaticTweet({ value }: { value: any }) {
   const { data, includes } = await getTweetData(value.id);
   const author = includes.users[0];
-  const media = includes.media[0];
+  const media = includes.media;
   const tweet = data[0];
   const authorUrl = `https://twitter.com/${author.username}`;
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${tweet.id}`;
@@ -19,7 +19,7 @@ export default async function StaticTweet({ value }: { value: any }) {
     .replace(/https:\/\/[\n\S]+/g, '')
     .replace('&amp;', '&');
   const quoteTweet = undefined;
-  console.log('media is', media);
+  // console.log('media is', media);
   //  referenced_tweets && referenced_tweets.find((t) => t.type === 'quoted');
   return (
     <div className='tweet rounded-lg border !border-gray-700 px-6 py-4 my-4 bg-white !bg-gray-800 max-w-2xl mx-auto'>
@@ -105,7 +105,7 @@ export default async function StaticTweet({ value }: { value: any }) {
               alt={tweet.text}
               height={m.height}
               width={m.width}
-              src={m.preview_image_url}
+              src={m.preview_image_url ?? m.url}
               className='rounded'
             />
           ))}
