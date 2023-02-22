@@ -15,7 +15,8 @@ export default defineType({
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
           { title: 'Code', value: 'code' },
-          { title: 'Highlight', value: 'highlight', icon: RiBallPenFill }
+          { title: 'Highlight', value: 'highlight', icon: RiBallPenFill },
+          { title: 'Divider', value: 'hr', icon: RiBallPenFill }
         ],
         annotations: [
           {

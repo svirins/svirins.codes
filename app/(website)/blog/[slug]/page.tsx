@@ -77,7 +77,7 @@ export default async function PostPage({
         </h1>
         <Tags tags={post.tags} />
         {post.imageWithAlt && (
-          <div className='flex flex-col w-full my-4'>
+          <div className='flex flex-col w-full my-4 max-w-2xl'>
             <Image
               src={img}
               alt={post.imageWithAlt.alt}
@@ -93,31 +93,52 @@ export default async function PostPage({
         )}
         <div className='flex flex-row items-start justify-between w-full mt-2'>
           <div className='flex items-center'>
-            <Image
-              alt='Dzmitry Svirin'
-              height={48}
-              width={48}
-              quality='100'
-              src='/svirins-light-small.webp'
-              className='rounded-full'
-            />
-            <p className='ml-2 text-sm md:text-base  text-gray-400'>
-              <a
-                className=' text-gray-300  link-underline link-underline-gradient'
-                href='https://twitter.com/svirins'
+            <a
+              className='flex h-9 w-9'
+              href='https://twitter.com/Svirins'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <Image
+                alt='Dzmitry Svirin'
+                height={36}
+                width={36}
+                quality='100'
+                src='/svirins-light-small.webp'
+                className='rounded-full flex  h-9 w-9'
+              />
+            </a>
+            <a
+              href='https://twitter.com/Svirins'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='author flex flex-col ml-4 !no-underline'
+            >
+              <span
+                className='flex items-center font-semibold text-gray-100 leading-5 tracking-tight'
+                title='Dzmitry Sviryn'
               >
-                Dzmitry Svirin
-              </a>
-              {` • `}
-              {new Intl.DateTimeFormat('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              }).format(new Date(post.date))}
-            </p>{' '}
-            <p className='text-sm md:text-base text-gray-400 min-w-32'>
-              {`${post.readingTime && 1} min read`}
-            </p>
+                Dzmitry Sviryn
+              </span>
+              <span
+                className='text-sm text-gray-400 leading-4'
+                title='@svirins'
+              >
+                @svirins
+              </span>
+            </a>
+            <div className=' ml-auto'>
+              <span className='flex ml-4 text-sm text-gray-400'>
+                {new Intl.DateTimeFormat('en-US', {
+                  year: 'numeric',
+                  month: 'numeric',
+                  day: 'numeric'
+                }).format(new Date(post.date))}
+              </span>
+              <span className=' text-gray-400'>
+                {`${post.readingTime && 1} min read`}
+              </span>
+            </div>
           </div>
         </div>
 

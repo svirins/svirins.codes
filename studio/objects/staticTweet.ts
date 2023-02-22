@@ -2,7 +2,7 @@ import { defineType, defineField } from 'sanity';
 import { RiTwitterLine } from 'react-icons/ri';
 
 export default defineType({
-  title: 'Tweet ID',
+  title: 'Tweet',
   name: 'tweet',
   type: 'object',
   icon: RiTwitterLine,

@@ -19,7 +19,9 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
           code: ({ value }) => <CodeBlock value={value} />,
           messageBox: ({ value }) => <MessageBox value={value} />,
           /* @ts-expect-error Server Component */
-          tweet: ({ value }) => <StaticTweet value={value} />
+          tweet: ({ value }) => <StaticTweet value={value} />,
+          break: ({ value }) =>
+            value ? <hr className='horizontal-divider' /> : <></>
         },
         list: {
           bullet: ({ children }) => <ul>{children}</ul>,

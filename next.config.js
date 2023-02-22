@@ -12,7 +12,7 @@ module.exports = {
     appDir: true
   },
   images: {
-    domains: ['cdn.sanity.io'],
+    domains: ['cdn.sanity.io', 'pbs.twimg.com'],
     formats: ['image/avif', 'image/webp']
   }
   // async headers() {

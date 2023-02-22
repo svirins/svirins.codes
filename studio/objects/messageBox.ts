@@ -2,7 +2,7 @@ import { defineType, defineField } from 'sanity';
 import { RiLightbulbLine } from 'react-icons/ri';
 
 export default defineType({
-  title: 'Message box',
+  title: 'Message',
   name: 'messageBox',
   type: 'object',
   icon: RiLightbulbLine,

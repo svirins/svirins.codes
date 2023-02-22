@@ -1,5 +1,5 @@
-import { defineType, defineArrayMember } from 'sanity';
-import { RiBallPenFill, RiLinksLine } from 'react-icons/ri';
+import { defineType, defineArrayMember, defineField } from 'sanity';
+import { RiBallPenFill, RiLinksLine, RiSeparator } from 'react-icons/ri';
 
 export default defineType({
   title: 'Block Content',
@@ -72,8 +72,20 @@ export default defineType({
       type: 'tweet'
     }),
     defineArrayMember({
+      name: 'break',
+      type: 'object',
+      title: 'Divider',
+      icon: RiSeparator,
+      fields: [
+        defineField({
+          name: 'break',
+          type: 'boolean'
+        })
+      ]
+    }),
+    defineArrayMember({
       type: 'code' as 'codeInput',
-      title: 'Code with all options',
+      title: 'Code',
       options: {
         language: 'javascript',
         languageAlternatives: [

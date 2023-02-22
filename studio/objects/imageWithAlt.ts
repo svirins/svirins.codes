@@ -2,7 +2,7 @@ import { defineType, defineField } from 'sanity';
 import { getExtension, getImageDimensions } from '@sanity/asset-utils';
 
 export default defineType({
-  title: 'Image with alt',
+  title: 'Image',
   name: 'imageWithAlt',
   type: 'image',
   options: {

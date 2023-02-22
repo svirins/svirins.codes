@@ -19,9 +19,6 @@ export const getTweetData = async (id: string) => {
     }
   );
   const tweet = await response.json();
-  console.log('tweet is', tweet);
-  console.log('tweet includes', tweet.includes);
-  const autorInfo = tweet.includes.users;
   return tweet ?? null;
 };
 
