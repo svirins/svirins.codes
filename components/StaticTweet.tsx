@@ -2,18 +2,20 @@ import Image from 'next/image';
 import { format } from 'date-fns';
 import { getTweetData } from 'lib/twitter-api';
 
-export default function StaticTweet({ value }: { value: any }) {
-  console.log('Tweet component value is:', value);
-  getTweetData(value);
-  return <p>e</p>;
-}
-
-// /**
 //  * Supports plain text, images, quote tweets.
 //  *
 //  * Needs support for images, GIFs, and replies maybe?
 //  * Styles use !important to override Tailwind .prose inside MDX.
 //  */
+
+
+export default async function StaticTweet({ value }: { value: any }) {
+  const tweet = await getTweetData(value.id);
+  return <p>e</p>;
+}
+
+// /**
+
 
 // export default function Tweet({
 //   id,

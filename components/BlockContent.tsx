@@ -8,7 +8,6 @@ import type { SanityAssetExtended } from 'lib/sanity-api';
 import StaticTweet from 'components/StaticTweet';
 
 const BlockContent = ({ section }: { section: PortableTextBlock }) => {
-  console.log('section is ', section);
   return (
     <PortableText
       value={section}
@@ -19,7 +18,8 @@ const BlockContent = ({ section }: { section: PortableTextBlock }) => {
             InlineImage(value),
           code: ({ value }) => <CodeBlock value={value} />,
           messageBox: ({ value }) => <MessageBox value={value} />,
-          tweet: ({ value }) => StaticTweet(value)
+          /* @ts-expect-error Server Component */
+          tweet: ({ value }) => <StaticTweet value={value} />
         },
         list: {
           bullet: ({ children }) => <ul>{children}</ul>,
