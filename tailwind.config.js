@@ -4,7 +4,7 @@ const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  content: ['./app/**/*.{ts,tsx}'],
+  content: ['./src/**/*.tsx', './src/**/*.jsx'],
   darkMode: 'class',
   theme: {
     colors: {

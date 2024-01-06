@@ -2,9 +2,5 @@
 .vercel
 node_modules
 out
-dist
-.sanity
-pnpm-lock.yaml
 .vscode
 public/
-commitlint.config.js
