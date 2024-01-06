@@ -14,19 +14,3 @@ export function isActive(href: string, currentPath: string): boolean {
 
   return false;
 }
-
-export function extractLanguage(filename: string) {
-  const extension = filename.split('.').pop();
-  if (
-    extension === 'js' ||
-    extension === 'ts' ||
-    extension === 'jsx' ||
-    extension === 'tsx'
-  ) {
-    return 'tsx';
-  }
-  if (extension === 'sh') {
-    return 'shell';
-  }
-  return 'typescript';
-}

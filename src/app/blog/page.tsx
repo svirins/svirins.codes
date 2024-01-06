@@ -1,5 +1,3 @@
-import { PostPreview } from '@/app/ui/PostPreview';
-import { searchPosts } from '@/app/lib/sanity';
 import { SearchBar } from '@/app/ui/SearchBar';
 
 type Props = {
@@ -16,7 +14,8 @@ export default async function Blog(props: Props) {
   const queryString = isEmptyObject(searchParams)
     ? '*'
     : `${searchParams.title}*`;
-  const posts = await searchPosts(queryString);
+  // const posts = await searchPosts(queryString);
+  const posts = [];
 
   return (
     <>
@@ -29,7 +28,7 @@ export default async function Blog(props: Props) {
             Posts about code, dev life and various{' '}
             <span role="image" aria-label="technomagical">
               ⚗️
-            </span>{' '}
+            </span>
             things.
           </p>
         </div>
@@ -38,17 +37,9 @@ export default async function Blog(props: Props) {
         <SearchBar />
         <div className="grid grid-cols-1 divide-y  divide-gray-300/25">
           {posts.length ? (
-            posts.map((post) => (
-              <PostPreview
-                key={post.title}
-                slug={post.slug}
-                title={post.title}
-                excerpt={post.excerpt}
-                tags={post.tags}
-              />
-            ))
+            <p>Not implemented </p>
           ) : (
-            <p className="  text-gray-400 italic text-lg">No results found</p>
+            <p className="text-gray-400 italic text-lg">No results found</p>
           )}
         </div>
       </div>

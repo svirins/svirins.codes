@@ -1,7 +1,4 @@
 import { StackIcon } from '@/app/ui/Icons';
-import { getSnippet, getSnippetSlugs } from '@/app/lib/sanity';
-import { PortableText } from '@portabletext/react';
-import { PTComponents } from '@/app/ui/PortableText';
 export default async function SnippetsPage({
   params
 }: {
@@ -10,12 +7,10 @@ export default async function SnippetsPage({
     searchParams: URLSearchParams;
   };
 }) {
-  const snippet = await getSnippet(params.slug);
-
   return (
     <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
       <div className="flex justify-between w-full">
-        <div>
+        {/* <div>
           <h1 className="font-bold capsize text-3xl  md:text-5xl tracking-tight mb-4  text-gray-100">
             {snippet.title}
           </h1>
@@ -33,14 +28,15 @@ export default async function SnippetsPage({
           onMissingComponent={false}
           // @ts-ignore
           components={PTComponents}
-        />
-      </div>{' '}
+        /> */}
+        No snippets yet
+      </div>
     </article>
   );
 }
 
 export async function generateStaticParams() {
-  const paths = await getSnippetSlugs();
+  const paths = ['test-snippet'];
   return paths.map((slug) => ({
     slug
   }));

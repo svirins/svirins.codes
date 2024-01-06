@@ -1,9 +1,4 @@
 import Image from 'next/image';
-import { getPost, getPostSlugs } from '@/app/lib/sanity';
-import { Tags } from '@/app/ui/Tags';
-import { SanityImage } from '@/app/ui/SanityImage';
-import { PortableText } from '@portabletext/react';
-import { PTComponents } from '@/app/ui/PortableText';
 
 export default async function PostPage({
   params
@@ -13,11 +8,10 @@ export default async function PostPage({
     searchParams: URLSearchParams;
   };
 }) {
-  const post = await getPost(params.slug);
-
   return (
     <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12">
-      <Tags tags={post.tags} />
+      <p>Not implemented</p>
+      {/* <Tags tags={post.tags} />
       <h1 className="my-2 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">
         {post.title}
       </h1>
@@ -61,12 +55,12 @@ export default async function PostPage({
           // @ts-ignore
           components={PTComponents}
         />
-      </div>
+      </div> */}
     </article>
   );
 }
 export async function generateStaticParams() {
-  const paths = await getPostSlugs();
+  const paths = ['test-post'];
   return paths.map((slug) => ({
     slug
   }));
