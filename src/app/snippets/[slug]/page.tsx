@@ -1,4 +1,4 @@
-import { StackIcon } from '@/app/ui/Icons';
+import { StackIcon } from '@/app/ui/icons';
 export default async function SnippetsPage({
   params
 }: {

@@ -1,12 +1,17 @@
 import Link from 'next/link';
-import { StackIcon } from '@/app/ui/Icons';
+import { StackIcon } from '@/app/ui/icons';
 
 export default function SnippetPreview({
   title,
   description,
   slug,
-  iconTitle,
-}: {title:string; description: string; slug: string; iconTitle: string}) {
+  iconTitle
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  iconTitle: string;
+}) {
   return (
     <Link
       href={`/snippets/${slug}`}

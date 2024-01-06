@@ -4,7 +4,7 @@ const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  content: ['./src/**/*.tsx', './src/**/*.jsx'],
+  content: ['./src/**/*.tsx', './src/**/*.jsx', './mdx-components.tsx'],
   darkMode: 'class',
   theme: {
     colors: {
@@ -45,5 +45,15 @@ module.exports = {
   variants: {
     typography: ['dark']
   },
-  plugins: [require('@tailwindcss/typography')]
+  safelist: [
+    {
+      pattern: /hljs+/
+    }
+  ],
+  theme: {
+    hljs: {
+      theme: 'atom-one-dark'
+    }
+  },
+  plugins: [require('@tailwindcss/typography'), require('tailwind-highlightjs')]
 };

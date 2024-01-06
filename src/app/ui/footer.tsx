@@ -1,5 +1,5 @@
-import { NowPlaying } from '@/app/ui/NowPlaying';
-import { SocialIcons } from '@/app/ui/Icons';
+import { NowPlaying } from '@/app/ui/now-playing';
+import { SocialIcons } from '@/app/ui/icons';
 import { Suspense } from 'react';
 
 export default function Footer() {
@@ -47,4 +47,3 @@ export default function Footer() {
     </footer>
   );
 }
-

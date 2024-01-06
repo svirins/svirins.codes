@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { Typewriter } from '@/app/ui/Typewriter';
-import { WakaStats } from '@/app/ui/WakaStats';
+import { Typewriter } from '@/app/ui/typewriter';
+import { WakaStats } from '@/app/ui/wakatime';
 import { Metadata } from 'next';
-import { MyStacks } from '@/app/ui/Icons';
+import { MyStacks } from '@/app/ui/icons';
 
 
 export const metadata: Metadata = {

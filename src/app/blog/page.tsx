@@ -1,4 +1,4 @@
-import { SearchBar } from '@/app/ui/SearchBar';
+import { SearchBar } from '@/app/ui/search-bar';
 
 type Props = {
   params: {};

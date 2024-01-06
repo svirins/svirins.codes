@@ -1,4 +1,4 @@
-import NavItem from '@/app/ui/NavItem';
+import NavItem from '@/app/ui/nav-item';
 import { NAV_LINKS } from '@/app/lib/constants';
 export default function Header() {
   return (

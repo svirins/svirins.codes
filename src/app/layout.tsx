@@ -1,7 +1,7 @@
 import '@/app/global.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from '@/app/ui/Footer';
-import Header from '@/app/ui/Header';
+import Header from '@/app/ui/header';
 
 export default function RootLayout({
   children
