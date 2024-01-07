@@ -42,7 +42,7 @@ export default function IndexPage() {
           <div className="hidden md:block">
             <Image
               alt="Dzmitry Svirin"
-              src="/me.webp"
+              src="./assets/images/me.webp"
               width={262}
               height={363}
               className="rounded-md"

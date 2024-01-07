@@ -24,122 +24,122 @@ export const TYPED_STRINGS = [
 
 export const STACKS = [
   {
-    src: './svg/strapi.svg',
+    src: './assets/svg/strapi.svg',
     url: 'https://strapi.io/',
     name: 'Strapi'
   },
   {
-    src: './svg/reacthookform.svg',
+    src: './assets/svg/reacthookform.svg',
     url: 'https://react-hook-form.com/',
     name: 'React Hook Form'
   },
   {
-    src: './svg/reactquery.svg',
+    src: './assets/svg/reactquery.svg',
     url: 'https://tanstack.com/query/v3/',
     name: 'TanStack Query'
   },
   {
-    src: './svg/shadcnui.svg',
+    src: './assets/svg/shadcnui.svg',
     url: 'https://ui.shadcn.com/',
     name: 'shacdn/ui'
   },
   {
-    src: './svg/redis.svg',
+    src: './assets/svg/redis.svg',
     url: 'https://www.algolia.com/',
     name: 'Redis'
   },
   {
-    src: './svg/algolia.svg',
+    src: './assets/svg/algolia.svg',
     url: 'https://www.algolia.com/',
     name: 'Algolia'
   },
   {
-    src: './svg/aws.svg',
+    src: './assets/svg/aws.svg',
     url: 'https://aws.amazon.com/',
     name: 'Amazon AWS'
   },
   {
-    src: './svg/fastify.svg',
+    src: './assets/svg/fastify.svg',
     url: 'https://fastify.dev/',
     name: 'Fastify'
   },
   {
-    src: './svg/figma.svg',
+    src: './assets/svg/figma.svg',
     url: 'https://www.figma.com/',
     name: 'Figma'
   },
   {
-    src: './svg/firebase.svg',
-    url: 'https://firebase.google.com/',
-    name: 'Firebase'
+    src: './assets/svg/supabase.svg',
+    url: 'https://supabase.com/',
+    name: 'Supabase'
   },
   {
-    src: './svg/graphql.svg',
+    src: './assets/svg/graphql.svg',
     url: 'https://graphql.org/',
     name: 'GraphQL'
   },
   {
-    src: './svg/jest.svg',
-    url: 'https://jestjs.io/',
-    name: 'Jest'
+    src: './assets/svg/turborepo.svg',
+    url: 'https://turbo.build/',
+    name: 'Turborepo'
   },
   {
-    src: './svg/linux.svg',
+    src: './assets/svg/linux.svg',
     url: 'https://www.linux.org/',
     name: 'Linux'
   },
   {
-    src: './svg/mongodb.svg',
+    src: './assets/svg/mongodb.svg',
     url: 'https://www.mongodb.com/',
     name: 'MongoDB'
   },
   {
-    src: './svg/mysql.svg',
+    src: './assets/svg/mysql.svg',
     url: 'https://www.mysql.com/',
     name: 'MySQL'
   },
   {
-    src: './svg/nodejs.svg',
+    src: './assets/svg/nodejs.svg',
     url: 'https://nodejs.org/',
     name: 'Node.js'
   },
   {
-    src: './svg/nextjs.svg',
+    src: './assets/svg/nextjs.svg',
     url: 'https://www.nextjs.org/',
     name: 'Nextjs'
   },
   {
-    src: './svg/prisma.svg',
+    src: './assets/svg/prisma.svg',
     url: 'https://www.prisma.io/',
     name: 'Prisma'
   },
   {
-    src: './svg/react.svg',
+    src: './assets/svg/react.svg',
     url: 'https://www.reactjs.org/',
     name: 'React'
   },
   {
-    src: './svg/sanity.svg',
+    src: './assets/svg/sanity.svg',
     url: 'https://www.sanity.io/',
     name: 'Sanity'
   },
   {
-    src: './svg/stripe.svg',
+    src: './assets/svg/stripe.svg',
     url: 'https://www.stripe.com/',
     name: 'Stripe'
   },
   {
-    src: './svg/tailwindcss.svg',
+    src: './assets/svg/tailwindcss.svg',
     url: 'https://www.tailwindscss.com/',
     name: 'Tailwind CSS'
   },
   {
-    src: './svg/typescript.svg',
+    src: './assets/svg/typescript.svg',
     url: 'https://www.typescriptlang.org/',
     name: 'TypeScript'
   },
   {
-    src: './svg/vercel.svg',
+    src: './assets/svg/vercel.svg',
     url: 'https://vercel.com/',
     name: 'Vercel'
   }

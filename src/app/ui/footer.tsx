@@ -24,7 +24,7 @@ export default function Footer() {
           rel="noopener noreferrer"
         >
           <Image
-            src="./svg/github.svg"
+            src="./assets/svg/github.svg"
             alt="My GitHub"
             className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
           />
@@ -37,7 +37,7 @@ export default function Footer() {
           rel="noopener noreferrer"
         >
           <Image
-            src="./svg/x.svg"
+            src="./assets/svg/x.svg"
             alt="My X (ex-Twitter)"
             className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
           />
@@ -50,7 +50,7 @@ export default function Footer() {
           rel="noopener noreferrer"
         >
           <Image
-            src="./svg/gmail.svg"
+            src="./assets/svg/gmail.svg"
             alt="My Gmail"
             className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
           />
