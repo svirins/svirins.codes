@@ -11,3 +11,5 @@ out
 .env*.local
 .turbo
 .dist
+# contentlayer
+.contentlayer

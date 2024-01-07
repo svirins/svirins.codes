@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Typewriter } from '@/app/ui/typewriter';
 import { WakaStats } from '@/app/ui/wakatime';
 import { Metadata } from 'next';
-import { MyStacks } from '@/app/ui/icons';
+import { STACKS } from '@/app/lib/constants';
 
 
 export const metadata: Metadata = {
@@ -104,7 +104,26 @@ export default function IndexPage() {
           <h2 className="text-xl md:text-2xl mb-5 mt-2 tracking-tight  text-gray-200 font-normal ">
             Technologies I use frequently:
           </h2>
-          <MyStacks />
+          <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full">
+            {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(
+              (stack, index) => (
+                <a
+                  className="duration-150 transform ease-in-out hover:scale-110 "
+                  href={stack.url}
+                  title={stack.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={index}
+                >
+                  <Image
+                    src={stack.src}
+                    alt={stack.name}
+                    className="w-7 h-7  fill-gray-400  hover:fill-gray-200"
+                  />
+                </a>
+              )
+            )}
+          </div>
           <WakaStats />
           <h2 className="text-xl md:text-2xl mt-8 tracking-tight  text-gray-200 font-normal">
             Get in touch:

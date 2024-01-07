@@ -1,6 +1,6 @@
 import { NowPlaying } from '@/app/ui/now-playing';
-import { SocialIcons } from '@/app/ui/icons';
 import { Suspense } from 'react';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -16,7 +16,45 @@ export default function Footer() {
         <NowPlaying />
       </Suspense>
       <div className="flex my-2 space-x-4">
-        <SocialIcons />
+        <a
+          href="https://github.com/svirins"
+          title="My GitHub"
+          className="duration-150 transform  ease-in-out hover:scale-110"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="./svg/github.svg"
+            alt="My GitHub"
+            className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
+          />
+        </a>
+        <a
+          href="https://twitter.com/svirins"
+          title="My X (ex-Twitter)"
+          className="duration-150 transform  ease-in-out hover:scale-110"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="./svg/x.svg"
+            alt="My X (ex-Twitter)"
+            className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
+          />
+        </a>
+        <a
+          href="mailto:svirins@gmail.com"
+          title="My Gmail"
+          className="duration-150 transform  ease-in-out hover:scale-110"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="./svg/gmail.svg"
+            alt="My Gmail"
+            className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
+          />
+        </a>
       </div>
       <p className="  text-gray-400 mb-1 pt-2  text-left md:text-center text-xs">
         © <span className="font-medium">{new Date().getFullYear()}</span>

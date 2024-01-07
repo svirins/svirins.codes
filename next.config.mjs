@@ -2,6 +2,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
+import { withContentlayer } from 'next-contentlayer';
 
 import createMDX from '@next/mdx';
 /**
@@ -18,4 +19,4 @@ const withMDX = createMDX({
   }
 });
 
-export default withMDX(nextConfig);
+export default withMDX(withContentlayer(nextConfig));
