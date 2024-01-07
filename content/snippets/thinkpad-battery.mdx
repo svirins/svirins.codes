@@ -1,0 +1,20 @@
+---
+title: How do you achieve flow state?
+snippet:
+date: "2022-11-09"
+icon: ""
+slug: how-do-you-achieve-flow-state
+---
+Install tlp on Lenovo ThinkPad X1 Carbon gen 7
+
+Keep in mind: during calibration, your screen will go blank* for a few mins.
+
+sudo add-apt-repository ppa:linrunner/tlp
+sudo apt update
+sudo apt install tlp tlp-rdw --no-install-recommends
+sudo apt install acpi-call-dkms
+sudo tlp-stat
+sudo apt install powertop
+sudo powertop -c
+
+Tested on Pop! OS 22.04 and LDME 5.

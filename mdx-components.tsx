@@ -1,5 +1,7 @@
 import type { MDXComponents } from 'mdx/types';
 import Image, { ImageProps } from 'next/image';
+import CodeHeader from '@/app/ui/code-header';
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: (props) => <h1 {...props} className="mb-4 text-4xl font-bold" />,
@@ -15,6 +17,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...(props as ImageProps)}
       />
     ),
+    CodeHeader,
     ...components
   };
 }

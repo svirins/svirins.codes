@@ -1,6 +1,6 @@
-import '@/app/global.css';
+import '@/styles/global.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import Footer from '@/app/ui/Footer';
+import Footer from '@/app/ui/footer';
 import Header from '@/app/ui/header';
 
 export default function RootLayout({

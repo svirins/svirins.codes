@@ -1,0 +1,66 @@
+---
+title: Generate Algolia i18n indices
+description: You can use this script as a part of a build step or run it as a serverless function via cron or webhook.
+date: "2024-01-01"
+image: ""
+slug: generate-algolia-i18n-indices
+---
+<CodeHeader text="./scripts/algolia-index.ts" />
+```ts
+/**
+* * import your own logic
+* * for querying and mapping data for index
+**/
+
+import { getDataForIndex } from "@/lib/api";
+import algoliasearch from "algoliasearch";
+
+const LOCALIZED_ALGOLIA_INDICES = [
+  {
+    indexName: "index-en",
+    locale: "en",
+  },
+  {
+    indexName: "index-de",
+    locale: "de",
+  },
+];
+
+const algoliaInstance = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+  process.env.ALGOLIA_SEARCH_ADMIN_KEY
+);
+
+interface IProps {
+ indexName: string;
+ locale: string;
+}
+
+const generateIndexPerLocale = async (indexName, locale): IProps => {
+  const data = await getDataForIndex(locale);
+  const index = algoliaInstance.initIndex(indexName);
+
+  try {
+    await index.saveObjects(data);
+    console.log(`Saving ${data.length} docs to:${indexName}`);
+    return {
+      status: 200,
+      body: "Success!",
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      status: 500,
+      body: error,
+    };
+  }
+};
+
+async function generateAlgoliaIndex() {
+  for await (const i of LOCALIZED_ALGOLIA_INDICES) {
+    generateIndexPerLocale(i.indexName, i.locale);
+  }
+}
+
+generateAlgoliaIndex()
+```
