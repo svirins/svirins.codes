@@ -54,7 +54,7 @@ export const STACKS = [
     name: 'Algolia'
   },
   {
-    src: './assets/svg/aws.svg',
+    src: './assets/svg/amazonaws.svg',
     url: 'https://aws.amazon.com/',
     name: 'Amazon AWS'
   },

@@ -8,7 +8,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     colors: {
-      active: 'rgb(255 49 46 / 95%)',
+      active: '#ff312e',
       gray: colors.slate,
       transparent: 'rgb(255 255 255 / 0%)',
       wakatime: {

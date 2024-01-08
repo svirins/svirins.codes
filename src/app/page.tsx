@@ -12,7 +12,8 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   applicationName: 'My dev site',
   keywords: ['Next.js', 'TypeScript', 'Dev blog'],
-  authors: [{ name: 'Dzmitry Sviryn', url: 'https://github.com/svirins' }]
+  authors: [{ name: 'Dzmitry Sviryn', url: 'https://github.com/svirins' }],
+  metadataBase: new URL('https:/svirins.codes')
 };
 
 export default function IndexPage() {
@@ -42,7 +43,7 @@ export default function IndexPage() {
           <div className="hidden md:block">
             <Image
               alt="Dzmitry Svirin"
-              src="./assets/images/me.webp"
+              src="assets/images/me.webp"
               width={262}
               height={363}
               className="rounded-md"
@@ -108,18 +109,14 @@ export default function IndexPage() {
             {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(
               (stack, index) => (
                 <a
-                  className="duration-150 transform ease-in-out hover:scale-110 "
+                  className="duration-150 transform ease-in-out hover:scale-110 fill-gray-400  hover:fill-gray-200 "
                   href={stack.url}
                   title={stack.name}
                   target="_blank"
                   rel="noopener noreferrer"
                   key={index}
                 >
-                  <Image
-                    src={stack.src}
-                    alt={stack.name}
-                    className="w-7 h-7  fill-gray-400  hover:fill-gray-200"
-                  />
+                  <Image src={stack.src} alt={stack.name} className="w-7 h-7" />
                 </a>
               )
             )}

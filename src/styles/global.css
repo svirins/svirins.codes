@@ -31,7 +31,7 @@ html {
   scroll-behavior: smooth;
 }
 
-#__next {
+body {
   @apply bg-gray-900;
   display: flex;
   flex-direction: column;
@@ -287,9 +287,6 @@ pre {
   scrollbar-width: none; /* Firefox */
 }
 
-.highlight-line {
-  @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-active  bg-gray-800;
-}
 
 /* Remove Safari input shadow on mobile */
 input[type='text'],
