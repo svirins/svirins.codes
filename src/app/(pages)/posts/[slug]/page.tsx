@@ -1,5 +1,14 @@
 import Image from 'next/image';
+import { allPosts } from 'contentlayer/generated';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import { notFound } from 'next/navigation';
 
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    // slug: post._raw.flattenedPath,
+    slug: post.slug
+  }));
+}
 export default async function PostPage({
   params
 }: {
@@ -8,9 +17,14 @@ export default async function PostPage({
     searchParams: URLSearchParams;
   };
 }) {
+  const post = allPosts.find((post) => post.slug === params.slug);
+  // 404 if the post does not exist.
+  if (!post) notFound();
+  const MDXContent = useMDXComponent(post.body);
+
   return (
     <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12">
-      <p>Not implemented</p>
+      <MDXContent />
       {/* <Tags tags={post.tags} />
       <h1 className="my-2 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">
         {post.title}
@@ -58,10 +72,4 @@ export default async function PostPage({
       </div> */}
     </article>
   );
-}
-export async function generateStaticParams() {
-  const paths = ['test-post'];
-  return paths.map((slug) => ({
-    slug
-  }));
 }

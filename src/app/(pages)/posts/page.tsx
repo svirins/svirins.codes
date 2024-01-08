@@ -1,4 +1,5 @@
 import { SearchBar } from '@/app/ui/search-bar';
+import { allPosts } from 'contentlayer/generated';
 
 type Props = {
   params: {};
@@ -9,7 +10,7 @@ const isEmptyObject = (obj: Object) => {
   return JSON.stringify(obj) === '{}';
 };
 
-export default async function Blog(props: Props) {
+export default async function Posts(props: Props) {
   const searchParams = props.searchParams;
   const queryString = isEmptyObject(searchParams)
     ? '*'
@@ -36,7 +37,7 @@ export default async function Blog(props: Props) {
       <div className="flex flex-col  max-w-2xl mx-auto pb-16 w-full">
         <SearchBar />
         <div className="grid grid-cols-1 divide-y  divide-gray-300/25">
-          {posts.length ? (
+          {allPosts.length ? (
             <p>Not implemented </p>
           ) : (
             <p className="text-gray-400 italic text-lg">No results found</p>

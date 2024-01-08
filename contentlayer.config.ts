@@ -3,13 +3,18 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `posts/**/*.mdx`,
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
     date: { type: 'date', required: true },
     slug: { type: 'string', required: true },
     image: { type: 'string', required: true },
-    tags: { type: 'string', required: true }
+    tags: {
+      type: 'list',
+      of: { type: 'string' },
+      required: false
+    }
   },
   computedFields: {
     url: {
@@ -22,6 +27,7 @@ export const Post = defineDocumentType(() => ({
 export const Snippet = defineDocumentType(() => ({
   name: 'Snippet',
   filePathPattern: `snippets/**/*.mdx`,
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
@@ -37,9 +43,7 @@ export const Snippet = defineDocumentType(() => ({
   }
 }));
 
-
-
 export default makeSource({
-  contentDirPath: './content/posts',
-  documentTypes: [Post]
+  contentDirPath: 'content',
+  documentTypes: [Post, Snippet]
 });

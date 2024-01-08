@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "next lint --dir app",
     "check-types": "tsc --noEmit --pretty",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build-content": "contentlayer build --verbose"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
