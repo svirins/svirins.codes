@@ -2,9 +2,9 @@ import { NowPlaying } from '@/app/ui/now-playing';
 import { Suspense } from 'react';
 import Image from 'next/image';
 
-export default function Footer() {
+export function Footer() {
   return (
-    <footer className="flex flex-col items-start  md:items-center  max-w-2xl w-full mx-auto mb-4">
+    <footer className="flex flex-col items-start  md:items-center   w-full mx-auto mb-4">
       <hr className="w-full border-1  border-gray-800 mb-4" />
       <Suspense
         fallback={

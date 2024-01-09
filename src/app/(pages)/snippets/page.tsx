@@ -1,6 +1,6 @@
 export default async function Snippets() {
   return (
-    <div className="flex flex-col  max-w-2xl mx-auto pb-16">
+    <div className="flex flex-col   mx-auto pb-16">
       <h1 className="mb-4 text-3xl font-bold capsize tracking-tight md:text-5xl text-gray-100">
         Code Snippets
       </h1>

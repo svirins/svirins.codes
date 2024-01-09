@@ -1,28 +1,15 @@
 import Image from 'next/image';
 import { Typewriter } from '@/app/ui/typewriter';
 import { WakaStats } from '@/app/ui/wakatime';
-import { Metadata } from 'next';
 import { STACKS } from '@/app/lib/constants';
 
-
-export const metadata: Metadata = {
-  title: `Dzmitry Sviryn's personal website`,
-  description:
-    'A full-stack developer passionate about React ecosystem, TypeScript and serverless backends',
-  generator: 'Next.js',
-  applicationName: 'My dev site',
-  keywords: ['Next.js', 'TypeScript', 'Dev blog'],
-  authors: [{ name: 'Dzmitry Sviryn', url: 'https://github.com/svirins' }],
-  metadataBase: new URL('https:/svirins.codes')
-};
-
-export default function IndexPage() {
+export default function Page() {
   return (
-    <>
-      <div className="flex flex-col  max-w-2xl mx-auto w-full">
+    <section>
+      <div className="flex flex-col mx-auto w-full">
         <div className="md:grid md:grid-cols-5">
           <div className="md:col-span-4 ">
-            <div className="flex flex-col  max-w-2xl mx-auto w-full">
+            <div className="flex flex-col   mx-auto w-full">
               <div className="flex flex-col items-start">
                 <h1 className="text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold  text-gray-100">
                   Hi, I&apos;m <span className="text-active">Dzmitry</span>
@@ -43,20 +30,17 @@ export default function IndexPage() {
           <div className="hidden md:block">
             <Image
               alt="Dzmitry Svirin"
-              src="assets/images/me.webp"
+              src="/dzmitry.webp"
               width={262}
               height={363}
               className="rounded-md"
-              placeholder="blur"
-              blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
               priority
             />
           </div>
         </div>
       </div>
-      <hr className="w-full  max-w-2xl mx-auto  border-1 border-gray-800 mt-4" />
-
-      <div className="flex flex-col max-w-2xl mx-auto pb-16 w-full">
+      <hr className="w-full mx-auto border-1 border-gray-800 mt-4" />
+      <div className="flex flex-col  mx-auto pb-16 w-full">
         <div className="flex flex-col">
           <h2 className="text-xl md:text-2xl mt-4 tracking-tight text-gray-200 font-normal">
             In short:
@@ -105,7 +89,7 @@ export default function IndexPage() {
           <h2 className="text-xl md:text-2xl mb-5 mt-2 tracking-tight  text-gray-200 font-normal ">
             Technologies I use frequently:
           </h2>
-          <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between max-w-2xl gap-x-12 gap-y-6 mx-auto w-full">
+          <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between  gap-x-6 gap-y-6 mx-auto w-full">
             {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(
               (stack, index) => (
                 <a
@@ -116,7 +100,11 @@ export default function IndexPage() {
                   rel="noopener noreferrer"
                   key={index}
                 >
-                  <Image src={stack.src} alt={stack.name} className="w-7 h-7" />
+                  <Image
+                    src={stack.src}
+                    alt={stack.name}
+                    className="w-10 h-10"
+                  />
                 </a>
               )
             )}
@@ -159,6 +147,6 @@ export default function IndexPage() {
           <Typewriter />
         </p>
       </div>
-    </>
+    </section>
   );
 }

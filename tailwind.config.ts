@@ -1,15 +1,14 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
 
-const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
+const { fontFamily } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  content: ['./src/**/*.tsx', './src/**/*.jsx', './mdx-components.tsx'],
-  darkMode: 'class',
+  content: ['./src/**/*.tsx', './src/**/*.jsx'],
   theme: {
     colors: {
       active: '#ff312e',
-      gray: colors.slate,
+      gray: colors.zinc,
       transparent: 'rgb(255 255 255 / 0%)',
       wakatime: {
         blue: '#2563EB',
@@ -29,31 +28,10 @@ module.exports = {
     fontFamily: {
       sans: ['IBM Plex Sans', ...fontFamily.sans],
       mono: ['IBM Plex Mono', ...fontFamily.mono]
-    },
-    extend: {
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            'h2,h3,h4': {
-              'scroll-margin-top': spacing[32]
-            }
-          }
-        }
-      })
     }
   },
-  variants: {
-    typography: ['dark']
-  },
-  safelist: [
-    {
-      pattern: /hljs+/
-    }
-  ],
-  theme: {
-    hljs: {
-      theme: 'atom-one-dark'
-    }
+  future: {
+    hoverOnlyWhenSupported: true
   },
   plugins: [require('@tailwindcss/typography')]
-};
+} satisfies Config;

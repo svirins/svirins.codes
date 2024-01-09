@@ -16,7 +16,7 @@ export default async function PostPage({
 
   // const readingTime = Math.round(String(post.body).length / 5 / 180) ?? 1;
   return (
-    // <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12">
+    // <article className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
     //   <div className="flex flex-wrap w-full md:pb-2">
     //     {post.tags &&
     //       post.tags.map((tag) => (
@@ -64,7 +64,7 @@ export default async function PostPage({
     //       {readingTime}
     //     </p>
     //   </div>
-    //   <div className="w-full max-w-2xl mt-4 prose  prose-invert  md:prose-lg">
+    //   <div className="w-full  mt-4 prose  prose-invert  md:prose-lg">
     //     {/* MDX Component */}
     //   </div>
     // </article>

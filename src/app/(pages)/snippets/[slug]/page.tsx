@@ -7,7 +7,7 @@ export default async function SnippetsPage({
   };
 }) {
   return (
-    <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
+    <article className="flex flex-col justify-center items-start  mx-auto mb-16 w-full">
       <div className="flex justify-between w-full">
         {/* <div>
           <h1 className="font-bold capsize text-3xl  md:text-5xl tracking-tight mb-4  text-gray-100">
@@ -21,7 +21,7 @@ export default async function SnippetsPage({
           <StackIcon iconTitle={snippet.iconTitle!} iconType="snippetPage" />
         </div>
       </div>
-      <div className="w-full max-w-2xl mt-4 prose  prose-invert  md:prose-lg">
+      <div className="w-full  mt-4 prose  prose-invert  md:prose-lg">
         <PortableText
           value={snippet.body}
           onMissingComponent={false}

@@ -20,7 +20,7 @@ export default function NavItem({ href, text }: INavItem) {
         isActive(href, pathname)
           ? 'font-semibold  text-gray-200 '
           : 'font-medium text-gray-400',
-        'hidden md:inline-block  transition-all pr-4 duration-150  hover:text-gray-200 ease-in-out text-lg'
+        'inline-block  transition-all pr-4 duration-150  hover:text-gray-200 ease-in-out text-lg'
       )}
     >
       <span className="capsize">{text}</span>

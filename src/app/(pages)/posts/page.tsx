@@ -18,7 +18,7 @@ export default async function Posts(props: Props) {
   // const posts = await searchPosts(queryString);
   return (
     <>
-      <div className="flex flex-col  max-w-2xl mx-auto w-full">
+      <div className="flex flex-col   mx-auto w-full">
         <div className="flex flex-col">
           <h1 className="mb-4 text-3xl font-bold tracking-tight capsize  md:text-5xl text-gray-100">
             Blog
@@ -32,7 +32,7 @@ export default async function Posts(props: Props) {
           </p>
         </div>
       </div>
-      <div className="flex flex-col  max-w-2xl mx-auto pb-16 w-full">
+      <div className="flex flex-col   mx-auto pb-16 w-full">
         <SearchBar />
         {/* <div className="grid grid-cols-1 divide-y  divide-gray-300/25">
           {allPosts.length ? (

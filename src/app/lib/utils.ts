@@ -1,3 +1,6 @@
+import fs from 'node:fs/promises';
+import { getPlaiceholder } from 'plaiceholder';
+
 export function isActive(href: string, currentPath: string): boolean {
   if (href === currentPath) {
     return true;
