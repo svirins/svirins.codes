@@ -20,7 +20,6 @@ My personal site. 'Another personal developer's website'.
 A huge thanks for inspiration to:
 
 - Lee Robinson [@leeerob](https://twitter.com/leeerob)
-- Henrique Doro [@hdoro](https://twitter.com/hdorodev)
 
 ## Images
 

@@ -1,5 +1,6 @@
 import { SearchBar } from '@/app/ui/search-bar';
 import Link from 'next/link';
+import { getContent } from "@/app/lib/mdx";
 
 type Props = {
   params: {};
@@ -16,6 +17,8 @@ export default async function Posts(props: Props) {
     ? '*'
     : `${searchParams.title}*`;
   // const posts = await searchPosts(queryString);
+  const posts = getContent("posts");
+  
   return (
     <>
       <div className="flex flex-col   mx-auto w-full">
@@ -24,7 +27,7 @@ export default async function Posts(props: Props) {
             Blog
           </h1>
           <p className=" font-semibold  text-gray-100 text-base mt-2 md:text-lg">
-            Posts about code, dev life and various{' '}
+            Posts about code, dev life and various{" "}
             <span role="image" aria-label="technomagical">
               ⚗️
             </span>
@@ -34,12 +37,12 @@ export default async function Posts(props: Props) {
       </div>
       <div className="flex flex-col   mx-auto pb-16 w-full">
         <SearchBar />
-        {/* <div className="grid grid-cols-1 divide-y  divide-gray-300/25">
-          {allPosts.length ? (
-            allPosts.map((post) => (
-              <div key={post._id} className="w-full py-4">
+        <div className="grid grid-cols-1 divide-y  divide-gray-300/25">
+          {posts.length ? (
+            posts.map((post) => (
+              <div key={post.slug} className="w-full py-4">
                 <div className="w-full">
-                  <div className="flex flex-wrap w-full md:pb-2">
+                  {/* <div className="flex flex-wrap w-full md:pb-2">
                     {post.tags &&
                       post.tags.map((tag) => (
                         <div
@@ -49,24 +52,26 @@ export default async function Posts(props: Props) {
                           {`#${tag}`}
                         </div>
                       ))}
-                  </div>
+                  </div> */}
                   <Link
                     href={`/blog/${post.slug}`}
                     className=" w-full  duration-150 ease-in-out py-4"
                   >
                     <h3 className="text-xl md:text-2xl font-medium text-left  hover:text-active text-gray-100">
-                      {post.title}
+                      {post.metadata.title}
                     </h3>
                   </Link>
 
-                  <p className="text-gray-400 md:text-lg">{post.description}</p>
+                  <p className="text-gray-400 md:text-lg">
+                    {post.metadata.summary}
+                  </p>
                 </div>
               </div>
             ))
           ) : (
             <p className="text-gray-400 italic text-lg">No results found</p>
           )}
-        </div> */}
+        </div>
       </div>
     </>
   );
