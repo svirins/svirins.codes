@@ -3,19 +3,17 @@ My personal site. 'Another personal developer's website'.
 ## Uses
 
 - **Framework**: [Next.js](https://nextjs.org/)
-- **Content**: [Sanity](https://sanity.io)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 
 ## Features
 
-- Next.js 13 (app dir)
+- Next.js 14
 - Strict Typescript
 - 99 to 100 in Lighthouse scores
 - Secured CSP
 - Spotify streaming via Edge function
-- Lean Sanity client
-- oEmbed + MDX
+- MDX
 
 ## 🙏
 

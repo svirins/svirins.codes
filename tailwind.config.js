@@ -55,5 +55,5 @@ module.exports = {
       theme: 'atom-one-dark'
     }
   },
-  plugins: [require('@tailwindcss/typography'), require('tailwind-highlightjs')]
+  plugins: [require('@tailwindcss/typography')]
 };
