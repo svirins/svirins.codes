@@ -1,13 +1,7 @@
 import Image from 'next/image';
-// import { allPosts } from 'contentlayer/generated';
-import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-  // return allPosts.map((post) => ({
-  //   // slug: post._raw.flattenedPath,
-  //   slug: post.slug
-  // }));
   return ['test'];
 }
 export default async function PostPage({
@@ -18,13 +12,9 @@ export default async function PostPage({
     searchParams: URLSearchParams;
   };
 }) {
-  // const post = allPosts.find((post) => post.slug === params.slug);
   // if (!post) notFound();
-  // const MDXContent = useMDXComponent(post.body.code);
-  // const { title, slug, image, date, description } = post;
-  // console.log(title, slug, image, date, description);
-  // const readingTime = Math.round(String(post.body.raw).length / 5 / 180) ?? 1;
-  const readingTime = 1;
+
+  // const readingTime = Math.round(String(post.body).length / 5 / 180) ?? 1;
   return (
     // <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-12">
     //   <div className="flex flex-wrap w-full md:pb-2">

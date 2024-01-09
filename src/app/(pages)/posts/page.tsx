@@ -1,6 +1,5 @@
 import { SearchBar } from '@/app/ui/search-bar';
 import Link from 'next/link';
-// import { allPosts } from 'contentlayer/generated';
 
 type Props = {
   params: {};
@@ -17,7 +16,6 @@ export default async function Posts(props: Props) {
     ? '*'
     : `${searchParams.title}*`;
   // const posts = await searchPosts(queryString);
-  // allPosts.map((e) => console.dir(e));
   return (
     <>
       <div className="flex flex-col  max-w-2xl mx-auto w-full">
