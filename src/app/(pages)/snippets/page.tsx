@@ -14,5 +14,5 @@ export default async function Snippets() {
 
       <div className="grid w-full grid-cols-1 gap-4 my-2 mt-2">TBD ...</div>
     </div>
-  );
+  )
 }

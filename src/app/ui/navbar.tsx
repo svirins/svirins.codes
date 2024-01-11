@@ -1,5 +1,5 @@
-import NavItem from '@/app/ui/nav-item';
-import { NAV_LINKS } from '@/app/lib/constants';
+import { NAV_LINKS } from '@/app/lib/constants'
+import NavItem from '@/app/ui/nav-item'
 export function Navbar() {
   return (
     <div className="flex flex-col justify-center px-8">
@@ -11,5 +11,5 @@ export function Navbar() {
         </div>
       </nav>
     </div>
-  );
+  )
 }

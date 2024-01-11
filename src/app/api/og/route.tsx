@@ -1,15 +1,15 @@
-import { ImageResponse } from 'next/og';
-import { NextRequest } from 'next/server';
+import { ImageResponse } from 'next/og'
+import { NextRequest } from 'next/server'
 
-export const runtime = 'edge';
+export const runtime = 'edge'
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = req.nextUrl;
-  const postTitle = searchParams.get('title');
+  const { searchParams } = req.nextUrl
+  const postTitle = searchParams.get('title')
   const font = fetch(
-    new URL('../../../../public/fonts/IBMPlexSans-Regular.ttf', import.meta.url)
-  ).then((res) => res.arrayBuffer());
-  const fontData = await font;
+    new URL('../../../../public/fonts/IBMPlexSans-Regular.ttf', import.meta.url),
+  ).then((res) => res.arrayBuffer())
+  const fontData = await font
 
   return new ImageResponse(
     (
@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: '/og-alt-bg.png'
+          backgroundImage: '/og-alt-bg.png',
           // backgroundImage: 'url(https://svirins.codes/og-bg.png)'
         }}
       >
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
             fontStyle: 'normal',
             color: 'white',
             lineHeight: '120px',
-            whiteSpace: 'pre-wrap'
+            whiteSpace: 'pre-wrap',
           }}
         >
           {postTitle}
@@ -50,9 +50,9 @@ export async function GET(req: NextRequest) {
         {
           name: 'IBM Plex Sans',
           data: fontData,
-          style: 'normal'
-        }
-      ]
-    }
-  );
+          style: 'normal',
+        },
+      ],
+    },
+  )
 }

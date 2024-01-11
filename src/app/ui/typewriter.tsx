@@ -1,11 +1,11 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import Typed from 'typed.js';
+'use client'
+import { useEffect, useRef } from 'react'
+import Typed from 'typed.js'
 
-import { TYPED_STRINGS } from '@/app/lib/constants';
+import { TYPED_STRINGS } from '@/app/lib/constants'
 
 export function Typewriter() {
-  const el = useRef<HTMLSpanElement>(null!);
+  const el = useRef<HTMLSpanElement>(null!)
   useEffect(() => {
     const typed = new Typed(el.current, {
       strings: TYPED_STRINGS,
@@ -16,18 +16,13 @@ export function Typewriter() {
       smartBackspace: true,
       loop: true,
       showCursor: true,
-      cursorChar: '|'
-    });
+      cursorChar: '|',
+    })
     // Destroying
     return () => {
-      typed.destroy();
-    };
-  }, []);
+      typed.destroy()
+    }
+  }, [])
 
-  return (
-    <span
-      ref={el}
-      className="text-gray-200 md:text-lg italic font-medium min-h-8"
-    />
-  );
+  return <span ref={el} className="text-gray-200 md:text-lg italic font-medium min-h-8" />
 }

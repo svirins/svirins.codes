@@ -1,11 +1,10 @@
-'use client';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+'use client'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 export function SearchBar() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams()!;
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()!
 
   // function debounce(fn, delay) {
   //   let timeoutId: NodeJS.Timeout;
@@ -19,12 +18,12 @@ export function SearchBar() {
     // TODO: search only if > 2 letters
     // TODO: debounce
     if (value.length === 0) {
-      router.push(pathname);
+      router.push(pathname)
     }
-    const params = new URLSearchParams(searchParams);
-    params.set('title', value);
-    router.push(`${pathname}?${params.toString()}`);
-  };
+    const params = new URLSearchParams(searchParams)
+    params.set('title', value)
+    router.push(`${pathname}?${params.toString()}`)
+  }
 
   return (
     <div className="relative w-full mt-4 mb-2">
@@ -50,5 +49,5 @@ export function SearchBar() {
         />
       </svg>
     </div>
-  );
+  )
 }

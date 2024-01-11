@@ -1,10 +1,10 @@
 export default async function SnippetsPage({
-  params
+  params,
 }: {
   params: {
-    slug: string;
-    searchParams: URLSearchParams;
-  };
+    slug: string
+    searchParams: URLSearchParams
+  }
 }) {
   return (
     <article className="flex flex-col justify-center items-start  mx-auto mb-16 w-full">
@@ -31,12 +31,12 @@ export default async function SnippetsPage({
         No snippets yet
       </div>
     </article>
-  );
+  )
 }
 
 export async function generateStaticParams() {
-  const paths = ['test-snippet'];
+  const paths = ['test-snippet']
   return paths.map((slug) => ({
-    slug
-  }));
+    slug,
+  }))
 }

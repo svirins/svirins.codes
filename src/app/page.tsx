@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { Typewriter } from '@/app/ui/typewriter';
-import { WakaStats } from '@/app/ui/wakatime';
-import { STACKS } from '@/app/lib/constants';
+import { STACKS } from '@/app/lib/constants'
+import { Typewriter } from '@/app/ui/typewriter'
+import { WakaStats } from '@/app/ui/wakatime'
+import Image from 'next/image'
 
 export default function Page() {
   return (
@@ -23,8 +23,8 @@ export default function Page() {
             </div>
 
             <p className="text-gray-100 font-semibold md:text-lg mt-4 md:mt-10">
-              Full-stack developer with a passion for the React ecosystem,
-              TypeScript, and serverless backends.
+              Full-stack developer with a passion for the React ecosystem, TypeScript, and
+              serverless backends.
             </p>
           </div>
           <div className="hidden md:block">
@@ -47,12 +47,10 @@ export default function Page() {
           </h2>
           <ul className="list-inside list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]">
             <li className=" text-gray-400 md:text-lg">
-              10+ years of building products for clients across several
-              countries;
+              10+ years of building products for clients across several countries;
             </li>
             <li className=" text-gray-400 md:text-lg">
-              currently working with regular clients, but open to new
-              opportunities;
+              currently working with regular clients, but open to new opportunities;
             </li>
             <li className=" text-gray-400 md:text-lg">
               I live in Batumi{' '}
@@ -73,41 +71,27 @@ export default function Page() {
             My values:
           </h2>
           <ul className="list-inside  list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]">
-            <li className=" text-gray-400 md:text-lg">
-              consistency over speed;
-            </li>
-            <li className=" text-gray-400 md:text-lg">
-              honesty, reliability, responsibility;
-            </li>
-            <li className=" text-gray-400 md:text-lg">
-              keep coding standards and best practices;
-            </li>
-            <li className=" text-gray-400 md:text-lg">
-              be curious, learn iteratively;
-            </li>
+            <li className=" text-gray-400 md:text-lg">consistency over speed;</li>
+            <li className=" text-gray-400 md:text-lg">honesty, reliability, responsibility;</li>
+            <li className=" text-gray-400 md:text-lg">keep coding standards and best practices;</li>
+            <li className=" text-gray-400 md:text-lg">be curious, learn iteratively;</li>
           </ul>
           <h2 className="text-xl md:text-2xl mb-5 mt-2 tracking-tight  text-gray-200 font-normal ">
             Technologies I use frequently:
           </h2>
           <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between  gap-x-6 gap-y-6 mx-auto w-full">
-            {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(
-              (stack, index) => (
-                <a
-                  className="duration-150 transform ease-in-out hover:scale-110 fill-gray-400  hover:fill-gray-200 "
-                  href={stack.url}
-                  title={stack.name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={index}
-                >
-                  <Image
-                    src={stack.src}
-                    alt={stack.name}
-                    className="w-10 h-10"
-                  />
-                </a>
-              )
-            )}
+            {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map((stack, index) => (
+              <a
+                className="duration-150 transform ease-in-out hover:scale-110 fill-gray-400  hover:fill-gray-200 "
+                href={stack.url}
+                title={stack.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+              >
+                <Image src={stack.src} alt={stack.name} className="w-10 h-10" />
+              </a>
+            ))}
           </div>
           <WakaStats />
           <h2 className="text-xl md:text-2xl mt-8 tracking-tight  text-gray-200 font-normal">
@@ -148,5 +132,5 @@ export default function Page() {
         </p>
       </div>
     </section>
-  );
+  )
 }
