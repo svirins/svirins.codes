@@ -3,11 +3,12 @@ import { NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
+
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
   const postTitle = searchParams.get('title')
   const font = fetch(
-    new URL('../../../../public/fonts/IBMPlexSans-Regular.ttf', import.meta.url),
+    new URL('http://localhost:3000/fonts/IBMPlexSans-Regular.ttf', import.meta.url),
   ).then((res) => res.arrayBuffer())
   const fontData = await font
 
@@ -21,7 +22,7 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: '/og-alt-bg.png',
+          backgroundImage: 'http:localhost:3000/og-alt-bg.png',
           // backgroundImage: 'url(https://svirins.codes/og-bg.png)'
         }}
       >

@@ -57,7 +57,6 @@ export default async function PostPage({ params }: { params: { slug: string; sea
   if (isEmptyObject(post)) {
     notFound()
   }
-  console.log('Content is: ', post?.content)
   return (
     <section className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
       <h1 className="my-2 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">

@@ -1,11 +1,70 @@
-import { getNowPlaying } from '@/app/lib/spotify'
+export const runtime = 'edge'
+import { unstable_noStore } from 'next/cache'
+
+async function getSpotifyResponse() {
+  unstable_noStore() // opt out before we even get to the try/catch
+
+  const basic = btoa(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`)
+  try {
+    const tokenResponse = await fetch(process.env.SPOTIFY_TOKEN_ENDPOINT!, {
+      method: 'POST',
+      headers: {
+        Authorization: `Basic ${basic}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: process.env.SPOTIFY_REFRESH_TOKEN!,
+      }),
+    })
+    const { access_token } = await tokenResponse.json()
+    const res = await fetch(process.env.SPOTIFY_NOW_PLAYING_ENDPOINT!, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+      next: { revalidate: 0 },
+      // TODO: consider cache behaviour
+    })
+    if (res.status === 204) {
+      return {
+        message: 'API called ok. Returning not playing',
+        is_playing: false,
+        status: 200,
+      }
+    }
+    if (res.status > 400) {
+      return {
+        message: 'Spotify API error',
+        is_playing: false,
+        status: res.status,
+      }
+    }
+    const data = await res.json()
+    return {
+      message: 'API called ok. Returning data',
+      is_playing: data?.is_playing as boolean,
+      title: data?.item.name as string,
+      artist: data?.item.artists
+        .map((_artist: { name: string }) => _artist.name)
+        .join(', ') as string,
+      songUrl: data?.item.external_urls.spotify as string,
+      status: 200,
+    }
+  } catch (e) {
+    return {
+      message: e instanceof Error ? e.message : 'API call failed due to the Unknown error',
+      is_playing: false,
+      status: 500,
+    }
+  }
+}
 
 export async function NowPlaying() {
-  const spotifyResponse = await getNowPlaying()
-  if (!spotifyResponse?.is_playing) {
+  const res = await getSpotifyResponse()
+  if (!res.is_playing) {
     return <SpotifyStopped />
   }
-  const { title, artist, songUrl } = spotifyResponse
+  const { title, artist, songUrl } = res
 
   return (
     <div className="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">

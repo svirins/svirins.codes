@@ -15,14 +15,16 @@ export function Footer() {
         <a
           href="https://github.com/svirins"
           title="My GitHub"
-          className="duration-150 transform  ease-in-out hover:scale-110"
+          className="duration-150 transform ease-in-out hover:scale-110"
           target="_blank"
           rel="noopener noreferrer"
         >
           <Image
-            src="./assets/svg/github.svg"
+            src="/assets/svg/github.svg"
             alt="My GitHub"
-            className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
+            width={18}
+            height={18}
+            // className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
           />
         </a>
         <a
@@ -33,9 +35,11 @@ export function Footer() {
           rel="noopener noreferrer"
         >
           <Image
-            src="./assets/svg/x.svg"
+            width={18}
+            height={18}
+            src="/assets/svg/x.svg"
             alt="My X (ex-Twitter)"
-            className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
+            // className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
           />
         </a>
         <a
@@ -46,9 +50,11 @@ export function Footer() {
           rel="noopener noreferrer"
         >
           <Image
-            src="./assets/svg/gmail.svg"
+            width={18}
+            height={18}
+            src="/assets/svg/gmail.svg"
             alt="My Gmail"
-            className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
+            // className="w-6 h-6  fill-gray-400  hover:fill-gray-200"
           />
         </a>
       </div>
