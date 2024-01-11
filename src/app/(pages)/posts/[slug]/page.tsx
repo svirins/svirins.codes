@@ -4,6 +4,9 @@ import { MDXContent } from '@/app/ui/mdx'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { getPlaiceholder } from 'plaiceholder'
+import fs from 'node:fs/promises'
+import path from 'path'
 
 export async function generateMetadata({
   params,
@@ -52,11 +55,18 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function PostPage({ params }: { params: { slug: string; searchParams: URLSearchParams } }) {
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string; searchParams: URLSearchParams }
+}) {
   const post = getContent('posts').find((post) => post.slug === params.slug)
   if (isEmptyObject(post)) {
     notFound()
   }
+  const fileName = path.join(process.cwd(), 'public', post?.metadata.coverImage)
+  const file = await fs.readFile(fileName)
+  const { base64 } = await getPlaiceholder(file)
   return (
     <section className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
       <h1 className="my-2 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">
@@ -64,7 +74,7 @@ export default async function PostPage({ params }: { params: { slug: string; sea
       </h1>
       {post?.metadata.coverImage && (
         <div className="flex flex-col w-full my-4">
-          <Image src={post.metadata.coverImage} alt={post.metadata.title} />
+          <Image src={post.metadata.coverImage} alt={post.metadata.title} blurDataURL={base64} />
         </div>
       )}
       <div className="flex flex-row items-start justify-between w-full mt-2 tems-center">
@@ -96,3 +106,5 @@ export default async function PostPage({ params }: { params: { slug: string; sea
     </section>
   )
 }
+
+

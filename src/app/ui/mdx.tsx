@@ -79,6 +79,7 @@ let components = {
 }
 
 export function MDXContent({ source }: { source: any }) {
+  console.log('Source is: ', source)
   return <MDXRemote {...source} />
   // return <MDXRemote {...source} components={{ ...components, ...(source.components || {}) }} />
 }
