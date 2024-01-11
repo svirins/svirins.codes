@@ -6,7 +6,7 @@ import withPlaiceholder from '@plaiceholder/next'
 const nextConfig = {
   experimental: {
     // ppr: true,
-    // webpackBuildWorker: true,
+    webpackBuildWorker: true,
     useLightningcss: true,
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],

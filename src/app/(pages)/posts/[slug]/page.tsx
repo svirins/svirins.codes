@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 import { getPlaiceholder } from 'plaiceholder'
 import fs from 'node:fs/promises'
 import path from 'path'
+import { getBase64 } from '@/app/lib/getBase64'
 
 export async function generateMetadata({
   params,
@@ -64,9 +65,8 @@ export default async function PostPage({
   if (isEmptyObject(post)) {
     notFound()
   }
-  const fileName = path.join(process.cwd(), 'public', post?.metadata.coverImage)
-  const file = await fs.readFile(fileName)
-  const { base64 } = await getPlaiceholder(file)
+  const base64 = await getBase64(post?.metadata.coverImage)
+
   return (
     <section className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
       <h1 className="my-2 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">
@@ -74,7 +74,11 @@ export default async function PostPage({
       </h1>
       {post?.metadata.coverImage && (
         <div className="flex flex-col w-full my-4">
-          <Image src={post.metadata.coverImage} alt={post.metadata.title} blurDataURL={base64} />
+          <Image
+            src={post.metadata.coverImage}
+            alt={post.metadata.title}
+            blurDataURL={base64 ?? undefined}
+          />
         </div>
       )}
       <div className="flex flex-row items-start justify-between w-full mt-2 tems-center">
