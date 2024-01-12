@@ -15,26 +15,21 @@ export default async function Posts(props: Props) {
   const searchParams = props.searchParams
   const queryString = isEmptyObject(searchParams) ? '*' : `${searchParams.title}*`
   // const posts = await searchPosts(queryString);
+  // TODO: implement sort by date
   const posts = getContent('posts')
   return (
-    <>
-      <div className="flex flex-col   mx-auto w-full">
-        <div className="flex flex-col">
-          <h1 className="mb-4 text-3xl font-bold tracking-tight capsize  md:text-5xl text-gray-100">
-            Posts
-          </h1>
-          <p className="font-semibold  text-gray-100 text-base mt-2 md:text-lg">
-            Posts about code, dev life and various{' '}
-            <span role="image" aria-label="technomagical">
-              ⚗️
-            </span>
-            things.
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col   mx-auto pb-16 w-full">
+    <section className="flex flex-col mx-auto w-full">
+      <h1 className="mb-4 text-3xl font-bold tracking-tight capsize md:text-5xl">Posts</h1>
+      <h2 className="text-[22px] md:text-2xl tracking-tight font-normal">
+        Posts about code, dev life and various{' '}
+        <span role="image" aria-label="technomagical">
+          ⚗️
+        </span>{' '}
+        things.
+      </h2>
+      <div className="pb-16 mt-4 md:mt-10">
         <SearchBar />
-        <div className="grid grid-cols-1 divide-y  divide-gray-300/25">
+        <div className="grid grid-cols-1 divide-y divide-gray-300/25">
           {posts.length ? (
             posts.map((post) => (
               <div key={post.slug} className="w-full py-4">
@@ -43,7 +38,7 @@ export default async function Posts(props: Props) {
                     href={`/posts/${post.slug}`}
                     className=" w-full  duration-150 ease-in-out py-4"
                   >
-                    <h3 className="text-xl md:text-2xl font-medium text-left  hover:text-active text-gray-100">
+                    <h3 className="text-xl md:text-2xl font-medium text-left  hover:text-active">
                       {post.metadata.title}
                     </h3>
                   </Link>
@@ -56,6 +51,6 @@ export default async function Posts(props: Props) {
           )}
         </div>
       </div>
-    </>
+    </section>
   )
 }

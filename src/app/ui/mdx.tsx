@@ -4,6 +4,7 @@ import { TweetComponent } from '@/app/ui/tweet'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { highlight } from 'sugar-high'
 
 function CustomLink(props: any) {
   const href = props.href
@@ -66,6 +67,12 @@ function createHeading(level: number) {
   }
 }
 
+function Code(codeProps: any) {
+  const { children, ...props } = codeProps
+  let codeHTML = highlight(children)
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+}
+
 export const customComponents = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -77,6 +84,7 @@ export const customComponents = {
   StaticTweet: TweetComponent,
   a: CustomLink,
   Callout,
+  code: Code,
 }
 
 export function MDXContent(props: any) {

@@ -5,7 +5,6 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
-
 import { getBase64 } from '@/app/lib/getBase64'
 
 export async function generateMetadata({
@@ -65,9 +64,8 @@ export default async function PostPage({
     notFound()
   }
   const base64 = await getBase64(post?.metadata.coverImage)
-
   return (
-    <section className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
+    <article className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
       <h1 className="my-2 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">
         <Balancer ratio={0.85}>{post!.metadata.title}</Balancer>
       </h1>
@@ -106,6 +104,6 @@ export default async function PostPage({
           <MDXContent source={post.content} />
         </div>
       )}
-    </section>
+    </article>
   )
 }

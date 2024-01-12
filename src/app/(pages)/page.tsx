@@ -13,10 +13,10 @@ export default function Page() {
           <div className="md:col-span-4 ">
             <div className="flex flex-col   mx-auto w-full">
               <div className="flex flex-col items-start">
-                <h1 className="text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold  text-gray-100">
+                <h1 className="text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold">
                   Hi, I&apos;m <span className="text-active">Dzmitry</span>
                 </h1>
-                <h2 className="text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal">
+                <h2 className="text-[22px] md:text-2xl tracking-tight font-normal">
                   I specialize in turning ideas into{' '}
                   <span className="font-semibold italic">real-life </span>
                   products.
