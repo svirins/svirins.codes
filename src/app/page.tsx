@@ -2,6 +2,7 @@ import { STACKS } from '@/app/lib/constants'
 import { Typewriter } from '@/app/ui/typewriter'
 import { WakaStats } from '@/app/ui/wakatime'
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 export default function Page() {
   return (
@@ -93,7 +94,13 @@ export default function Page() {
               </a>
             ))}
           </div>
-          <WakaStats />
+          <Suspense
+            fallback={
+              <p className="text-gray-300  text-sm text-left items-start">Loading stats...</p>
+            }
+          >
+            <WakaStats />
+          </Suspense>
           <h2 className="text-xl md:text-2xl mt-8 tracking-tight  text-gray-200 font-normal">
             Get in touch:
           </h2>

@@ -1,5 +1,20 @@
-import { getWakaStats } from '@/app/lib/wakatime'
 import clsx from 'clsx'
+import { unstable_noStore } from 'next/cache'
+interface ILanguage {
+  dexportecimal: string
+  digital: string
+  hours: number
+  minutes: number
+  name: string
+  percent: number
+  text: string
+  total_seconds: bigint
+}
+
+interface IWakaResponse {
+  languages: ILanguage[]
+  totalHours: number
+}
 
 const HEIGHT = 20
 const WIDTH = 800
@@ -7,7 +22,7 @@ const WIDTH = 800
 const WAKA_STATS_COLORS = [
   {
     barColor: '#2563EB',
-    textColor: 'text-wakatime-blue',
+    textColor: 'text--blue',
   },
   {
     barColor: '#D97706',
@@ -23,6 +38,22 @@ const WAKA_STATS_COLORS = [
   },
 ]
 
+const getWakaStats = async (): Promise<IWakaResponse> => {
+  // TODO: Check fecth return for errors and
+  const response = await fetch(process.env.WAKATIME_API_ENDPOINT!, {
+    next: { revalidate: 86400 },
+  })
+  const { data } = await response.json()
+  let totalHours = 0
+  for (const element of data.languages) {
+    totalHours += element.minutes
+  }
+  return {
+    languages: data.languages,
+    totalHours: totalHours,
+  }
+}
+
 const Bar = ({ color, width, x }: { color: string; width: number; x: number }) => (
   <g fill={color}>
     <rect width={width} height="50" x={x}></rect>
@@ -30,6 +61,8 @@ const Bar = ({ color, width, x }: { color: string; width: number; x: number }) =
 )
 
 export async function WakaStats() {
+  unstable_noStore()
+
   const { languages, totalHours } = await getWakaStats()
   const datum = languages.sort((a, b) => b.percent - a.percent).slice(0, 3)
 

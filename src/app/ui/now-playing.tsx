@@ -2,8 +2,6 @@ export const runtime = 'edge'
 import { unstable_noStore } from 'next/cache'
 
 async function getSpotifyResponse() {
-  unstable_noStore() // opt out before we even get to the try/catch
-
   const basic = btoa(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`)
   try {
     const tokenResponse = await fetch(process.env.SPOTIFY_TOKEN_ENDPOINT!, {
@@ -22,8 +20,7 @@ async function getSpotifyResponse() {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
-      next: { revalidate: 0 },
-      // TODO: consider cache behaviour
+      // next: { revalidate: 0 },
     })
     if (res.status === 204) {
       return {
@@ -60,6 +57,7 @@ async function getSpotifyResponse() {
 }
 
 export async function NowPlaying() {
+  unstable_noStore()
   const res = await getSpotifyResponse()
   if (!res.is_playing) {
     return <SpotifyStopped />
