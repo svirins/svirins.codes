@@ -1,4 +1,5 @@
 import { STACKS } from '@/app/lib/constants'
+import { Spinner } from '@/app/ui/spinner'
 import { Typewriter } from '@/app/ui/typewriter'
 import { WakaStats } from '@/app/ui/wakatime'
 import Image from 'next/image'
@@ -94,11 +95,7 @@ export default function Page() {
               </a>
             ))}
           </div>
-          <Suspense
-            fallback={
-              <p className="text-gray-300  text-sm text-left items-start">Loading stats...</p>
-            }
-          >
+          <Suspense fallback={<Spinner text="Loading stats..." />}>
             <WakaStats />
           </Suspense>
           <h2 className="text-xl md:text-2xl mt-8 tracking-tight  text-gray-200 font-normal">

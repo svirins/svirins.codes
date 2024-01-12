@@ -31,25 +31,17 @@
   color: #fefefe;
 }
 
-/* Sugar-High highlighting */
 :root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
+  /* Sugar-High highlighting */
+  --sh-class: #4c97f8;
+  --sh-identifier: #ffffff;
   --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
+  --sh-keyword: #f47067;
+  --sh-string: #0fa295;
   --sh-comment: #a19595;
   --sh-jsxliterals: #6266d1;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-}
 
 html {
   min-width: 360px;

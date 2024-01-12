@@ -1,5 +1,6 @@
-import { TweetComponent } from '@/app/ui/tweet'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+
+import { TweetComponent } from '@/app/ui/tweet'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -65,7 +66,7 @@ function createHeading(level: number) {
   }
 }
 
-let components = {
+export const customComponents = {
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
@@ -78,6 +79,6 @@ let components = {
   Callout,
 }
 
-export function MDXContent({ source }: { source: any }) {
-  return <MDXRemote {...source} components={{ ...components, ...(source.components || {}) }} />
+export function MDXContent(props: any) {
+  return <MDXRemote {...props} components={{ ...customComponents, ...(props.components || {}) }} />
 }
