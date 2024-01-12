@@ -62,15 +62,15 @@ export default async function SnippetsPage({
   return (
     <article className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
       <div className="flex justify-between w-full">
-        <h1 className="my-2 text-3xl font-bold  tracking-tight capsize   md:text-5xl">
+        <h1 className="mb-4 text-3xl font-bold  tracking-tight capsize   md:text-5xl">
           <Balancer ratio={0.85}>{snippet?.metadata.title}</Balancer>
         </h1>
         {snippet?.metadata.coverImage && (
-          <div className="ml-8 origin-center">
+          <div className="ml-8 my-2 origin-center">
             <Image
               src={snippet.metadata.coverImage}
               alt={snippet.metadata.title}
-              className="w-8 h-8 md:w-10 "
+              className="w-[30px] h-[30px] md:w-[48px] md:h-[48px]"
             />
           </div>
         )}

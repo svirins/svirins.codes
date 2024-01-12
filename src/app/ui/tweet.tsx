@@ -19,10 +19,10 @@ const SingleTweet = async ({ id }: { id: string }) => {
   }
 }
 
-export function TweetComponent({ params }: { params: { tweetId: string } }) {
+export function TweetComponent({ params }: { params: { id: string } }) {
   return (
     <Suspense fallback={<TweetSkeleton />}>
-      <SingleTweet id={params.tweetId} />
+      <SingleTweet id="1611745149788524544" />
     </Suspense>
   )
 }

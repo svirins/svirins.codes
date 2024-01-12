@@ -66,7 +66,7 @@ export default async function PostPage({
   const base64 = await getBase64(post?.metadata.coverImage)
   return (
     <article className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
-      <h1 className="my-2 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">
+      <h1 className="mb-4 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">
         <Balancer ratio={0.85}>{post!.metadata.title}</Balancer>
       </h1>
       {post?.metadata.coverImage && (
@@ -78,7 +78,7 @@ export default async function PostPage({
           />
         </div>
       )}
-      <div className="flex flex-row items-start justify-between w-full mt-2 tems-center">
+      <div className="flex flex-row items-start justify-between w-full mt-2">
         <div className="flex items-center">
           <Image
             alt="Dzmitry Svirin"

@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline'  *.spotify.com;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
+    img-src 'self' *.pbs.twimg.com blob: data:;
     font-src 'self';
     media-src  *.spotify.com;
     object-src 'none';

@@ -25,7 +25,12 @@ function CustomLink(props: any) {
 }
 
 function RoundedImage(props: any) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  return (
+    <figure>
+      <Image alt={props.alt} className="rounded-lg" {...props} />
+      {props.alt && <figcaption>{props.alt}</figcaption>}
+    </figure>
+  )
 }
 
 function Callout(props: any) {

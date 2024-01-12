@@ -6,7 +6,7 @@ export default async function Snippets() {
   const snippets = getContent('snippets')
 
   return (
-    <section className="flex flex-col mx-auto w-full">
+    <section className="flex flex-col mx-auto w-full mb-12">
       <h1 className="mb-4 text-3xl font-bold tracking-tight capsize md:text-5xl">Code Snippets</h1>
       <h2 className="text-[22px] md:text-2xl tracking-tight font-normal">
         Some{' '}
