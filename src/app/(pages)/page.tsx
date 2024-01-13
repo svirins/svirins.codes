@@ -18,7 +18,7 @@ export default function Page() {
             <span className="font-semibold italic">real-life </span>
             products.
           </h2>
-          <p className="font-medium md:text-lg">
+          <p className="md:text-lg  text-gray-400 ">
             Full-stack developer with a passion for the React ecosystem, TypeScript, and serverless
             backends.
           </p>
@@ -34,9 +34,9 @@ export default function Page() {
           />
         </div>
       </div>
-      <hr />
+      <hr className="mb-6" />
       <h3>In short:</h3>
-      <ul className="list-inside list-[circle] pt-2 pb-6 [&>*]:py-[0.1rem]">
+      <ul className="list-inside list-[circle] pb-8 [&>*]:py-[0.1rem]">
         <li className=" text-gray-400 md:text-lg">
           10+ years of building products for clients across several countries;
         </li>
@@ -58,14 +58,14 @@ export default function Page() {
         </li>
       </ul>
       <h3>My values:</h3>
-      <ul className="list-inside  list-[circle] pt-2 pb-6 [&>*]:py-[0.1rem]">
+      <ul className="list-inside  list-[circle]  pb-8 [&>*]:py-[0.1rem]">
         <li className=" text-gray-400 md:text-lg">consistency over speed;</li>
         <li className=" text-gray-400 md:text-lg">honesty, reliability, responsibility;</li>
         <li className=" text-gray-400 md:text-lg">keep coding standards and best practices;</li>
         <li className=" text-gray-400 md:text-lg">be curious, learn iteratively;</li>
       </ul>
-      <h3 className="mb-5 mt-2">Technologies I use frequently:</h3>
-      <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between  gap-x-6 gap-y-6">
+      <h3>Technologies I use frequently:</h3>
+      <div className="grid grid-cols-6 md:grid-cols-8 items-center justify-between  gap-x-6 gap-y-6  pt-2 pb-8">
         {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map((stack, index) => (
           <a
             className="duration-150 transform ease-in-out hover:scale-110 fill-gray-400  hover:fill-gray-200 "
@@ -86,21 +86,21 @@ export default function Page() {
         <WakaStats />
       </Suspense>
       <h3>Get in touch:</h3>
-      <ul className="list-inside  list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]">
-        <li className=" text-gray-400 md:text-lg">
-          Twitter:{' '}
-          <a
-            className="  text-gray-300  font-medium link-underline link-underline-gradient"
-            href="https://twitter.com/svirins"
-          >
-            @svirins
-          </a>
-        </li>
+      <ul className="list-inside  list-[circle] pb-8 [&>*]:py-[0.1rem]">
         <li className=" text-gray-400 md:text-lg">
           GitHub:{' '}
           <a
             className="  text-gray-300  font-medium link-underline link-underline-gradient"
             href="https://github.com/svirins"
+          >
+            @svirins
+          </a>
+        </li>
+        <li className=" text-gray-400 md:text-lg">
+          ex-Twitter:{' '}
+          <a
+            className="  text-gray-300  font-medium link-underline link-underline-gradient"
+            href="https://twitter.com/svirins"
           >
             @svirins
           </a>

@@ -12,13 +12,11 @@ interface IWakaResponse {
   totalHours: number
 }
 
-const HEIGHT = 20
-const WIDTH = 800
 
 const WAKA_STATS_COLORS = [
   {
     barColor: '#2563EB',
-    textColor: 'text--blue',
+    textColor: 'text-wakatime-blue',
   },
   {
     barColor: '#D97706',
@@ -48,9 +46,17 @@ const getWakaStats = async (): Promise<IWakaResponse> => {
   }
 }
 
-const Bar = ({ color, width, x }: { color: string; width: number; x: number }) => (
+const Bar = ({
+  color,
+  width,
+  x,
+}: {
+  color: string
+  width: number | string
+  x: number | string
+}) => (
   <g fill={color}>
-    <rect width={width} height="50" x={x}></rect>
+    <rect width={width} height="16" x={x}></rect>
   </g>
 )
 
@@ -63,16 +69,19 @@ export async function WakaStats() {
   const stackedBarComments = datum.map(({ name: lang, text, hours, minutes }, index) => (
     <div key={index}>
       <span className={`${WAKA_STATS_COLORS[index].textColor} text-xs md:text-sm`}>{lang}</span>
-      <span className="  text-gray-200 text-xs md:text-sm">{` • ${hours}h ${minutes}m`}</span>
+      <span className="  text-gray-400 text-xs md:text-sm">{` • ${hours}h ${minutes}m`}</span>
     </div>
   ))
   if (totalHours < 10 || !languages) return <p>Insufficient data for analysis</p>
 
+  const HEIGHT = 16
+  const WIDTH = 672
+
   return (
     stackedBarComments && (
-      <>
+      <div className="pb-8">
         <div className="flex flex-row space-x-1">
-          <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} height="20" width={'100%'}>
+          <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} height="16" width={'100%'}>
             <title id="title">A bar chart showing information</title>
             <desc id="desc">Dzmitry Svirin top 4 programming languages/</desc>
             <Bar
@@ -93,7 +102,7 @@ export async function WakaStats() {
           </svg>
         </div>
         <div className="flex flex-col md:flex-row mt-2 md:space-x-2">{stackedBarComments}</div>
-        <p className="  text-gray-400 text-xs mt-2">
+        <p className="  text-gray-400 text-xs md:text-sm mt-1">
           My last week coding stats taken from a{' '}
           <a
             className="  text-gray-300  font-medium link-underline link-underline-gradient"
@@ -102,7 +111,7 @@ export async function WakaStats() {
             WakaTime
           </a>
         </p>
-      </>
+      </div>
     )
   )
 }

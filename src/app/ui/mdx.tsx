@@ -1,10 +1,10 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
-import { TweetComponent } from '@/app/ui/tweet'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { highlight } from 'sugar-high'
+import { getHighlighter } from 'shiki'
 import { getBase64 } from '@/app/lib/getBase64'
 
 function CustomLink(props: any) {
@@ -30,7 +30,12 @@ async function RoundedImage(props: any) {
 
   return (
     <figure>
-      <Image alt={props.alt} className="rounded-lg" blurDataURL={base64} {...props} />
+      <Image
+        alt={props.alt}
+        className="rounded-lg"
+        blurDataURL={base64}
+        {...props}
+      />
       {props.alt && <figcaption>{props.alt}</figcaption>}
     </figure>
   )
@@ -75,9 +80,14 @@ function createHeading(level: number) {
   }
 }
 
-function Code(codeProps: any) {
+async function Code(codeProps: any) {
+  const highlighter = await getHighlighter({
+    theme: 'nord',
+    langs: ['shell', 'typescript', 'tsx'],
+  })
   const { children, ...props } = codeProps
-  let codeHTML = highlight(children)
+
+  let codeHTML = highlighter.codeToHtml(children, { lang: 'tsx' })
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
 
@@ -89,7 +99,6 @@ export const customComponents = {
   h5: createHeading(5),
   h6: createHeading(6),
   Image: RoundedImage,
-  StaticTweet: TweetComponent,
   a: CustomLink,
   Callout,
   code: Code,

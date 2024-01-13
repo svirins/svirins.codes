@@ -30,12 +30,12 @@ export function Footer() {
             </a>
           ))}
         </div>
-        <div className=" text-gray-400  text-xs">
+        <div className=" text-gray-400 text-xs md:text-sm mt-8">
           © <span className="font-medium">{new Date().getFullYear()}</span>
           <span>{` • `}</span>
           Dzmitry Svirin
         </div>
-        <div className="text-xs text-gray-400">
+        <div className="text-xs md:text-sm text-gray-400 mt-1">
           <span>The code of this site was originally a fork of </span>
           <a
             target="_blank"
@@ -48,14 +48,6 @@ export function Footer() {
           {` `}personal site,
           <span>almost entirely rewritten.</span>
         </div>
-      </div>
-      <div className="text-xs text-gray-400">
-        <a
-          className=" text-gray-300  font-medium link-underline link-underline-gradient"
-          href="https://svirins.codes/sitemap.xml"
-        >
-          Sitemap.xml
-        </a>
       </div>
     </footer>
   )

@@ -93,7 +93,7 @@ h3 {
 }
 
 hr {
-  @apply border border-gray-800 my-4;
+  @apply my-4 border-b-[1px] border-gray-800;
 }
 
 .prose a {

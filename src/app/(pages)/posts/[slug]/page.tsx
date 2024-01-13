@@ -82,7 +82,7 @@ export default async function PostPage({
           />
         </div>
       )}
-      <p className="text-xs md:text-sm lg:text-base  text-gray-400">
+      <p className="text-xs md:text-sm md:text-sm lg:text-base  text-gray-400">
         {formatDate(post!.metadata.publishedAt)}
       </p>
       {post?.content && (
