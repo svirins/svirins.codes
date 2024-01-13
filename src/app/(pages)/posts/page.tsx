@@ -1,24 +1,12 @@
 import { getContent } from '@/app/lib/getContent'
-import { SearchBar } from '@/app/ui/search-bar'
 import Link from 'next/link'
 
-type Props = {
-  params: {}
-  searchParams: { title?: string }
-}
-
-const isEmptyObject = (obj: Object) => {
-  return JSON.stringify(obj) === '{}'
-}
-
-export default async function Posts(props: Props) {
-  const searchParams = props.searchParams
-  const queryString = isEmptyObject(searchParams) ? '*' : `${searchParams.title}*`
-  // const posts = await searchPosts(queryString);
-  // TODO: implement sort by date
-  const posts = getContent('posts')
+export default async function Posts() {
+  const posts = getContent('posts').sort((a, b) => {
+    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  })
   return (
-    <section className="flex flex-col mx-auto w-full">
+    <section className="flex flex-col mx-auto w-full mb-12">
       <h1 className="mb-4 text-3xl font-bold tracking-tight capsize md:text-5xl">Posts</h1>
       <h2 className="text-[22px] md:text-2xl tracking-tight font-normal">
         Posts about code, dev life and various{' '}
@@ -28,7 +16,6 @@ export default async function Posts(props: Props) {
         things.
       </h2>
       <div className="pb-16 mt-4 md:mt-10">
-        <SearchBar />
         <div className="grid grid-cols-1 divide-y divide-gray-300/25">
           {posts.length ? (
             posts.map((post) => (
@@ -47,7 +34,7 @@ export default async function Posts(props: Props) {
               </div>
             ))
           ) : (
-            <p className="text-gray-400 italic text-lg">No results found</p>
+            <p className="text-gray-400 italic text-lg">No posts yet</p>
           )}
         </div>
       </div>

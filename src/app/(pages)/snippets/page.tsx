@@ -3,7 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Snippets() {
-  const snippets = getContent('snippets')
+  const snippets = getContent('snippets').sort((a, b) => {
+    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  })
 
   return (
     <section className="flex flex-col mx-auto w-full mb-12">
@@ -41,7 +43,7 @@ export default async function Snippets() {
               </div>
             ))
           ) : (
-            <p className="text-gray-400 italic text-lg">No results found</p>
+            <p className="text-gray-400 italic text-lg">No snippets yet</p>
           )}
         </div>
       </div>

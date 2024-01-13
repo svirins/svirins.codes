@@ -43,9 +43,10 @@ export function formatDate(date: string) {
     day: 'numeric',
     year: 'numeric',
   })
-  return `${fullDate} (${formattedDate})`
+  return `Published on ${fullDate} (${formattedDate})`
 }
 
 export function isEmptyObject(obj: Object | undefined) {
   return JSON.stringify(obj) === '{}'
 }
+
