@@ -55,7 +55,7 @@ export default async function SnippetsPage({
   if (!snippet) notFound()
 
   return (
-    <article className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
+    <article className="flex flex-col items-start justify-center w-full  mx-auto  mb-24">
       <div className="flex justify-between w-full">
         <h1 className="mb-4 text-3xl font-bold  tracking-tight capsize   md:text-5xl">
           <Balancer ratio={0.85}>{snippet?.metadata.title}</Balancer>

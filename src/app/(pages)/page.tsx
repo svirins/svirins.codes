@@ -8,7 +8,7 @@ import { Suspense } from 'react'
 export default function Page() {
   return (
     <section>
-      <div className="flex flex-col mx-auto w-full">
+      <div className="flex flex-col mx-auto w-full  mb-24">
         <div className="md:grid md:grid-cols-5">
           <div className="md:col-span-4 ">
             <div className="flex flex-col   mx-auto w-full">
