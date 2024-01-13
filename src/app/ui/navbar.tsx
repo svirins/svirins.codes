@@ -17,7 +17,7 @@ export function Navbar() {
               href={item.href}
               className={`inline-block  transition-all pr-4 duration-150  hover:text-gray-200 ease-in-out text-lg ${isActiveLink(item.href, pathname) ? 'font-semibold  text-gray-200' : 'font-medium text-gray-400'}`}
             >
-              <span className="capsize">{item.text}</span>
+              <span className="">{item.text}</span>
             </Link>
           ))}
         </div>

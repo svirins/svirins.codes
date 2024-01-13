@@ -55,26 +55,21 @@ export default async function SnippetsPage({
   if (!snippet) notFound()
 
   return (
-    <article className="flex flex-col items-start justify-center w-full  mx-auto  mb-24">
-      <div className="flex justify-between w-full">
-        <h1 className="mb-4 text-3xl font-bold  tracking-tight capsize   md:text-5xl">
-          <Balancer ratio={0.85}>{snippet?.metadata.title}</Balancer>
-        </h1>
-        {snippet?.metadata.coverImage && (
-          <div className="ml-8 my-2 origin-center">
-            <Image
-              src={snippet.metadata.coverImage}
-              alt={snippet.metadata.title}
-              className="w-[30px] h-[30px] md:w-[48px] md:h-[48px]"
-            />
-          </div>
-        )}
-      </div>
-      <h2 className="text-[22px] md:text-2xl tracking-tight font-normal">
-        {snippet?.metadata.summary}
-      </h2>
+    <article className="mb-24">
+      <h1>
+        <Balancer ratio={0.85}>{snippet?.metadata.title}</Balancer>
+      </h1>
+      {snippet?.metadata.coverImage && (
+        <div className="ml-8 my-2 origin-center">
+          <Image
+            src={snippet.metadata.coverImage}
+            alt={snippet.metadata.title}
+            className="w-[30px] h-[30px] md:w-[48px] md:h-[48px]"
+          />
+        </div>
+      )}
       {snippet?.content && (
-        <div className="w-full  mt-4 md:mt-10 prose  prose-invert  md:prose-lg">
+        <div className="prose  prose-invert  md:prose-lg">
           <MDXContent source={snippet.content} />
         </div>
       )}

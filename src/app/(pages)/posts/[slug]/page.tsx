@@ -69,12 +69,12 @@ export default async function PostPage({
 
   const base64 = await getBase64(post?.metadata.coverImage)
   return (
-    <article className="flex flex-col items-start justify-center w-full  mx-auto  mb-24">
-      <h1 className="mb-4 text-3xl font-bold  tracking-tight capsize   md:text-5xl text-gray-100">
+    <article className="mb-24">
+      <h1>
         <Balancer ratio={0.85}>{post!.metadata.title}</Balancer>
       </h1>
       {post?.metadata.coverImage && (
-        <div className="flex flex-col w-full my-4">
+        <div className="my-4">
           <Image
             src={post.metadata.coverImage}
             alt={post.metadata.title}
@@ -82,13 +82,11 @@ export default async function PostPage({
           />
         </div>
       )}
-      <div className="flex flex-row items-start justify-between w-full mt-2">
-        <p className="text-xs md:text-sm lg:text-base  text-gray-400">
-          {formatDate(post!.metadata.publishedAt)}
-        </p>
-      </div>
+      <p className="text-xs md:text-sm lg:text-base  text-gray-400">
+        {formatDate(post!.metadata.publishedAt)}
+      </p>
       {post?.content && (
-        <div className="w-full  mt-4 md:mt-10 prose  prose-invert  md:prose-lg">
+        <div className="prose  prose-invert  md:prose-lg">
           <MDXContent source={post.content} />
         </div>
       )}

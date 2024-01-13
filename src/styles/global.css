@@ -52,17 +52,6 @@ body {
   min-height: 100vh;
 }
 
-.capsize::before {
-  content: '';
-  margin-bottom: -0.098em;
-  display: table;
-}
-
-.capsize::after {
-  content: '';
-  margin-top: -0.219em;
-  display: table;
-}
 
 @supports not (backdrop-filter: none) {
   .sticky-nav {
@@ -89,8 +78,26 @@ body {
   background-size: 100% 2px;
   background-position: 0 100%;
 }
+
+h1 {
+  @apply text-3xl md:text-5xl mb-4 font-bold;
+}
+
+
+h2 {
+  @apply text-xl md:text-2xl my-4  text-gray-200 ;
+}
+
+h3 {
+  @apply text-xl md:text-2xl my-4  text-gray-200 ;
+}
+
+hr {
+  @apply border border-gray-800 my-4;
+}
+
 .prose a {
-  @apply font-medium text-gray-800 no-underline;
+  @apply font-medium;
 }
 .prose .anchor {
   @apply invisible absolute no-underline;

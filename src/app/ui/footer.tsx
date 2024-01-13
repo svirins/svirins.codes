@@ -6,9 +6,9 @@ import { Suspense } from 'react'
 
 export function Footer() {
   return (
-    <footer className="flex flex-col w-full mx-auto mb-4">
-      <hr className="w-full border-1 border-gray-800 mb-4" />
-      <div className="flex  mb-8 space-x-0 sm:space-x-2 w-full">
+    <footer className="flex flex-col">
+      <hr />
+      <div className="flex  mb-8 space-x-0 sm:space-x-2">
         <Suspense
           fallback={<Spinner text="Loading player..." classNames="min-h-[54px] md:min-h-[30px]" />}
         >

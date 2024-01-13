@@ -70,7 +70,7 @@ export async function WakaStats() {
 
   return (
     stackedBarComments && (
-      <div className="flex-col w-full min-w-2xl">
+      <>
         <div className="flex flex-row space-x-1">
           <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} height="20" width={'100%'}>
             <title id="title">A bar chart showing information</title>
@@ -91,7 +91,7 @@ export async function WakaStats() {
               x={(datum[0].percent / 100) * WIDTH + (datum[1].percent / 100) * WIDTH}
             />
           </svg>
-        </div>{' '}
+        </div>
         <div className="flex flex-col md:flex-row mt-2 md:space-x-2">{stackedBarComments}</div>
         <p className="  text-gray-400 text-xs mt-2">
           My last week coding stats taken from a{' '}
@@ -102,7 +102,7 @@ export async function WakaStats() {
             WakaTime
           </a>
         </p>
-      </div>
+      </>
     )
   )
 }
