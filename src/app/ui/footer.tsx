@@ -8,15 +8,15 @@ export function Footer() {
   return (
     <footer className="flex flex-col w-full mx-auto mb-4">
       <hr className="w-full border-1 border-gray-800 mb-4" />
-      <div className="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
+      <div className="flex  mb-8 space-x-0 sm:space-x-2 w-full">
         <Suspense
           fallback={<Spinner text="Loading player..." classNames="min-h-[54px] md:min-h-[30px]" />}
         >
           <NowPlaying />
         </Suspense>
       </div>
-      <div className="text-left md:text-center">
-        <div className="flex my-2 space-x-4">
+      <div className="flex flex-col">
+        <div className="my-2 space-x-4 flex flex-row">
           {SOCIAL_LINKS.map((link, index) => (
             <a
               key={index}
@@ -30,18 +30,12 @@ export function Footer() {
             </a>
           ))}
         </div>
-        <p className="  text-gray-400 mb-1 pt-2  text-left md:text-center text-xs">
+        <div className=" text-gray-400  text-xs">
           © <span className="font-medium">{new Date().getFullYear()}</span>
           <span>{` • `}</span>
-          Dzmitry Svirin{` • `}
-          <a
-            className=" text-gray-300  font-medium link-underline link-underline-gradient"
-            href="https://svirins.codes/sitemap.xml"
-          >
-            Sitemap.xml
-          </a>
-        </p>
-        <p className="w-full  text-xs  text-gray-400 text-left md:text-center">
+          Dzmitry Svirin
+        </div>
+        <div className="text-xs text-gray-400">
           <span>The code of this site was originally a fork of </span>
           <a
             target="_blank"
@@ -53,7 +47,15 @@ export function Footer() {
           </a>
           {` `}personal site,
           <span>almost entirely rewritten.</span>
-        </p>
+        </div>
+      </div>
+      <div className="text-xs text-gray-400">
+        <a
+          className=" text-gray-300  font-medium link-underline link-underline-gradient"
+          href="https://svirins.codes/sitemap.xml"
+        >
+          Sitemap.xml
+        </a>
       </div>
     </footer>
   )

@@ -24,7 +24,7 @@ export default function Page() {
               </div>
             </div>
 
-            <p className="text-gray-100 font-semibold md:text-lg mt-4 md:mt-10">
+            <p className="font-semibold md:text-lg mt-4 md:mt-10">
               Full-stack developer with a passion for the React ecosystem, TypeScript, and
               serverless backends.
             </p>
@@ -35,7 +35,7 @@ export default function Page() {
               src="/dzmitry.webp"
               width={262}
               height={363}
-              className="rounded-md"
+              className="rounded-sm"
               priority
             />
           </div>
@@ -47,7 +47,7 @@ export default function Page() {
           <h2 className="text-xl md:text-2xl mt-4 tracking-tight text-gray-200 font-normal">
             In short:
           </h2>
-          <ul className="list-inside list-[square] pt-2 pb-6 [&>*]:py-[0.1rem]">
+          <ul className="list-inside list-[circle] pt-2 pb-6 [&>*]:py-[0.1rem]">
             <li className=" text-gray-400 md:text-lg">
               10+ years of building products for clients across several countries;
             </li>

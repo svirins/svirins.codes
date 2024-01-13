@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
   const postTitle = searchParams.get('title')
   const font = fetch(
-    new URL('http://localhost:3000/fonts/IBMPlexSans-Regular.ttf', import.meta.url),
+    new URL(`${process.env.NEXT_PUBLIC_URL}/fonts/Montserrat-Regular.ttf`, import.meta.url),
   ).then((res) => res.arrayBuffer())
   const fontData = await font
 
@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: 'http:localhost:3000/og-alt-bg.png',
+          backgroundImage: `${process.env.NEXT_PUBLIC_URL}/og-alt-bg.png`,
           // backgroundImage: 'url(https://svirins.codes/og-bg.png)'
         }}
       >
@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
             marginRight: 190,
             display: 'flex',
             fontSize: 130,
-            fontFamily: 'IBM Plex Sans',
+            fontFamily: 'Montserrat',
             letterSpacing: '-0.05em',
             fontStyle: 'normal',
             color: 'white',
@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
       height: 1080,
       fonts: [
         {
-          name: 'IBM Plex Sans',
+          name: 'Montserrat',
           data: fontData,
           style: 'normal',
         },

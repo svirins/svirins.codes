@@ -15,8 +15,8 @@ export default async function Posts() {
         </span>{' '}
         things.
       </h2>
-      <div className="pb-16 mt-4 md:mt-10">
-        <div className="grid grid-cols-1 divide-y divide-gray-300/25">
+      <div className="mt-4 md:mt-10">
+        <div className="grid grid-cols-1">
           {posts.length ? (
             posts.map((post) => (
               <div key={post.slug} className="w-full py-4">

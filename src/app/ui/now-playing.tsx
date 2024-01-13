@@ -65,7 +65,7 @@ export async function NowPlaying() {
   const { title, artist, songUrl } = res
 
   return (
-    <div className="inline-flex flex-col sm:flex-row w-full max-w-full truncate self-baseline">
+    <div className="inline-flex flex-col sm:flex-row w-full max-w-full  items-center self-baseline">
       <AnimatedBars />
       <a
         className=" text-gray-300 font-medium   text-sm max-w-max truncate"

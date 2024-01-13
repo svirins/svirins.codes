@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { unstable_noStore } from 'next/cache'
 interface ILanguage {
   hours: number
@@ -63,7 +62,7 @@ export async function WakaStats() {
 
   const stackedBarComments = datum.map(({ name: lang, text, hours, minutes }, index) => (
     <div key={index}>
-      <span className={clsx(WAKA_STATS_COLORS[index].textColor, 'text-xs md:text-sm')}>{lang}</span>
+      <span className={`${WAKA_STATS_COLORS[index].textColor} text-xs md:text-sm`}>{lang}</span>
       <span className="  text-gray-200 text-xs md:text-sm">{` • ${hours}h ${minutes}m`}</span>
     </div>
   ))

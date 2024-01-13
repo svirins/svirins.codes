@@ -1,5 +1,4 @@
 import { getContent } from '@/app/lib/getContent'
-import { isEmptyObject } from '@/app/lib/utils'
 import { MDXContent } from '@/app/ui/mdx'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -17,11 +16,8 @@ export async function generateMetadata({
   if (!snippet) {
     return
   }
-  process.env.SITE_URL
-  const siteUrl =
-    process.env.NODE_ENV === 'production' ? process.env.SITE_URL : 'http://localhost:3000'
   let { title, publishedAt: publishedTime, summary: description } = snippet.metadata
-  let ogImage = `${siteUrl}/api/og?title=${title}`
+  let ogImage = `${process.env.NEXT_PUBLIC_URL}/api/og?title=${title}`
 
   return {
     title,
@@ -31,7 +27,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `${siteUrl}/snippets/${snippet.slug}`,
+      url: `${process.env.NEXT_PUBLIC_URL}/snippets/${snippet.slug}`,
       images: [
         {
           url: ogImage,
@@ -57,7 +53,7 @@ export default async function SnippetsPage({
 }) {
   const snippet = getContent('snippets').find((snippet) => snippet.slug === params.slug)
   if (!snippet) notFound()
-  
+
   return (
     <article className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
       <div className="flex justify-between w-full">
@@ -78,7 +74,7 @@ export default async function SnippetsPage({
         {snippet?.metadata.summary}
       </h2>
       {snippet?.content && (
-        <div className="w-full  mt-4 prose  prose-invert  md:prose-lg">
+        <div className="w-full  mt-4 md:mt-10 prose  prose-invert  md:prose-lg">
           <MDXContent source={snippet.content} />
         </div>
       )}

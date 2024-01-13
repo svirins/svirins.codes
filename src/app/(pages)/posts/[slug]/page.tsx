@@ -1,5 +1,5 @@
 import { getContent } from '@/app/lib/getContent'
-import { formatDate, isEmptyObject } from '@/app/lib/utils'
+import { formatDate } from '@/app/lib/utils'
 import { MDXContent } from '@/app/ui/mdx'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -18,16 +18,16 @@ export async function generateMetadata({
   if (!post) {
     return
   }
-  process.env.SITE_URL
-  const siteUrl =
-    process.env.NODE_ENV === 'production' ? process.env.SITE_URL : 'http://localhost:3000'
+
   let {
     title,
     publishedAt: publishedTime,
     summary: description,
     coverImage: image,
   } = post?.metadata
-  let ogImage = image ? `${siteUrl}${image}` : `${siteUrl}/api/og?title=${title}`
+  let ogImage = image
+    ? `${process.env.NEXT_PUBLIC_URL}${image}`
+    : `${process.env.NEXT_PUBLIC_URL}/api/og?title=${title}`
 
   return {
     title,
@@ -37,7 +37,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `${siteUrl}/posts/${post?.slug}`,
+      url: `${process.env.NEXT_PUBLIC_URL}/posts/${post?.slug}`,
       images: [
         {
           url: ogImage,
@@ -88,7 +88,7 @@ export default async function PostPage({
         </p>
       </div>
       {post?.content && (
-        <div className="w-full  mt-4 prose  prose-invert  md:prose-lg">
+        <div className="w-full  mt-4 md:mt-10 prose  prose-invert  md:prose-lg">
           <MDXContent source={post.content} />
         </div>
       )}

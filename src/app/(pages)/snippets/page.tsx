@@ -17,12 +17,12 @@ export default async function Snippets() {
         </span>{' '}
         stuff I&apos;ve found useful and want to share.
       </h2>
-      <div className="pb-16 mt-4 md:mt-10">
-        <div className="grid grid-cols-1 divide-y divide-gray-300/25">
+      <div className="mt-4 md:mt-10">
+        <div className="grid grid-cols-1">
           {snippets.length ? (
             snippets.map((snippet) => (
               <div key={snippet.slug} className="w-full py-4">
-                <div className="p-4 w-full border border-gray-700 rounded  transition-all   hover:border-active/50 dark:hover:border-active/50 duration-150 ease-in-out [&>h3]:  [&>h3]:hover:text-active">
+                <div className="p-4 w-full">
                   <div className="pb-2 float-right ml-4 origin-centers pr-2 pt-2">
                     <Image
                       src={snippet.metadata.coverImage}
@@ -38,7 +38,6 @@ export default async function Snippets() {
                       {snippet.metadata.title}
                     </h3>
                   </Link>
-                  <p className="text-gray-400 md:text-lg">{snippet.metadata.summary}</p>
                 </div>
               </div>
             ))

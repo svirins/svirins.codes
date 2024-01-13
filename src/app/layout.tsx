@@ -4,12 +4,11 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-import { PreloadResources } from '@/app/preload'
 import { Footer } from '@/app/ui/footer'
 import { Navbar } from '@/app/ui/navbar'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://svirins.codes'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
   title: {
     default: 'Dzmitry Sviryn',
     template: '%s | Dzmitry Sviryn',
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Dzmitry Sviryn',
     description:
       'A full-stack developer passionate about React ecosystem, TypeScript and serverless backends.',
-    url: 'https://svirins.codes',
+    url: process.env.NEXT_PUBLIC_URL!,
     siteName: 'Dzmitry Sviryn',
     locale: 'en_US',
     type: 'website',
@@ -53,7 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Analytics />
         <SpeedInsights />
-        <PreloadResources />
       </body>
     </html>
   )

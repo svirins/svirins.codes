@@ -1,4 +1,4 @@
-export function isActive(href: string, currentPath: string): boolean {
+export function isActiveLink(href: string, currentPath: string): boolean {
   if (href === currentPath) {
     return true
   }
@@ -45,8 +45,3 @@ export function formatDate(date: string) {
   })
   return `Published on ${fullDate} (${formattedDate})`
 }
-
-export function isEmptyObject(obj: Object | undefined) {
-  return JSON.stringify(obj) === '{}'
-}
-

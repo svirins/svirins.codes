@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { highlight } from 'sugar-high'
+import { getBase64 } from '@/app/lib/getBase64'
 
 function CustomLink(props: any) {
   const href = props.href
@@ -24,10 +25,12 @@ function CustomLink(props: any) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />
 }
 
-function RoundedImage(props: any) {
+async function RoundedImage(props: any) {
+  const base64 = await getBase64(props.src)
+
   return (
     <figure>
-      <Image alt={props.alt} className="rounded-lg" {...props} />
+      <Image alt={props.alt} className="rounded-lg" blurDataURL={base64} {...props} />
       {props.alt && <figcaption>{props.alt}</figcaption>}
     </figure>
   )

@@ -1,14 +1,14 @@
 ---
 title: 'Calibrate ThinkPad laptop battery on Linux'
-summary: 'You can use this script as a part of a build step or invoke it as a serverless function via webhook.
-'
+summary: ''
 publishedAt: '2022-11-09'
 coverImage: '/assets/svg/linux.svg'
 ---
+You can use this script as a part of a build step or invoke it as a serverless function via webhook.
 
 Install `tlp` on Lenovo ThinkPad X1 Carbon gen 7
 
-```sh
+```
 sudo add-apt-repository ppa:linrunner/tlp
 sudo apt update
 sudo apt install tlp tlp-rdw --no-install-recommends
@@ -17,7 +17,8 @@ sudo tlp-stat
 sudo apt install powertop
 sudo powertop -c
 ```
-
-Keep in mind: during calibration, your screen will go blank\* for a few mins.
+<Callout emoji="💡">
+Keep in mind: during calibration, your screen will _go blank_ for a few mins.
+</Callout>
 
 Tested on Pop! OS 22.04 and LDME 5.
