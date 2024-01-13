@@ -24,5 +24,9 @@ export function Typewriter() {
     }
   }, [])
 
-  return <span ref={el} className="text-gray-200 md:text-lg italic font-medium min-h-8" />
+  return (
+    <div className="min-h-6">
+      <span ref={el} className="text-gray-200 md:text-lg italic font-medium min-h-8" />
+    </div>
+  )
 }

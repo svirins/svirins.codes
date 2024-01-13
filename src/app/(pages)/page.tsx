@@ -78,7 +78,7 @@ export default function Page() {
             <li className=" text-gray-400 md:text-lg">keep coding standards and best practices;</li>
             <li className=" text-gray-400 md:text-lg">be curious, learn iteratively;</li>
           </ul>
-          <h2 className="text-xl md:text-2xl mb-5 mt-2 tracking-tight  text-gray-200 font-normal ">
+          <h2 className="text-xl md:text-2xl mb-5 mt-2 tracking-tight  text-gray-200 font-normal">
             Technologies I use frequently:
           </h2>
           <div className="grid grid-cols-6 md:grid-cols-8 items-center place-content-between  gap-x-6 gap-y-6 mx-auto w-full">
@@ -95,7 +95,14 @@ export default function Page() {
               </a>
             ))}
           </div>
-          <Suspense fallback={<Spinner text="Loading stats..." />}>
+          <h2 className="text-xl md:text-2xl mb-4 mt-10 tracking-tight  text-gray-200 font-normal">
+            Some stats:
+          </h2>
+          <Suspense
+            fallback={
+              <Spinner text="Loading stats..." classNames="min-h-[124px] md:min-h-[76px]" />
+            }
+          >
             <WakaStats />
           </Suspense>
           <h2 className="text-xl md:text-2xl mt-8 tracking-tight  text-gray-200 font-normal">

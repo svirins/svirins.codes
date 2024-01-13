@@ -56,9 +56,8 @@ export default async function SnippetsPage({
   }
 }) {
   const snippet = getContent('snippets').find((snippet) => snippet.slug === params.slug)
-  if (isEmptyObject(snippet)) {
-    notFound()
-  }
+  if (!snippet) notFound()
+  
   return (
     <article className="flex flex-col items-start justify-center w-full  mx-auto mb-12">
       <div className="flex justify-between w-full">

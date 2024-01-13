@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 400 700;
@@ -24,7 +24,32 @@
   font-weight: 400;
   font-display: optional;
   src: url('/fonts/ibm-plex-mono-var.woff2') format('woff2');
+} */
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: optional;
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('woff2');
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-display: optional;
+  src: url('/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('/fonts/JetBrainsMono[wght].ttf') format('woff2');
+}
+
 
 ::selection {
   background-color: #47a3f3;

@@ -10,7 +10,7 @@ module.exports = {
       active: '#ff312e',
       gray: colors.zinc,
       transparent: 'rgb(255 255 255 / 0%)',
-      white: "#FFFFFF",
+      white: '#FFFFFF',
       wakatime: {
         blue: '#2563EB',
         amber: '#D97706',
@@ -27,8 +27,10 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['IBM Plex Sans', ...fontFamily.sans],
-      mono: ['IBM Plex Mono', ...fontFamily.mono],
+      // sans: ['IBM Plex Sans', ...fontFamily.sans],
+      // mono: ['IBM Plex Mono', ...fontFamily.mono],
+      sans: ['Montserrat', ...fontFamily.sans],
+      mono: ['JetBrains Mono', ...fontFamily.mono],
     },
   },
   future: {

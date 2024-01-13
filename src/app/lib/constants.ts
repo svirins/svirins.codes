@@ -4,6 +4,16 @@ export const NAV_LINKS = [
   { href: '/snippets', text: 'Snippets' },
 ]
 
+export const SOCIAL_LINKS = [
+  { href: 'https://github.com/svirins', text: 'My GitHub', iconSrc: '/assets/svg/github.svg' },
+  {
+    href: 'https://twitter.com/svirins',
+    text: 'My X (ex-Twitter)',
+    iconSrc: '/assets/svg/x.svg',
+  },
+  { href: 'mailto:svirins@gmail.com', text: 'My Gmail', iconSrc: '/assets/svg/gmail.svg' },
+]
+
 export const AUTHOR = {
   name: 'Dzmitry Svirin',
   email: 'svirins@gmail.com',
