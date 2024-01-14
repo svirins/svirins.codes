@@ -19,8 +19,8 @@ export default function Page() {
             products.
           </h2>
           <p className="md:text-lg  text-gray-400 ">
-            Full-stack developer with a passion for the React ecosystem, TypeScript, and serverless
-            backends.
+            Full-stack developer with a passion for the React ecosystem,
+            TypeScript, and serverless backends.
           </p>
         </div>
         <div className="hidden md:block">
@@ -60,28 +60,41 @@ export default function Page() {
       <h3>My values:</h3>
       <ul className="list-inside  list-[circle]  pb-8 [&>*]:py-[0.1rem]">
         <li className=" text-gray-400 md:text-lg">consistency over speed;</li>
-        <li className=" text-gray-400 md:text-lg">honesty, reliability, responsibility;</li>
-        <li className=" text-gray-400 md:text-lg">keep coding standards and best practices;</li>
-        <li className=" text-gray-400 md:text-lg">be curious, learn iteratively;</li>
+        <li className=" text-gray-400 md:text-lg">
+          honesty, reliability, responsibility;
+        </li>
+        <li className=" text-gray-400 md:text-lg">
+          keep coding standards and best practices;
+        </li>
+        <li className=" text-gray-400 md:text-lg">
+          be curious, learn iteratively;
+        </li>
       </ul>
       <h3>Technologies I use frequently:</h3>
       <div className="grid grid-cols-6 md:grid-cols-8 items-center justify-between  gap-x-6 gap-y-6  pt-2 pb-8">
-        {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map((stack, index) => (
-          <a
-            className="duration-150 transform ease-in-out hover:scale-110 fill-gray-400  hover:fill-gray-200 "
-            href={stack.url}
-            title={stack.name}
-            target="_blank"
-            rel="noopener noreferrer"
-            key={index}
-          >
-            <Image src={stack.src} alt={stack.name} className="w-10 h-10" />
-          </a>
-        ))}
+        {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(
+          (stack, index) => (
+            <a
+              className="duration-150 transform ease-in-out hover:scale-110 fill-gray-400  hover:fill-gray-200 "
+              href={stack.url}
+              title={stack.name}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}
+            >
+              <Image src={stack.src} alt={stack.name} className="w-10 h-10" />
+            </a>
+          ),
+        )}
       </div>
       <h3>Some stats:</h3>
       <Suspense
-        fallback={<Spinner text="Loading stats..." classNames="min-h-[124px] md:min-h-[76px]" />}
+        fallback={
+          <Spinner
+            text="Loading stats..."
+            classNames="min-h-[124px] md:min-h-[76px]"
+          />
+        }
       >
         <WakaStats />
       </Suspense>
@@ -90,7 +103,7 @@ export default function Page() {
         <li className=" text-gray-400 md:text-lg">
           GitHub:{' '}
           <a
-            className="  text-gray-300  font-medium link-underline link-underline-gradient"
+            className="  text-gray-300  font-medium link-underlined "
             href="https://github.com/svirins"
           >
             @svirins
@@ -99,7 +112,7 @@ export default function Page() {
         <li className=" text-gray-400 md:text-lg">
           ex-Twitter:{' '}
           <a
-            className="  text-gray-300  font-medium link-underline link-underline-gradient"
+            className="  text-gray-300  font-medium link-underlined "
             href="https://twitter.com/svirins"
           >
             @svirins
@@ -108,7 +121,7 @@ export default function Page() {
         <li className=" text-gray-400 md:text-lg">
           Email:{' '}
           <a
-            className="  text-gray-300  font-medium  link-underline link-underline-gradient"
+            className="  text-gray-300  font-medium  link-underlined "
             href="mailto:svirins@gmail.com"
           >
             svirins@gmail.com

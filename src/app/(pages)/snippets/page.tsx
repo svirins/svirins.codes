@@ -21,16 +21,14 @@ export default async function Snippets() {
       <div className="flex flex-col">
         {snippets.length ? (
           snippets.map((snippet) => (
-            <div key={snippet.slug}>
-              <div className="float-right ml-4 origin-centers">
-                <Image
-                  src={snippet.metadata.coverImage}
-                  alt={snippet.metadata.title}
-                  className="w-12 h-12 md:w-16"
-                />
-              </div>
+            <div key={snippet.slug} className="flex flex-row">
+              <Image
+                src={snippet.metadata.coverImage}
+                alt={snippet.metadata.title}
+                className="w-10 h-10 flex-none mr-4"
+              />
               <Link href={`/snippets/${snippet.slug}`}>
-                <h3 className=" hover:text-active duration-150 ease-in-out">
+                <h3 className=" hover:text-active duration-150 ease-in-out flex-1">
                   {snippet.metadata.title}
                 </h3>
               </Link>

@@ -56,18 +56,22 @@ export default async function SnippetsPage({
 
   return (
     <article className="mb-24">
-      <h1>
-        <Balancer ratio={0.85}>{snippet?.metadata.title}</Balancer>
-      </h1>
-      {snippet?.metadata.coverImage && (
-        <div className="ml-8 my-2 origin-center">
-          <Image
-            src={snippet.metadata.coverImage}
-            alt={snippet.metadata.title}
-            className="w-[30px] h-[30px] md:w-[48px] md:h-[48px]"
-          />
+      <div className="flex flew-row">
+        <div className="flex-1">
+          <h1>
+            <Balancer ratio={0.85}>{snippet?.metadata.title}</Balancer>
+          </h1>
         </div>
-      )}
+        {snippet?.metadata.coverImage && (
+          <div className="flex-none pl-8">
+            <Image
+              src={snippet.metadata.coverImage}
+              alt={snippet.metadata.title}
+              className="w-[30px] h-[30px] md:w-[48px] md:h-[48px]"
+            />
+          </div>
+        )}
+      </div>
       {snippet?.content && (
         <div className="prose  prose-invert  md:prose-lg">
           <MDXContent source={snippet.content} />

@@ -41,23 +41,18 @@ body {
   min-height: 100vh;
 }
 
-.link-underline {
+.link-underlined {
   border-bottom-width: 0;
-  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(rgba(255, 49, 46, 50), rgba(255, 49, 46, 50));
   background-size: 0 2px;
   background-position: 0 100%;
   background-repeat: no-repeat;
   transition: background-size 0.5s ease-in-out;
 }
-
-.link-underline-gradient {
-  background-image: linear-gradient(transparent, transparent),
-    linear-gradient(rgba(255, 49, 46, 50), rgba(255, 49, 46, 50));
-}
-
-.link-underline:hover {
-  background-size: 100% 2px;
-  background-position: 0 100%;
+.link-underlined:hover {
+    background-size: 100% 2px;
+    background-position: 0 100%;
 }
 
 h1 {
@@ -73,12 +68,13 @@ h3 {
 }
 
 hr {
-  @apply my-4 border-b-[1px] border-gray-800;
+  @apply my-4 border-b-[0px] border-gray-800;
 }
 
 .prose a {
   @apply font-medium;
 }
+
 .prose .anchor {
   @apply invisible absolute no-underline;
   margin-left: -1em;
@@ -101,12 +97,8 @@ hr {
   @apply visible;
 }
 
-/* .prose pre {
-  @apply border border-gray-700 bg-gray-900;
-} */
-
 .prose pre {
-  @apply bg-none
+  @apply bg-none p-0;
 }
 
 .prose pre code {
@@ -117,13 +109,6 @@ hr {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
-}
-
-table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
 }
 
 #loading-bar-1 {

@@ -4,9 +4,10 @@ summary: ''
 publishedAt: '2022-11-09'
 coverImage: '/assets/svg/linux.svg'
 ---
-You can use this script as a part of a build step or invoke it as a serverless function via webhook.
+Tested on: Pop!_OS 22.04 and LDME 5
+HW: ThinkPad X1 Carbon gen 7
 
-Install `tlp` on Lenovo ThinkPad X1 Carbon gen 7
+Install `tlp`
 
 ```shell
 sudo add-apt-repository ppa:linrunner/tlp
@@ -17,8 +18,9 @@ sudo tlp-stat
 sudo apt install powertop
 sudo powertop -c
 ```
+
 <Callout emoji="💡">
-Keep in mind: during calibration, your screen will _go blank_ for a few mins.
+Keep in mind: during calibration, your screen may _go blank_ or _flicker_ for a few mins.
 </Callout>
 
-Tested on Pop! OS 22.04 and LDME 5.
+

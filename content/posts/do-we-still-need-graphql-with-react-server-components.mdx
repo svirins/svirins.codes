@@ -22,11 +22,7 @@ Let's try a few `combinations`:
 > Use quote blocks to emulate reply text.
 > This line is part of the same quote.
 
-```ts
-action: function(ctx) {
-    workflow.check(!ctx.issue.isChanged('votes'), workflow.i18n('Voting for a resolved issue is not allowed.'));
-},
-```
+
 
 1. Fix usability problem
 2. Clean up the page
@@ -50,11 +46,7 @@ action: function(ctx) {
   height={600}
 />
 
-<Callout emoji="💡">
 
-Using WebSockets, instead of HTTP, does have tradeoffs. There might be additional latency on the first request setup, but subsequent requests are faster. There's an [RFC](https://www.rfc-editor.org/rfc/rfc9220.pdf) for WebSockets with `HTTP/3` which would remove that extra network roundtrip.
-
-</Callout>
 
 
 [source](https://hackteam.io/blog/do-need-graphql-now-react-server-components/)

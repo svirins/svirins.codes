@@ -1,15 +1,9 @@
+import { getBase64 } from '@/app/lib/getBase64'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import {
-  BundledLanguage,
-  BundledTheme,
-  codeToHtml,
-  getHighlighter,
-} from 'shikiji'
-import { getBase64 } from '@/app/lib/getBase64'
+import { getHighlighter } from 'shikiji'
 
 function CustomLink(props: any) {
   const href = props.href
@@ -47,8 +41,8 @@ async function RoundedImage(props: any) {
 
 function Callout(props: any) {
   return (
-    <div className="px-4 py-3 border border-gray-700 bg-gray-800 rounded p-1 text-base md:text-lg flex items-center text-grey-200 mb-8">
-      <div className="flex items-center w-6 mr-6">{props.emoji}</div>
+    <div className="px-4 py-3 border border-gray-800 bg-gray-900 rounded-lg p-1 text-sm md:text-base flex items-center text-grey-200 mb-8">
+      <div className="flex items-center text-2xl mr-4">{props.emoji}</div>
       <div className="w-full callout">{props.children}</div>
     </div>
   )
@@ -99,6 +93,7 @@ async function Code(codeProps: any) {
       </code>
     )
   }
+
   const highlighter = await getHighlighter({
     langs: ['shell', 'ts', 'jsx'],
     themes: ['aurora-x'],
@@ -124,5 +119,10 @@ export const customComponents = {
 }
 
 export function MDXContent(props: any) {
-  return <MDXRemote {...props} components={{ ...customComponents, ...(props.components || {}) }} />
+  return (
+    <MDXRemote
+      {...props}
+      components={{ ...customComponents, ...(props.components || {}) }}
+    />
+  )
 }

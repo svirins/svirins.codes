@@ -97,15 +97,20 @@ export async function WakaStats() {
             <Bar
               color={WAKA_STATS_COLORS[2].barColor}
               width={(datum[2].percent / 100) * WIDTH}
-              x={(datum[0].percent / 100) * WIDTH + (datum[1].percent / 100) * WIDTH}
+              x={
+                (datum[0].percent / 100) * WIDTH +
+                (datum[1].percent / 100) * WIDTH
+              }
             />
           </svg>
         </div>
-        <div className="flex flex-col md:flex-row mt-2 md:space-x-2">{stackedBarComments}</div>
+        <div className="flex flex-col md:flex-row mt-2 md:space-x-2">
+          {stackedBarComments}
+        </div>
         <p className="  text-gray-400 text-xs md:text-sm mt-1">
           My last week coding stats taken from a{' '}
           <a
-            className="  text-gray-300  font-medium link-underline link-underline-gradient"
+            className="  text-gray-300  font-medium link-underlined "
             href="https://wakatime.com/@svirins"
           >
             WakaTime

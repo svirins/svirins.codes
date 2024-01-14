@@ -76,13 +76,14 @@ export default async function PostPage({
       {post?.metadata.coverImage && (
         <div className="my-4">
           <Image
+            className="rounded-lg"
             src={post.metadata.coverImage}
             alt={post.metadata.title}
             blurDataURL={base64 ?? undefined}
           />
         </div>
       )}
-      <p className="text-xs md:text-sm md:text-sm lg:text-base  text-gray-400">
+      <p className="text-xs md:text-sm lg:text-base  text-gray-400">
         {formatDate(post!.metadata.publishedAt)}
       </p>
       {post?.content && (

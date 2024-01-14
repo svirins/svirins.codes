@@ -10,7 +10,12 @@ export function Footer() {
       <hr />
       <div className="flex  mb-8 space-x-0 sm:space-x-2">
         <Suspense
-          fallback={<Spinner text="Loading player..." classNames="min-h-[54px] md:min-h-[30px]" />}
+          fallback={
+            <Spinner
+              text="Loading player..."
+              classNames="min-h-[54px] md:min-h-[30px]"
+            />
+          }
         >
           <NowPlaying />
         </Suspense>
@@ -26,7 +31,12 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src={link.iconSrc} alt={link.text} width={18} height={18} />
+              <Image
+                src={link.iconSrc}
+                alt={link.text}
+                width={18}
+                height={18}
+              />
             </a>
           ))}
         </div>
@@ -40,7 +50,7 @@ export function Footer() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            className=" text-gray-300  font-medium link-underline link-underline-gradient"
+            className=" text-gray-300  font-medium link-underlined "
             href="https://leerob.io"
           >
             Lee Robinson

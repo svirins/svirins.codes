@@ -1,0 +1,121 @@
+---
+title: 'Create TOC (table of contents) from Sanity portable text'
+summary: ''
+publishedAt: '2024-05-01'
+coverImage: '/assets/images/sanity.webp'
+---
+### 1. Get all `headings` from the portable text:
+
+```ts
+*[_type == "post"] {
+  "headings": yourContentField[length(style) == 2 && string::startsWith(style, "h")]
+}
+```
+result should be something like this:
+
+```json
+[…] 1 item
+  0:{…} 2 properties
+    headings:[…] 5 items
+      0:{…} 5 properties
+        style: h2
+        _key: b2d2e8c698a9
+        markDefs:[] 0 items
+        children:[…] 1 item
+          0: {...} 4 properties
+            marks: [] 0 items
+            text: My extracted header
+            _key: 68e626305673
+            _type: span
+      _type:block
+...
+//  the rest of the response
+... 
+
+```
+
+### 2. Create a function to parse the headings:
+
+
+```ts
+import speakingurl from 'speakingurl';
+
+const filter = (ast, match) =>
+  ast.reduce((acc, node) => {
+    if (match(node)) acc.push(node);
+    if (node.children) acc.push(...filter(node.children, match));
+    return acc;
+  }, []);
+
+const findHeadings = (ast) =>
+  filter(ast, (node) => /h\d/.test(node.style)).map((node) => {
+    const text = getChildrenText(node);
+    const slug = speakingurl(text);
+
+    return { ...node, text, slug };
+  });
+
+export const getChildrenText = (props) =>
+  props.children
+    .map((node) => (typeof node === 'string' ? node : node.text || ''))
+    .join('');
+
+const get = (object, path) => path.reduce((prev, curr) => prev[curr], object);
+const getObjectPath = (path) =>
+  path.length === 0
+    ? path
+    : ['subheadings'].concat(path.join('.subheadings.').split('.'));
+
+// function input is a headings array, produced by groq
+export const parseOutline = (ast: any[]) => {
+  const outline = { subheadings: [] };
+  const headings = findHeadings(ast);
+  const path = [];
+  let lastLevel = 0;
+
+  headings.forEach((heading) => {
+    const level = Number(heading.style.slice(1));
+    heading.subheadings = [];
+
+    if (level < lastLevel) for (let i = lastLevel; i >= level; i--) path.pop();
+    else if (level === lastLevel) path.pop();
+
+    const prop = get(outline, getObjectPath(path));
+    prop.subheadings.push(heading);
+    path.push(prop.subheadings.length - 1);
+    lastLevel = level;
+  });
+
+  return outline.subheadings;
+};
+```
+
+
+```tsx
+import { getChildrenText } from 'lib/utils/createNestedSubheaders';
+// We use only 2 levels of nesting for brevity
+// h2 = level 0, h3 = level 1
+export function TOC({ headings }) {
+  return (
+    <>
+      <h3>Table of Contents:</h3>
+      <ul>
+        {headings.map((heading) => (
+          <li
+            key={heading._key}
+            className={heading.style === 'h2' ? 'ml-2' : 'ml-6'}
+          >
+            <a href={'#' + heading._key}>{getChildrenText(heading)}</a>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
+```
+
+and, finally, in your single post component:
+```tsx
+<TOC headings={headings} />
+// rest of code
+```

@@ -25,7 +25,7 @@ export default async function Posts() {
                   {post.metadata.title}
                 </h3>
               </Link>
-              <p className="text-gray-400 md:text-lg">{post.metadata.summary}</p>
+              {/* <p className="text-gray-400 md:text-lg">{post.metadata.summary}</p> */}
             </div>
           ))
         ) : (

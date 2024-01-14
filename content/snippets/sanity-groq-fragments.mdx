@@ -1,0 +1,28 @@
+---
+title: 'Sanity groq fragments'
+summary: ''
+publishedAt: '2023-05-04'
+coverImage: '/assets/svg/sanity.svg'
+---
+### Create `excerpt` for a Sanity portable text:
+
+```ts
+*[_type == "post"] {
+  "excerpt": array::join(string::split(
+  (pt::text(yourContentField[_type == "block"][0...1])), "")
+  [0..384], "") + "..."
+}
+```
+
+### Get LQIP placeholder and aspect ratio from Sanity image:
+
+```ts
+*[_type == "post"] {
+  "image": {
+    "url": yourImageField.asset->url,
+    "alt": yourImageField.alt,
+    "aspectRatio": yourImageField.asset->metadata.dimensions.aspectRatio,
+    "lqip": yourImageField.asset->metadata.lqip,
+  }
+}
+```
