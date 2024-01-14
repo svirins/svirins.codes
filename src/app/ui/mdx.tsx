@@ -3,8 +3,12 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { highlight } from 'sugar-high'
-import { getHighlighter } from 'shiki'
+import {
+  BundledLanguage,
+  BundledTheme,
+  codeToHtml,
+  getHighlighter,
+} from 'shikiji'
 import { getBase64 } from '@/app/lib/getBase64'
 
 function CustomLink(props: any) {
@@ -43,8 +47,8 @@ async function RoundedImage(props: any) {
 
 function Callout(props: any) {
   return (
-    <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
-      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
+    <div className="px-4 py-3 border border-gray-700 bg-gray-800 rounded p-1 text-base md:text-lg flex items-center text-grey-200 mb-8">
+      <div className="flex items-center w-6 mr-6">{props.emoji}</div>
       <div className="w-full callout">{props.children}</div>
     </div>
   )
@@ -81,13 +85,28 @@ function createHeading(level: number) {
 }
 
 async function Code(codeProps: any) {
-  const highlighter = await getHighlighter({
-    theme: 'nord',
-    langs: ['shell', 'typescript', 'tsx'],
-  })
   const { children, ...props } = codeProps
-
-  let codeHTML = highlighter.codeToHtml(children, { lang: 'tsx' })
+  const lang = props?.className
+    ? props?.className.substring(props?.className.indexOf('-') + 1)
+    : ''
+  if (!lang) {
+    return (
+      <code
+        className="rounded-md border border-gray-800 bg-gray-900 px-1 py-0.5 text-gray-200 text-base md:text-lg"
+        {...props}
+      >
+        {children}
+      </code>
+    )
+  }
+  const highlighter = await getHighlighter({
+    langs: ['shell', 'ts', 'jsx'],
+    themes: ['aurora-x'],
+  })
+  let codeHTML = highlighter.codeToHtml(children, {
+    lang,
+    theme: 'aurora-x',
+  })
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
 

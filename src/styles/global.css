@@ -31,17 +31,6 @@
   background-color: #47a3f3;
   color: #fefefe;
 }
-  /* Sugar-High highlighting */
-:root {
-  --sh-class: #4c97f8;
-  --sh-identifier: #ffffff;
-  --sh-sign: #8996a3;
-  --sh-keyword: #f47067;
-  --sh-string: #0fa295;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-}
-
 
 html {
   min-width: 360px;
@@ -50,14 +39,6 @@ html {
 
 body {
   min-height: 100vh;
-}
-
-
-@supports not (backdrop-filter: none) {
-  .sticky-nav {
-    backdrop-filter: none;
-    @apply bg-opacity-100;
-  }
 }
 
 .link-underline {
@@ -83,7 +64,6 @@ h1 {
   @apply text-3xl md:text-5xl mb-4 font-bold;
 }
 
-
 h2 {
   @apply text-xl md:text-2xl my-4  text-gray-200 ;
 }
@@ -101,7 +81,6 @@ hr {
 }
 .prose .anchor {
   @apply invisible absolute no-underline;
-
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -122,17 +101,16 @@ hr {
   @apply visible;
 }
 
-.prose pre {
+/* .prose pre {
   @apply border border-gray-700 bg-gray-900;
-}
+} */
 
-.prose code {
-  @apply rounded-lg border border-gray-800 bg-gray-900 px-1 py-0.5 text-gray-200;
+.prose pre {
+  @apply bg-none
 }
 
 .prose pre code {
-  @apply p-0 text-gray-200;
-  border: initial;
+  @apply text-base font-mono;
 }
 
 .prose > :first-child {
