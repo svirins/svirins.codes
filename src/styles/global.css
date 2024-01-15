@@ -55,6 +55,11 @@ body {
     background-position: 0 100%;
 }
 
+.heading-link {
+  @apply hover:text-active duration-150 ease-in-out transitiion-colors;
+}
+
+
 h1 {
   @apply text-3xl md:text-5xl mb-4 font-bold;
 }
@@ -64,12 +69,21 @@ h2 {
 }
 
 h3 {
-  @apply text-xl md:text-2xl my-4  text-gray-200 ;
+  @apply text-xl my-4 text-gray-200 ;
+}
+
+p {
+  @apply text-gray-400 leading-relaxed md:text-lg;;
+}
+
+li {
+  @apply text-gray-400 leading-relaxed md:text-lg;
 }
 
 hr {
   @apply my-4 border-b-[0px] border-gray-800;
 }
+
 
 .prose a {
   @apply font-medium;
@@ -102,7 +116,7 @@ hr {
 }
 
 .prose pre code {
-  @apply text-base font-mono;
+  @apply text-sm font-mono;
 }
 
 .prose > :first-child {

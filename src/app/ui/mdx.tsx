@@ -95,7 +95,7 @@ async function Code(codeProps: any) {
   }
 
   const highlighter = await getHighlighter({
-    langs: ['shell', 'ts', 'jsx'],
+    langs: ['shell', 'ts', 'jsx', 'json'],
     themes: ['aurora-x'],
   })
   let codeHTML = highlighter.codeToHtml(children, {

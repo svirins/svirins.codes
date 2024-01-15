@@ -13,12 +13,12 @@ export default function Page() {
           <h1>
             Hi, I&apos;m <span className="text-active">Dzmitry</span>
           </h1>
-          <h2>
+          <h3>
             I specialize in turning ideas into{' '}
             <span className="font-semibold italic">real-life </span>
             products.
-          </h2>
-          <p className="md:text-lg  text-gray-400 ">
+          </h3>
+          <p>
             Full-stack developer with a passion for the React ecosystem,
             TypeScript, and serverless backends.
           </p>
@@ -37,13 +37,13 @@ export default function Page() {
       <hr className="mb-6" />
       <h3>In short:</h3>
       <ul className="list-inside list-[circle] pb-8 [&>*]:py-[0.1rem]">
-        <li className=" text-gray-400 md:text-lg">
+        <li>
           10+ years of building products for clients across several countries;
         </li>
-        <li className=" text-gray-400 md:text-lg">
+        <li>
           currently working with regular clients, but open to new opportunities;
         </li>
-        <li className=" text-gray-400 md:text-lg">
+        <li>
           I live in Batumi{' '}
           <span role="img" aria-label="wave">
             🌊
@@ -59,16 +59,10 @@ export default function Page() {
       </ul>
       <h3>My values:</h3>
       <ul className="list-inside  list-[circle]  pb-8 [&>*]:py-[0.1rem]">
-        <li className=" text-gray-400 md:text-lg">consistency over speed;</li>
-        <li className=" text-gray-400 md:text-lg">
-          honesty, reliability, responsibility;
-        </li>
-        <li className=" text-gray-400 md:text-lg">
-          keep coding standards and best practices;
-        </li>
-        <li className=" text-gray-400 md:text-lg">
-          be curious, learn iteratively;
-        </li>
+        <li>consistency over speed;</li>
+        <li>honesty, reliability, responsibility;</li>
+        <li>keep coding standards and best practices;</li>
+        <li>be curious, learn iteratively;</li>
       </ul>
       <h3>Technologies I use frequently:</h3>
       <div className="grid grid-cols-6 md:grid-cols-8 items-center justify-between  gap-x-6 gap-y-6  pt-2 pb-8">
@@ -100,7 +94,7 @@ export default function Page() {
       </Suspense>
       <h3>Get in touch:</h3>
       <ul className="list-inside  list-[circle] pb-8 [&>*]:py-[0.1rem]">
-        <li className=" text-gray-400 md:text-lg">
+        <li>
           GitHub:{' '}
           <a
             className="  text-gray-300  font-medium link-underlined "
@@ -109,7 +103,7 @@ export default function Page() {
             @svirins
           </a>
         </li>
-        <li className=" text-gray-400 md:text-lg">
+        <li>
           ex-Twitter:{' '}
           <a
             className="  text-gray-300  font-medium link-underlined "
@@ -118,7 +112,7 @@ export default function Page() {
             @svirins
           </a>
         </li>
-        <li className=" text-gray-400 md:text-lg">
+        <li>
           Email:{' '}
           <a
             className="  text-gray-300  font-medium  link-underlined "

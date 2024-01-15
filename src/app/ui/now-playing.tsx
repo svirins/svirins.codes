@@ -76,7 +76,9 @@ export async function NowPlaying() {
         {title}
       </a>
       <span className=" mx-2 text-gray-400 hidden sm:block">{'-'}</span>
-      <p className=" text-gray-300 max-w-max truncate text-left text-sm">{artist}</p>
+      <p className=" text-gray-300 max-w-max truncate text-left text-sm">
+        {artist}
+      </p>
     </div>
   )
 }
@@ -94,7 +96,13 @@ function AnimatedBars() {
           <rect id="loading-bar-1" width="3" height="14" fill="#4ade80" />
           <rect id="loading-bar-2" width="3" height="14" x="4" fill="#4ade80" />
           <rect id="loading-bar-3" width="3" height="14" x="8" fill="#4ade80" />
-          <rect id="loading-bar-4" width="3" height="14" x="12" fill="#4ade80" />
+          <rect
+            id="loading-bar-4"
+            width="3"
+            height="14"
+            x="12"
+            fill="#4ade80"
+          />
         </g>
       </svg>
     </div>
@@ -114,3 +122,4 @@ function SpotifyStopped() {
     </div>
   )
 }
+

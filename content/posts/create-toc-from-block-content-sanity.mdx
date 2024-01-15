@@ -4,22 +4,24 @@ summary: ''
 publishedAt: '2024-05-01'
 coverImage: '/assets/images/sanity.webp'
 ---
-### 1. Get all `headings` from the portable text:
+
+### 1. Get all _headings_ from the portable text:
 
 ```ts
 *[_type == "post"] {
-  "headings": yourContentField[length(style) == 2 && string::startsWith(style, "h")]
+  "headings": yourContentField[length(style) == 2
+    && string::startsWith(style, "h")]
 }
 ```
 result should be something like this:
 
 ```json
-[…] 1 item
+{
   0:{…} 2 properties
     headings:[…] 5 items
       0:{…} 5 properties
         style: h2
-        _key: b2d2e8c698a9
+        _key: 86e626763053
         markDefs:[] 0 items
         children:[…] 1 item
           0: {...} 4 properties
@@ -28,18 +30,22 @@ result should be something like this:
             _key: 68e626305673
             _type: span
       _type:block
-...
-//  the rest of the response
-... 
-
+    ... // the rest of the response
+}
 ```
 
 ### 2. Create a function to parse the headings:
 
-
 ```ts
 import speakingurl from 'speakingurl';
 
+/**
+ * Filters the AST based on a given match function.
+ *
+ * @param {Array} ast - The abstract syntax tree to filter.
+ * @param {Function} match - The match function used to determine if a node should be included in the filtered result.
+ * @returns {Array} - The filtered result containing nodes that match the given match function.
+ */
 const filter = (ast, match) =>
   ast.reduce((acc, node) => {
     if (match(node)) acc.push(node);
@@ -47,27 +53,58 @@ const filter = (ast, match) =>
     return acc;
   }, []);
 
+/**
+ * Finds headings in the given AST and returns an array of objects containing the heading text and slug.
+ *
+ * @param {Object} ast - The AST to search for headings.
+ * @returns {Array} - An array of objects containing the heading text and slug.
+ */
 const findHeadings = (ast) =>
   filter(ast, (node) => /h\d/.test(node.style)).map((node) => {
     const text = getChildrenText(node);
     const slug = speakingurl(text);
-
     return { ...node, text, slug };
   });
 
+/**
+ * Returns the concatenated text content of the children nodes.
+ *
+ * @param {Object} props - The props object containing the children nodes.
+ * @returns {string} - The concatenated text content.
+ */
 export const getChildrenText = (props) =>
   props.children
     .map((node) => (typeof node === 'string' ? node : node.text || ''))
     .join('');
 
+/**
+ * Retrieves a value from an object using a given path.
+ *
+ * @param {object} object - The object to retrieve the value from.
+ * @param {Array} path - An array representing the path to the desired value.
+ * @returns {*} - The value found at the specified path.
+ */
 const get = (object, path) => path.reduce((prev, curr) => prev[curr], object);
+
+/**
+ * Returns the object path for a given path.
+ * @param {Array} path - The path to convert into an object path.
+ * @returns {Array} - The object path.
+ */
 const getObjectPath = (path) =>
   path.length === 0
     ? path
     : ['subheadings'].concat(path.join('.subheadings.').split('.'));
 
-// function input is a headings array, produced by groq
-export const parseOutline = (ast: any[]) => {
+
+/**
+ * Parses the given AST (Abstract Syntax Tree) to create an outline of subheadings.
+ * 
+ * @param {Object} ast - The AST representing the content.
+ * @returns {Array} - An array of subheadings in the outline.
+ */
+
+export const parseOutline = (ast) => {
   const outline = { subheadings: [] };
   const headings = findHeadings(ast);
   const path = [];
@@ -87,15 +124,16 @@ export const parseOutline = (ast: any[]) => {
   });
 
   return outline.subheadings;
-};
+}
 ```
 
+### 3. Finally, use the function to create the TOC:
 
-```tsx
+```jsx
 import { getChildrenText } from 'lib/utils/createNestedSubheaders';
-// We use only 2 levels of nesting for brevity
-// h2 = level 0, h3 = level 1
-export function TOC({ headings }) {
+// Using 2 levels of nesting for brevity
+// h2 = level 0, h3 and the rest are level 1
+function TOC({ headings }) {
   return (
     <>
       <h3>Table of Contents:</h3>
@@ -111,11 +149,5 @@ export function TOC({ headings }) {
       </ul>
     </>
   );
-};
-```
-
-and, finally, in your single post component:
-```tsx
-<TOC headings={headings} />
-// rest of code
+}
 ```
