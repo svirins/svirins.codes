@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
+
 // we consider it's always a *.svg for an image
 export async function generateMetadata({
   params,
@@ -12,7 +13,9 @@ export async function generateMetadata({
     slug: string
   }
 }): Promise<Metadata | undefined> {
-  let snippet = getContent('snippets').find((snippet) => snippet.slug === params.slug)
+  let snippet = getContent('snippets').find(
+    (snippet) => snippet.slug === params.slug,
+  )
   if (!snippet) {
     return
   }
@@ -52,7 +55,9 @@ export default async function SnippetsPage({
     searchParams: URLSearchParams
   }
 }) {
-  const snippet = getContent('snippets').find((snippet) => snippet.slug === params.slug)
+  const snippet = getContent('snippets').find(
+    (snippet) => snippet.slug === params.slug,
+  )
   if (!snippet) notFound()
 
   return (
