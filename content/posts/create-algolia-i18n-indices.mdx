@@ -1,18 +1,15 @@
 ---
 title: 'Create Algolia i18n indices'
-summary: ''
 publishedAt: '2023-11-08'
 coverImage: '/assets/images/sanity-algolia.webp'
 ---
 Let's say we're creating an index for posts in two locales: `en` and `de`. We'll need to create two indices: `indexName-en` and `indexName-de`. Each index will contain posts in the respective locale.
 
-> I have omitted explicit type definitions for brevity
-
-### 1. Fetch data from Sanity for each locale
+#### 1. Fetch data from Sanity for each locale
 
 ```ts
 // lib/sanity.ts
-
+// Hereinafter I've omitted explicit type definitions for brevity
 import { createClient } from "next-sanity";
 import groq from "groq";
 
@@ -29,8 +26,6 @@ const query = groq
     "slug": slug.current,
   }`;
 
-// I have omitted explicit type definitions for brevity
-
 export async function getPostsForLocale(locale: 'en' | 'de'): Promise<IPost[]> {
   const data = await sanityClient.fetch(
     `*[_type == "post" && !(_id in path("drafts.**")] | order(_updatedAt desc) {
@@ -43,11 +38,10 @@ export async function getPostsForLocale(locale: 'en' | 'de'): Promise<IPost[]> {
   return data;
 }
 ```
-### 2. Create a script that runs the index creation process for each locale.
+#### 2. Create a script that runs the index creation process for each locale.
 
 ```ts
 // scripts/createIndex.ts
-
 import algoliasearch from "algoliasearch";
 import { getPostsForLocale } from "@/lib/sanity";
 
@@ -95,14 +89,12 @@ export default async function createIndex() {
   const results = await Promise.all(promises);
   return results;
 }
-
 ```
 
-### 3. Create a route handler to run the script
+#### 3. Create a route handler to run the script
 
 ```ts
 // api/cron/route.ts
-
 import createIndex from "@/scripts/createIndex";
 
 export async function GET(req: Request) {
@@ -124,6 +116,7 @@ export async function GET(req: Request) {
   }
 }
 ```
+
 #### 4. Setup Cron Job
 
 Create a `vercel.json` file in your project's root directory

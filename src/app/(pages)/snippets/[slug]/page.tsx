@@ -16,8 +16,9 @@ export async function generateMetadata({
   if (!snippet) {
     return
   }
-  let { title, publishedAt: publishedTime, summary: description } = snippet.metadata
+  let { title, publishedAt: publishedTime } = snippet.metadata
   let ogImage = `${process.env.NEXT_PUBLIC_URL}/api/og?title=${title}`
+  const description = ''
 
   return {
     title,

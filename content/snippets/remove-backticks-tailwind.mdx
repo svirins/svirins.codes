@@ -1,0 +1,36 @@
+---
+title: 'Remove Backticks Around Code When Using the Tailwind CSS Typography Plugin'
+publishedAt: '2024-16-01'
+coverImage: '/assets/svg/tailwindcss.svg'
+---
+
+When using the Tailwind CSS Typography plugin, you may want to remove the backticks around code. This is how you do it.
+
+```ts
+// tailwind.config.js
+const defaultTheme = require('tailwindcss/defaultTheme')
+
+module.exports = {
+  theme: {
+    extend: {
+      typography (theme) {
+        return {
+          DEFAULT: {
+            css: {
+              'code::before': {
+                content: 'none'
+              },
+              'code::after': {
+                content: 'none'
+              },
+            }
+          }
+        }
+      }
+    }
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ]
+}
+```

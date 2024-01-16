@@ -19,16 +19,11 @@ export async function generateMetadata({
     return
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    coverImage: image,
-  } = post?.metadata
+  let { title, publishedAt: publishedTime, coverImage: image } = post?.metadata
   let ogImage = image
     ? `${process.env.NEXT_PUBLIC_URL}${image}`
     : `${process.env.NEXT_PUBLIC_URL}/api/og?title=${title}`
-
+  const description = ''
   return {
     title,
     description,

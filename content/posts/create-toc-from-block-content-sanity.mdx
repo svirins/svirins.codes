@@ -1,11 +1,10 @@
 ---
 title: 'Create TOC (table of contents) from Sanity portable text'
-summary: ''
 publishedAt: '2024-05-01'
 coverImage: '/assets/images/sanity.webp'
 ---
 
-### 1. Get all _headings_ from the portable text:
+#### 1. Get all _headings_ from the portable text:
 
 ```ts
 *[_type == "post"] {
@@ -34,18 +33,12 @@ result should be something like this:
 }
 ```
 
-### 2. Create a function to parse the headings:
+#### 2. Create a function to parse the headings:
 
 ```ts
 import speakingurl from 'speakingurl';
 
-/**
- * Filters the AST based on a given match function.
- *
- * @param {Array} ast - The abstract syntax tree to filter.
- * @param {Function} match - The match function used to determine if a node should be included in the filtered result.
- * @returns {Array} - The filtered result containing nodes that match the given match function.
- */
+// Filters the AST based on a given match function.
 const filter = (ast, match) =>
   ast.reduce((acc, node) => {
     if (match(node)) acc.push(node);
@@ -53,12 +46,7 @@ const filter = (ast, match) =>
     return acc;
   }, []);
 
-/**
- * Finds headings in the given AST and returns an array of objects containing the heading text and slug.
- *
- * @param {Object} ast - The AST to search for headings.
- * @returns {Array} - An array of objects containing the heading text and slug.
- */
+// Finds headings in the given AST and returns an array of objects containing the heading text and slug.
 const findHeadings = (ast) =>
   filter(ast, (node) => /h\d/.test(node.style)).map((node) => {
     const text = getChildrenText(node);
@@ -66,44 +54,22 @@ const findHeadings = (ast) =>
     return { ...node, text, slug };
   });
 
-/**
- * Returns the concatenated text content of the children nodes.
- *
- * @param {Object} props - The props object containing the children nodes.
- * @returns {string} - The concatenated text content.
- */
+// Returns the concatenated text content of the children nodes.
 export const getChildrenText = (props) =>
   props.children
     .map((node) => (typeof node === 'string' ? node : node.text || ''))
     .join('');
 
-/**
- * Retrieves a value from an object using a given path.
- *
- * @param {object} object - The object to retrieve the value from.
- * @param {Array} path - An array representing the path to the desired value.
- * @returns {*} - The value found at the specified path.
- */
+// Retrieves a value from an object using a given path.
 const get = (object, path) => path.reduce((prev, curr) => prev[curr], object);
 
-/**
- * Returns the object path for a given path.
- * @param {Array} path - The path to convert into an object path.
- * @returns {Array} - The object path.
- */
+// Returns the object path for a given path.
 const getObjectPath = (path) =>
   path.length === 0
     ? path
     : ['subheadings'].concat(path.join('.subheadings.').split('.'));
 
-
-/**
- * Parses the given AST (Abstract Syntax Tree) to create an outline of subheadings.
- * 
- * @param {Object} ast - The AST representing the content.
- * @returns {Array} - An array of subheadings in the outline.
- */
-
+// Parses the given AST (Abstract Syntax Tree) to create an outline of subheadings.
 export const parseOutline = (ast) => {
   const outline = { subheadings: [] };
   const headings = findHeadings(ast);
@@ -127,7 +93,7 @@ export const parseOutline = (ast) => {
 }
 ```
 
-### 3. Finally, use the function to create the TOC:
+#### 3. Finally, call function and create TOC:
 
 ```jsx
 import { getChildrenText } from 'lib/utils/createNestedSubheaders';

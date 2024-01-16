@@ -56,7 +56,7 @@ body {
 }
 
 .heading-link {
-  @apply hover:text-active duration-150 ease-in-out transitiion-colors;
+  @apply hover:text-active duration-150 ease-in-out;
 }
 
 
@@ -69,7 +69,7 @@ h2 {
 }
 
 h3 {
-  @apply text-xl my-4 text-gray-200 ;
+  @apply text-xl my-4 text-gray-200 font-semibold;
 }
 
 p {
@@ -116,6 +116,14 @@ hr {
 }
 
 .prose pre code {
+  @apply text-sm font-mono;
+}
+
+.prose p code {
+  @apply text-sm font-mono;
+}
+
+.prose p code {
   @apply text-sm font-mono;
 }
 
