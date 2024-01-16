@@ -62,7 +62,7 @@ export default async function PostPage({
   const post = getContent('posts').find((post) => post.slug === params.slug)
   if (!post) notFound()
 
-  const base64 = await getBase64(post?.metadata.coverImage)
+  // const base64 = await getBase64(post?.metadata.coverImage)
   return (
     <article className="mb-24">
       <h1>
@@ -74,7 +74,7 @@ export default async function PostPage({
             className="rounded-lg"
             src={post.metadata.coverImage}
             alt={post.metadata.title}
-            blurDataURL={base64 ?? undefined}
+            // blurDataURL={base64 ?? undefined}
           />
         </div>
       )}

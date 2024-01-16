@@ -24,14 +24,14 @@ function CustomLink(props: any) {
 }
 
 async function RoundedImage(props: any) {
-  const base64 = await getBase64(props.src)
+  // const base64 = await getBase64(props.src)
 
   return (
     <figure>
       <Image
         alt={props.alt}
         className="rounded-lg"
-        blurDataURL={base64}
+        // blurDataURL={base64}
         {...props}
       />
       {props.alt && <figcaption>{props.alt}</figcaption>}
