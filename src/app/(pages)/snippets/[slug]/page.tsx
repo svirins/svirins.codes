@@ -7,14 +7,14 @@ import Balancer from 'react-wrap-balancer'
 
 // we consider it's always a *.svg for an image
 export async function generateMetadata({
-  params,
+  params
 }: {
   params: {
     slug: string
   }
 }): Promise<Metadata | undefined> {
   let snippet = getContent('snippets').find(
-    (snippet) => snippet.slug === params.slug,
+    (snippet) => snippet.slug === params.slug
   )
   if (!snippet) {
     return
@@ -34,21 +34,21 @@ export async function generateMetadata({
       url: `${process.env.NEXT_PUBLIC_URL}/snippets/${snippet.slug}`,
       images: [
         {
-          url: ogImage,
-        },
-      ],
+          url: ogImage
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [ogImage],
-    },
+      images: [ogImage]
+    }
   }
 }
 
 export default async function SnippetsPage({
-  params,
+  params
 }: {
   params: {
     slug: string
@@ -56,7 +56,7 @@ export default async function SnippetsPage({
   }
 }) {
   const snippet = getContent('snippets').find(
-    (snippet) => snippet.slug === params.slug,
+    (snippet) => snippet.slug === params.slug
   )
   if (!snippet) notFound()
 
@@ -89,6 +89,6 @@ export default async function SnippetsPage({
 
 export async function generateStaticParams() {
   return getContent('snippets').map((snippet) => ({
-    slug: snippet.slug,
+    slug: snippet.slug
   }))
 }

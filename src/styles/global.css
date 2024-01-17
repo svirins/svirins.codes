@@ -26,7 +26,6 @@
   src: url('/fonts/JetBrainsMono[wght].ttf') format('woff');
 }
 
-
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
@@ -51,21 +50,20 @@ body {
   transition: background-size 0.5s ease-in-out;
 }
 .link-underlined:hover {
-    background-size: 100% 2px;
-    background-position: 0 100%;
+  background-size: 100% 2px;
+  background-position: 0 100%;
 }
 
 .heading-link {
   @apply hover:text-active duration-150 ease-in-out;
 }
 
-
 h1 {
   @apply text-3xl md:text-5xl mb-4 font-bold;
 }
 
 h2 {
-  @apply text-xl md:text-2xl my-4  text-gray-200 ;
+  @apply text-xl md:text-2xl my-4  text-gray-200;
 }
 
 h3 {
@@ -73,7 +71,7 @@ h3 {
 }
 
 p {
-  @apply text-gray-400 leading-relaxed md:text-lg;;
+  @apply text-gray-400 leading-relaxed md:text-lg;
 }
 
 li {
@@ -83,7 +81,6 @@ li {
 hr {
   @apply my-4 border-b-[0px] border-gray-800;
 }
-
 
 .prose a {
   @apply font-medium;

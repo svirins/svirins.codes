@@ -2,10 +2,10 @@ export default function robots() {
   return {
     rules: [
       {
-        userAgent: '*',
-      },
+        userAgent: '*'
+      }
     ],
     sitemap: 'https://svirins.codes/sitemap.xml',
-    host: 'https://svirins.codes',
+    host: 'https://svirins.codes'
   }
 }

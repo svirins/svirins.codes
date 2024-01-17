@@ -3,7 +3,10 @@ import Link from 'next/link'
 
 export default async function Posts() {
   const posts = getContent('posts').sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+    return (
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+    )
   })
   return (
     <section className="mb-24">

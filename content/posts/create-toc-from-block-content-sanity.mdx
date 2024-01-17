@@ -12,6 +12,7 @@ coverImage: '/assets/images/sanity.webp'
     && string::startsWith(style, "h")]
 }
 ```
+
 result should be something like this:
 
 ```json
@@ -36,67 +37,67 @@ result should be something like this:
 #### 2. Create a function to parse the headings:
 
 ```ts
-import speakingurl from 'speakingurl';
+import speakingurl from 'speakingurl'
 
 // Filters the AST based on a given match function.
 const filter = (ast, match) =>
   ast.reduce((acc, node) => {
-    if (match(node)) acc.push(node);
-    if (node.children) acc.push(...filter(node.children, match));
-    return acc;
-  }, []);
+    if (match(node)) acc.push(node)
+    if (node.children) acc.push(...filter(node.children, match))
+    return acc
+  }, [])
 
 // Finds headings in the given AST and returns an array of objects containing the heading text and slug.
 const findHeadings = (ast) =>
   filter(ast, (node) => /h\d/.test(node.style)).map((node) => {
-    const text = getChildrenText(node);
-    const slug = speakingurl(text);
-    return { ...node, text, slug };
-  });
+    const text = getChildrenText(node)
+    const slug = speakingurl(text)
+    return { ...node, text, slug }
+  })
 
 // Returns the concatenated text content of the children nodes.
 export const getChildrenText = (props) =>
   props.children
     .map((node) => (typeof node === 'string' ? node : node.text || ''))
-    .join('');
+    .join('')
 
 // Retrieves a value from an object using a given path.
-const get = (object, path) => path.reduce((prev, curr) => prev[curr], object);
+const get = (object, path) => path.reduce((prev, curr) => prev[curr], object)
 
 // Returns the object path for a given path.
 const getObjectPath = (path) =>
   path.length === 0
     ? path
-    : ['subheadings'].concat(path.join('.subheadings.').split('.'));
+    : ['subheadings'].concat(path.join('.subheadings.').split('.'))
 
 // Parses the given AST (Abstract Syntax Tree) to create an outline of subheadings.
 export const parseOutline = (ast) => {
-  const outline = { subheadings: [] };
-  const headings = findHeadings(ast);
-  const path = [];
-  let lastLevel = 0;
+  const outline = { subheadings: [] }
+  const headings = findHeadings(ast)
+  const path = []
+  let lastLevel = 0
 
   headings.forEach((heading) => {
-    const level = Number(heading.style.slice(1));
-    heading.subheadings = [];
+    const level = Number(heading.style.slice(1))
+    heading.subheadings = []
 
-    if (level < lastLevel) for (let i = lastLevel; i >= level; i--) path.pop();
-    else if (level === lastLevel) path.pop();
+    if (level < lastLevel) for (let i = lastLevel; i >= level; i--) path.pop()
+    else if (level === lastLevel) path.pop()
 
-    const prop = get(outline, getObjectPath(path));
-    prop.subheadings.push(heading);
-    path.push(prop.subheadings.length - 1);
-    lastLevel = level;
-  });
+    const prop = get(outline, getObjectPath(path))
+    prop.subheadings.push(heading)
+    path.push(prop.subheadings.length - 1)
+    lastLevel = level
+  })
 
-  return outline.subheadings;
+  return outline.subheadings
 }
 ```
 
 #### 3. Finally, call function and create TOC:
 
 ```jsx
-import { getChildrenText } from 'lib/utils/createNestedSubheaders';
+import { getChildrenText } from 'lib/utils/createNestedSubheaders'
 // Using 2 levels of nesting for brevity
 // h2 = level 0, h3 and the rest are level 1
 function TOC({ headings }) {
@@ -114,6 +115,6 @@ function TOC({ headings }) {
         ))}
       </ul>
     </>
-  );
+  )
 }
 ```

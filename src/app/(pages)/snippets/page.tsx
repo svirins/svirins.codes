@@ -4,7 +4,10 @@ import Link from 'next/link'
 
 export default async function Snippets() {
   const snippets = getContent('snippets').sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+    return (
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+    )
   })
 
   return (

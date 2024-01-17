@@ -3,6 +3,7 @@ title: 'Create Algolia i18n indices'
 publishedAt: '2023-11-08'
 coverImage: '/assets/images/sanity-algolia.webp'
 ---
+
 Let's say we're creating an index for posts in two locales: `en` and `de`. We'll need to create two indices: `indexName-en` and `indexName-de`. Each index will contain posts in the respective locale.
 
 #### 1. Fetch data from Sanity for each locale
@@ -10,21 +11,20 @@ Let's say we're creating an index for posts in two locales: `en` and `de`. We'll
 ```ts
 // lib/sanity.ts
 // Hereinafter I've omitted explicit type definitions for brevity
-import { createClient } from "next-sanity";
-import groq from "groq";
+import { createClient } from 'next-sanity'
+import groq from 'groq'
 
 const sanityClient = createClient({
   apiVersion: process.env.SANITY_API_VERSION,
   dataset: process.env.SANITY_DATASET,
-  projectId: process.env.SANITY_PROJECT_ID,
-});
+  projectId: process.env.SANITY_PROJECT_ID
+})
 
-const query = groq
-  `*[_type == "post" && !(_id in path("drafts.**")] {
+const query = groq`*[_type == "post" && !(_id in path("drafts.**")] {
     "objectID": _id,
     "title": title[$locale],
     "slug": slug.current,
-  }`;
+  }`
 
 export async function getPostsForLocale(locale: 'en' | 'de'): Promise<IPost[]> {
   const data = await sanityClient.fetch(
@@ -34,60 +34,59 @@ export async function getPostsForLocale(locale: 'en' | 'de'): Promise<IPost[]> {
       "slug": slug.current
     }`,
     { locale }
-  );
-  return data;
+  )
+  return data
 }
 ```
+
 #### 2. Create a script that runs the index creation process for each locale.
 
 ```ts
 // scripts/createIndex.ts
-import algoliasearch from "algoliasearch";
-import { getPostsForLocale } from "@/lib/sanity";
+import algoliasearch from 'algoliasearch'
+import { getPostsForLocale } from '@/lib/sanity'
 
 const algoliaInstance = algoliasearch(
   process.env.ALGOLIA_APP_ID!,
-  process.env.ALGOLIA_SEARCH_ADMIN_KEY!,
-);
+  process.env.ALGOLIA_SEARCH_ADMIN_KEY!
+)
 
 const ALGOLIA_INDICES = [
   {
-    indexName: "indexName-en",
-    locale: "en",
+    indexName: 'indexName-en',
+    locale: 'en'
   },
   {
-    indexName: "indexName-de",
-    locale: "de",
-  },
-];
+    indexName: 'indexName-de',
+    locale: 'de'
+  }
+]
 
 async function createIndexForLocale(indexName, locale) {
   try {
     const index = algoliaInstance.initIndex(indexName)
-    const data = await getPostsForLocale(locale);
-    await index.saveObjects(indexData);
-    console.log(
-      `Saved ${data.length} documents to index: ${index.indexName}`,
-    );
+    const data = await getPostsForLocale(locale)
+    await index.saveObjects(indexData)
+    console.log(`Saved ${data.length} documents to index: ${index.indexName}`)
     return {
       status: 200,
-      body: "Success!",
-    };
+      body: 'Success!'
+    }
   } catch (error) {
-    console.error(error);
+    console.error(error)
     return {
       status: 500,
-      body: error,
-    };
+      body: error
+    }
   }
 }
 
 export default async function createIndex() {
   const promises = ALGOLIA_INDICES.map(({ indexName, locale }) =>
-    createIndexForLocale(indexName, locale),
-  );
-  const results = await Promise.all(promises);
-  return results;
+    createIndexForLocale(indexName, locale)
+  )
+  const results = await Promise.all(promises)
+  return results
 }
 ```
 
@@ -95,24 +94,25 @@ export default async function createIndex() {
 
 ```ts
 // api/cron/route.ts
-import createIndex from "@/scripts/createIndex";
+import createIndex from '@/scripts/createIndex'
 
 export async function GET(req: Request) {
   if (
-    req.headers.get("Authorization") !== `Bearer ${process.env.CRON_SECRET}`
+    req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`
   ) {
-    return new Response(`Unauthorized`, { status: 401 });
+    return new Response(`Unauthorized`, { status: 401 })
   }
   try {
-    await generateIndex();
+    await generateIndex()
     return new Response(`Algolia index re-created successfully}`, {
-      status: 200,
-    });
+      status: 200
+    })
   } catch (e) {
-    const serializedError = e instanceof Error ? JSON.stringify(e,
-      Object.getOwnPropertyNames(e)
-    ) : "Unknown error";
-    return new Response(serializedError, { status: 500 });
+    const serializedError =
+      e instanceof Error
+        ? JSON.stringify(e, Object.getOwnPropertyNames(e))
+        : 'Unknown error'
+    return new Response(serializedError, { status: 500 })
   }
 }
 ```
@@ -121,7 +121,7 @@ export async function GET(req: Request) {
 
 Create a `vercel.json` file in your project's root directory
 
-```json 
+```json
 {
   "crons": [
     {
@@ -131,11 +131,12 @@ Create a `vercel.json` file in your project's root directory
   ]
 }
 ```
+
 Cron is scheduled to run every Sunday at midnight. You can use [crontab.guru](https://crontab.guru/) to generate your own schedule.
 
 #### 5. Deploy to Vercel and test it out by running cron manually.
 
-<Image   
+<Image
   alt={`Vercel project settings`}
   src={`/assets/images/vercel-cron.png`}
   width={1114}
@@ -143,5 +144,6 @@ Cron is scheduled to run every Sunday at midnight. You can use [crontab.guru](ht
 />
 
 <Callout emoji="💡">
-  Alternatively, you can choose to omit steps 3-5 and execute the script from step 2 directly as part of the build process.
+  Alternatively, you can choose to omit steps 3-5 and execute the script from
+  step 2 directly as part of the build process.
 </Callout>

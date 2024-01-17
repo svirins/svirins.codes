@@ -12,24 +12,23 @@ interface IWakaResponse {
   totalHours: number
 }
 
-
 const WAKA_STATS_COLORS = [
   {
     barColor: '#2563EB',
-    textColor: 'text-wakatime-blue',
+    textColor: 'text-wakatime-blue'
   },
   {
     barColor: '#D97706',
-    textColor: 'text-wakatime-amber',
+    textColor: 'text-wakatime-amber'
   },
   {
     barColor: '#A21CAF',
-    textColor: 'text-wakatime-fuchsia',
+    textColor: 'text-wakatime-fuchsia'
   },
   {
     barColor: '#4338CA',
-    textColor: 'text-wakatime-indigo',
-  },
+    textColor: 'text-wakatime-indigo'
+  }
 ]
 
 const getWakaStats = async (): Promise<IWakaResponse> => {
@@ -42,14 +41,14 @@ const getWakaStats = async (): Promise<IWakaResponse> => {
   }
   return {
     languages: data.languages,
-    totalHours: totalHours,
+    totalHours: totalHours
   }
 }
 
 const Bar = ({
   color,
   width,
-  x,
+  x
 }: {
   color: string
   width: number | string
@@ -66,13 +65,20 @@ export async function WakaStats() {
   const { languages, totalHours } = await getWakaStats()
   const datum = languages.sort((a, b) => b.percent - a.percent).slice(0, 3)
 
-  const stackedBarComments = datum.map(({ name: lang, text, hours, minutes }, index) => (
-    <div key={index}>
-      <span className={`${WAKA_STATS_COLORS[index].textColor} text-xs md:text-sm`}>{lang}</span>
-      <span className="  text-gray-400 text-xs md:text-sm">{` • ${hours}h ${minutes}m`}</span>
-    </div>
-  ))
-  if (totalHours < 10 || !languages) return <p>Insufficient data for analysis</p>
+  const stackedBarComments = datum.map(
+    ({ name: lang, text, hours, minutes }, index) => (
+      <div key={index}>
+        <span
+          className={`${WAKA_STATS_COLORS[index].textColor} text-xs md:text-sm`}
+        >
+          {lang}
+        </span>
+        <span className="  text-gray-400 text-xs md:text-sm">{` • ${hours}h ${minutes}m`}</span>
+      </div>
+    )
+  )
+  if (totalHours < 10 || !languages)
+    return <p>Insufficient data for analysis</p>
 
   const HEIGHT = 16
   const WIDTH = 672

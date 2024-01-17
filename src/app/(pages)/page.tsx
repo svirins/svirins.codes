@@ -78,7 +78,7 @@ export default function Page() {
             >
               <Image src={stack.src} alt={stack.name} className="w-10 h-10" />
             </a>
-          ),
+          )
         )}
       </div>
       <h3>Some stats:</h3>

@@ -3,12 +3,14 @@ import { NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
-
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
   const postTitle = searchParams.get('title')
   const font = fetch(
-    new URL(`${process.env.NEXT_PUBLIC_URL}/fonts/Montserrat-Regular.ttf`, import.meta.url),
+    new URL(
+      `${process.env.NEXT_PUBLIC_URL}/fonts/Montserrat-Regular.ttf`,
+      import.meta.url
+    )
   ).then((res) => res.arrayBuffer())
   const fontData = await font
 
@@ -22,7 +24,7 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: `${process.env.NEXT_PUBLIC_URL}/og-alt-bg.png`,
+          backgroundImage: `${process.env.NEXT_PUBLIC_URL}/og-alt-bg.png`
           // backgroundImage: 'url(https://svirins.codes/og-bg.png)'
         }}
       >
@@ -37,7 +39,7 @@ export async function GET(req: NextRequest) {
             fontStyle: 'normal',
             color: 'white',
             lineHeight: '120px',
-            whiteSpace: 'pre-wrap',
+            whiteSpace: 'pre-wrap'
           }}
         >
           {postTitle}
@@ -51,9 +53,9 @@ export async function GET(req: NextRequest) {
         {
           name: 'Montserrat',
           data: fontData,
-          style: 'normal',
-        },
-      ],
-    },
+          style: 'normal'
+        }
+      ]
+    }
   )
 }

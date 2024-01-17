@@ -16,16 +16,16 @@ sudo powertop -c
 ```
 
 <Callout emoji="💡">
-Keep in mind: during calibration, your screen may _go blank_ or _flicker_ for a few mins.
+  Keep in mind: during calibration, your screen may _go blank_ or _flicker_ for
+  a few mins.
 </Callout>
 
 Uncomment the following lines in /etc/tlp.conf and add the desired charge start and stop percentage. (Start percentage musst be 3% higher then the stop)
 
 ```ts
-START_CHARGE_THRESH_BAT0=50
-STOP_CHARGE_THRESH_BAT0=80
+START_CHARGE_THRESH_BAT0 = 50
+STOP_CHARGE_THRESH_BAT0 = 80
 ```
 
-Tested on: Pop!_OS 22.04 and LDME 5
+Tested on: Pop!\_OS 22.04 and LDME 5
 HW: ThinkPad X1 Carbon gen 7
-

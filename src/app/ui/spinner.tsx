@@ -1,4 +1,10 @@
-export function Spinner({ text, classNames }: { text?: string; classNames?: string }) {
+export function Spinner({
+  text,
+  classNames
+}: {
+  text?: string
+  classNames?: string
+}) {
   return (
     <div className={`flex flex-row items-center ${classNames}`}>
       <svg

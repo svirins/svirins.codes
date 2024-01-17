@@ -70,10 +70,10 @@ function createHeading(level: number) {
         React.createElement('a', {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: 'anchor',
-        }),
+          className: 'anchor'
+        })
       ],
-      children,
+      children
     )
   }
 }
@@ -96,11 +96,11 @@ async function Code(codeProps: any) {
 
   const highlighter = await getHighlighter({
     langs: ['shell', 'ts', 'jsx', 'json'],
-    themes: ['aurora-x'],
+    themes: ['aurora-x']
   })
   let codeHTML = highlighter.codeToHtml(children, {
     lang,
-    theme: 'aurora-x',
+    theme: 'aurora-x'
   })
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
@@ -115,7 +115,7 @@ export const customComponents = {
   Image: RoundedImage,
   a: CustomLink,
   Callout,
-  code: Code,
+  code: Code
 }
 
 export function MDXContent(props: any) {

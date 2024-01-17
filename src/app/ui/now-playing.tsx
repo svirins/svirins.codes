@@ -3,37 +3,39 @@ import { unstable_noStore } from 'next/cache'
 
 async function getSpotifyResponse() {
   unstable_noStore()
-  const basic = btoa(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`)
+  const basic = btoa(
+    `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
+  )
   try {
     const tokenResponse = await fetch(process.env.SPOTIFY_TOKEN_ENDPOINT!, {
       method: 'POST',
       headers: {
         Authorization: `Basic ${basic}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: new URLSearchParams({
         grant_type: 'refresh_token',
-        refresh_token: process.env.SPOTIFY_REFRESH_TOKEN!,
-      }),
+        refresh_token: process.env.SPOTIFY_REFRESH_TOKEN!
+      })
     })
     const { access_token } = await tokenResponse.json()
     const res = await fetch(process.env.SPOTIFY_NOW_PLAYING_ENDPOINT!, {
       headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
+        Authorization: `Bearer ${access_token}`
+      }
     })
     if (res.status === 204) {
       return {
         message: 'API called ok. Returning not playing',
         is_playing: false,
-        status: 200,
+        status: 200
       }
     }
     if (res.status > 400) {
       return {
         message: 'Spotify API error',
         is_playing: false,
-        status: res.status,
+        status: res.status
       }
     }
     const data = await res.json()
@@ -45,13 +47,16 @@ async function getSpotifyResponse() {
         .map((_artist: { name: string }) => _artist.name)
         .join(', ') as string,
       songUrl: data?.item.external_urls.spotify as string,
-      status: 200,
+      status: 200
     }
   } catch (e) {
     return {
-      message: e instanceof Error ? e.message : 'API call failed due to the Unknown error',
+      message:
+        e instanceof Error
+          ? e.message
+          : 'API call failed due to the Unknown error',
       is_playing: false,
-      status: 500,
+      status: 500
     }
   }
 }
@@ -122,4 +127,3 @@ function SpotifyStopped() {
     </div>
   )
 }
-

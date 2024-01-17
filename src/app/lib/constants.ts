@@ -1,23 +1,31 @@
 export const NAV_LINKS = [
   { href: '/', text: 'About' },
   { href: '/posts', text: 'Posts' },
-  { href: '/snippets', text: 'Snippets' },
+  { href: '/snippets', text: 'Snippets' }
 ]
 
 export const SOCIAL_LINKS = [
-  { href: 'https://github.com/svirins', text: 'My GitHub', iconSrc: '/assets/svg/github.svg' },
+  {
+    href: 'https://github.com/svirins',
+    text: 'My GitHub',
+    iconSrc: '/assets/svg/github.svg'
+  },
   {
     href: 'https://twitter.com/svirins',
     text: 'My X (ex-Twitter)',
-    iconSrc: '/assets/svg/x.svg',
+    iconSrc: '/assets/svg/x.svg'
   },
-  { href: 'mailto:svirins@gmail.com', text: 'My Gmail', iconSrc: '/assets/svg/gmail.svg' },
+  {
+    href: 'mailto:svirins@gmail.com',
+    text: 'My Gmail',
+    iconSrc: '/assets/svg/gmail.svg'
+  }
 ]
 
 export const AUTHOR = {
   name: 'Dzmitry Svirin',
   email: 'svirins@gmail.com',
-  link: 'https://twitter.com/svirins',
+  link: 'https://twitter.com/svirins'
 }
 
 export const TYPED_STRINGS = [
@@ -29,128 +37,128 @@ export const TYPED_STRINGS = [
   `¡Gracias por leer!`,
   `Dzięki za przeczytanie!`,
   `Дякую за читання!`,
-  `Grazie per aver letto!`,
+  `Grazie per aver letto!`
 ]
 
 export const STACKS = [
   {
     src: './assets/svg/strapi.svg',
     url: 'https://strapi.io/',
-    name: 'Strapi',
+    name: 'Strapi'
   },
   {
     src: './assets/svg/reacthookform.svg',
     url: 'https://react-hook-form.com/',
-    name: 'React Hook Form',
+    name: 'React Hook Form'
   },
   {
     src: './assets/svg/reactquery.svg',
     url: 'https://tanstack.com/query/v3/',
-    name: 'TanStack Query',
+    name: 'TanStack Query'
   },
   {
     src: './assets/svg/shadcnui.svg',
     url: 'https://ui.shadcn.com/',
-    name: 'shacdn/ui',
+    name: 'shacdn/ui'
   },
   {
     src: './assets/svg/redis.svg',
     url: 'https://www.algolia.com/',
-    name: 'Redis',
+    name: 'Redis'
   },
   {
     src: './assets/svg/algolia.svg',
     url: 'https://www.algolia.com/',
-    name: 'Algolia',
+    name: 'Algolia'
   },
   {
     src: './assets/svg/amazonaws.svg',
     url: 'https://aws.amazon.com/',
-    name: 'Amazon AWS',
+    name: 'Amazon AWS'
   },
   {
     src: './assets/svg/fastify.svg',
     url: 'https://fastify.dev/',
-    name: 'Fastify',
+    name: 'Fastify'
   },
   {
     src: './assets/svg/figma.svg',
     url: 'https://www.figma.com/',
-    name: 'Figma',
+    name: 'Figma'
   },
   {
     src: './assets/svg/supabase.svg',
     url: 'https://supabase.com/',
-    name: 'Supabase',
+    name: 'Supabase'
   },
   {
     src: './assets/svg/graphql.svg',
     url: 'https://graphql.org/',
-    name: 'GraphQL',
+    name: 'GraphQL'
   },
   {
     src: './assets/svg/turborepo.svg',
     url: 'https://turbo.build/',
-    name: 'Turborepo',
+    name: 'Turborepo'
   },
   {
     src: './assets/svg/linux.svg',
     url: 'https://www.linux.org/',
-    name: 'Linux',
+    name: 'Linux'
   },
   {
     src: './assets/svg/mongodb.svg',
     url: 'https://www.mongodb.com/',
-    name: 'MongoDB',
+    name: 'MongoDB'
   },
   {
     src: './assets/svg/mysql.svg',
     url: 'https://www.mysql.com/',
-    name: 'MySQL',
+    name: 'MySQL'
   },
   {
     src: './assets/svg/nodejs.svg',
     url: 'https://nodejs.org/',
-    name: 'Node.js',
+    name: 'Node.js'
   },
   {
     src: './assets/svg/nextjs.svg',
     url: 'https://www.nextjs.org/',
-    name: 'Nextjs',
+    name: 'Nextjs'
   },
   {
     src: './assets/svg/prisma.svg',
     url: 'https://www.prisma.io/',
-    name: 'Prisma',
+    name: 'Prisma'
   },
   {
     src: './assets/svg/react.svg',
     url: 'https://www.reactjs.org/',
-    name: 'React',
+    name: 'React'
   },
   {
     src: './assets/svg/sanity.svg',
     url: 'https://www.sanity.io/',
-    name: 'Sanity',
+    name: 'Sanity'
   },
   {
     src: './assets/svg/stripe.svg',
     url: 'https://www.stripe.com/',
-    name: 'Stripe',
+    name: 'Stripe'
   },
   {
     src: './assets/svg/tailwindcss.svg',
     url: 'https://www.tailwindscss.com/',
-    name: 'Tailwind CSS',
+    name: 'Tailwind CSS'
   },
   {
     src: './assets/svg/typescript.svg',
     url: 'https://www.typescriptlang.org/',
-    name: 'TypeScript',
+    name: 'TypeScript'
   },
   {
     src: './assets/svg/vercel.svg',
     url: 'https://vercel.com/',
-    name: 'Vercel',
-  },
+    name: 'Vercel'
+  }
 ]

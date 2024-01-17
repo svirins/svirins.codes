@@ -15,7 +15,7 @@ module.exports = {
         blue: '#2563EB',
         amber: '#D97706',
         fuchsia: '#A21CAF',
-        indigo: '#4338CA',
+        indigo: '#4338CA'
       },
       code: {
         emerald: '#10b981',
@@ -23,12 +23,12 @@ module.exports = {
         pink: '#EC4899',
         blue: '#3b82f6',
         purple: '#A855F7',
-        green: '#22c55e',
-      },
+        green: '#22c55e'
+      }
     },
     fontFamily: {
       sans: ['Montserrat', ...fontFamily.sans],
-      mono: ['JetBrains Mono', ...fontFamily.mono],
+      mono: ['JetBrains Mono', ...fontFamily.mono]
     },
     extend: {
       typography(theme: any) {
@@ -36,19 +36,19 @@ module.exports = {
           DEFAULT: {
             css: {
               'code::before': {
-                content: 'none',
+                content: 'none'
               },
               'code::after': {
-                content: 'none',
-              },
-            },
-          },
+                content: 'none'
+              }
+            }
+          }
         }
-      },
-    },
+      }
+    }
   },
   future: {
-    hoverOnlyWhenSupported: true,
+    hoverOnlyWhenSupported: true
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography')]
 } satisfies Config

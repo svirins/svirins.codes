@@ -8,7 +8,7 @@ import Balancer from 'react-wrap-balancer'
 import { getBase64 } from '@/app/lib/getBase64'
 
 export async function generateMetadata({
-  params,
+  params
 }: {
   params: {
     slug: string
@@ -35,27 +35,27 @@ export async function generateMetadata({
       url: `${process.env.NEXT_PUBLIC_URL}/posts/${post?.slug}`,
       images: [
         {
-          url: ogImage,
-        },
-      ],
+          url: ogImage
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [ogImage],
-    },
+      images: [ogImage]
+    }
   }
 }
 
 export async function generateStaticParams() {
   return getContent('posts').map((post) => ({
-    slug: post.slug,
+    slug: post.slug
   }))
 }
 
 export default async function PostPage({
-  params,
+  params
 }: {
   params: { slug: string; searchParams: URLSearchParams }
 }) {

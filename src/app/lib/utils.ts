@@ -41,7 +41,7 @@ export function formatDate(date: string) {
   let fullDate = targetDate.toLocaleString('en-us', {
     month: 'long',
     day: 'numeric',
-    year: 'numeric',
+    year: 'numeric'
   })
   return `Published on ${fullDate} (${formattedDate})`
 }

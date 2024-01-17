@@ -5,13 +5,13 @@
  */
 const nextConfig = {
   images: {
-    formats: ['image/webp'],
+    formats: ['image/webp']
   },
   experimental: {
     // ppr: true,
-    webpackBuildWorker: true,
+    webpackBuildWorker: true
   },
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx']
 }
 
 export default nextConfig
