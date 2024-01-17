@@ -76,7 +76,13 @@ export default function Page() {
               rel="noopener noreferrer"
               key={index}
             >
-              <Image src={stack.src} alt={stack.name} className="w-10 h-10" />
+              <Image
+                src={stack.src}
+                alt={stack.name}
+                height={40}
+                width={40}
+                className="w-10 h-10"
+              />
             </a>
           )
         )}

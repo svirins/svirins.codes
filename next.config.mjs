@@ -9,7 +9,7 @@ const nextConfig = {
   },
   experimental: {
     // ppr: true,
-    webpackBuildWorker: true
+    // webpackBuildWorker: true
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx']
 }
