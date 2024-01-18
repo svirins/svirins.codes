@@ -6,7 +6,6 @@ async function getSpotifyResponse() {
   const basic = btoa(
     `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
   )
-  console.log('basic', basic)
   try {
     const tokenResponse = await fetch(process.env.SPOTIFY_TOKEN_ENDPOINT!, {
       method: 'POST',

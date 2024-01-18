@@ -1,4 +1,4 @@
-// import withPlaiceholder from '@plaiceholder/next'
+import withPlaiceholder from '@plaiceholder/next'
 
 /**
  * @type {import('next').NextConfig}
@@ -9,9 +9,8 @@ const nextConfig = {
   },
   experimental: {
     // ppr: true,
-    // webpackBuildWorker: true
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx']
 }
 
-export default nextConfig
+export default withPlaiceholder(nextConfig)

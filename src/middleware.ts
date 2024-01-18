@@ -4,7 +4,7 @@ export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline'  *.spotify.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline'  *.spotify.com ;
     style-src 'self' 'unsafe-inline';
     img-src 'self' *.pbs.twimg.com blob: data:;
     font-src 'self';

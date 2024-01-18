@@ -1,3 +1,4 @@
+import { getBase64 } from '@/app/lib/getBase64'
 import { getContent } from '@/app/lib/getContent'
 import { formatDate } from '@/app/lib/utils'
 import { MDXContent } from '@/app/ui/mdx'
@@ -5,7 +6,6 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
-import { getBase64 } from '@/app/lib/getBase64'
 
 export async function generateMetadata({
   params
@@ -62,7 +62,7 @@ export default async function PostPage({
   const post = getContent('posts').find((post) => post.slug === params.slug)
   if (!post) notFound()
 
-  // const base64 = await getBase64(post?.metadata.coverImage)
+  const base64 = await getBase64(post?.metadata.coverImage)
   return (
     <article className="mb-24">
       <h1>
@@ -74,7 +74,7 @@ export default async function PostPage({
             className="rounded-lg"
             src={post.metadata.coverImage}
             alt={post.metadata.title}
-            // blurDataURL={base64 ?? undefined}
+            blurDataURL={base64 ?? undefined}
           />
         </div>
       )}
