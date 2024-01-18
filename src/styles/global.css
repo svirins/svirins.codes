@@ -111,8 +111,12 @@ hr {
   cursor: pointer;
 }
 
+.prose ul {
+  @apply pl-3;
+}
+
 .prose li {
-  @apply list-[circle];
+  @apply list-[squre] list-inside;
 }
 
 .anchor:hover {

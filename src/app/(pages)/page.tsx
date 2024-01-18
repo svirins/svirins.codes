@@ -13,11 +13,11 @@ export default function Page() {
           <h1>
             Hi, I&apos;m <span className="text-active">Dzmitry</span>
           </h1>
-          <h3>
+          <h4>
             I specialize in turning ideas into{' '}
             <span className="font-semibold italic">real-life </span>
             products.
-          </h3>
+          </h4>
           <p>
             Full-stack developer with a passion for the React ecosystem,
             TypeScript, and serverless backends.
@@ -28,44 +28,47 @@ export default function Page() {
             alt="Dzmitry Svirin"
             // src="/dzmitry.webp"
             src="/svirins.png"
-            width={300}
-            height={300}
+            width={350}
+            height={350}
             className="rounded-full"
             priority
           />
         </div>
       </div>
       <hr className="mb-6" />
-      <h3>In short:</h3>
-      <ul className="list-inside list-[circle] pb-8 [&>*]:py-[0.1rem]">
-        <li>
-          10+ years of building products for clients across several countries;
-        </li>
-        <li>
-          currently working with regular clients, but open to new opportunities;
-        </li>
-        <li>
-          I live in Batumi{' '}
-          <span role="img" aria-label="wave">
-            🌊
-          </span>
-          <span role="img" aria-label="sun">
-            🔆
-          </span>
-          <span role="img" aria-label="georgia flag">
-            🇬🇪
-          </span>{' '}
-          and enjoy swimming, mountains and good movies;
-        </li>
-      </ul>
-      <h3>My values:</h3>
-      <ul className="list-inside  list-[circle]  pb-8 [&>*]:py-[0.1rem]">
-        <li>consistency over speed;</li>
-        <li>honesty, reliability, responsibility;</li>
-        <li>keep coding standards and best practices;</li>
-        <li>be curious, learn iteratively;</li>
-      </ul>
-      <h3>Technologies I use frequently:</h3>
+      <div className="prose prose-invert md:prose-lg">
+        <h4>In short:</h4>
+        <ul>
+          <li>
+            10+ years of building products for clients across several countries;
+          </li>
+          <li>
+            currently working with regular clients, but open to new
+            opportunities;
+          </li>
+          <li>
+            I live in Batumi{' '}
+            <span role="img" aria-label="wave">
+              🌊
+            </span>
+            <span role="img" aria-label="sun">
+              🔆
+            </span>
+            <span role="img" aria-label="georgia flag">
+              🇬🇪
+            </span>{' '}
+            and enjoy swimming, mountains and good movies;
+          </li>
+        </ul>
+        <h4>My values:</h4>
+        <ul>
+          <li>consistency over speed;</li>
+          <li>honesty, reliability, responsibility;</li>
+          <li>keep coding standards and best practices;</li>
+          <li>be curious, learn iteratively;</li>
+        </ul>
+        <h4>Technologies I use frequently:</h4>
+      </div>
       <div className="grid grid-cols-6 md:grid-cols-8 items-center justify-between  gap-x-6 gap-y-6  pt-2 pb-8">
         {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(
           (stack, index) => (
@@ -88,7 +91,7 @@ export default function Page() {
           )
         )}
       </div>
-      <h3>Some stats:</h3>
+      <h4>Some stats:</h4>
       <Suspense
         fallback={
           <Spinner
@@ -99,36 +102,20 @@ export default function Page() {
       >
         <WakaStats />
       </Suspense>
-      <h3>Get in touch:</h3>
-      <ul className="list-inside  list-[circle] pb-8 [&>*]:py-[0.1rem]">
-        <li>
-          GitHub:{' '}
-          <a
-            className="  text-gray-300  font-medium link-underlined "
-            href="https://github.com/svirins"
-          >
-            @svirins
-          </a>
-        </li>
-        <li>
-          ex-Twitter:{' '}
-          <a
-            className="  text-gray-300  font-medium link-underlined "
-            href="https://twitter.com/svirins"
-          >
-            @svirins
-          </a>
-        </li>
-        <li>
-          Email:{' '}
-          <a
-            className="  text-gray-300  font-medium  link-underlined "
-            href="mailto:svirins@gmail.com"
-          >
-            svirins@gmail.com
-          </a>
-        </li>
-      </ul>
+      <div className="prose prose-invert md:prose-lg">
+        <h4>Get in touch:</h4>
+        <ul>
+          <li>
+            GitHub: <a href="https://github.com/svirins">@svirins</a>
+          </li>
+          <li>
+            ex-Twitter: <a href="https://twitter.com/svirins">@svirins</a>
+          </li>
+          <li>
+            Email: <a href="mailto:svirins@gmail.com">svirins@gmail.com</a>
+          </li>
+        </ul>
+      </div>
       <p className="mt-2">
         <Typewriter />
       </p>
