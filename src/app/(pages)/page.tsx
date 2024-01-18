@@ -26,10 +26,11 @@ export default function Page() {
         <div className="hidden md:block">
           <Image
             alt="Dzmitry Svirin"
-            src="/dzmitry.webp"
-            width={262}
-            height={363}
-            className="rounded-sm"
+            // src="/dzmitry.webp"
+            src="/svirins.png"
+            width={300}
+            height={300}
+            className="rounded-full"
             priority
           />
         </div>

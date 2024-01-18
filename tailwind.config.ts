@@ -27,7 +27,7 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['Montserrat', ...fontFamily.sans],
+      sans: ['IBM Plex Sans', ...fontFamily.sans],
       mono: ['JetBrains Mono', ...fontFamily.mono]
     },
     extend: {
