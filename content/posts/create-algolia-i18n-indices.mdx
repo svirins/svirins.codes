@@ -11,8 +11,8 @@ Let's say we're creating an index for posts in two locales: `en` and `de`. We'll
 ```ts
 // lib/sanity.ts
 // Hereinafter I've omitted explicit type definitions for brevity
-import { createClient } from 'next-sanity'
 import groq from 'groq'
+import { createClient } from 'next-sanity'
 
 const sanityClient = createClient({
   apiVersion: process.env.SANITY_API_VERSION,
@@ -44,6 +44,7 @@ export async function getPostsForLocale(locale: 'en' | 'de'): Promise<IPost[]> {
 ```ts
 // scripts/createIndex.ts
 import algoliasearch from 'algoliasearch'
+
 import { getPostsForLocale } from '@/lib/sanity'
 
 const algoliaInstance = algoliasearch(

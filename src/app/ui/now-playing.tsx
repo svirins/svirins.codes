@@ -1,5 +1,6 @@
-export const runtime = 'edge'
 import { unstable_noStore } from 'next/cache'
+
+export const runtime = 'edge'
 
 async function getSpotifyResponse() {
   unstable_noStore()

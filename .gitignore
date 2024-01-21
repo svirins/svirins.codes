@@ -1,15 +1,16 @@
 *.log
+*.pem
 .DS_Store
 .next
 node_modules
+/node_modules
+dist
+.dist
 .vercel
 .env.local
 .env.development
 .env
-.sanity
 out
 .env*.local
 .turbo
-.dist
-# contentlayer
-.contentlayer
+*.tsbuildinfo

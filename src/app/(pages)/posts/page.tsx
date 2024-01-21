@@ -1,5 +1,6 @@
-import { getContent } from '@/app/lib/getContent'
 import Link from 'next/link'
+
+import { getContent } from '@/app/lib/getContent'
 
 export default async function Posts() {
   const posts = getContent('posts').sort((a, b) => {

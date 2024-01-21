@@ -1,9 +1,10 @@
-import { getBase64 } from '@/app/lib/getBase64'
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getHighlighter } from 'shikiji'
+
+import { getBase64 } from '@/app/lib/getBase64'
 
 function CustomLink(props: any) {
   const href = props.href

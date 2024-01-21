@@ -1,8 +1,9 @@
+import { Suspense } from 'react'
+import Image from 'next/image'
+
 import { SOCIAL_LINKS } from '@/app/lib/constants'
 import { NowPlaying } from '@/app/ui/now-playing'
 import { Spinner } from '@/app/ui/spinner'
-import Image from 'next/image'
-import { Suspense } from 'react'
 
 export function Footer() {
   return (

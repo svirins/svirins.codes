@@ -1,9 +1,10 @@
+import { Suspense } from 'react'
+import Image from 'next/image'
+
 import { STACKS } from '@/app/lib/constants'
 import { Spinner } from '@/app/ui/spinner'
 import { Typewriter } from '@/app/ui/typewriter'
 import { WakaStats } from '@/app/ui/wakatime'
-import Image from 'next/image'
-import { Suspense } from 'react'
 
 export default function Page() {
   return (

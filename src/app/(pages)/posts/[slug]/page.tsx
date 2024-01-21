@@ -1,11 +1,12 @@
-import { getBase64 } from '@/app/lib/getBase64'
-import { getContent } from '@/app/lib/getContent'
-import { formatDate } from '@/app/lib/utils'
-import { MDXContent } from '@/app/ui/mdx'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
+
+import { getBase64 } from '@/app/lib/getBase64'
+import { getContent } from '@/app/lib/getContent'
+import { formatDate } from '@/app/lib/utils'
+import { MDXContent } from '@/app/ui/mdx'
 
 export async function generateMetadata({
   params

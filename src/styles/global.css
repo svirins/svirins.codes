@@ -71,27 +71,27 @@ body {
 }
 
 .heading-link {
-  @apply hover:text-active duration-150 ease-in-out;
+  @apply duration-150 ease-in-out hover:text-active;
 }
 
 h1 {
-  @apply text-3xl md:text-5xl mb-4 font-bold;
+  @apply mb-4 text-3xl font-bold md:text-5xl;
 }
 
 h2 {
-  @apply text-xl md:text-2xl my-4  text-gray-200;
+  @apply my-4 text-xl text-gray-200  md:text-2xl;
 }
 
 h3 {
-  @apply text-xl my-4 text-gray-200 font-semibold;
+  @apply my-4 text-xl font-semibold text-gray-200;
 }
 
 p {
-  @apply text-gray-400 leading-relaxed md:text-lg;
+  @apply leading-relaxed text-gray-400 md:text-lg;
 }
 
 li {
-  @apply text-gray-400 leading-relaxed md:text-lg;
+  @apply leading-relaxed text-gray-400 md:text-lg;
 }
 
 hr {
@@ -116,7 +116,7 @@ hr {
 }
 
 .prose li {
-  @apply list-[squre] list-inside;
+  @apply list-inside list-[squre];
 }
 
 .anchor:hover {
@@ -137,15 +137,15 @@ hr {
 }
 
 .prose pre code {
-  @apply text-sm font-mono;
+  @apply font-mono text-sm;
 }
 
 .prose p code {
-  @apply text-sm font-mono;
+  @apply font-mono text-sm;
 }
 
 .prose p code {
-  @apply text-sm font-mono;
+  @apply font-mono text-sm;
 }
 
 .prose > :first-child {

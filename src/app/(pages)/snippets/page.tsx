@@ -1,6 +1,7 @@
-import { getContent } from '@/app/lib/getContent'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { getContent } from '@/app/lib/getContent'
 
 export default async function Snippets() {
   const snippets = getContent('snippets').sort((a, b) => {

@@ -1,9 +1,10 @@
 'use client'
 
-import { NAV_LINKS } from '@/app/lib/constants'
-import { isActiveLink } from '@/app/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
+import { NAV_LINKS } from '@/app/lib/constants'
+import { isActiveLink } from '@/app/lib/utils'
 
 export function Navbar() {
   const pathname = usePathname()
