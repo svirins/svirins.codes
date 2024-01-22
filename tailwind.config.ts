@@ -1,14 +1,13 @@
 import type { Config } from 'tailwindcss'
-
-const { fontFamily } = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
+import colors from 'tailwindcss/colors'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 module.exports = {
   content: ['./src/**/*.tsx', './src/**/*.jsx'],
   theme: {
     colors: {
-      active: '#ff312e',
-      gray: colors.zinc,
+      active: 'rgb(255 49 46 / 95%)',
+      gray: colors.slate,
       transparent: 'rgb(255 255 255 / 0%)',
       white: '#FFFFFF',
       wakatime: {
@@ -31,7 +30,7 @@ module.exports = {
       mono: ['JetBrains Mono', ...fontFamily.mono]
     },
     extend: {
-      typography(theme: any) {
+      typography() {
         return {
           DEFAULT: {
             css: {

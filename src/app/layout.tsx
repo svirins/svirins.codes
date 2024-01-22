@@ -48,7 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="mx-6 my-16 flex min-h-lvh max-w-2xl flex-col bg-gray-950 px-2 text-gray-100 antialiased md:px-0 lg:mx-auto">
+      <body className="mx-6 my-16 flex min-h-lvh max-w-2xl flex-col bg-gray-900 px-2 text-gray-300 antialiased md:px-0 lg:mx-auto">
         <main>
           <Navbar />
           {children}

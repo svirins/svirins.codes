@@ -27,7 +27,6 @@ export function Footer() {
               key={index}
               href={social.href}
               title={social.text}
-              className="duration-150 transform ease-in-out hover:scale-110"
               target="_blank"
               rel="noopener noreferrer"
             >
