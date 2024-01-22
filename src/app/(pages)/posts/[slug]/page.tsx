@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
@@ -15,14 +15,14 @@ export async function generateMetadata({
     slug: string
   }
 }): Promise<Metadata | undefined> {
-  let post = getContent('posts').find((post) => post.slug === params.slug)
+  const post = getContent('posts').find((post) => post.slug === params.slug)
   if (!post) {
     return
   }
 
-  let { title, publishedAt: publishedTime, coverImage: image } = post?.metadata
-  let ogImage = image
-    ? `${process.env.NEXT_PUBLIC_URL}${image}`
+  const { title, publishedAt, coverImage } = post.metadata
+  const ogImage = coverImage
+    ? `${process.env.NEXT_PUBLIC_URL}${coverImage}`
     : `${process.env.NEXT_PUBLIC_URL}/api/og?title=${title}`
   const description = ''
   return {
@@ -32,7 +32,7 @@ export async function generateMetadata({
       title,
       description,
       type: 'article',
-      publishedTime,
+      publishedTime: publishedAt,
       url: `${process.env.NEXT_PUBLIC_URL}/posts/${post?.slug}`,
       images: [
         {
@@ -63,24 +63,26 @@ export default async function PostPage({
   const post = getContent('posts').find((post) => post.slug === params.slug)
   if (!post) notFound()
 
-  const base64 = await getBase64(post?.metadata.coverImage)
+  const { title, coverImage, publishedAt } = post.metadata
+
+  const blurDataURL = coverImage ? await getBase64(coverImage) : undefined
   return (
     <article className="mb-24">
       <h1>
-        <Balancer ratio={0.85}>{post!.metadata.title}</Balancer>
+        <Balancer ratio={0.85}>{title}</Balancer>
       </h1>
-      {post?.metadata.coverImage && (
+      {coverImage && (
         <div className="my-4">
           <Image
             className="rounded-lg"
-            src={post.metadata.coverImage}
-            alt={post.metadata.title}
-            blurDataURL={base64 ?? undefined}
+            src={coverImage}
+            alt={title}
+            blurDataURL={blurDataURL}
           />
         </div>
       )}
       <p className="text-xs md:text-sm lg:text-base  text-gray-400">
-        {formatDate(post!.metadata.publishedAt)}
+        {formatDate(publishedAt)}
       </p>
       {post?.content && (
         <div className="prose  prose-invert  md:prose-lg">

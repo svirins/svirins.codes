@@ -39,6 +39,20 @@ export const TYPED_STRINGS = [
   `Дякую за читання!`,
   `Grazie per aver letto!`
 ]
+// React
+// Next.js
+// Typescript
+// tRPC
+// Prisma
+// Planetscale
+// Supabase
+// TailwindCSS
+// Turborepo
+// Sanity CMS
+// Zustand
+// Zod (добавить вместо)
+// Tanstack Query
+// Vercel
 
 export const STACKS = [
   {

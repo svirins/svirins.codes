@@ -68,7 +68,7 @@ export default function Page() {
           <li>keep coding standards and best practices;</li>
           <li>be curious, learn iteratively;</li>
         </ul>
-        <h4>Technologies I use frequently:</h4>
+        <h4>I mainly work with a stack:</h4>
       </div>
       <div className="grid grid-cols-6 items-center justify-between gap-x-6  gap-y-6 pb-8  pt-2 md:grid-cols-8">
         {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(

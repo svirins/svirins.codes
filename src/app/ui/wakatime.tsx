@@ -7,7 +7,6 @@ interface ILanguage {
   percent: number
   text: string
 }
-
 interface IWakaResponse {
   languages: ILanguage[]
   totalHours: number
@@ -35,7 +34,17 @@ const WAKA_STATS_COLORS = [
 const getWakaStats = async (): Promise<IWakaResponse> => {
   // TODO: Check fecth return for errors and
   const response = await fetch(process.env.WAKATIME_API_ENDPOINT!)
-  const { data } = await response.json()
+  const { data } = (await response.json()) as {
+    data?: {
+      languages: ILanguage[]
+    }
+  }
+  if (!data) {
+    return {
+      languages: [],
+      totalHours: 0
+    }
+  }
   let totalHours = 0
   for (const element of data.languages) {
     totalHours += element.minutes
@@ -64,10 +73,11 @@ export async function WakaStats() {
   unstable_noStore()
 
   const { languages, totalHours } = await getWakaStats()
+  if (totalHours < 10 || !languages) return <p>Insufficient data for display</p>
   const datum = languages.sort((a, b) => b.percent - a.percent).slice(0, 3)
 
   const stackedBarComments = datum.map(
-    ({ name: lang, text, hours, minutes }, index) => (
+    ({ name: lang, hours, minutes }, index) => (
       <div key={index}>
         <span
           className={`${WAKA_STATS_COLORS[index]!.textColor} text-xs md:text-sm`}
@@ -78,8 +88,6 @@ export async function WakaStats() {
       </div>
     )
   )
-  if (totalHours < 10 || !languages)
-    return <p>Insufficient data for analysis</p>
 
   const HEIGHT = 16
   const WIDTH = 672

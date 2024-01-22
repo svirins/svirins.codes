@@ -7,6 +7,7 @@ async function getSpotifyResponse() {
   const basic = btoa(
     `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
   )
+  const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN
   try {
     const tokenResponse = await fetch(process.env.SPOTIFY_TOKEN_ENDPOINT!, {
       method: 'POST',
@@ -16,10 +17,13 @@ async function getSpotifyResponse() {
       },
       body: new URLSearchParams({
         grant_type: 'refresh_token',
-        refresh_token: process.env.SPOTIFY_REFRESH_TOKEN!
+        refresh_token: refreshToken
       })
     })
-    const { access_token } = await tokenResponse.json()
+
+    const { access_token } = (await tokenResponse.json()) as {
+      access_token?: string
+    }
     const res = await fetch(process.env.SPOTIFY_NOW_PLAYING_ENDPOINT!, {
       headers: {
         Authorization: `Bearer ${access_token}`
@@ -39,15 +43,20 @@ async function getSpotifyResponse() {
         status: res.status
       }
     }
-    const data = await res.json()
+    const { is_playing, item } = (await res.json()) as {
+      is_playing: boolean
+      item?: {
+        name: string
+        artists: { name: string }[]
+        external_urls: { spotify: string }
+      }
+    }
     return {
       message: 'API called ok. Returning data',
-      is_playing: data?.is_playing as boolean,
-      title: data?.item.name as string,
-      artist: data?.item.artists
-        .map((_artist: { name: string }) => _artist.name)
-        .join(', ') as string,
-      songUrl: data?.item.external_urls.spotify as string,
+      is_playing,
+      title: item?.name,
+      artist: item?.artists.map((_artist) => _artist.name).join(', '),
+      songUrl: item?.external_urls.spotify,
       status: 200
     }
   } catch (e) {

@@ -6,45 +6,58 @@ import { getHighlighter } from 'shikiji'
 
 import { getBase64 } from '@/app/lib/getBase64'
 
-function CustomLink(props: any) {
-  const href = props.href
-
+interface LinkProps {
+  href: string
+  children: React.ReactNode
+  props?: unknown
+}
+function CustomLink({ href, children, props }: LinkProps) {
   if (href.startsWith('/')) {
-    return (
-      <Link href={href} {...props}>
-        {props.children}
-      </Link>
-    )
+    return <Link href={href}>{children}</Link>
   }
 
   if (href.startsWith('#')) {
-    return <a {...props} />
+    return <a href={href}>{children}</a>
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return (
+    <a target="_blank" rel="noopener noreferrer" href={href}>
+      {children}
+    </a>
+  )
 }
-
-async function RoundedImage(props: any) {
-  // const base64 = await getBase64(props.src)
+interface ImgProps {
+  alt: string
+  src: string
+  width?: number
+  height?: number
+}
+async function Img({ alt, src, width, height }: ImgProps) {
+  const base64 = await getBase64(src)
 
   return (
     <figure>
       <Image
-        alt={props.alt}
+        src={src}
+        alt={alt}
         className="rounded-lg"
-        // blurDataURL={base64}
-        {...props}
+        blurDataURL={base64}
+        width={width}
+        height={height}
       />
-      {props.alt && <figcaption>{props.alt}</figcaption>}
+      {alt && <figcaption>{alt}</figcaption>}
     </figure>
   )
 }
-
-function Callout(props: any) {
+interface CalloutProps {
+  emoji: string
+  children: React.ReactNode
+}
+function Callout({ emoji, children }: CalloutProps) {
   return (
     <div className="text-grey-200 mb-8 flex items-center rounded-lg border border-gray-800 bg-gray-900 p-1 px-4 py-3 text-sm md:text-base">
-      <div className="mr-4 flex items-center text-2xl">{props.emoji}</div>
-      <div className="callout w-full">{props.children}</div>
+      <div className="mr-4 flex items-center text-2xl">{emoji}</div>
+      <div className="callout w-full">{children}</div>
     </div>
   )
 }
@@ -61,9 +74,8 @@ function slugify(str: string) {
 }
 
 function createHeading(level: number) {
-  // eslint-disable-next-line react/display-name
   return ({ children }: { children: React.ReactNode & string }) => {
-    let slug = slugify(children)
+    const slug = slugify(children)
     return React.createElement(
       `h${level}`,
       { id: slug },
@@ -113,7 +125,7 @@ export const customComponents = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  Image: RoundedImage,
+  Image: Img,
   a: CustomLink,
   Callout,
   code: Code
