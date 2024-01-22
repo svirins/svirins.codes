@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
-import Image from 'next/image'
 
-import { SOCIAL_LINKS } from '@/app/lib/constants'
+import { SOCIAL_ICONS } from '@/app/ui/icons'
 import { NowPlaying } from '@/app/ui/now-playing'
 import { Spinner } from '@/app/ui/spinner'
 
@@ -23,21 +22,16 @@ export function Footer() {
       </div>
       <div className="flex flex-col">
         <div className="my-2 space-x-4 flex flex-row">
-          {SOCIAL_LINKS.map((link, index) => (
+          {SOCIAL_ICONS.map((social, index) => (
             <a
               key={index}
-              href={link.href}
-              title={link.text}
+              href={social.href}
+              title={social.text}
               className="duration-150 transform ease-in-out hover:scale-110"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
-                src={link.iconSrc}
-                alt={link.text}
-                width={18}
-                height={18}
-              />
+              {social.icon}
             </a>
           ))}
         </div>

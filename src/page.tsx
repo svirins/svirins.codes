@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import Image from 'next/image'
 
-import { STACK_ICONS } from '@/app/ui/icons'
+import { STACKS } from '@/app/lib/constants'
 import { Spinner } from '@/app/ui/spinner'
 import { Typewriter } from '@/app/ui/typewriter'
 import { WakaStats } from '@/app/ui/wakatime'
@@ -71,16 +71,23 @@ export default function Page() {
         <h4>I mainly work with a stack:</h4>
       </div>
       <div className="grid grid-cols-6 items-center justify-between gap-x-6  gap-y-6 pb-8  pt-2 md:grid-cols-8">
-        {STACK_ICONS.sort((a, b) => a?.text?.localeCompare(b?.text)).map(
+        {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(
           (stack, index) => (
             <a
+              className="transform fill-gray-400 duration-150 ease-in-out hover:scale-110  hover:fill-gray-200 "
               href={stack.url}
-              title={stack.text}
+              title={stack.name}
               target="_blank"
               rel="noopener noreferrer"
               key={index}
             >
-              {stack.icon}
+              <Image
+                src={stack.src}
+                alt={stack.name}
+                height={40}
+                width={40}
+                className="h-10 w-10"
+              />
             </a>
           )
         )}

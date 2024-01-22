@@ -27,7 +27,9 @@ export default async function Snippets() {
           snippets.map((snippet) => (
             <div key={snippet.slug} className="flex flex-row">
               <Image
-                src={snippet.metadata.coverImage}
+                src={
+                  snippet.metadata.coverImage ?? '/assets/svg/placeholder.svg'
+                }
                 alt={snippet.metadata.title}
                 className="w-10 h-10 flex-none mr-4"
               />

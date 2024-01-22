@@ -3,6 +3,25 @@ export const NAV_LINKS = [
   { href: '/posts', text: 'Posts' },
   { href: '/snippets', text: 'Snippets' }
 ]
+
+// export const SOCIAL_LINKS = [
+//   {
+//     href: 'https://github.com/svirins',
+//     text: 'My GitHub',
+//     iconSrc: '/assets/svg/github.svg'
+//   },
+//   {
+//     href: 'https://twitter.com/svirins',
+//     text: 'My X (ex-Twitter)',
+//     iconSrc: '/assets/svg/x.svg'
+//   },
+//   {
+//     href: 'mailto:svirins@gmail.com',
+//     text: 'My Gmail',
+//     iconSrc: '/assets/svg/gmail.svg'
+//   }
+// ]
+
 export const AUTHOR = {
   name: 'Dzmitry Svirin',
   email: 'svirins@gmail.com',
@@ -20,6 +39,20 @@ export const TYPED_STRINGS = [
   `Дякую за читання!`,
   `Grazie per aver letto!`
 ]
+// React
+// Next.js
+// Typescript
+// tRPC
+// Prisma
+// Planetscale
+// Supabase
+// TailwindCSS
+// Turborepo
+// Sanity CMS
+// Zustand
+// Zod (добавить вместо)
+// Tanstack Query
+// Vercel
 
 export const STACKS = [
   {
