@@ -6,58 +6,44 @@ import { getHighlighter } from 'shikiji'
 
 import { getBase64 } from '@/app/lib/getBase64'
 
-interface LinkProps {
-  href: string
-  children: React.ReactNode
-  props?: unknown
-}
-function CustomLink({ href, children, props }: LinkProps) {
+function CustomLink(props: any) {
+  const href = props.href as string
+
   if (href.startsWith('/')) {
-    return <Link href={href}>{children}</Link>
+    return (
+      <Link href={href} {...props}>
+        {props.children}
+      </Link>
+    )
   }
 
   if (href.startsWith('#')) {
-    return <a href={href}>{children}</a>
+    return <a {...props} />
   }
 
-  return (
-    <a target="_blank" rel="noopener noreferrer" href={href}>
-      {children}
-    </a>
-  )
+  return <a target="_blank" rel="noopener noreferrer" {...props} />
 }
-interface ImgProps {
-  alt: string
-  src: string
-  width?: number
-  height?: number
-}
-async function Img({ alt, src, width, height }: ImgProps) {
-  const base64 = await getBase64(src)
 
+async function RoundedImage(props: any) {
+  const base64 = await getBase64(props.src)
   return (
     <figure>
       <Image
-        src={src}
-        alt={alt}
+        alt={props.alt}
         className="rounded-lg"
         blurDataURL={base64}
-        width={width}
-        height={height}
+        {...props}
       />
-      {alt && <figcaption>{alt}</figcaption>}
+      {props.alt && <figcaption>{props.alt}</figcaption>}
     </figure>
   )
 }
-interface CalloutProps {
-  emoji: string
-  children: React.ReactNode
-}
-function Callout({ emoji, children }: CalloutProps) {
+
+function Callout(props: any) {
   return (
     <div className="text-grey-200 mb-8 flex items-center rounded-lg border border-gray-800 bg-gray-900 p-1 px-4 py-3 text-sm md:text-base">
-      <div className="mr-4 flex items-center text-2xl">{emoji}</div>
-      <div className="callout w-full">{children}</div>
+      <div className="mr-4 flex items-center text-2xl">{props.emoji}</div>
+      <div className="callout w-full">{props.children}</div>
     </div>
   )
 }
@@ -75,7 +61,7 @@ function slugify(str: string) {
 
 function createHeading(level: number) {
   return ({ children }: { children: React.ReactNode & string }) => {
-    const slug = slugify(children)
+    let slug = slugify(children)
     return React.createElement(
       `h${level}`,
       { id: slug },
@@ -119,13 +105,11 @@ async function Code(codeProps: any) {
 }
 
 export const customComponents = {
-  h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
   h4: createHeading(4),
-  h5: createHeading(5),
   h6: createHeading(6),
-  Image: Img,
+  Image: RoundedImage,
   a: CustomLink,
   Callout,
   code: Code

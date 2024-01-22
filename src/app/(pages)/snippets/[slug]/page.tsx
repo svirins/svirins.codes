@@ -65,7 +65,8 @@ export default async function SnippetsPage({
     (snippet) => snippet.slug === params.slug
   )
   if (!snippet) notFound()
-  const { title, coverImage } = snippet.metadata
+  const { title, coverImage = './assers/svg/placeholder.svg' } =
+    snippet.metadata
 
   return (
     <article className="mb-24">

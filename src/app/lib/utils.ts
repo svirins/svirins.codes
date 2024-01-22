@@ -16,15 +16,15 @@ export function isActiveLink(href: string, currentPath: string): boolean {
 }
 
 export function formatDate(date: string) {
-  let currentDate = new Date()
+  const currentDate = new Date()
   if (!date.includes('T')) {
     date = `${date}T00:00:00`
   }
-  let targetDate = new Date(date)
+  const targetDate = new Date(date)
 
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-  let daysAgo = currentDate.getDate() - targetDate.getDate()
+  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
+  const monthsAgo = currentDate.getMonth() - targetDate.getMonth()
+  const daysAgo = currentDate.getDate() - targetDate.getDate()
 
   let formattedDate = ''
 
@@ -38,7 +38,7 @@ export function formatDate(date: string) {
     formattedDate = 'Today'
   }
 
-  let fullDate = targetDate.toLocaleString('en-us', {
+  const fullDate = targetDate.toLocaleString('en-us', {
     month: 'long',
     day: 'numeric',
     year: 'numeric'
