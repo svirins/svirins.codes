@@ -42,9 +42,9 @@ async function RoundedImage(props: any) {
 
 function Callout(props: any) {
   return (
-    <div className="px-4 py-3 border border-gray-800 bg-gray-900 rounded-lg p-1 text-sm md:text-base flex items-center text-grey-200 mb-8">
-      <div className="flex items-center text-2xl mr-4">{props.emoji}</div>
-      <div className="w-full callout">{props.children}</div>
+    <div className="text-grey-200 mb-8 flex items-center rounded-lg border border-gray-800 bg-gray-900 p-1 px-4 py-3 text-sm md:text-base">
+      <div className="mr-4 flex items-center text-2xl">{props.emoji}</div>
+      <div className="callout w-full">{props.children}</div>
     </div>
   )
 }
@@ -87,7 +87,7 @@ async function Code(codeProps: any) {
   if (!lang) {
     return (
       <code
-        className="rounded-md border border-gray-800 bg-gray-900 px-1 py-0.5 text-gray-200 text-base md:text-lg"
+        className="rounded-md border border-gray-800 bg-gray-900 px-1 py-0.5 text-base text-gray-200 md:text-lg"
         {...props}
       >
         {children}
@@ -123,7 +123,7 @@ export function MDXContent(props: any) {
   return (
     <MDXRemote
       {...props}
-      components={{ ...customComponents, ...(props.components || {}) }}
+      components={{ ...customComponents, ...(props.components ?? {}) }}
     />
   )
 }

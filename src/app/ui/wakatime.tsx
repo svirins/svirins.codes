@@ -70,11 +70,11 @@ export async function WakaStats() {
     ({ name: lang, text, hours, minutes }, index) => (
       <div key={index}>
         <span
-          className={`${WAKA_STATS_COLORS[index].textColor} text-xs md:text-sm`}
+          className={`${WAKA_STATS_COLORS[index]!.textColor} text-xs md:text-sm`}
         >
           {lang}
         </span>
-        <span className="  text-gray-400 text-xs md:text-sm">{` • ${hours}h ${minutes}m`}</span>
+        <span className="  text-xs text-gray-400 md:text-sm">{` • ${hours}h ${minutes}m`}</span>
       </div>
     )
   )
@@ -92,32 +92,32 @@ export async function WakaStats() {
             <title id="title">A bar chart showing information</title>
             <desc id="desc">Dzmitry Svirin top 4 programming languages/</desc>
             <Bar
-              color={WAKA_STATS_COLORS[0].barColor}
-              width={(datum[0].percent / 100) * WIDTH}
+              color={WAKA_STATS_COLORS[0]!.barColor}
+              width={(datum[0]!.percent / 100) * WIDTH}
               x={0}
             />
             <Bar
-              color={WAKA_STATS_COLORS[1].barColor}
-              width={(datum[1].percent / 100) * WIDTH}
-              x={(datum[0].percent / 100) * WIDTH}
+              color={WAKA_STATS_COLORS[1]!.barColor}
+              width={(datum[1]!.percent / 100) * WIDTH}
+              x={(datum[0]!.percent / 100) * WIDTH}
             />
             <Bar
-              color={WAKA_STATS_COLORS[2].barColor}
-              width={(datum[2].percent / 100) * WIDTH}
+              color={WAKA_STATS_COLORS[2]!.barColor}
+              width={(datum[2]!.percent / 100) * WIDTH}
               x={
-                (datum[0].percent / 100) * WIDTH +
-                (datum[1].percent / 100) * WIDTH
+                (datum[0]!.percent / 100) * WIDTH +
+                (datum[1]!.percent / 100) * WIDTH
               }
             />
           </svg>
         </div>
-        <div className="flex flex-col md:flex-row mt-2 md:space-x-2">
+        <div className="mt-2 flex flex-col md:flex-row md:space-x-2">
           {stackedBarComments}
         </div>
-        <p className="  text-gray-400 text-xs md:text-sm mt-1">
+        <p className="  mt-1 text-xs text-gray-400 md:text-sm">
           My last week coding stats taken from a{' '}
           <a
-            className="  text-gray-300  font-medium link-underlined "
+            className="  link-underlined  font-medium text-gray-300 "
             href="https://wakatime.com/@svirins"
           >
             WakaTime

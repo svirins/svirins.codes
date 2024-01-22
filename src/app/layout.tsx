@@ -47,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="bg-gray-950 text-gray-100">
-      <body className="antialiased max-w-2xl my-16 flex flex-col mx-6 lg:mx-auto px-2 md:px-0 min-h-lvh">
+    <html lang="en" suppressHydrationWarning>
+      <body className="mx-6 my-16 flex min-h-lvh max-w-2xl flex-col bg-gray-950 px-2 text-gray-100 antialiased md:px-0 lg:mx-auto">
         <main>
           <Navbar />
           {children}

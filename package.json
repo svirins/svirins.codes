@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier . --write",
-    "check-types": "tsc --noEmit --pretty",
+    "typecheck": "tsc --noEmit --pretty",
     "clean": "rm -rf .next"
   },
   "dependencies": {

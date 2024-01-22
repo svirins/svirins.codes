@@ -15,7 +15,7 @@ export default function Page() {
             Hi, I&apos;m <span className="text-active">Dzmitry</span>
           </h1>
           <h4>
-            I specialize in turning ideas into{' '}
+            I specialize in turning ideas into into tangible,{' '}
             <span className="font-semibold italic">real-life </span>
             products.
           </h4>
@@ -70,11 +70,11 @@ export default function Page() {
         </ul>
         <h4>Technologies I use frequently:</h4>
       </div>
-      <div className="grid grid-cols-6 md:grid-cols-8 items-center justify-between  gap-x-6 gap-y-6  pt-2 pb-8">
+      <div className="grid grid-cols-6 items-center justify-between gap-x-6  gap-y-6 pb-8  pt-2 md:grid-cols-8">
         {STACKS.sort((a, b) => a?.name?.localeCompare(b?.name)).map(
           (stack, index) => (
             <a
-              className="duration-150 transform ease-in-out hover:scale-110 fill-gray-400  hover:fill-gray-200 "
+              className="transform fill-gray-400 duration-150 ease-in-out hover:scale-110  hover:fill-gray-200 "
               href={stack.url}
               title={stack.name}
               target="_blank"
@@ -86,7 +86,7 @@ export default function Page() {
                 alt={stack.name}
                 height={40}
                 width={40}
-                className="w-10 h-10"
+                className="h-10 w-10"
               />
             </a>
           )
@@ -104,8 +104,14 @@ export default function Page() {
         <WakaStats />
       </Suspense>
       <div className="prose prose-invert md:prose-lg">
-        <h4>Get in touch:</h4>
-        <ul>
+        <p>
+          Wanna chat?{' '}
+          <a href="https://cal.com/svirins/15min?user=svirins">
+            Book my Cal.com!
+          </a>
+        </p>
+        {/* <h4>Get in touch:</h4> */}
+        {/* <ul>
           <li>
             GitHub: <a href="https://github.com/svirins">@svirins</a>
           </li>
@@ -115,7 +121,7 @@ export default function Page() {
           <li>
             Email: <a href="mailto:svirins@gmail.com">svirins@gmail.com</a>
           </li>
-        </ul>
+        </ul> */}
       </div>
       <p className="mt-2">
         <Typewriter />
