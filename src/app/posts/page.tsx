@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { getContent } from '@/app/lib/getContent'
+import { getContent } from '@/lib/getContent'
 
 export default async function Posts() {
   const posts = getContent('posts').sort((a, b) => {
@@ -25,7 +25,9 @@ export default async function Posts() {
           posts.map((post) => (
             <div key={post.slug}>
               <Link href={`/posts/${post.slug}`}>
-                <h3 className="heading-link">{post.metadata.title}</h3>
+                <h3 className="heading-link">
+                  {post.metadata.title}
+                </h3>
               </Link>
             </div>
           ))

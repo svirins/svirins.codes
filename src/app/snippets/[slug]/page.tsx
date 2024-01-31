@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
 
-import { getContent } from '@/app/lib/getContent'
-import { MDXContent } from '@/app/ui/mdx'
+import { MDXContent } from '@/components/mdx'
+import { getContent } from '@/lib/getContent'
 
 export async function generateMetadata({
   params

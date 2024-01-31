@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
 
-import { SOCIAL_ICONS } from '@/app/ui/icons'
-import { NowPlaying } from '@/app/ui/now-playing'
-import { Spinner } from '@/app/ui/spinner'
+import { SOCIAL_ICONS } from '@/components/icons'
+import { NowPlaying } from '@/components/now-playing'
+import { Spinner } from '@/components/spinner'
 
 export function Footer() {
   return (
@@ -35,7 +35,10 @@ export function Footer() {
           ))}
         </div>
         <div className=" text-gray-400 text-xs md:text-sm mt-8">
-          © <span className="font-medium">{new Date().getFullYear()}</span>
+          ©{' '}
+          <span className="font-medium">
+            {new Date().getFullYear()}
+          </span>
           <span>{` • `}</span>
           Dzmitry Svirin
         </div>

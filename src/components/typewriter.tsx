@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import Typed from 'typed.js'
 
-import { TYPED_STRINGS } from '@/app/lib/constants'
+import { TYPED_STRINGS } from '@/lib/constants'
 
 export function Typewriter() {
   const el = useRef<HTMLSpanElement>(null!)

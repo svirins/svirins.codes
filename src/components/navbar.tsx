@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { NAV_LINKS } from '@/app/lib/constants'
-import { isActiveLink } from '@/app/lib/utils'
+import { NAV_LINKS } from '@/lib/constants'
+import { isActiveLink } from '@/lib/utils'
 
 export function Navbar() {
   const pathname = usePathname()

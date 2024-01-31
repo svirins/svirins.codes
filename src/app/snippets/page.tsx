@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { getContent } from '@/app/lib/getContent'
+import { getContent } from '@/lib/getContent'
 
 export default async function Snippets() {
   const snippets = getContent('snippets').sort((a, b) => {
@@ -28,7 +28,8 @@ export default async function Snippets() {
             <div key={snippet.slug} className="flex flex-row">
               <Image
                 src={
-                  snippet.metadata.coverImage ?? '/assets/svg/placeholder.svg'
+                  snippet.metadata.coverImage ??
+                  '/assets/svg/placeholder.svg'
                 }
                 alt={snippet.metadata.title}
                 className="w-10 h-10 flex-none mr-4"

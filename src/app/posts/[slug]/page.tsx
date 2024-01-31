@@ -3,10 +3,10 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
 
-import { getBase64 } from '@/app/lib/getBase64'
-import { getContent } from '@/app/lib/getContent'
-import { formatDate } from '@/app/lib/utils'
-import { MDXContent } from '@/app/ui/mdx'
+import { MDXContent } from '@/components/mdx'
+import { getBase64 } from '@/lib/getBase64'
+import { getContent } from '@/lib/getContent'
+import { formatDate } from '@/lib/utils'
 
 export async function generateMetadata({
   params
@@ -15,7 +15,9 @@ export async function generateMetadata({
     slug: string
   }
 }): Promise<Metadata | undefined> {
-  const post = getContent('posts').find((post) => post.slug === params.slug)
+  const post = getContent('posts').find(
+    (post) => post.slug === params.slug
+  )
   if (!post) {
     return
   }
@@ -60,12 +62,16 @@ export default async function PostPage({
 }: {
   params: { slug: string; searchParams: URLSearchParams }
 }) {
-  const post = getContent('posts').find((post) => post.slug === params.slug)
+  const post = getContent('posts').find(
+    (post) => post.slug === params.slug
+  )
   if (!post) notFound()
 
   const { title, coverImage, publishedAt } = post.metadata
 
-  const blurDataURL = coverImage ? await getBase64(coverImage) : undefined
+  const blurDataURL = coverImage
+    ? await getBase64(coverImage)
+    : undefined
   return (
     <article className="mb-24">
       <h1>

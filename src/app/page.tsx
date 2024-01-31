@@ -1,10 +1,10 @@
 import { Suspense } from 'react'
 import Image from 'next/image'
 
-import { STACK_ICONS } from '@/app/ui/icons'
-import { Spinner } from '@/app/ui/spinner'
-import { Typewriter } from '@/app/ui/typewriter'
-import { WakaStats } from '@/app/ui/wakatime'
+import { STACK_ICONS } from '@/components/icons'
+import { Spinner } from '@/components/spinner'
+import { Typewriter } from '@/components/typewriter'
+import { WakaStats } from '@/components/wakatime'
 
 export default function Page() {
   return (
@@ -20,8 +20,8 @@ export default function Page() {
             products.
           </h4>
           <p>
-            Full-stack developer with a passion for the React ecosystem,
-            TypeScript, and serverless backends.
+            Full-stack developer with a passion for the React
+            ecosystem, TypeScript, and serverless backends.
           </p>
         </div>
         <div className="hidden md:block">
@@ -41,7 +41,8 @@ export default function Page() {
         <h4>In short:</h4>
         <ul>
           <li>
-            10+ years of building products for clients across several countries;
+            10+ years of building products for clients across several
+            countries;
           </li>
           <li>
             currently working with regular clients, but open to new
@@ -71,19 +72,19 @@ export default function Page() {
         <h4>I mainly work with a stack:</h4>
       </div>
       <div className="grid grid-cols-6 items-center justify-between gap-x-6  gap-y-6 pb-8  pt-2 md:grid-cols-8">
-        {STACK_ICONS.sort((a, b) => a?.text?.localeCompare(b?.text)).map(
-          (stack, index) => (
-            <a
-              href={stack.url}
-              title={stack.text}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-            >
-              {stack.icon}
-            </a>
-          )
-        )}
+        {STACK_ICONS.sort((a, b) =>
+          a?.text?.localeCompare(b?.text)
+        ).map((stack, index) => (
+          <a
+            href={stack.url}
+            title={stack.text}
+            target="_blank"
+            rel="noopener noreferrer"
+            key={index}
+          >
+            {stack.icon}
+          </a>
+        ))}
       </div>
       <h4>Some stats:</h4>
       <Suspense

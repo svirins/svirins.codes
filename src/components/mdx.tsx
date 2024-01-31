@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getHighlighter } from 'shikiji'
 
-import { getBase64 } from '@/app/lib/getBase64'
+import { getBase64 } from '@/lib/getBase64'
 
 function CustomLink(props: any) {
   const href = props.href as string
@@ -42,7 +42,9 @@ async function RoundedImage(props: any) {
 function Callout(props: any) {
   return (
     <div className="text-grey-200 mb-8 flex items-center rounded-lg border border-gray-800 bg-gray-900 p-1 px-4 py-3 text-sm md:text-base">
-      <div className="mr-4 flex items-center text-2xl">{props.emoji}</div>
+      <div className="mr-4 flex items-center text-2xl">
+        {props.emoji}
+      </div>
       <div className="callout w-full">{props.children}</div>
     </div>
   )
@@ -101,7 +103,9 @@ async function Code(codeProps: any) {
     lang,
     theme: 'aurora-x'
   })
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+  return (
+    <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+  )
 }
 
 export const customComponents = {
@@ -119,7 +123,10 @@ export function MDXContent(props: any) {
   return (
     <MDXRemote
       {...props}
-      components={{ ...customComponents, ...(props.components ?? {}) }}
+      components={{
+        ...customComponents,
+        ...(props.components ?? {})
+      }}
     />
   )
 }
