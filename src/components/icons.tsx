@@ -1,6 +1,6 @@
 const socialSvgProps = {
   className:
-    'w-4 h-4 fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-125',
+    'w-[18px] h-[18px] fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-110',
   fill: 'currentColor',
   stroke: 'currentColor',
   strokeWidth: '0',
@@ -11,7 +11,7 @@ const socialSvgProps = {
 
 const stackSvgProps = {
   className:
-    'w-8 h-8 md:w-12 md:h-12 lg:h-16 lg:h-16  fill-gray-500 hover:fill-gray-300 transform duration-150 ease-in-out hover:scale-125',
+    'w-8 h-8 md:w-12 md:h-12 lg:h-16 lg:h-16  fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-110`',
   fill: 'currentColor',
   stroke: 'currentColor',
   strokeWidth: '0',
@@ -118,7 +118,7 @@ export const calcom = (
   <svg
     viewBox="0 0 101 22"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-16 h-4 md:w-20 md:h-5 fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-125"
+    className="w-[75px] h-[18px] fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-110"
     fill="currentColor"
     stroke="currentColor"
     strokeWidth="0"
@@ -141,16 +141,16 @@ export const SOCIAL_ICONS = [
     text: 'My GitHub',
     icon: github
   },
-  {
-    href: 'https://twitter.com/svirins',
-    text: 'My X (ex-Twitter)',
-    icon: x
-  },
-  {
-    href: 'mailto:svirins@gmail.com',
-    text: 'My Gmail',
-    icon: gmail
-  },
+  // {
+  //   href: 'https://twitter.com/svirins',
+  //   text: 'My X (ex-Twitter)',
+  //   icon: x
+  // },
+  // {
+  //   href: 'mailto:svirins@gmail.com',
+  //   text: 'My Gmail',
+  //   icon: gmail
+  // },
   {
     href: 'https://cal.com/svirins/15min?user=svirins',
     text: 'Book my Cal.com',

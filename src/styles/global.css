@@ -103,17 +103,8 @@ p {
   @apply visible;
 }
 
-.prose pre {
-  @apply border border-gray-700 bg-gray-900 font-mono text-sm;
-}
-
-.prose code {
-  @apply rounded-lg border border-gray-800 bg-gray-900 px-1 py-0.5 font-mono text-sm text-gray-200;
-}
-
-.prose pre code {
-  @apply p-0 text-gray-200;
-  border: initial;
+.prose p code {
+  @apply rounded-l border border-gray-700  px-1 py-0.5 font-mono  text-sm font-light md:text-base;
 }
 
 .token {

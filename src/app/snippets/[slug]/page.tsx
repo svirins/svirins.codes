@@ -70,18 +70,18 @@ export default async function SnippetsPage({
 
   return (
     <article className="mb-24">
-      <div className="flex flew-row">
+      <div className="flex flew-row mb-12">
         <div className="flex-1">
           <h1>
             <Balancer ratio={0.85}>{title}</Balancer>
           </h1>
         </div>
         {coverImage && (
-          <div className="flex-none pl-8">
+          <div className="flex-none pl-4">
             <Image
               src={coverImage}
               alt={title}
-              className="w-[30px] h-[30px] md:w-[48px] md:h-[48px]"
+              className="w-[32px] h-[32px] md:w-[96px] md:h-[96px]"
             />
           </div>
         )}

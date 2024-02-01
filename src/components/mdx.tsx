@@ -97,11 +97,11 @@ async function Code(codeProps: any) {
 
   const highlighter = await getHighlighter({
     langs: ['shell', 'ts', 'jsx', 'json'],
-    themes: ['aurora-x']
+    themes: ['solarized-dark']
   })
   let codeHTML = highlighter.codeToHtml(children, {
     lang,
-    theme: 'aurora-x'
+    theme: 'solarized-dark'
   })
   return (
     <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />

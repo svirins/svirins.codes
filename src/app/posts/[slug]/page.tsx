@@ -74,22 +74,25 @@ export default async function PostPage({
     : undefined
   return (
     <article className="mb-24">
-      <h1>
-        <Balancer ratio={0.85}>{title}</Balancer>
-      </h1>
-      {coverImage && (
-        <div className="my-4">
-          <Image
-            className="rounded-lg"
-            src={coverImage}
-            alt={title}
-            blurDataURL={blurDataURL}
-          />
-        </div>
-      )}
-      <p className="text-xs md:text-sm lg:text-base  text-gray-400">
-        {formatDate(publishedAt)}
-      </p>
+      <div className="mb-12">
+        {' '}
+        <h1>
+          <Balancer ratio={0.85}>{title}</Balancer>
+        </h1>
+        {coverImage && (
+          <div className="my-8">
+            <Image
+              className="rounded-lg"
+              src={coverImage}
+              alt={title}
+              blurDataURL={blurDataURL}
+            />
+          </div>
+        )}
+        <p className="text-xs md:text-sm lg:text-base  text-gray-400">
+          {formatDate(publishedAt)}
+        </p>
+      </div>
       {post?.content && (
         <div className="prose  prose-invert  md:prose-lg">
           <MDXContent source={post.content} />
