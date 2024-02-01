@@ -21,6 +21,10 @@ module.exports = {
     '^[../]',
     '^[./]'
   ],
-  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
+  importOrderParserPlugins: [
+    'typescript',
+    'jsx',
+    'decorators-legacy'
+  ],
   importOrderTypeScriptVersion: '4.4.0'
 }

@@ -86,20 +86,20 @@ export async function NowPlaying() {
   const { title, artist, songUrl } = res
 
   return (
-    <div className="inline-flex flex-col sm:flex-row  items-center self-baseline">
+    <div className="inline-flex flex-col md:flex-row">
       <AnimatedBars />
       <a
-        className=" text-gray-300 font-medium   text-sm max-w-max truncate"
+        className=" text-gray-200 text-sx md:text-sm max-w-max truncate font-medium link-underlined"
         href={songUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
         {title}
       </a>
-      <span className=" mx-2 text-gray-400 hidden sm:block">
+      <span className="mx-2 text-gray-400 hidden sm:block font-light text-xs md:text-sm ">
         {'-'}
       </span>
-      <p className=" text-gray-300 max-w-max truncate text-left text-sm">
+      <p className=" text-gray-400 max-w-max truncate text-left text-xs md:text-sm font-light">
         {artist}
       </p>
     </div>
@@ -107,7 +107,7 @@ export async function NowPlaying() {
 }
 function AnimatedBars() {
   return (
-    <div className="w-auto flex items-end overflow-hidden md:mb-2 pr-2">
+    <div className="w-auto flex items-end overflow-hidden mb-2 md:mb-0 pr-2 pl-1 md:pl-0 h-[12px] md:h-[14px]">
       <svg
         id="loading-bar"
         xmlns="http://www.w3.org/2000/svg"

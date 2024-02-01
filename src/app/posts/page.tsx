@@ -25,9 +25,9 @@ export default async function Posts() {
           posts.map((post) => (
             <div key={post.slug}>
               <Link href={`/posts/${post.slug}`}>
-                <h4 className="heading-link">
+                <h2 className="link-underlined text-lg md:text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal">
                   {post.metadata.title}
-                </h4>
+                </h2>
               </Link>
             </div>
           ))

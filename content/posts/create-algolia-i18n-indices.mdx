@@ -26,7 +26,9 @@ const query = groq`*[_type == "post" && !(_id in path("drafts.**")] {
     "slug": slug.current,
   }`
 
-export async function getPostsForLocale(locale: 'en' | 'de'): Promise<IPost[]> {
+export async function getPostsForLocale(
+  locale: 'en' | 'de'
+): Promise<IPost[]> {
   const data = await sanityClient.fetch(
     `*[_type == "post" && !(_id in path("drafts.**")] | order(_updatedAt desc) {
       "objectID": _id,
@@ -68,7 +70,9 @@ async function createIndexForLocale(indexName, locale) {
     const index = algoliaInstance.initIndex(indexName)
     const data = await getPostsForLocale(locale)
     await index.saveObjects(indexData)
-    console.log(`Saved ${data.length} documents to index: ${index.indexName}`)
+    console.log(
+      `Saved ${data.length} documents to index: ${index.indexName}`
+    )
     return {
       status: 200,
       body: 'Success!'
@@ -99,7 +103,8 @@ import createIndex from '@/scripts/createIndex'
 
 export async function GET(req: Request) {
   if (
-    req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`
+    req.headers.get('Authorization') !==
+    `Bearer ${process.env.CRON_SECRET}`
   ) {
     return new Response(`Unauthorized`, { status: 401 })
   }
@@ -145,6 +150,6 @@ Cron is scheduled to run every Sunday at midnight. You can use [crontab.guru](ht
 />
 
 <Callout emoji="💡">
-  Alternatively, you can choose to omit steps 3-5 and execute the script from
-  step 2 directly as part of the build process.
+  Alternatively, you can choose to omit steps 3-5 and execute the
+  script from step 2 directly as part of the build process.
 </Callout>

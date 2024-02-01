@@ -1,19 +1,17 @@
-My personal site. 'Another personal developer's website'.
+My personal site. 'Another dev's website'.
 
 ## Uses
 
-- **Framework**: [Next.js](https://nextjs.org/)
-- **Deployment**: [Vercel](https://vercel.com)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- Next.js 14
+- Typescript
+- Tailwind CSS
+- MDX
+- Vercel
 
 ## Features
 
-- Next.js 14
-- Strict Typescript
 - 99 to 100 in Lighthouse scores
 - Secured CSP
-- Spotify streaming via Edge function
-- MDX
 
 ## 🙏
 

@@ -20,13 +20,19 @@
     ],
     "@typescript-eslint/consistent-type-imports": [
       "warn",
-      { "prefer": "type-imports", "fixStyle": "separate-type-imports" }
+      {
+        "prefer": "type-imports",
+        "fixStyle": "separate-type-imports"
+      }
     ],
     "@typescript-eslint/no-misused-promises": [
       2,
       { "checksVoidReturn": { "attributes": false } }
     ],
-    "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+    "import/consistent-type-specifier-style": [
+      "error",
+      "prefer-top-level"
+    ],
     "@next/next/no-html-link-for-pages": "off",
     "@typescript-eslint/require-await": "off",
     "eslint/no-useless-escape": "off",

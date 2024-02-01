@@ -17,14 +17,14 @@ export default function Page() {
           <h2 className="text-lg md:text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal">
             I specialize in turning ideas into into{' '}
             <span className="font-semibold italic">real-life </span>
-            products.
+            products
           </h2>
         </div>
         <div className="hidden md:block">
           <Image
             alt="Dzmitry Svirin"
             // src="/dzmitry.webp"
-            src="/svirins.png"
+            src="/me.png"
             width={256}
             height={256}
             className="rounded-full"
@@ -34,7 +34,7 @@ export default function Page() {
       </div>
       <p className="mt-4 md:mt-6">
         Full-stack developer with a passion for the Next.js,
-        TypeScript and databases.
+        TypeScript and databases
       </p>
       <hr />
       <div className="mt-8">
@@ -71,7 +71,7 @@ export default function Page() {
         </ul>
         <h4 className="mb-2">I mainly work with a stack:</h4>
       </div>
-      <div className="grid grid-cols-6 items-center justify-between gap-x-6  gap-y-6 pb-8  pt-2 md:grid-cols-8">
+      <div className="grid grid-cols-6 items-center justify-between gap-x-6  gap-y-6 pb-8  pt-2 lg:pt-4 lg:grid-cols-9">
         {STACK_ICONS.sort((a, b) =>
           a?.text?.localeCompare(b?.text)
         ).map((stack, index) => (

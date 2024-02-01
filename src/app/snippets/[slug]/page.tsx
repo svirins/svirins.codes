@@ -81,7 +81,7 @@ export default async function SnippetsPage({
             <Image
               src={coverImage}
               alt={title}
-              className="w-[30px] h-[30px] md:w-[88px] md:h-[88px]"
+              className="w-[64px] h-[64px] md:w-[88px] md:h-[88px]"
             />
           </div>
         )}

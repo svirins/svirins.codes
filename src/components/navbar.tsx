@@ -16,7 +16,7 @@ export function Navbar() {
             <Link
               key={index}
               href={item.href}
-              className={`inline-block underlined transition-all mr-6 duration-150  hover:text-gray-200 ease-in-out text-lg ${isActiveLink(item.href, pathname) ? 'font-semibold  text-gray-200 ' : 'font-medium text-gray-400'}`}
+              className={`inline-block transition-all mr-5 duration-150  hover:text-gray-200 ease-in-out text-lg ${isActiveLink(item.href, pathname) ? 'font-semibold  text-gray-200 ' : 'font-medium text-gray-400'}`}
             >
               <span className="">{item.text}</span>
             </Link>

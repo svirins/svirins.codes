@@ -58,11 +58,14 @@ const findHeadings = (ast) =>
 // Returns the concatenated text content of the children nodes.
 export const getChildrenText = (props) =>
   props.children
-    .map((node) => (typeof node === 'string' ? node : node.text || ''))
+    .map((node) =>
+      typeof node === 'string' ? node : node.text || ''
+    )
     .join('')
 
 // Retrieves a value from an object using a given path.
-const get = (object, path) => path.reduce((prev, curr) => prev[curr], object)
+const get = (object, path) =>
+  path.reduce((prev, curr) => prev[curr], object)
 
 // Returns the object path for a given path.
 const getObjectPath = (path) =>
@@ -81,7 +84,8 @@ export const parseOutline = (ast) => {
     const level = Number(heading.style.slice(1))
     heading.subheadings = []
 
-    if (level < lastLevel) for (let i = lastLevel; i >= level; i--) path.pop()
+    if (level < lastLevel)
+      for (let i = lastLevel; i >= level; i--) path.pop()
     else if (level === lastLevel) path.pop()
 
     const prop = get(outline, getObjectPath(path))
@@ -111,7 +115,9 @@ function TOC({ headings }) {
             key={heading._key}
             className={heading.style === 'h2' ? 'ml-2' : 'ml-6'}
           >
-            <a href={'#' + heading._key}>{getChildrenText(heading)}</a>
+            <a href={'#' + heading._key}>
+              {getChildrenText(heading)}
+            </a>
           </li>
         ))}
       </ul>

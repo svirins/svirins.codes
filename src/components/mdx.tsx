@@ -41,11 +41,13 @@ async function RoundedImage(props: any) {
 
 function Callout(props: any) {
   return (
-    <div className="text-grey-200 mb-8 flex items-center rounded-lg border border-gray-800 bg-gray-900 p-1 px-4 py-3 text-sm md:text-base">
-      <div className="mr-4 flex items-center text-5xl">
+    <div className="my-8 flex items-center rounded-lg border border-gray-800 bg-gray-900 bg-opacity-80 pl-4 pr-8 py-2 ">
+      <div className="mr-4 flex items-center text-3xl md:text-5xl">
         {props.emoji}
       </div>
-      <div className="callout w-full">{props.children}</div>
+      <div className="text-sm md:text-[16px] w-full">
+        {props.children}
+      </div>
     </div>
   )
 }
@@ -97,11 +99,11 @@ async function Code(codeProps: any) {
 
   const highlighter = await getHighlighter({
     langs: ['shell', 'ts', 'jsx', 'json'],
-    themes: ['solarized-dark']
+    themes: ['aurora-x']
   })
   let codeHTML = highlighter.codeToHtml(children, {
     lang,
-    theme: 'solarized-dark'
+    theme: 'aurora-x'
   })
   return (
     <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />

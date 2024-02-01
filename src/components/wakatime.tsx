@@ -73,8 +73,11 @@ export async function WakaStats() {
   unstable_noStore()
 
   const { languages, totalHours } = await getWakaStats()
-  if (totalHours < 10 || !languages) return <p>Insufficient data for display</p>
-  const datum = languages.sort((a, b) => b.percent - a.percent).slice(0, 3)
+  if (totalHours < 10 || !languages)
+    return <p>Insufficient data for display</p>
+  const datum = languages
+    .sort((a, b) => b.percent - a.percent)
+    .slice(0, 3)
 
   const stackedBarComments = datum.map(
     ({ name: lang, hours, minutes }, index) => (
@@ -96,9 +99,15 @@ export async function WakaStats() {
     stackedBarComments && (
       <div className="pb-8">
         <div className="flex flex-row space-x-1">
-          <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} height="16" width={'100%'}>
+          <svg
+            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+            height="16"
+            width={'100%'}
+          >
             <title id="title">A bar chart showing information</title>
-            <desc id="desc">Dzmitry Svirin top 4 programming languages/</desc>
+            <desc id="desc">
+              Dzmitry Svirin top 4 programming languages/
+            </desc>
             <Bar
               color={WAKA_STATS_COLORS[0]!.barColor}
               width={(datum[0]!.percent / 100) * WIDTH}

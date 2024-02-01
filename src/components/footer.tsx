@@ -34,8 +34,8 @@ export function Footer() {
             </a>
           ))}
         </div>
-        <p className="text-gray-400 text-xs lg:text-sm my-1">{`©${new Date().getFullYear()} • Dzmitry Svirin`}</p>
-        <p className="text-gray-400 text-xs lg:text-sm my-1">
+        <p className="text-gray-400 text-xs font-light md:text-sm my-1">{`©${new Date().getFullYear()} • Dzmitry Svirin`}</p>
+        <p className="text-gray-400 text-xs lg:text-sm my-1 font-light">
           The code of this site was originally a fork of{` `}
           <a
             target="_blank"

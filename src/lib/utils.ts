@@ -1,4 +1,7 @@
-export function isActiveLink(href: string, currentPath: string): boolean {
+export function isActiveLink(
+  href: string,
+  currentPath: string
+): boolean {
   if (href === currentPath) {
     return true
   }
@@ -8,7 +11,10 @@ export function isActiveLink(href: string, currentPath: string): boolean {
   ) {
     return true
   }
-  if (href.search('snippets') > 0 && currentPath.search('snippets') > 0) {
+  if (
+    href.search('snippets') > 0 &&
+    currentPath.search('snippets') > 0
+  ) {
     return true
   }
 
@@ -22,7 +28,8 @@ export function formatDate(date: string) {
   }
   const targetDate = new Date(date)
 
-  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
+  const yearsAgo =
+    currentDate.getFullYear() - targetDate.getFullYear()
   const monthsAgo = currentDate.getMonth() - targetDate.getMonth()
   const daysAgo = currentDate.getDate() - targetDate.getDate()
 

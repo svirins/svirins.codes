@@ -17,18 +17,18 @@ export default async function Snippets() {
         Some{' '}
         <span role="image" aria-label="random">
           🎲
-        </span>
+        </span>{' '}
         stuff I&apos;ve found useful and want to share
       </p>
       <hr />
       <div className="flex flex-col">
         {snippets.length ? (
           snippets.map((snippet) => (
-            <div key={snippet.slug} className="flex flex-row">
+            <div key={snippet.slug}>
               <Link href={`/snippets/${snippet.slug}`}>
-                <h4 className="heading-link flex-1">
+                <h2 className="link-underlined text-lg md:text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal">
                   {snippet.metadata.title}
-                </h4>
+                </h2>
               </Link>
             </div>
           ))

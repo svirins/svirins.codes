@@ -82,7 +82,7 @@ export default async function PostPage({
         {coverImage && (
           <div className="my-8">
             <Image
-              className="rounded-lg"
+              className="sm:hidden md:block rounded-lg w-full aspect-[4/2] object-cover"
               src={coverImage}
               alt={title}
               blurDataURL={blurDataURL}

@@ -2,7 +2,7 @@
   "private": false,
   "license": "custom",
   "name": "svirins",
-  "version": "0.9.0",
+  "version": "0.9.5",
   "author": "Dzmitry Sviryn <svirins@gmail.com>",
   "scripts": {
     "build": "next build",
