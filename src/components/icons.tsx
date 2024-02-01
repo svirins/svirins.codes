@@ -146,11 +146,11 @@ export const SOCIAL_ICONS = [
   //   text: 'My X (ex-Twitter)',
   //   icon: x
   // },
-  // {
-  //   href: 'mailto:svirins@gmail.com',
-  //   text: 'My Gmail',
-  //   icon: gmail
-  // },
+  {
+    href: 'mailto:svirins@gmail.com',
+    text: 'My Gmail',
+    icon: gmail
+  },
   {
     href: 'https://cal.com/svirins/15min?user=svirins',
     text: 'Book my Cal.com',

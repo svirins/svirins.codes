@@ -36,14 +36,14 @@ export function Footer() {
         </div>
         <p className="text-gray-400 text-xs lg:text-sm my-1">{`©${new Date().getFullYear()} • Dzmitry Svirin`}</p>
         <p className="text-gray-400 text-xs lg:text-sm my-1">
-          The code of this site was originally a fork of
+          The code of this site was originally a fork of{` `}
           <a
             target="_blank"
             rel="noopener noreferrer"
             className=" text-gray-300  font-medium link-underlined "
             href="https://leerob.io"
           >
-            Lee Robinson{` `}
+            Lee Robinson
           </a>
           {` `}personal site, almost entirely rewritten.
         </p>

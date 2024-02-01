@@ -42,7 +42,7 @@ async function RoundedImage(props: any) {
 function Callout(props: any) {
   return (
     <div className="text-grey-200 mb-8 flex items-center rounded-lg border border-gray-800 bg-gray-900 p-1 px-4 py-3 text-sm md:text-base">
-      <div className="mr-4 flex items-center text-2xl">
+      <div className="mr-4 flex items-center text-5xl">
         {props.emoji}
       </div>
       <div className="callout w-full">{props.children}</div>

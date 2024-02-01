@@ -104,7 +104,11 @@ p {
 }
 
 .prose p code {
-  @apply rounded-l border border-gray-700  px-1 py-0.5 font-mono  text-sm font-light md:text-base;
+  @apply rounded-l border border-gray-700  px-1 py-0.5 font-mono  font-light;
+}
+
+.prose pre {
+  @apply m-0 rounded border border-gray-700 p-0 text-base;
 }
 
 .token {
