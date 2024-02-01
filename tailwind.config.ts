@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
-import { fontFamily } from 'tailwindcss/defaultTheme'
+import { fontFamily, spacing } from 'tailwindcss/defaultTheme'
 
 module.exports = {
   content: ['./src/**/*.tsx', './src/**/*.jsx'],
@@ -27,7 +27,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['IBM Plex Sans', ...fontFamily.sans],
-      mono: ['JetBrains Mono', ...fontFamily.mono]
+      mono: ['IBM Plex Mono', ...fontFamily.mono]
     },
     extend: {
       typography() {
@@ -39,6 +39,9 @@ module.exports = {
               },
               'code::after': {
                 content: 'none'
+              },
+              'h2,h3,h4': {
+                'scroll-margin-top': spacing[32]
               }
             }
           }

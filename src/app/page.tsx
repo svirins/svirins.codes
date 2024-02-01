@@ -9,35 +9,35 @@ import { WakaStats } from '@/components/wakatime'
 export default function Page() {
   return (
     <section className="mb-24">
-      <div className="md:grid md:grid-cols-5">
-        <div className="md:col-span-4 ">
-          <h1>
+      <div className="md:grid md:grid-cols-8">
+        <div className="md:col-span-7 ">
+          <h1 className="text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-100">
             Hi, I&apos;m <span className="text-active">Dzmitry</span>
           </h1>
-          <h4>
-            I specialize in turning ideas into into tangible,{' '}
+          <h2 className="text-lg md:text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal">
+            I specialize in turning ideas into into{' '}
             <span className="font-semibold italic">real-life </span>
             products.
-          </h4>
-          <p>
-            Full-stack developer with a passion for the React
-            ecosystem, TypeScript, and serverless backends.
-          </p>
+          </h2>
         </div>
         <div className="hidden md:block">
           <Image
             alt="Dzmitry Svirin"
             // src="/dzmitry.webp"
             src="/svirins.png"
-            width={350}
-            height={350}
+            width={256}
+            height={256}
             className="rounded-full"
             priority
           />
         </div>
       </div>
-      <hr className="mb-6" />
-      <div className="prose prose-invert md:prose-lg">
+      <p className="mt-4 md:mt-6">
+        Full-stack developer with a passion for the Next.js,
+        TypeScript and databases.
+      </p>
+      <hr />
+      <div className="mt-8">
         <h4>In short:</h4>
         <ul>
           <li>
@@ -69,7 +69,7 @@ export default function Page() {
           <li>keep coding standards and best practices;</li>
           <li>be curious, learn iteratively;</li>
         </ul>
-        <h4>I mainly work with a stack:</h4>
+        <h4 className="mb-2">I mainly work with a stack:</h4>
       </div>
       <div className="grid grid-cols-6 items-center justify-between gap-x-6  gap-y-6 pb-8  pt-2 md:grid-cols-8">
         {STACK_ICONS.sort((a, b) =>
@@ -86,7 +86,7 @@ export default function Page() {
           </a>
         ))}
       </div>
-      <h4>Some stats:</h4>
+      <h4 className="mb-4">Some stats:</h4>
       <Suspense
         fallback={
           <Spinner
@@ -97,30 +97,6 @@ export default function Page() {
       >
         <WakaStats />
       </Suspense>
-      <div className="prose prose-invert md:prose-lg">
-        <p>
-          Wanna chat?{' '}
-          <a
-            href="https://cal.com/svirins/15min?user=svirins"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book my Cal.com!
-          </a>
-        </p>
-        {/* <h4>Get in touch:</h4> */}
-        {/* <ul>
-          <li>
-            GitHub: <a href="https://github.com/svirins">@svirins</a>
-          </li>
-          <li>
-            ex-Twitter: <a href="https://twitter.com/svirins">@svirins</a>
-          </li>
-          <li>
-            Email: <a href="mailto:svirins@gmail.com">svirins@gmail.com</a>
-          </li>
-        </ul> */}
-      </div>
       <p className="mt-2">
         <Typewriter />
       </p>

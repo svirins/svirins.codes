@@ -21,7 +21,7 @@ export function Footer() {
         </Suspense>
       </div>
       <div className="flex flex-col">
-        <div className="my-2 space-x-4 flex flex-row">
+        <div className="mb-8 space-x-4 flex flex-row">
           {SOCIAL_ICONS.map((social, index) => (
             <a
               key={index}
@@ -34,27 +34,19 @@ export function Footer() {
             </a>
           ))}
         </div>
-        <div className=" text-gray-400 text-xs md:text-sm mt-8">
-          ©{' '}
-          <span className="font-medium">
-            {new Date().getFullYear()}
-          </span>
-          <span>{` • `}</span>
-          Dzmitry Svirin
-        </div>
-        <div className="text-xs md:text-sm text-gray-400 mt-1">
-          <span>The code of this site was originally a fork of </span>
+        <p className="text-gray-400 text-xs lg:text-sm my-1">{`©${new Date().getFullYear()} • Dzmitry Svirin`}</p>
+        <p className="text-gray-400 text-xs lg:text-sm my-1">
+          The code of this site was originally a fork of
           <a
             target="_blank"
             rel="noopener noreferrer"
             className=" text-gray-300  font-medium link-underlined "
             href="https://leerob.io"
           >
-            Lee Robinson
+            Lee Robinson{` `}
           </a>
-          {` `}personal site,
-          <span>almost entirely rewritten.</span>
-        </div>
+          {` `}personal site, almost entirely rewritten.
+        </p>
       </div>
     </footer>
   )

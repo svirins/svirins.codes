@@ -12,22 +12,22 @@ export default async function Posts() {
   return (
     <section className="mb-24">
       <h1>Posts</h1>
-      <h3>
+      <p>
         Posts about code, dev life and various{' '}
         <span role="image" aria-label="technomagical">
           ⚗️
         </span>{' '}
         things.
-      </h3>
+      </p>
       <hr />
       <div className="flex flex-col">
         {posts.length ? (
           posts.map((post) => (
             <div key={post.slug}>
               <Link href={`/posts/${post.slug}`}>
-                <h3 className="heading-link">
+                <h4 className="heading-link">
                   {post.metadata.title}
-                </h3>
+                </h4>
               </Link>
             </div>
           ))

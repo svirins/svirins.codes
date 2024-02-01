@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     template: '%s | Dzmitry Sviryn'
   },
   description:
-    'A full-stack developer passionate about React ecosystem, TypeScript and serverless backends.',
+    'Full-stack developer with a passion for the Next.js, TypeScript and databases.',
   openGraph: {
     title: 'Dzmitry Sviryn',
     description:
-      'A full-stack developer passionate about React ecosystem, TypeScript and serverless backends.',
+      'Full-stack developer with a passion for the Next.js, TypeScript and databases.',
     url: process.env.NEXT_PUBLIC_URL!,
     siteName: 'Dzmitry Sviryn',
     locale: 'en_US',
@@ -48,7 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="mx-6 my-16 flex min-h-lvh max-w-2xl flex-col bg-gray-900 px-2 text-gray-300 antialiased md:px-0 lg:mx-auto">
+      <body className="mx-6 my-8 flex min-h-lvh max-w-2xl flex-col bg-gray-900 px-2 text-gray-300 md:px-0 lg:mx-auto">
         <main>
           <Navbar />
           {children}
