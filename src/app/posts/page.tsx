@@ -20,12 +20,12 @@ export default async function Posts() {
         things.
       </p>
       <hr />
-      <div className="flex flex-col">
+      <div>
         {posts.length ? (
           posts.map((post) => (
             <div key={post.slug}>
               <Link href={`/posts/${post.slug}`}>
-                <h2 className="link-underlined text-lg md:text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal">
+                <h2 className="link-underlined text-lg md:text-[22px] md:text-2xl tracking-tight text-gray-200 mb-2 md:mb-4 font-normal max-w-fit">
                   {post.metadata.title}
                 </h2>
               </Link>

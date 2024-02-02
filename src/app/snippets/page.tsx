@@ -21,12 +21,12 @@ export default async function Snippets() {
         stuff I&apos;ve found useful and want to share
       </p>
       <hr />
-      <div className="flex flex-col">
+      <div>
         {snippets.length ? (
           snippets.map((snippet) => (
             <div key={snippet.slug}>
               <Link href={`/snippets/${snippet.slug}`}>
-                <h2 className="link-underlined text-lg md:text-[22px] md:text-2xl tracking-tight text-gray-100 font-normal">
+                <h2 className="link-underlined text-lg md:text-[22px] md:text-2xl tracking-tight text-gray-200 mb-2 md:mb-4 font-normal max-w-fit">
                   {snippet.metadata.title}
                 </h2>
               </Link>

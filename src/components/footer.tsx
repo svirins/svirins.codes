@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="flex flex-col">
       <hr />
-      <div className="flex  mb-8 space-x-0 sm:space-x-2">
+      <div className="flex space-x-3">
         <Suspense
           fallback={
             <Spinner
@@ -21,7 +21,7 @@ export function Footer() {
         </Suspense>
       </div>
       <div className="flex flex-col">
-        <div className="mb-8 space-x-4 flex flex-row">
+        <div className="my-6 md:my-8  md:space-x-3 flex flex-row">
           {SOCIAL_ICONS.map((social, index) => (
             <a
               key={index}
@@ -35,7 +35,7 @@ export function Footer() {
           ))}
         </div>
         <p className="text-gray-400 text-xs font-light md:text-sm my-1">{`©${new Date().getFullYear()} • Dzmitry Svirin`}</p>
-        <p className="text-gray-400 text-xs lg:text-sm my-1 font-light">
+        <p className="text-gray-400 text-xs md:text-sm my-1 font-light">
           The code of this site was originally a fork of{` `}
           <a
             target="_blank"

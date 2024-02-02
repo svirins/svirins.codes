@@ -86,7 +86,7 @@ export default function Page() {
           </a>
         ))}
       </div>
-      <h4 className="mb-4">Some stats:</h4>
+      <h4 className="mb-2 md:mb-4">Some stats:</h4>
       <Suspense
         fallback={
           <Spinner

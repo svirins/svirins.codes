@@ -89,14 +89,14 @@ export async function NowPlaying() {
     <div className="inline-flex flex-col md:flex-row">
       <AnimatedBars />
       <a
-        className=" text-gray-200 text-sx md:text-sm max-w-max truncate font-medium link-underlined"
+        className=" text-gray-300 text-xs md:text-sm max-w-max truncate font-medium link-underlined"
         href={songUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
         {title}
       </a>
-      <span className="mx-2 text-gray-400 hidden sm:block font-light text-xs md:text-sm ">
+      <span className="mx-2 text-gray-400 hidden md:block font-light text-xs md:text-sm ">
         {'-'}
       </span>
       <p className=" text-gray-400 max-w-max truncate text-left text-xs md:text-sm font-light">

@@ -1,6 +1,6 @@
 const socialSvgProps = {
   className:
-    'w-[18px] h-[18px] fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-110',
+    'w-[16px] h-[16px] md:w-[18px] md:h-[18px] fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-110',
   fill: 'currentColor',
   stroke: 'currentColor',
   strokeWidth: '0',
@@ -153,7 +153,7 @@ export const calcom = (
   <svg
     viewBox="0 0 101 22"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-[75px] h-[18px] fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-110"
+    className="w-[67px] h-[16px] md:w-[75px] md:h-[18px] fill-gray-400 hover:fill-gray-200 transform duration-150 ease-in-out hover:scale-y-110 hover:scale-x-105"
     fill="currentColor"
     stroke="currentColor"
     strokeWidth="0"
