@@ -151,7 +151,7 @@ function AnimatedBars() {
 
 function SpotifyStopped() {
   return (
-    <div className="inline-flex flex-col md:flex-row w-full max-w-full ">
+    <div className="inline-flex flex-row w-full max-w-full ">
       <svg className="h-4 w-4" viewBox="0 0 168 168">
         <path
           fill="#1ED760"

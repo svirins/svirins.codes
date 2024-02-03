@@ -1,10 +1,10 @@
 ---
 title: 'Create TOC (table of contents) from Sanity portable text'
-publishedAt: '2024-05-01'
+publishedAt: '2024-02-01'
 coverImage: '/assets/images/sanity.webp'
 ---
 
-#### 1. Get all _headings_ from the portable text:
+#### 1. Get all headings from the portable text:
 
 ```ts
 *[_type == "post"] {
@@ -13,7 +13,7 @@ coverImage: '/assets/images/sanity.webp'
 }
 ```
 
-result should be something like this:
+the result should be something like this:
 
 ```json
 {
@@ -47,7 +47,10 @@ const filter = (ast, match) =>
     return acc
   }, [])
 
-// Finds headings in the given AST and returns an array of objects containing the heading text and slug.
+/**
+ * Finds headings in the given AST and returns
+ * an array of objects containing the heading text and slug.
+ */
 const findHeadings = (ast) =>
   filter(ast, (node) => /h\d/.test(node.style)).map((node) => {
     const text = getChildrenText(node)
@@ -73,7 +76,10 @@ const getObjectPath = (path) =>
     ? path
     : ['subheadings'].concat(path.join('.subheadings.').split('.'))
 
-// Parses the given AST (Abstract Syntax Tree) to create an outline of subheadings.
+/**
+ * Parses the given AST (Abstract Syntax Tree)
+ * to create an outline of subheadings.
+ */
 export const parseOutline = (ast) => {
   const outline = { subheadings: [] }
   const headings = findHeadings(ast)
@@ -98,13 +104,15 @@ export const parseOutline = (ast) => {
 }
 ```
 
-#### 3. Finally, call function and create TOC:
+#### 3. Finally, call the function and create TOC:
 
 ```jsx
-import { getChildrenText } from 'lib/utils/createNestedSubheaders'
+import { getChildrenText } from 'lib/utils/createNestedSubheads'
 
-// Using 2 levels of nesting for brevity
-// h2 = level 0, h3 and the rest are level 1
+/**
+ * Using 2 levels of nesting for brevity
+ * h2 = level 0, h3 and the rest are level 1
+ */
 function TOC({ headings }) {
   return (
     <>

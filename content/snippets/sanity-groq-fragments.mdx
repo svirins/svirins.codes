@@ -19,10 +19,10 @@ Get LQIP placeholder and aspect ratio from Sanity image:
 ```ts
 *[_type == "post"] {
   "image": {
-    "url": yourImageField.asset->url,
-    "alt": yourImageField.alt,
-    "aspectRatio": yourImageField.asset->metadata.dimensions.aspectRatio,
-    "lqip": yourImageField.asset->metadata.lqip,
+    "url": imageField.asset->url,
+    "alt": imageField.alt,
+    "aspectRatio": imageField.asset->metadata.dimensions.aspectRatio,
+    "lqip": imageField.asset->metadata.lqip,
   }
 }
 ```

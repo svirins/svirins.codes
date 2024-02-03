@@ -10,9 +10,11 @@ Let's say we're creating an index for posts in two locales: `en` and `de`. We'll
 
 ```ts
 // lib/sanity.ts
-// Hereinafter I've omitted explicit type definitions for brevity
+
 import groq from 'groq'
 import { createClient } from 'next-sanity'
+
+// Hereinafter I've omitted explicit type definitions for brevity
 
 const sanityClient = createClient({
   apiVersion: process.env.SANITY_API_VERSION,
@@ -29,14 +31,7 @@ const query = groq`*[_type == "post" && !(_id in path("drafts.**")] {
 export async function getPostsForLocale(
   locale: 'en' | 'de'
 ): Promise<IPost[]> {
-  const data = await sanityClient.fetch(
-    `*[_type == "post" && !(_id in path("drafts.**")] | order(_updatedAt desc) {
-      "objectID": _id,
-      "title": title[$locale],
-      "slug": slug.current
-    }`,
-    { locale }
-  )
+  const data = await sanityClient.fetch(query, { locale })
   return data
 }
 ```
@@ -45,6 +40,7 @@ export async function getPostsForLocale(
 
 ```ts
 // scripts/createIndex.ts
+
 import algoliasearch from 'algoliasearch'
 
 import { getPostsForLocale } from '@/lib/sanity'
@@ -71,7 +67,7 @@ async function createIndexForLocale(indexName, locale) {
     const data = await getPostsForLocale(locale)
     await index.saveObjects(indexData)
     console.log(
-      `Saved ${data.length} documents to index: ${index.indexName}`
+      `Saved ${data.length} docs to index: ${index.indexName}`
     )
     return {
       status: 200,
@@ -99,6 +95,7 @@ export default async function createIndex() {
 
 ```ts
 // api/cron/route.ts
+
 import createIndex from '@/scripts/createIndex'
 
 export async function GET(req: Request) {
@@ -110,7 +107,7 @@ export async function GET(req: Request) {
   }
   try {
     await generateIndex()
-    return new Response(`Algolia index re-created successfully}`, {
+    return new Response('Algolia index re-created', {
       status: 200
     })
   } catch (e) {
