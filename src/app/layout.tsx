@@ -47,7 +47,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    // <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className="my-8  min-h-lvh max-w-2xl  bg-gray-900 px-6 text-gray-300 md:px-0 mx-auto">
         <main className="flex flex-col h-dvh">
           <Navbar />

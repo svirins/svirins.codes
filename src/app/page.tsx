@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import { STACK_ICONS } from '@/components/icons'
 import { Spinner } from '@/components/spinner'
-import { Typewriter } from '@/components/typewriter'
+import { Typing as TypeWriter } from '@/components/typewriter'
 import { WakaStats } from '@/components/wakatime'
 
 export default function Page() {
@@ -98,16 +98,16 @@ export default function Page() {
         <WakaStats />
       </Suspense>
       <p className="mt-2">
-        <Suspense
+        {/* <Suspense
           fallback={
             <Spinner
               text="Loading typed.js..."
               classNames="min-h-6"
             />
           }
-        >
-          <Typewriter />
-        </Suspense>
+        > */}
+        <TypeWriter />
+        {/* </Suspense> */}
       </p>
     </section>
   )
