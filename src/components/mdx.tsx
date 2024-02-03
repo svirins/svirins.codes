@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getHighlighter } from 'shikiji'
 
-import { getBase64 } from '@/lib/getBase64'
-
 function CustomLink(props: any) {
   const href = props.href as string
 
@@ -25,13 +23,12 @@ function CustomLink(props: any) {
 }
 
 async function RoundedImage(props: any) {
-  const base64 = await getBase64(props.src)
   return (
     <figure>
       <Image
         alt={props.alt}
         className="rounded-lg"
-        blurDataURL={base64}
+        priority={false}
         {...props}
       />
       {props.alt && <figcaption>{props.alt}</figcaption>}

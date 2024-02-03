@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const cspHeader = `
-    default-src 'self';
+    default-src 'self' *.vitals.vercel-insights.com;
     script-src 'self' 'unsafe-eval' 'unsafe-inline'  *.spotify.com ;
     style-src 'self' 'unsafe-inline';
     img-src 'self' *.pbs.twimg.com blob: data:;

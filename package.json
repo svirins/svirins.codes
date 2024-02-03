@@ -14,7 +14,6 @@
     "clean": "rm -rf .next"
   },
   "dependencies": {
-    "@plaiceholder/next": "^3.0.0",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.2",
     "autoprefixer": "10.4.16",

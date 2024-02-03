@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
 
 import { MDXContent } from '@/components/mdx'
-import { getBase64 } from '@/lib/getBase64'
 import { getContent } from '@/lib/getContent'
 import { formatDate } from '@/lib/utils'
 
@@ -69,9 +68,6 @@ export default async function PostPage({
 
   const { title, coverImage, publishedAt } = post.metadata
 
-  const blurDataURL = coverImage
-    ? await getBase64(coverImage)
-    : undefined
   return (
     <article className="mb-12 md:mb-24">
       <div className="mb-12">
@@ -85,7 +81,7 @@ export default async function PostPage({
               className="sm:hidden md:block rounded-lg w-full h-full"
               src={coverImage}
               alt={title}
-              blurDataURL={blurDataURL}
+              priority
             />
           </div>
         )}

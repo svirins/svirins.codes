@@ -1,8 +1,7 @@
-import withPlaiceholder from '@plaiceholder/next'
+// @ts-check
 
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
+
 const nextConfig = {
   images: {
     formats: ['image/webp']
@@ -13,4 +12,4 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx']
 }
 
-export default withPlaiceholder(nextConfig)
+export default nextConfig
