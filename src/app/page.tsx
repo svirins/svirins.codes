@@ -97,18 +97,9 @@ export default function Page() {
       >
         <WakaStats />
       </Suspense>
-      <p className="mt-2">
-        {/* <Suspense
-          fallback={
-            <Spinner
-              text="Loading typed.js..."
-              classNames="min-h-6"
-            />
-          }
-        > */}
+      <div className="mt-2 min-h-6">
         <TypeWriter />
-        {/* </Suspense> */}
-      </p>
+      </div>
     </section>
   )
 }
