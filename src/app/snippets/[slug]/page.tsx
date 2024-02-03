@@ -20,7 +20,7 @@ export async function generateMetadata({
     return
   }
   const { title, publishedAt } = snippet.metadata
-  const ogImage = `${process.env.NEXT_PUBLIC_URL}/api/og?title=${title}`
+  const ogImage = `${process.env.NEXT_PUBLIC_URL}/og.png`
   const description = ''
 
   return {

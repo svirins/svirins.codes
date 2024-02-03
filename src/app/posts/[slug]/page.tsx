@@ -24,7 +24,7 @@ export async function generateMetadata({
   const { title, publishedAt, coverImage } = post.metadata
   const ogImage = coverImage
     ? `${process.env.NEXT_PUBLIC_URL}${coverImage}`
-    : `${process.env.NEXT_PUBLIC_URL}/api/og?title=${title}`
+    : `${process.env.NEXT_PUBLIC_URL}/og.png`
   const description = ''
   return {
     title,
