@@ -111,6 +111,10 @@ p {
   @apply rounded-l border border-gray-700  px-1 py-0.5 font-mono  font-light;
 }
 
+.prose .shiki {
+  @apply p-4 text-sm md:text-base;
+}
+
 .prose pre {
   @apply m-0 p-0 text-sm md:text-base;
 }
@@ -119,6 +123,13 @@ p {
   @apply font-mono;
 }
 
+.prose ul {
+  @apply mb-4 list-inside  py-0 pl-0  [&>*]:py-[0.1rem];
+}
+
+.prose h4 {
+  @apply font-normal;
+}
 /* Links */
 
 .underlined {

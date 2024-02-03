@@ -73,7 +73,7 @@ export default async function PostPage({
     ? await getBase64(coverImage)
     : undefined
   return (
-    <article className="mb-24">
+    <article className="mb-12 md:mb-24">
       <div className="mb-12">
         {' '}
         <h1>
@@ -94,7 +94,7 @@ export default async function PostPage({
         </p>
       </div>
       {post?.content && (
-        <div className="prose  prose-invert  md:prose-lg">
+        <div className="prose prose-invert ">
           <MDXContent source={post.content} />
         </div>
       )}

@@ -8,7 +8,7 @@ import { WakaStats } from '@/components/wakatime'
 
 export default function Page() {
   return (
-    <section className="mb-24">
+    <section className="mb-12 md:mb-24">
       <div className="md:grid md:grid-cols-8">
         <div className="md:col-span-7 ">
           <h1 className="text-3xl md:text-5xl tracking-tight mb-4 capsize font-bold text-gray-100">

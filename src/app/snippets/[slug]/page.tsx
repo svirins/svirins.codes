@@ -69,7 +69,7 @@ export default async function SnippetsPage({
     snippet.metadata
 
   return (
-    <article className="mb-24">
+    <article className="mb-12 md:mb-24">
       <div className="flex flew-row mb-12">
         <div className="flex-1">
           <h1>
@@ -87,7 +87,7 @@ export default async function SnippetsPage({
         )}
       </div>
       {snippet?.content && (
-        <div className="prose  prose-invert  md:prose-lg">
+        <div className="prose  prose-invert">
           <MDXContent source={snippet.content} />
         </div>
       )}

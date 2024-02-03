@@ -10,7 +10,7 @@ export default async function Posts() {
     )
   })
   return (
-    <section className="mb-24">
+    <section className="mb-12 md:mb-24">
       <h1>Posts</h1>
       <p>
         Posts about code, dev life and various{' '}

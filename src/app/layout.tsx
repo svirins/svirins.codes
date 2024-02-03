@@ -48,8 +48,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="my-8 flex min-h-lvh max-w-2xl flex-col bg-gray-900 px-6 text-gray-300 md:px-0 mx-auto">
-        <main>
+      <body className="my-8  min-h-lvh max-w-2xl  bg-gray-900 px-6 text-gray-300 md:px-0 mx-auto">
+        <main className="flex flex-col h-dvh">
           <Navbar />
           {children}
           <Footer />

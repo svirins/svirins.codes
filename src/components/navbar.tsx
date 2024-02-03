@@ -9,8 +9,8 @@ import { isActiveLink } from '@/lib/utils'
 export function Navbar() {
   const pathname = usePathname()
   return (
-    <div className="flex flex-col justify-center">
-      <nav className="ml-[0.20rem] flex items-center justify-between w-full relative  mx-auto  pb-8 md:pb-16">
+    <div className="justify-start">
+      <nav className="ml-[0.20rem]  w-full relative  mx-auto  pb-8 md:pb-16">
         <div>
           {NAV_LINKS.map((item, index) => (
             <Link
