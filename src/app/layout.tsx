@@ -2,7 +2,7 @@ import '@/styles/global.css'
 
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import { AxiomWebVitals } from 'next-axiom'
 
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
@@ -48,6 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <AxiomWebVitals />
       <body className="my-8  min-h-lvh max-w-2xl  bg-gray-900 px-6 text-gray-300 md:px-0 mx-auto">
         <main className="flex flex-col h-dvh">
           <Navbar />
@@ -55,7 +56,6 @@ export default function RootLayout({
           <Footer />
         </main>
         <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   )
